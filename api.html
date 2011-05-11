@@ -1,0 +1,557 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+
+    <title>ReportGrid -- API</title>
+    <link type="text/css" rel="stylesheet" href="css/index.css" />
+    <link href="js/syntax/prettify.css" type="text/css" rel="stylesheet" />
+
+    <script src="//d1nu2rn22elx8m.cloudfront.net/performable/pax/95ULyB.js"
+type="text/javascript"></script>
+
+    <script type="text/javascript" src="http://include.reinvigorate.net/re_.js"></script>
+    <script type="text/javascript">
+    try {
+    reinvigorate.track("j780b-u1448cw0d9");
+    } catch(err) {}
+    </script>
+
+    <script type="text/javascript" src="js/syntax/prettify.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      var rpxJsHost = (("https:" == document.location.protocol) ? "https://" : "http://static.");
+      document.write(unescape("%3Cscript src='" + rpxJsHost +
+    "rpxnow.com/js/lib/rpx.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+      RPXNOW.overlay = true;
+      RPXNOW.language_preference = 'en';
+    </script>
+    <script type="text/javascript" src="reportgrid-core.js?tokenId=2E57096A-510E-44A4-A301-EDAD54D400EA&amp;analyticsServer=http%3A%2F%2Fapi.reportgrid.com%2Fservices%2Fanalytics%2Fv0%2F&amp;useJsonp=true"></script>
+  </head>
+  <body>
+    <div id="top">
+
+      <div class="top-center">
+        <div id="header">
+          <a href="index.html"><div class="clickable" id="logo"></div></a>
+          <div id="login-button" class="clickable"><a class="rpxnow" onclick="return false;"
+          href="https://reportgrid.rpxnow.com/openid/v2/signin?token_url=http%3A%2F%2Freportgrid.com%2Flogin.html"><img class="clickable rollover" src="images/loginbuttonreg.png" /></a></div>
+          <div id="nav-bar">
+            <div class="button clickable" id="demo-button"><a href="demo.html"><img class="clickable rollover" src="images/demoreg.png" /></a></div>
+            <div class="button clickable" id="features-button"><a href="features.html"><img class="clickable rollover" src="images/featuresreg.png" /></a></div>
+            <div class="button clickable" id="api-button"><a href="api.html"><img src="images/apisel.png" /></a></div>
+            <div class="button clickable" id="why-button"><a href="why.html"><img class="clickable rollover" src="images/whyreg.png" /></a></div>
+            <div class="button clickable" id="pricing-button"><a href="pricing.html"><img class="clickable rollover" src="images/pricingreg.png" /></a></div>
+            <div class="button clickable" id="about-button"><a href="about.html"><img class="clickable rollover" src="images/aboutreg.png" /></a></div>
+          </div>
+        </div>
+
+
+        <div id="center-panel">
+          <div id="api-nav">
+            <table>
+              <tr>
+                <td class="clickable"><img src="images/fileicon.png" /><a href="api.html" target="_self">REST API</a></td>
+              </tr>
+              <tr>
+                <td class="clickable"><img src="images/fileicon.png" />Ruby</td>
+              </tr>
+              <tr>
+                <td class="clickable"><img src="images/fileicon.png" />Python</td>
+              </tr>
+              <tr>
+                <td class="clickable"><img src="images/fileicon.png" /><a href="api-js.html" target="_self">Javascript</a></td>
+              </tr>
+            </table>
+          </div>
+          <div id="api-panel">
+            <p class="blurb">The REST API
+            </p>
+
+            <!-- Overview -->
+
+            <div class="overview-content-block">
+              <h1>Overview</h1>
+
+              <p>The ReportGrid platform exposes a <a href="http://en.wikipedia.org/wiki/Representational_State_Transfer" target="_blank">REST API</a> from which you can:</p>
+
+              <ul>
+                <li>record data points (events and associated properties)</li>
+                <li>perform queries, like retrieving counts and time series data</li>
+                <li>manage tokens</li>
+              </ul>
+
+              <p>In addition to the REST API, which may be used from any language and platform that supports HTTP connections, we offer
+              a growing number of client libraries designed to make using ReportGrid as simple as possible.</p>
+
+              <p>The REST API only supports JSON and adheres strictly to the HTTP specification. All requests should have
+              a Content-Type header equal to <b>application/json</b> and use token authentication.</p>
+
+              <p>The API root is located at the following URL:</p>
+
+              <pre class="prettyprint overview-text">http://api.reportgrid.com/services/analytics/v0/</pre>
+            </div>
+
+            <div class="content-block">
+              <h1>Fundamental Concepts</h1>
+
+              <p>In order to successfully use the ReportGrid API, you should be familiar with a few key concepts: events, the virtual file system, and tokens.</p>
+
+              <h2>Events</h2>
+
+              <p>ReportGrid is designed to aggregate, analyze, and visualize <em>events</em>.</p>
+
+              <p>An event is anything that happens at a particular point in time. For example, the delivery of an email, the withdrawal of cash from an ATM, a click on a web page, or the processing of a census form.</p>
+
+              <p>Events are identified by <em>name</em> and <em>properties</em>: the event name is just a string that uniquely identifies the event (usually describing what occurred, such as &quot;push to mobile device&quot;), while properties are additional meta-data that describe details of the event (such as the handset, carrier, location, and type of the push).</p>
+
+              <p>Time is implicitly a property of every event, and if you do not specify a time for an event, ReportGrid uses the time at the moment when the event is tracked through the API.</p>
+
+              <h2>Virtual File System</h2>
+
+              <p>Whenever you track data or query using ReportGrid, you must specify a <em>path</em> in the ReportGrid virtual file system. The Virtual File System is much like a real file system: there is a root directory, and any directory can contain other directories, as well as event data.</p>
+
+              <p>You use the Virtual File System to organize data, for example, tracking events from different customers in different folders. Most client libraries allow you to automatically roll-up data to higher-level folders in the file system, so you can look at data at differing levels of granularity.</p>
+
+              <h2>Token</h2>
+
+              <p>Tokens are how you control access to resources in ReportGrid.</p>
+
+              <p>Every ReportGrid account is assigned a master token, which can be used to create other tokens. Tokens are always associated with a particular path in the virtual file system, and have access to both that path, and to all of its descendants.</p>
+
+              <p>Tokens may have read, write, and share permissions, but they cannot have more permissions than their parent token (the token used to create them). Typically, you will store one or more tokens for each of your customers, and each token will permit access to a customer-specific path in the Virtual File System (e.g. /customers/jdoe/).</p>
+            </div>
+
+            <!-- TOKENS -->
+            <div class="content-block">
+              <h1>Tokens</h1>
+
+              <p>All requests to the REST API require token authentication, which is accomplished by using a <b>tokenId=[guid_tokenId]</b> query string parameter.</p>
+
+              <p>ReportGrid's tokens API is located at <b>API root + tokens/</b>.</p>
+
+              <pre class="prettyprint pre-text">http://api.reportgrid.com/services/analytics/v0/tokens/?tokenId=[guid]</pre>
+
+              <p>Tokens can be created by POSTing to the ReportGrid tokens API with a JSON object that describes the path, permissions, and limits of the token.  A descendent token's permissions and limits cannot exceed (but may equal) the parent's.</p>
+              <pre class="prettyprint pre-text">
+{
+    "path": "/startups/launches",
+    "permissions": {
+        "read": true,
+        "write": true,
+        "share": false
+    },
+    "expires": 9223372036854775807,
+    "limits": {
+        "order": 2,
+        "limit": 2,
+        "depth": 2
+    }
+}</pre>
+              <table>
+                <tr>
+                  <td class="minor-text pre-explanation"><b>rootPath</b></td>
+                  <td>The path, relative to the parent's path, that will be associated with this tokenId</td>
+                </tr>
+                <tr>
+                  <td><b>expires</b></td>
+                  <td>The expiration date of the token, measured in milliseconds from the start of the Unix Epoch, UTC time</td>
+                </tr>
+                <tr>
+                  <td><b>order</b></td>
+                  <td>The maximum number of sets in an intersection query</td>
+                </tr>
+                <tr>
+                  <td><b>limit</b></td>
+                  <td>The maximum number of properties associated with an events</td>
+                </tr>
+                <tr>
+                  <td><b>depth</b></td>
+                  <td>The maximum depth of properties associated with events</td>
+                </tr>
+              </table>
+            </div>
+
+            <!-- Events -->
+
+            <div class="content-block">
+              <h1>Recording Events</h1>
+
+              <p>ReportGrid's API is designed to track events. Every event consists of a name, which is an ordinary string, and associated properties, which are described as a JSON object. </p>
+
+              <pre class="prettyprint pre-text">
+{
+  "events": {
+    "emailReceived": {
+      "sender": "ryan@foobar.com",
+      "receiver": "samantha@bifbaz.com",
+      "subscribed": false
+    }
+  },
+
+  "timestamp": 1395902800000,
+
+  "count" : 1
+}
+
+OR minimally
+
+{
+  "events" : {
+    "egg foo young" : {}
+  }
+}</pre>
+              <table>
+                <tr>
+                  <td class="minor-text pre-explanation"><b>events</b></td>
+                  <td>Any string can serve as the event identifier and any valid JSON structure that does not exceed the limits of this tokenId can serve as the value</td>
+                </tr>
+                <tr>
+                  <td class="minor-text pre-explanation"><b>timestamp</b></td>
+                  <td>Milliseconds from the start of the Unix Epoch, UTC time -- optional</td>
+                </tr>
+                <tr>
+                  <td class="minor-text pre-explanation"><b>count</b></td>
+                  <td>The number of occurances of the specified event to record -- optional</td>
+                </tr>
+              </table>
+
+              <p>ReportGrid's events API can be accessed by calling <b> API root + vfs/ + [path]/ </b> </p>
+
+              <pre class="prettyprint pre-text">api.reportgrid.com/services/analytics/v0/vfs/schedules/trains/?tokenId=[guid]</pre>
+            </div>
+            <div class="content-block">
+              <h1>Querying</h1>
+
+              <p>ReportGrid makes it easy to retrieve time series or aggregated metrics on the fly.  Following REST conventions, all you have to do is perform an HTTP GET request to the location of the metric you want.</p>
+              <p>Given POST to root +  fvs/foo/ </p>
+
+              <pre class="prettyprint">
+{
+  "events" : {
+    "atm withdrawal" : {
+      "location" :       "9th &amp; Alabama",
+      "amount in cents": 60000
+    }
+  }
+}</pre>
+              <p>GET total count for <b>atm withdrawal</b> events</p>
+              <pre class="prettyprint">api.reportgrid.com/services/analytics/v0/vfs/.atm withdrawal/count</pre>
+
+              <p>GET hourly time series count for <b>atm withdrawal.location</b></p>
+              <pre class="prettyprint">api.reportgrid.com/services/analytics/v0/vfs/.atm withdrawal.location/series/hour</pre>
+
+              <p>List all values over time for <b>atm withdrawal.location</b></p>
+              <pre class="prettyprint">api.reportgrid.com/services/analytics/v0/vfs/.atm withdrawal.location/values/</pre>
+
+              <p>GET total count for events in which <b>.atm withdrawal.location</b> has a value of "9th &amp; Alabama"</p>
+              <pre class="prettyprint">api.reportgrid.com/services/analytics/v0/vfs/.atm withdrawal.location/values/"9th &amp; Alabama"/count</pre>
+
+              <table>
+                <tr>
+                  <td class="minor-text pre-explanation"><b>Periodicity</b></td>
+                  <td class="minor-text pre-explanation">minute</td>
+                </tr>
+                <tr>
+                  <td class="minor-text pre-explanation"></td>
+                  <td class="minor-text pre-explanation">hour</td>
+                </tr>
+                <tr>
+                  <td class="minor-text pre-explanation"></td>
+                  <td class="minor-text pre-explanation">day</td>
+                </tr>
+                <tr>
+                  <td class="minor-text pre-explanation"></td>
+                  <td class="minor-text pre-explanation">week</td>
+                </tr>
+                <tr>
+                  <td class="minor-text pre-explanation"></td>
+                  <td class="minor-text pre-explanation">month</td>
+                </tr>
+                <tr>
+                  <td class="minor-text pre-explanation"></td>
+                  <td class="minor-text pre-explanation">year</td>
+                </tr>
+                <tr>
+                  <td class="minor-text pre-explanation"></td>
+                  <td class="minor-text pre-explanation">eternity</td>
+                </tr>
+              </table>
+            </div>
+            <div class="content-block">
+              <h1>Intersection Queries</h1>
+
+              <p>ReportGrid also makes it easy for you to retrieve counts and time series for intersections of properties. You can search by POSTing a JSON query object to <b>API root + search</b></p>
+
+              <pre class="prettyprint">
+{
+ "select": "count",
+
+ "from": "/",
+
+ "where": {
+    "location" :       "9th &amp; Alabama",
+    "amount in cents": 60000
+ }
+}</pre>
+
+              <table>
+                <tr>
+                  <td class="minor-text pre-explanation"><b>select</b></td>
+                  <td>desired periodicity</td>
+                </tr>
+                <tr>
+                  <td class="minor-text pre-explanation"><b>from</b></td>
+                  <td>path starting point</td>
+                </tr>
+                <tr>
+                  <td class="minor-text pre-explanation"><b>where</b></td>
+                  <td>a filter that restricts the query to those events where the specified field was equal to the specified value</td>
+                </tr>
+              </table>
+            </div>
+            <div id="practice" class="content-block">
+              <h1>Try it out!</h1>
+
+              <p>So you're ready to get your feet wet?  We provide a sandbox tokenId so you can play around with the REST API directly. Here's what you'll need to follow the examples below.</p>
+              <table>
+                <tr>
+                  <td class="minor-text pre-explanation"><a href="http://curl.haxx.se/" target="_blank">CURL</a></td>
+                  <td>If you don't have it, get it...or use the submission interface at the bottom of this page.</td>
+                </tr>
+                <tr>
+                  <td class="minor-text pre-explanation"><b>tokenId</b></td>
+                  <td>1A3EF8C7-7FC8-46E2-BC8C-489520510A5C</td>
+                </tr>
+                <tr>
+                  <td class="minor-text pre-explanation"><b>NOTE:</b></td>
+                  <td>
+                    <p class="note-text">The sandbox will be cleared daily, so don't expect your changes to last</p>
+                    <p class="note-text">Order, limit, and depth have been restricted to 2, 10, and 3 respectively</p>
+                    <p class="note-text">Be aware that others will be using the sandbox at the same time as you, and respect their tokens</p>
+                  </td>
+                </tr>
+              </table>
+              <div class="curl-block">
+                <p><b>Creating a new Token</b></p>
+                <p>For this step, be sure to replace <b>[uniquePathIdentifier]</b> with an alphabetical and unique identifier (like your last name!), as this will become your tokenId's path.</p>
+
+                <textarea class="code-select"  readonly="readonly">
+curl "http://api.reportgrid.com/services/analytics/v0/tokens/?tokenId=1A3EF8C7-7FC8-46E2-BC8C-489520510A5C" -v -H "Content-Type: application/json" -d "{\"path\": \"/[uniquePathIdentifier]\"}"</textarea>
+                <p>Since we didn't specify limits or permissions, these are inherited from the parent (sandbox).</p>
+              </div>
+              <div class="curl-block">
+                <p><b>Retrieving your Token</b></p>
+                <p>A GET to the parent token will return an array of its descendent tokens.</p>
+
+                <textarea class="code-select"  readonly="readonly">
+curl "http://api.reportgrid.com/services/analytics/v0/tokens/?tokenId=1A3EF8C7-7FC8-46E2-BC8C-489520510A5C" -v -H "Content-Type: application/json"</textarea>
+                <p>Locate the tokenId associated with the unique path you specified and copy this.</p>
+              </div>
+
+              <div class="curl-block">
+                <p><b>Sending an event</b></p>
+                <p>For this and all remaining examples, take the tokenId you got from the last example and use it in the place of <b>[copied_tokenId]</b>.  Also, don't forget to substitute your unique path for <b>[uniquePathIdentifier]</b>.</p>
+
+                <textarea class="code-select"  readonly="readonly">
+curl "http://api.reportgrid.com/services/analytics/v0/vfs/[uniquePathIdentifier]/?tokenId=[copied_tokenId]" -v -H "Content-Type: application/json" -d "{\"events\":{\"interaction\":  {\"type\" : \"click\"}}}"</textarea>
+              </div>
+
+              <div  class="curl-block">
+                <p><b>Retrieving an event count</b></p>
+                <p></p>
+
+                <textarea class="code-select"  readonly="readonly">
+curl "http://api.reportgrid.com/services/analytics/v0/vfs/[uniquePathIdentifier]/.interaction.type/values/"click"/count?tokenId=[copied_tokenId]" -v -H "Content-Type: application/json"</textarea>
+              </div>
+
+              <div  class="curl-block">
+                <p><b>Retrieving an event by daily time series</b></p>
+                <p></p>
+
+                <textarea class="code-select"  readonly="readonly">
+curl "http://api.reportgrid.com/services/analytics/v0/vfs/[uniquePathIdentifier]/.interaction.type/values/"click"/series/day?tokenId=[copied_tokenId]" -v -H "Content-Type: application/json"</textarea>
+              </div>
+
+              <div  class="curl-block">
+                <p><b>Searching for an event by series</b></p>
+                <p></p>
+                <textarea class="code-select" readonly="readonly">
+curl "http://api.reportgrid.com/services/analytics/v0/search?tokenId=[copied_tokenId]" -v -H "Content-Type: application/json" -d "{ \"select\": \"series/minute\", \"from\": \"/[uniquePathIdentifier]\", \"where\": { \".interaction.type\": \"click\" } }"
+
+</textarea>
+              </div>
+              <div  class="curl-block">
+                <p><strong>The CURL Alternative</strong></p>
+                <p>In the unlikely event that you're tired of escaping quotes for CURL, or aren't familiar with that program, you can submit calls to the API's sandbox environment through the interface below.  You'll need to use a modern browser (<a href="http://www.google.com/chrome/" target="_blank">Chrome</a>, <a href="http://www.apple.com/safari/" target="_blank">Safari</a>, or <a href="http://www.mozilla.com/firefox/" target="_blank">Firefox</a>) for the interface to function properly.</p>
+                <div class="ajax-interface">
+                  <div class="ajax-header">Query</div>
+                  <select id="api-send-type">
+                    <option value="GET" selected="selected">GET</option>
+                    <option value="PUT">PUT</option>
+                    <option value="POST">POST</option>
+                    <option value="DELETE">DELETE</option>
+                  </select>
+                  <table>
+                    <tr>
+                      <td><p class="input-descriptor ajax-header">tokenId : </p></td>
+                      <td><input id="api-send-tokenId" type="text" value="1A3EF8C7-7FC8-46E2-BC8C-489520510A5C" /></td>
+                    </tr>
+                    <tr>
+                      <td><p class="input-descriptor ajax-header">path : </p></td>
+                      <td><input id="api-send-path" type="text" value="tokens/" /></td>
+                    </tr>
+                    <tr>
+                      <td><p class="input-descriptor ajax-header">JSON : </p></td>
+                      <td><textarea id="api-send-json">{"path" : "/"}</textarea></td>
+                    </tr>
+                  </table>
+                  <input type="submit" id="api-send-submit" onclick="return false;"/>
+                  <div class="ajax-header">Result:</div>
+                  <div id="api-send-result"></div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="bottom-cap"></div>
+      </div>
+      <div class="bottom">
+        <div id="contact-strip">
+          <div id="contact-center">
+            <div class="phone-number">
+              <span class="white">1-</span><span class="green">800</span><span class="white">-553-</span><span class="green">6341</span>
+            </div>
+            <img id="facebook-button" class="clickable" src="images/followusfacebook.png" />
+            <img id="twitter-button" class="clickable" src="images/followustwitter.png" />
+          </div>
+        </div>
+        <!--
+        <div class="bottom-center">
+          <div class="left">
+          </div>
+          <div class="right">
+            <div id="quote-background">
+              <p class="text">dolor lorem ipsum </p>
+              <p class="name">John Green, founder <a href="http://www.trackoftheday.com" target="_blank">trackoftheday.com</a></p>
+            </div>
+          </div>
+        </div>
+        -->
+        <div id="footer">
+          <div class="center">
+            <div class="left">
+              <span><a href="privacy-policy.doc" target="_blank">privacy policy</a> - <a href="terms-of-use.doc" target="_blank">terms of use</a></span>
+            </div>
+            <div class="right">
+              <span>Copyright 2010-2011 ReportGrid - All Rights Reserved</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="preloader"></div>
+    </div>
+
+    <script type="text/javascript">
+    window.onload = function() {prettyPrint();};
+
+    $('img.rollover').hover(
+      function(e) { this.setAttribute('src', this.getAttribute('src').replace('reg', 'sel')); },
+      function(e) { this.setAttribute('src', this.getAttribute('src').replace('sel', 'reg')); }
+    );
+    $("#facebook-button").click(function() {window.open("http://www.facebook.com/pages/ReportGrid/155235737848809?v=wall"); });
+    $("#twitter-button").click(function() {window.open("http://twitter.com/#!/ReportGrid"); });
+    function formatPre() {
+      $("pre, .code-select").each(function(el) { $("<div class='code'><div class='haze'></div></div>").insertBefore($(this)).append($(this).clone()); $(this).remove(); });
+    }formatPre();
+    $(".code-select").css("cursor", "pointer").click(function(e) {$(this).focus().select(); });
+
+    function preload(a) {
+
+      for (i=0; i < a.length; i++) {
+        var e = document.createElement("img");
+        e.setAttribute('src', a[i]);
+        document.getElementById('preloader').appendChild(e);
+      }
+    }
+
+    function preloadAllImages() {
+      var images = document.getElementsByTagName('img');
+      var imageSources = new Array();
+
+      for (i=0; i < images.length; i++) {
+        imageSources.push(images[i].getAttribute('src'));
+      }
+      preload(imageSources.concat(['images/featuressel.png', 'images/apisel.png','images/aboutsel.png', 'images/loginbuttonsel.png', 'images/getstartedroundsel.png', 'images/whysel.png', 'images/pricingsel.png', 'images/getstartedrecsel.png', 'images/demosel.png', "images/overviewbuttonsel.png", "images/analyzebuttonsel.png", "images/visualizebuttonsel.png", "images/delightbuttonsel.png"]));
+    }
+    preloadAllImages();
+    $("#api-panel select").change(function () {
+      $("#api-panel select option:selected").each(function () {
+        if ( $(this).val() == "GET") {
+         clearTextArea();
+        }
+      });
+    });
+
+    var http = ReportGrid.$.Http();
+    var result = $("#api-send-result");
+    $("#api-send-submit").click(sendJSON);
+    function sendJSON() {
+      var selected = $("#api-send-type :selected").val().toLowerCase();
+      if (selected == "get") {
+        clearTextArea();
+        http.get(
+          "http://api.reportgrid.com/services/analytics/v0/" + $("#api-send-path").val() + "?tokenId=" + $("#api-send-tokenId").val(),
+          {
+            success : function(e) {appendResult(e); },
+            failure : function(e) {appendResult(e); }
+          },
+          JSON.parse($("#api-send-json").val()),
+          null
+        );
+      } else if (selected == "post") {
+        http.post(
+          "http://api.reportgrid.com/services/analytics/v0/" + $("#api-send-path").val() + "?tokenId=" + $("#api-send-tokenId").val(),
+          JSON.parse($("#api-send-json").val()),
+          {
+            success : function(e) {appendResult(e); },
+            failure : function(e) {appendResult(e); }
+          },
+          null
+        )
+      } else if (selected == "put") {
+        http.put(
+          "http://api.reportgrid.com/services/analytics/v0/" + $("#api-send-path").val() + "?tokenId=" + $("#api-send-tokenId").val(),
+          JSON.parse($("#api-send-json").val()),
+          {
+            success : function(e) {appendResult(e); },
+            failure : function(e) {appendResult(e); }
+          },
+          null
+        )
+      } else if (selected == "delete") {
+        http.remove(
+          "http://api.reportgrid.com/services/analytics/v0/" + $("#api-send-path").val() + "?tokenId=" + $("#api-send-tokenId").val(),
+          {
+            success : function(e) {appendResult(e); },
+            failure : function(e) {appendResult(e); }
+          },
+          JSON.parse($("#api-send-json").val()),
+          null
+        )
+      }
+    }
+
+    function clearTextArea() {
+      $("#api-send-json").html("").val("");
+    }
+
+    function appendResult(data) {
+      result.append($("<textarea class='results'>" + JSON.stringify(data) + "</textarea>"));
+      result.attr({ scrollTop: result.attr("scrollHeight") });
+    }
+    </script>
+  </body>
+</html>

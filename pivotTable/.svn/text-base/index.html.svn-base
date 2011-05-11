@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+  <head>
+    <title></title>
+    <style type="text/css">
+      * {
+        font-family: "Lucida Grande", "Lucida Sans Unicode", Verdana, Arial;
+        font-size: 12px;
+      }
+      
+      .pivot-table-demo {
+        position: relative;
+        width: 780px;
+        height: auto;
+        background-color: #2772AA;
+      }
+      #table {
+        position: relative;
+        width:    600px;
+        height:   auto;
+      }
+      
+      .properties-selectors {
+        position: relative;
+        width: 600px;
+        height: auto;
+      }
+      
+      .property-selector {
+        width: 300px;
+        float: left;
+      }
+      
+    </style>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+    <script src="http://static.reportgrid.com/api/js/v1/reportgrid-core.js?tokenId=2E57096A-510E-44A4-A301-EDAD54D400EA&amp;analyticsServer=http%3A%2F%2Fapi.reportgrid.com%2Fservices%2Fanalytics%2Fv0%2F&amp;useJsonp=true" type="text/javascript"></script>
+    
+  </head>
+  <body>
+    <div class="pivot-table-demo">
+      <div id="haxe:trace"></div>
+    
+      <div id="selecion-dashboard">
+        <div >Path : <input id="path-input" type="text"  value="/adv/"/> <input id="get-properties-button" type="submit" value="Get Properties" /></div>
+        <div>Event Field : 
+          <select id="event-selector">
+          </select>
+        </div>
+        <div class="properties-selectors">
+          <div class="property-selector">Columns : 
+            <select>
+              <option>select</option>
+            </select>
+          </div>
+          <div class="property-selector">Rows : 
+            <select>
+            </select>
+          </div>
+        </div>
+      
+      
+      </div>
+    
+      <div id="table"></div>
+    </div>
+
+    <script type="text/javascript">
+      
+      var input   = $("#path-input");
+      var button  = $("#get-properties-button");
+      var eventSelector = $("#event-selector");
+      
+      
+      function fillOptions(options) { 
+        $.each(options, function (index, value) {
+          eventSelector.append($("<option>" + value + "</option>"));
+        });
+      }
+      eventSelector.change(function () {
+        $("#event-selector option:selected").each(function () {
+          alert($(this).text());
+        });
+        
+      })
+      button.click(function() { ReportGrid.children(input.val(), { "type" : "all" }, function(e) {
+        eventSelector.html("<option>select</option>");
+        fillOptions(e); }); 
+      });
+    </script>
+  </body>
+</html>

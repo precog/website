@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+  <head>
+    <title></title>
+    <style type="text/css">
+      input {
+        position: relative;
+        width: 300px;
+        
+      }
+      
+      textarea {
+        width: 400px;
+        height: 200px;
+      }
+      
+      #submit {
+        width: 60px;
+        margin: 5px 10px;
+      }
+      .input-descriptor {
+        width: 100px;
+      }
+      
+      #result {
+        width: 780px;
+        height: 200px;
+        overflow-y: auto;
+      }
+      
+      .results {
+        width: 780px;
+        height: auto;
+      }
+    
+    </style>
+    
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="reportgrid-automator.js"></script>
+  </head>
+  <body data-foo="yeah">
+    <div id="mouse-position"></div>
+    <div ></div>
+    <div style="width: 90px; height: 20px; left: 45px; position: relative;"><div  id="send" data-reportGrid="attention : attention">Query</div></div>
+    <div ></div>
+    
+    <select id="type">
+      <option value="GET" selected="selected">GET</option>
+      <option value="PUT">PUT</option>
+      <option value="POST">POST</option>
+      <option value="DELETE">DELETE</option>
+    </select>
+      <table>
+        <tr>
+          <td><p class="input-descriptor">tokenId : </p></td>
+          <td><input id="tokenId" type="text" value="8E680858-329C-4F31-BEE3-2AD15FB67EED" /></td>
+        </tr>
+        <tr>
+          <td><p class="input-descriptor">path : </p></td>
+          <td><input id="path" type="text" value="tokens/" /></td>
+        </tr>
+        <tr>
+          <td><p class="input-descriptor">JSON : </p></td>
+          <td><textarea id="json" type="text" value='' >{"path" : "/sandbox"}</textarea></td>
+        </tr>
+      </table>
+      <input type="submit" id="submit">
+      <div>Result:</div>
+      <div id="result"></div>
+    
+    
+    
+    <script type="text/javascript">
+      $("select").change(function () { 
+        $("select option:selected").each(function () {
+          if ( $(this).val() == "GET") {
+           clearTextArea();
+          }
+        });
+      });
+      
+      function clearTextArea() {
+        $("#json").html("").val(""); 
+      }
+      $.ajaxSetup ({  
+        asynch : true,
+        beforeSend : function (request) {
+          request.setRequestHeader("Content-Type", "application/json");
+        },
+        success: function(data, status, httpRequest) {
+          var result = $("#result");
+          result.append($("<p class='results'>" + JSON.stringify(data) + "</p>"));
+          result.attr({ scrollTop: result.attr("scrollHeight") });
+        },
+        error : function(req, stats, error) { window.console.log(req.responseText + stats + error); },
+        dataType : "json"
+      });
+      //http://api.socialmedia.com/services/analytics/v0/
+      $("#submit").click(sendJSON);
+      function sendJSON() {
+        if ($("#type :selected").val() == "GET") clearTextArea();
+        $.ajax(
+          "http://localhost:8888/" + $("#path").val() + "?tokenId=" + $("#tokenId").val(),
+          {
+            data : $("#json").val(),
+            type : $("#type :selected").val()
+          }
+        );
+      }
+    </script>
+  </body>
+</html>

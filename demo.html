@@ -1,0 +1,326 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+
+    <title>ReportGrid -- Demo</title>
+    <link type="text/css" rel="stylesheet" href="css/index.css" />
+
+    <script src="//d1nu2rn22elx8m.cloudfront.net/performable/pax/95ULyB.js"
+type="text/javascript"></script>
+
+    <script type="text/javascript" src="http://include.reinvigorate.net/re_.js"></script>
+    <script type="text/javascript">
+    try {
+    reinvigorate.track("j780b-u1448cw0d9");
+    } catch(err) {}
+    </script>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+    <script type="text/javascript">
+      var rpxJsHost = (("https:" == document.location.protocol) ? "https://" : "http://static.");
+      document.write(unescape("%3Cscript src='" + rpxJsHost +
+    "rpxnow.com/js/lib/rpx.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+      RPXNOW.overlay = true;
+      RPXNOW.language_preference = 'en';
+    </script>
+    <script type="text/javascript" src="visualizations/d3.js"></script>
+    <script type="text/javascript" src="visualizations/d3.csv.js"></script>
+    <script type="text/javascript" src="visualizations/d3.time.js"></script>
+    <script type="text/javascript" src="visualizations/d3.layout.js"></script>
+    <script type="text/javascript" src="visualizations/stream_layers.js"></script>
+    <script type="text/javascript" src="visualizations/d3Pie.js"></script>
+
+  </head>
+  <body>
+    <div id="top">
+
+      <div class="top-center">
+        <div id="header">
+          <a href="index.html"><div class="clickable" id="logo"></div></a>
+          <div id="login-button" class="clickable"><a class="rpxnow" onclick="return false;"
+          href="https://reportgrid.rpxnow.com/openid/v2/signin?token_url=http%3A%2F%2Freportgrid.com%2Flogin.html"><img class="clickable rollover" src="images/loginbuttonreg.png" /></a></div>
+          <div id="nav-bar">
+            <div class="button clickable" id="demo-button"><a href="demo.html"><img src="images/demosel.png" /></a></div>
+            <div class="button clickable" id="features-button"><a href="features.html"><img class="clickable rollover" src="images/featuresreg.png" /></a></div>
+            <div class="button clickable" id="api-button"><a href="api.html"><img class="clickable rollover" src="images/apireg.png" /></a></div>
+            <div class="button clickable" id="why-button"><a href="why.html"><img class="clickable rollover" src="images/whyreg.png" /></a></div>
+            <div class="button clickable" id="pricing-button"><a href="pricing.html"><img class="clickable rollover" src="images/pricingreg.png" /></a></div>
+            <div class="button clickable" id="about-button"><a href="about.html"><img class="clickable rollover" src="images/aboutreg.png" /></a></div>
+          </div>
+        </div>
+
+
+        <div id="center-panel">
+          <div id="demo-panel">
+            <p class="header">Demo</p>
+            <br />
+            <p class="vis-text" class="visualization">We're currently working on getting a source of data for our live analytics demos. In the meantime, peruse some of the interactive visualizations that hook up to our real-time analytics engine!</p>
+
+            <p class="blurb">Single Data Source Over Time</p>
+            <!-- <p class="header">...</p> -->
+            <div id="vis-1" class="visualization">
+              <div class="map">
+                <ul>
+                  <li><p class='met'>10,000</p></li>
+                  <li><p class='met'>7,500</p></li>
+                  <li><p class='met'>5,000</p></li>
+                  <li><p class='met'>2,500</p></li>
+                  <li class="last"><p class='met'>0</p></li>
+                </ul>
+              </div>
+              <div class="vis-footer">
+                <p class="vis-label">January, 2011 -- ReportGrid.com : clicks</p>
+              </div>
+            </div>
+
+              <script type="text/javascript">
+function vis1() {
+          var w = 680,
+              h1 = 300,
+              h2 = 40,
+              p = 20,
+              x0, // start of focus region
+              x1, // end of focus region
+              xx, // drag state
+              time = d3.time.format("%Y-%m-%d"),
+              x = d3.scale.linear().range([0, w]),
+              y1 = d3.scale.linear().range([h1 - p, 0]),
+              y2 = d3.scale.linear().range([h2, 0]);
+
+          var svg = d3.select("#vis-1")
+            .append("svg:svg")
+              .attr("width", w)
+              .attr("height", h1 + h2);
+
+          // Focus view.
+          var focus = svg.append("svg:g");
+
+          // Context view.
+          var context = svg.append("svg:g")
+              .attr("transform", "translate(0," + h1 + ")");
+
+          d3.csv("visualizations/dji.csv", function(csv) {
+            var minX,
+                maxX,
+                maxY = -Infinity;
+
+            // Compute x- and y-extent.
+            csv.reverse();
+            for (var i = 0, n = csv.length, o; i < n; i++) {
+              o = csv[i];
+              o = csv[i] = {x: +time.parse(o.Date), y: +o.Close};
+              if (o.y > maxY) maxY = o.y;
+            }
+            minX = csv[0].x;
+            maxX = csv[n - 1].x;
+
+            // Update x- and y-scales.
+            x.domain([minX, maxX]);
+            y1.domain([0, maxY]);
+            y2.domain([0, maxY]);
+
+            // Focus view.
+            focus.append("svg:path")
+                .data([csv])
+                .attr("d", d3.svg.area()
+                .x(function(d) { return x(d.x); })
+                .y0(y1(0))
+                .y1(function(d) { return y1(d.y); }));
+
+            focus.append("svg:line")
+                .attr("x1", 0)
+                .attr("x2", w)
+                .attr("y1", y1(0))
+                .attr("y2", y1(0));
+
+            // Context view.
+            context.append("svg:rect")
+                .attr("width", w)
+                .attr("height", h2)
+                .attr("fill", "none")
+                .attr("pointer-events", "all")
+                .attr("cursor", "crosshair")
+                .on("mousedown", mousedown);
+
+            context.append("svg:path")
+                .data([csv])
+                .attr("pointer-events", "none")
+                .attr("d", d3.svg.area()
+                .x(function(d) { return x(d.x); })
+                .y0(y2(0))
+                .y1(function(d) { return y2(d.y); }));
+
+            context.append("svg:line")
+                .attr("x1", 0)
+                .attr("x2", w)
+                .attr("y1", y2(0))
+                .attr("y2", y2(0));
+
+            // Active focus region.
+            active = context.append("svg:rect")
+                .attr("pointer-events", "none")
+                .attr("id", "active")
+                .attr("x", x(x0 = minX))
+                .attr("y", 0)
+                .attr("height", h2)
+                .attr("width", x(x1 = (minX + 1e11)) - x(x0))
+                .attr("fill", "999999")
+                .attr("fill-opacity", .5);
+          });
+
+          d3.select(window)
+              .on("mousemove", mousemove)
+              .on("mouseup", mouseup);
+
+          function mousedown() {
+            xx = x.invert(d3.svg.mouse(this)[0]);
+          }
+
+          function mousemove() {
+            if (xx != null) {
+
+              // Compute the new (clamped) focus region.
+              var xy = x.invert(d3.svg.mouse(active[0][0])[0]);
+              if (xx < xy) { x0 = xx; x1 = xy; }
+              else if (xx > xy) { x0 = xy; x1 = xx; }
+              else return;
+              x0 = Math.max(x.domain()[0], x0);
+              x1 = Math.min(x.domain()[1], x1);
+
+              // Update the x-scale. TODO Recycle this scale?
+              var tx = d3.scale.linear()
+                  .domain([x0, x1])
+                  .range([0, w]);
+
+              // Recompute the focus path.
+              focus.select("path")
+                  .attr("d", d3.svg.area()
+                  .x(function(d) { return tx(d.x); })
+                  .y0(y1(0))
+                  .y1(function(d) { return y1(d.y); }));
+
+              // Reposition the active region rect.
+              active
+                  .attr("x", x(x0))
+                  .attr("width", x(x1) - x(x0));
+            }
+          }
+
+          function mouseup() {
+            xx = null;
+          }
+} vis1();
+              </script>
+            <p class="blurb">Multi-Metric Bar Graph</p>
+            <div id="vis-2" class="visualization">
+              <div class="map">
+                <ul>
+                  <li><p class='met'>400</p></li>
+                  <li><p class='met'>300</p></li>
+                  <li><p class='met'>200</p></li>
+                  <li><p class='met'>100</p></li>
+                  <li><p class='met'>0</p></li>
+                </ul>
+              </div>
+              <div class="legend">
+                <ul>
+                  <li><div class="legend-color gray0"></div>click</li>
+                  <li><div class="legend-color gray1"></div>clickThrough</li>
+                  <li><div class="legend-color gray2"></div>decline</li>
+                  <li><div class="legend-color gray3"></div>purchase</li>
+                </ul>
+              </div>
+            </div>
+            <p class="blurb">The Pie Chart</p>
+            <div id="vis-3" class="visualization">
+              <div id="pie-container"></div>
+            </div>
+          </div>
+        </div>
+        <div class="bottom-cap"></div>
+      </div>
+      <div class="bottom">
+        <div id="contact-strip">
+          <div id="contact-center">
+            <div class="phone-number">
+              <span class="white">1-</span><span class="green">800</span><span class="white">-553-</span><span class="green">6341</span>
+            </div>
+            <img id="facebook-button" class="clickable" src="images/followusfacebook.png" />
+            <img id="twitter-button" class="clickable" src="images/followustwitter.png" />
+          </div>
+        </div>
+        <!--
+        <div class="bottom-center">
+          <div class="left">
+          </div>
+          <div class="right">
+            <div id="quote-background">
+              <p class="text">dolor lorem ipsum </p>
+              <p class="name">John Green, founder <a href="http://www.trackoftheday.com" target="_blank">trackoftheday.com</a></p>
+            </div>
+          </div>
+        </div>
+        -->
+        <div id="footer">
+          <div class="center">
+            <div class="left">
+              <span><a href="privacy-policy.doc" target="_blank">privacy policy</a> - <a href="terms-of-use.doc" target="_blank">terms of use</a></span>
+            </div>
+            <div class="right">
+              <span>Copyright 2010-2011 ReportGrid - All Rights Reserved</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="preloader"></div>
+    </div>
+
+    <script type="text/javascript">
+    d3Pie.createPie(
+      "pie-container",
+      .5,
+      {
+        viewPlayer        : 492,
+        closePlayer       : 206,
+        playSong          : 288,
+        playerProgress25  : 170,
+        playerProgress50  : 96,
+        playerProgress75  : 41,
+        playerProgress100 : 19
+      }
+    );
+    $('img.rollover').hover(
+      function(e) { this.setAttribute('src', this.getAttribute('src').replace('reg', 'sel')); },
+      function(e) { this.setAttribute('src', this.getAttribute('src').replace('sel', 'reg')); }
+    );
+    $("#facebook-button").click(function() {window.open("http://www.facebook.com/pages/ReportGrid/155235737848809?v=wall"); });
+    $("#twitter-button").click(function() {window.open("http://twitter.com/#!/ReportGrid"); });
+
+    function preload(a) {
+
+      for (i=0; i < a.length; i++) {
+        var e = document.createElement("img");
+        e.setAttribute('src', a[i]);
+        document.getElementById('preloader').appendChild(e);
+      }
+    }
+
+    function preloadAllImages() {
+      var images = document.getElementsByTagName('img');
+      var imageSources = new Array();
+
+      for (i=0; i < images.length; i++) {
+        imageSources.push(images[i].getAttribute('src'));
+      }
+      preload(imageSources.concat(['images/featuressel.png', 'images/apisel.png','images/aboutsel.png', 'images/loginbuttonsel.png', 'images/getstartedroundsel.png', 'images/whysel.png', 'images/pricingsel.png', 'images/getstartedrecsel.png', 'images/demosel.png', "images/overviewbuttonsel.png", "images/analyzebuttonsel.png", "images/visualizebuttonsel.png", "images/delightbuttonsel.png"]));
+    }
+    preloadAllImages();
+
+
+    </script>
+
+        <script type="text/javascript" src="visualizations/stack.js"></script>
+  </body>
+</html>
