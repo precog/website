@@ -411,6 +411,7 @@ border: 1px solid #0026FF !important;
 {
 	fill: #d62728;
 	stroke-width: 0 !important;
+	font-weight: bold;
 }
 
 #control-panel > div
