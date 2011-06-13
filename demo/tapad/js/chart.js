@@ -3544,6 +3544,125 @@ Arrays.nearest = function(a,x,f) {
 	return a[delta[0].i];
 }
 Arrays.prototype.__class__ = Arrays;
+rg.query.Query = function(executor) {
+	if( executor === $_ ) return;
+	this.data = null;
+	this.onLoading = new hxevents.Notifier();
+	this.onComplete = new hxevents.Notifier();
+	this.onChange = new hxevents.Dispatcher();
+	this.onData = new hxevents.Dispatcher();
+	this.onError = new hxevents.Dispatcher();
+	this.executor = executor;
+	this.time = new rg.query.TimeQuery();
+}
+rg.query.Query.__name__ = ["rg","query","Query"];
+rg.query.Query.normalizeName = function(s) {
+	if(s == null) return null;
+	if("." == s.substr(0,1)) return s.substr(1); else return s;
+}
+rg.query.Query.prototype.data = null;
+rg.query.Query.prototype.time = null;
+rg.query.Query.prototype._data = null;
+rg.query.Query.prototype.onLoading = null;
+rg.query.Query.prototype.onComplete = null;
+rg.query.Query.prototype.onChange = null;
+rg.query.Query.prototype.onData = null;
+rg.query.Query.prototype.onError = null;
+rg.query.Query.prototype.executor = null;
+rg.query.Query.prototype.close = function() {
+	this.onLoading.clear();
+	this.onError.clear();
+	this.onData.clear();
+	this.onChange.clear();
+	this.onComplete.clear();
+	this.time.close();
+}
+rg.query.Query.prototype.executeLoad = function(success,error) {
+	throw new thx.error.AbstractMethod({ fileName : "Query.hx", lineNumber : 51, className : "rg.query.Query", methodName : "executeLoad"});
+}
+rg.query.Query.prototype.load = function() {
+	this.time.update();
+	this.onLoading.dispatch();
+	this.executeLoad($closure(this,"_success"),$closure(this,"_error"));
+}
+rg.query.Query.prototype.transform = function(v) {
+	return v;
+}
+rg.query.Query.prototype._success = function(v) {
+	if(!Dynamics.same(v,this._data)) this.onChange.dispatch(this.data = this.transform(this._data = v));
+	this.onData.dispatch(this.data);
+	this.onComplete.dispatch();
+}
+rg.query.Query.prototype._error = function(v) {
+	this.onError.dispatch(v);
+	this.onComplete.dispatch();
+}
+rg.query.Query.prototype.__class__ = rg.query.Query;
+rg.query.QueryPath = function(executor,path) {
+	if( executor === $_ ) return;
+	rg.query.Query.call(this,executor);
+	this.setPath(path);
+}
+rg.query.QueryPath.__name__ = ["rg","query","QueryPath"];
+rg.query.QueryPath.__super__ = rg.query.Query;
+for(var k in rg.query.Query.prototype ) rg.query.QueryPath.prototype[k] = rg.query.Query.prototype[k];
+rg.query.QueryPath.prototype.path = null;
+rg.query.QueryPath.prototype.setPath = function(v) {
+	if(null == v || 0 == v.length) throw new thx.error.NullArgument("v",{ fileName : "Query.hx", lineNumber : 107, className : "rg.query.QueryPath", methodName : "setPath"}); else null;
+	return this.path = v;
+}
+rg.query.QueryPath.prototype.__class__ = rg.query.QueryPath;
+rg.query.QueryEventsCount = function(executor,path,events) {
+	if( executor === $_ ) return;
+	rg.query.QueryPath.call(this,executor,path);
+	this.events = events;
+}
+rg.query.QueryEventsCount.__name__ = ["rg","query","QueryEventsCount"];
+rg.query.QueryEventsCount.__super__ = rg.query.QueryPath;
+for(var k in rg.query.QueryPath.prototype ) rg.query.QueryEventsCount.prototype[k] = rg.query.QueryPath.prototype[k];
+rg.query.QueryEventsCount.prototype.events = null;
+rg.query.QueryEventsCount.prototype.filter = function(value,count) {
+	return true;
+}
+rg.query.QueryEventsCount.prototype.load = function() {
+	haxe.Log.trace("loading",{ fileName : "QueryEventsCount.hx", lineNumber : 29, className : "rg.query.QueryEventsCount", methodName : "load"});
+	if(null == this.events) {
+		haxe.Log.trace("null or empty",{ fileName : "QueryEventsCount.hx", lineNumber : 32, className : "rg.query.QueryEventsCount", methodName : "load"});
+		var loader = new rg.query.QueryEventNames(this.executor,this.path), me = this;
+		loader.onData.add(function(d) {
+			haxe.Log.trace("data in",{ fileName : "QueryEventsCount.hx", lineNumber : 36, className : "rg.query.QueryEventsCount", methodName : "load"});
+			haxe.Log.trace(d,{ fileName : "QueryEventsCount.hx", lineNumber : 37, className : "rg.query.QueryEventsCount", methodName : "load"});
+			me.events = d.map(function(d1,i) {
+				return Strings.ltrim(d1,".");
+			});
+			loader.close();
+			me.load();
+		});
+		loader.load();
+		haxe.Log.trace("loading ...",{ fileName : "QueryEventsCount.hx", lineNumber : 43, className : "rg.query.QueryEventsCount", methodName : "load"});
+	} else {
+		haxe.Log.trace("ready to run",{ fileName : "QueryEventsCount.hx", lineNumber : 45, className : "rg.query.QueryEventsCount", methodName : "load"});
+		rg.query.QueryPath.prototype.load.call(this);
+	}
+}
+rg.query.QueryEventsCount.prototype.executeLoad = function(success,error) {
+	var count = 0, total = this.events.length, result = [], totalcount = 0;
+	var _success = function(p,v) {
+		result.push({ label : p, value : v});
+		if(++count == total) success(result);
+	};
+	var _g = 0, _g1 = this.events;
+	while(_g < _g1.length) {
+		var event = _g1[_g];
+		++_g;
+		this.executor.propertyCount(this.path,{ property : event},(function(f,a1) {
+			return function(a2) {
+				return f(a1,a2);
+			};
+		})(_success,event),error);
+	}
+}
+rg.query.QueryEventsCount.prototype.__class__ = rg.query.QueryEventsCount;
 if(!thx.math.scale) thx.math.scale = {}
 thx.math.scale.NumericScale = function(p) {
 	if( p === $_ ) return;
@@ -4798,6 +4917,17 @@ rg.svg.SvgScaleTick.prototype.adjustPositionFunction = function() {
 	}
 }
 rg.svg.SvgScaleTick.prototype.__class__ = rg.svg.SvgScaleTick;
+rg.query.QueryEventNames = function(executor,path) {
+	if( executor === $_ ) return;
+	rg.query.QueryPath.call(this,executor,path);
+}
+rg.query.QueryEventNames.__name__ = ["rg","query","QueryEventNames"];
+rg.query.QueryEventNames.__super__ = rg.query.QueryPath;
+for(var k in rg.query.QueryPath.prototype ) rg.query.QueryEventNames.prototype[k] = rg.query.QueryPath.prototype[k];
+rg.query.QueryEventNames.prototype.executeLoad = function(success,error) {
+	this.executor.children(this.path,{ type : "property"},success,error);
+}
+rg.query.QueryEventNames.prototype.__class__ = rg.query.QueryEventNames;
 thx.math.EaseMode = { __ename__ : ["thx","math","EaseMode"], __constructs__ : ["EaseIn","EaseOut","EaseInEaseOut","EaseOutEaseIn"] }
 thx.math.EaseMode.EaseIn = ["EaseIn",0];
 thx.math.EaseMode.EaseIn.toString = $estr;
@@ -5660,6 +5790,8 @@ rg.query.mock.RandomExecutor.prototype.time = function() {
 }
 rg.query.mock.RandomExecutor.prototype.children = function(path,options,success,error) {
 	var type = options.type;
+	haxe.Log.trace(type,{ fileName : "RandomExecutor.hx", lineNumber : 50, className : "rg.query.mock.RandomExecutor", methodName : "children"});
+	haxe.Log.trace(options,{ fileName : "RandomExecutor.hx", lineNumber : 51, className : "rg.query.mock.RandomExecutor", methodName : "children"});
 	switch(type) {
 	case "all":
 		var h = this.structure.get(path);
@@ -5670,10 +5802,19 @@ rg.query.mock.RandomExecutor.prototype.children = function(path,options,success,
 		return;
 	case "property":
 		var h = this.structure.get(path);
+		haxe.Log.trace(path,{ fileName : "RandomExecutor.hx", lineNumber : 69, className : "rg.query.mock.RandomExecutor", methodName : "children"});
 		return null == h?this.go(success,[]):this.go(success,rg.query.mock.RandomExecutor.getProperties(h.events.keys()));
 	default:
 	}
-	return this.go(error,"'property' option is not implemented in children()");
+	var property;
+	if(null != (property = options.property)) {
+		var h = this.structure.get(path);
+		if(null == h) return this.go(success,[]); else {
+			var labels = h.events.get(property);
+			if(null == labels) return this.go(success,[]);
+			return this.go(success,Iterators.array(labels.keys()));
+		}
+	} else return this.go(error,"'property' option is not implemented in children()");
 }
 rg.query.mock.RandomExecutor.prototype.propertyCount = function(path,options,success,error) {
 	this.filldata(path);
@@ -5888,7 +6029,7 @@ rg.query.mock.RandomExecutor.prototype.countvalue = function(path,event,property
 	return null == v?0:v[0];
 }
 rg.query.mock.RandomExecutor.prototype.countproperty = function(path,event,property) {
-	var key = this.propertykey("eternity",path,event,property);
+	var key = null == property?this.eventkey("eternity",path,event):this.propertykey("eternity",path,event,property);
 	var v = this.cache.get(key);
 	return null == v?0:v[0];
 }
@@ -6794,74 +6935,6 @@ thx.languages.En.getLanguage = function() {
 	return thx.languages.En.language;
 }
 thx.languages.En.prototype.__class__ = thx.languages.En;
-rg.query.Query = function(executor) {
-	if( executor === $_ ) return;
-	this.data = null;
-	this.onLoading = new hxevents.Notifier();
-	this.onComplete = new hxevents.Notifier();
-	this.onChange = new hxevents.Dispatcher();
-	this.onData = new hxevents.Dispatcher();
-	this.onError = new hxevents.Dispatcher();
-	this.executor = executor;
-	this.time = new rg.query.TimeQuery();
-}
-rg.query.Query.__name__ = ["rg","query","Query"];
-rg.query.Query.normalizeName = function(s) {
-	if(s == null) return null;
-	if("." == s.substr(0,1)) return s.substr(1); else return s;
-}
-rg.query.Query.prototype.data = null;
-rg.query.Query.prototype.time = null;
-rg.query.Query.prototype._data = null;
-rg.query.Query.prototype.onLoading = null;
-rg.query.Query.prototype.onComplete = null;
-rg.query.Query.prototype.onChange = null;
-rg.query.Query.prototype.onData = null;
-rg.query.Query.prototype.onError = null;
-rg.query.Query.prototype.executor = null;
-rg.query.Query.prototype.close = function() {
-	this.onLoading.clear();
-	this.onError.clear();
-	this.onData.clear();
-	this.onChange.clear();
-	this.onComplete.clear();
-	this.time.close();
-}
-rg.query.Query.prototype.executeLoad = function(success,error) {
-	throw new thx.error.AbstractMethod({ fileName : "Query.hx", lineNumber : 51, className : "rg.query.Query", methodName : "executeLoad"});
-}
-rg.query.Query.prototype.load = function() {
-	this.time.update();
-	this.onLoading.dispatch();
-	this.executeLoad($closure(this,"_success"),$closure(this,"_error"));
-}
-rg.query.Query.prototype.transform = function(v) {
-	return v;
-}
-rg.query.Query.prototype._success = function(v) {
-	if(!Dynamics.same(v,this._data)) this.onChange.dispatch(this.data = this.transform(this._data = v));
-	this.onData.dispatch(this.data);
-	this.onComplete.dispatch();
-}
-rg.query.Query.prototype._error = function(v) {
-	this.onError.dispatch(v);
-	this.onComplete.dispatch();
-}
-rg.query.Query.prototype.__class__ = rg.query.Query;
-rg.query.QueryPath = function(executor,path) {
-	if( executor === $_ ) return;
-	rg.query.Query.call(this,executor);
-	this.setPath(path);
-}
-rg.query.QueryPath.__name__ = ["rg","query","QueryPath"];
-rg.query.QueryPath.__super__ = rg.query.Query;
-for(var k in rg.query.Query.prototype ) rg.query.QueryPath.prototype[k] = rg.query.Query.prototype[k];
-rg.query.QueryPath.prototype.path = null;
-rg.query.QueryPath.prototype.setPath = function(v) {
-	if(null == v || 0 == v.length) throw new thx.error.NullArgument("v",{ fileName : "Query.hx", lineNumber : 107, className : "rg.query.QueryPath", methodName : "setPath"}); else null;
-	return this.path = v;
-}
-rg.query.QueryPath.prototype.__class__ = rg.query.QueryPath;
 rg.query.QueryEvent = function(executor,path,event) {
 	if( executor === $_ ) return;
 	rg.query.QueryPath.call(this,executor,path);
@@ -8580,6 +8653,17 @@ thx.culture.FormatDate.weekDayNameShort = function(date,culture) {
 	return culture.date.days[date.getDay()];
 }
 thx.culture.FormatDate.prototype.__class__ = thx.culture.FormatDate;
+rg.query.QueryPropertyNames = function(executor,path,event) {
+	if( executor === $_ ) return;
+	rg.query.QueryEvent.call(this,executor,path,event);
+}
+rg.query.QueryPropertyNames.__name__ = ["rg","query","QueryPropertyNames"];
+rg.query.QueryPropertyNames.__super__ = rg.query.QueryEvent;
+for(var k in rg.query.QueryEvent.prototype ) rg.query.QueryPropertyNames.prototype[k] = rg.query.QueryEvent.prototype[k];
+rg.query.QueryPropertyNames.prototype.executeLoad = function(success,error) {
+	this.executor.children(this.path,{ property : this.event},success,error);
+}
+rg.query.QueryPropertyNames.prototype.__class__ = rg.query.QueryPropertyNames;
 rg.query.QueryValues = function(executor,path,event,property,values,others,otherslabel) {
 	if( executor === $_ ) return;
 	if(otherslabel == null) otherslabel = "others";
@@ -8791,8 +8875,8 @@ rg.Viz.pivot = function(el,query,options) {
 rg.Viz.makePivotOptions = function(pivot,query,options,handler) {
 	if(null == options) options = { };
 	var o = Objects.copyTo(rg.Viz.defaultOptions,options);
-	if(null == query.path) throw new thx.error.Error("you must provide a path value for your query",null,null,{ fileName : "Viz.hx", lineNumber : 82, className : "rg.Viz", methodName : "makePivotOptions"});
-	if(null == query.event) throw new thx.error.Error("you must provide an event name for your query",null,null,{ fileName : "Viz.hx", lineNumber : 84, className : "rg.Viz", methodName : "makePivotOptions"});
+	if(null == query.path) throw new thx.error.Error("you must provide a path value for your query",null,null,{ fileName : "Viz.hx", lineNumber : 84, className : "rg.Viz", methodName : "makePivotOptions"});
+	if(null == query.event) throw new thx.error.Error("you must provide an event name for your query",null,null,{ fileName : "Viz.hx", lineNumber : 86, className : "rg.Viz", methodName : "makePivotOptions"});
 	var init = function() {
 		if(null != query.filter) pivot.setAvailableProperties(Arrays.filter(query.availableProperties,query.filter)); else pivot.setAvailableProperties(query.availableProperties);
 		pivot.start = (rg.Viz.toDatef(o.start))(Date.now());
@@ -8818,7 +8902,7 @@ rg.Viz.makePivotOptions = function(pivot,query,options,handler) {
 rg.Viz.periodicity = function(v) {
 	if(null == v) return "Eternity";
 	var v1 = Strings.ucfirst(v.toLowerCase());
-	if(!Reflect.hasField(rg.js.ReportGrid.Periodicity,v1)) throw new thx.error.Error("invalid periodicity '{0}'",null,v1,{ fileName : "Viz.hx", lineNumber : 141, className : "rg.Viz", methodName : "periodicity"});
+	if(!Reflect.hasField(rg.js.ReportGrid.Periodicity,v1)) throw new thx.error.Error("invalid periodicity '{0}'",null,v1,{ fileName : "Viz.hx", lineNumber : 143, className : "rg.Viz", methodName : "periodicity"});
 	return v1;
 }
 rg.Viz.toDateLimit = function(v) {
@@ -8829,7 +8913,7 @@ rg.Viz.toDateLimit = function(v) {
 	if(Std["is"](v,String)) return rg.query.DateLimit.VariableLimit(function() {
 		return thx.date.DateParser.parse(v);
 	});
-	throw new thx.error.Error("invalid date value '{0}'",v,null,{ fileName : "Viz.hx", lineNumber : 157, className : "rg.Viz", methodName : "toDateLimit"});
+	throw new thx.error.Error("invalid date value '{0}'",v,null,{ fileName : "Viz.hx", lineNumber : 159, className : "rg.Viz", methodName : "toDateLimit"});
 }
 rg.Viz.toDatef = function(v) {
 	if(null == v) return function(_) {
@@ -8845,17 +8929,19 @@ rg.Viz.toDatef = function(v) {
 	if(Std["is"](v,String)) return function(d) {
 		return thx.date.DateParser.parse(v,d);
 	};
-	throw new thx.error.Error("invalid date value '{0}'",v,null,{ fileName : "Viz.hx", lineNumber : 172, className : "rg.Viz", methodName : "toDatef"});
+	throw new thx.error.Error("invalid date value '{0}'",v,null,{ fileName : "Viz.hx", lineNumber : 174, className : "rg.Viz", methodName : "toDatef"});
 }
 rg.Viz.pie = function(el,query,options) {
-	var selection = rg.Viz.select(el);
+	var selection = rg.Viz.select(el).html().clear();
 	var q = Objects.copyTo(query,rg.QueryOptionsUtil.emptyQuery());
 	var top = null == q.bottom && q.top > 0;
 	var limit = null != q.bottom?q.bottom:null == q.top?10:q.top;
 	var loader;
-	var l;
-	loader = l = new rg.query.QueryValuesCount(rg.Viz.executor,q.path,q.event,q.property,top,limit,q.other);
-	if(null != q.filter) l.filter = q.filter;
+	if(null != q.property && "" != q.property) {
+		var l = new rg.query.QueryValuesCount(rg.Viz.executor,q.path,q.event,q.property,top,limit,q.other);
+		loader = l;
+		if(null != q.filter) l.filter = q.filter;
+	} else if(null != q.event && "" != q.event) loader = new rg.query.QueryPropertiesCount(rg.Viz.executor,q.path,q.event); else loader = new rg.query.QueryEventsCount(rg.Viz.executor,q.path);
 	loader.onError.add(rg.Viz.error);
 	if(null == options) options = { };
 	var o = rg.Viz.sizeOptions(selection,options);
@@ -8870,7 +8956,7 @@ rg.Viz.pie = function(el,query,options) {
 	return chart;
 }
 rg.Viz.error = function(e) {
-	haxe.Log.trace("ERROR: " + e,{ fileName : "Viz.hx", lineNumber : 220, className : "rg.Viz", methodName : "error"});
+	haxe.Log.trace("ERROR: " + e,{ fileName : "Viz.hx", lineNumber : 229, className : "rg.Viz", methodName : "error"});
 }
 rg.Viz.sizeOptions = function(selection,options) {
 	var v;
@@ -9031,7 +9117,7 @@ rg.Viz.makeoptions = function(options,defaults) {
 }
 rg.Viz.select = function(el) {
 	var el1 = Std["is"](el,String)?thx.js.Dom.select(el):thx.js.Dom.selectNode(el);
-	if(el1.empty()) throw new thx.error.Error("invalid container",null,null,{ fileName : "Viz.hx", lineNumber : 561, className : "rg.Viz", methodName : "select"});
+	if(el1.empty()) throw new thx.error.Error("invalid container",null,null,{ fileName : "Viz.hx", lineNumber : 570, className : "rg.Viz", methodName : "select"});
 	return el1;
 }
 rg.Viz.scale = function(displayLabels,displayTicks,labellength) {
@@ -10138,26 +10224,22 @@ rg.query.QueryValuesCount.prototype.filter = function(value,count) {
 	return true;
 }
 rg.query.QueryValuesCount.prototype.transform = function(v) {
-	haxe.Log.trace(v,{ fileName : "QueryValuesCount.hx", lineNumber : 35, className : "rg.query.QueryValuesCount", methodName : "transform"});
-	var labels = Reflect.fields(v);
-	var result = [];
-	var _g = 0;
-	while(_g < labels.length) {
-		var label = labels[_g];
-		++_g;
-		var value = Reflect.field(Reflect.field(Reflect.field(v,label),"eternity"),"0");
-		result.push({ label : Strings.rtrim(Strings.ltrim(label,"\""),"\""), value : value});
-	}
-	return result;
+	return Reflect.fields(v).map(function(label,i) {
+		var value = 0.0;
+		var periods = Reflect.field(v,label);
+		var _g = 0;
+		while(_g < periods.length) {
+			var item = periods[_g];
+			++_g;
+			value += item[1];
+		}
+		return { label : Strings.rtrim(Strings.ltrim(label,"\""),"\""), value : value};
+	});
 }
 rg.query.QueryValuesCount.prototype.executeLoad = function(success,error) {
 	var count = 0, total = 1, result = null, totalcount = 0, others = this.others, label = this.othersLabel, filter = $closure(this,"filter");
 	var _end = function() {
-		if(others) {
-			var v = { };
-			v["0"] = totalcount;
-			result[label] = { eternity : v};
-		}
+		if(others) result["\"" + label + "\""] = [[0.0,totalcount]];
 		success(result);
 	};
 	var _success = function(v) {
@@ -10682,6 +10764,49 @@ DateTools.make = function(o) {
 	return o.ms + 1000.0 * (o.seconds + 60.0 * (o.minutes + 60.0 * (o.hours + 24.0 * o.days)));
 }
 DateTools.prototype.__class__ = DateTools;
+rg.query.QueryPropertiesCount = function(executor,path,event,properties) {
+	if( executor === $_ ) return;
+	rg.query.QueryEvent.call(this,executor,path,event);
+	this.properties = properties;
+}
+rg.query.QueryPropertiesCount.__name__ = ["rg","query","QueryPropertiesCount"];
+rg.query.QueryPropertiesCount.__super__ = rg.query.QueryEvent;
+for(var k in rg.query.QueryEvent.prototype ) rg.query.QueryPropertiesCount.prototype[k] = rg.query.QueryEvent.prototype[k];
+rg.query.QueryPropertiesCount.prototype.properties = null;
+rg.query.QueryPropertiesCount.prototype.filter = function(value,count) {
+	return true;
+}
+rg.query.QueryPropertiesCount.prototype.load = function() {
+	if(null == this.properties) {
+		var loader = new rg.query.QueryPropertyNames(this.executor,this.path,this.event), me = this;
+		loader.onData.add(function(d) {
+			me.properties = d.map(function(d1,i) {
+				return Strings.ltrim(d1,".");
+			});
+			loader.close();
+			me.load();
+		});
+		loader.load();
+	} else rg.query.QueryEvent.prototype.load.call(this);
+}
+rg.query.QueryPropertiesCount.prototype.executeLoad = function(success,error) {
+	var count = 0, total = this.properties.length, result = [], totalcount = 0;
+	var _success = function(p,v) {
+		result.push({ label : p, value : v});
+		if(++count == total) success(result);
+	};
+	var _g = 0, _g1 = this.properties;
+	while(_g < _g1.length) {
+		var property = _g1[_g];
+		++_g;
+		this.executor.propertyCount(this.path,{ property : this.event + "." + property},(function(f,a1) {
+			return function(a2) {
+				return f(a1,a2);
+			};
+		})(_success,property),error);
+	}
+}
+rg.query.QueryPropertiesCount.prototype.__class__ = rg.query.QueryPropertiesCount;
 rg.svg.SvgLineChart = function(panel,x,y) {
 	if( panel === $_ ) return;
 	this._cpid = "linechart_clip_path_" + ++rg.svg.SvgLineChart._pathid;
