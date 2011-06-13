@@ -2520,37 +2520,6 @@ StringTools.isEOF = function(c) {
 	return c != c;
 }
 StringTools.prototype.__class__ = StringTools;
-if(typeof haxe=='undefined') haxe = {}
-haxe.Firebug = function() { }
-haxe.Firebug.__name__ = ["haxe","Firebug"];
-haxe.Firebug.detect = function() {
-	try {
-		return console != null && console.error != null;
-	} catch( e ) {
-		return false;
-	}
-}
-haxe.Firebug.redirectTraces = function() {
-	haxe.Log.trace = haxe.Firebug.trace;
-	js.Lib.setErrorHandler(haxe.Firebug.onError);
-}
-haxe.Firebug.onError = function(err,stack) {
-	var buf = err + "\n";
-	var _g = 0;
-	while(_g < stack.length) {
-		var s = stack[_g];
-		++_g;
-		buf += "Called from " + s + "\n";
-	}
-	haxe.Firebug.trace(buf,null);
-	return true;
-}
-haxe.Firebug.trace = function(v,inf) {
-	var type = inf != null && inf.customParams != null?inf.customParams[0]:null;
-	if(type != "warn" && type != "info" && type != "debug" && type != "error") type = inf == null?"error":"log";
-	console[type]((inf == null?"":inf.fileName + ":" + inf.lineNumber + " : ") + Std.string(v));
-}
-haxe.Firebug.prototype.__class__ = haxe.Firebug;
 if(!thx.util) thx.util = {}
 thx.util.Message = function(message,params,param) {
 	if( message === $_ ) return;
@@ -3061,7 +3030,6 @@ thx.error.Error.prototype.toString = function() {
 		return Strings.format(this.message,this.params);
 	} catch( e ) {
 		var ps = this.pos.className + "." + this.pos.methodName + "(" + this.pos.lineNumber + ")";
-		haxe.Log.trace("wrong parameters passed for pattern '" + this.message + "' at " + ps,{ fileName : "Error.hx", lineNumber : 34, className : "thx.error.Error", methodName : "toString"});
 		return "";
 	}
 }
@@ -3625,13 +3593,9 @@ rg.query.QueryEventsCount.prototype.filter = function(value,count) {
 	return true;
 }
 rg.query.QueryEventsCount.prototype.load = function() {
-	haxe.Log.trace("loading",{ fileName : "QueryEventsCount.hx", lineNumber : 29, className : "rg.query.QueryEventsCount", methodName : "load"});
 	if(null == this.events) {
-		haxe.Log.trace("null or empty",{ fileName : "QueryEventsCount.hx", lineNumber : 32, className : "rg.query.QueryEventsCount", methodName : "load"});
 		var loader = new rg.query.QueryEventNames(this.executor,this.path), me = this;
 		loader.onData.add(function(d) {
-			haxe.Log.trace("data in",{ fileName : "QueryEventsCount.hx", lineNumber : 36, className : "rg.query.QueryEventsCount", methodName : "load"});
-			haxe.Log.trace(d,{ fileName : "QueryEventsCount.hx", lineNumber : 37, className : "rg.query.QueryEventsCount", methodName : "load"});
 			me.events = d.map(function(d1,i) {
 				return Strings.ltrim(d1,".");
 			});
@@ -3639,11 +3603,8 @@ rg.query.QueryEventsCount.prototype.load = function() {
 			me.load();
 		});
 		loader.load();
-		haxe.Log.trace("loading ...",{ fileName : "QueryEventsCount.hx", lineNumber : 43, className : "rg.query.QueryEventsCount", methodName : "load"});
-	} else {
-		haxe.Log.trace("ready to run",{ fileName : "QueryEventsCount.hx", lineNumber : 45, className : "rg.query.QueryEventsCount", methodName : "load"});
-		rg.query.QueryPath.prototype.load.call(this);
-	}
+		null;
+	} else rg.query.QueryPath.prototype.load.call(this);
 }
 rg.query.QueryEventsCount.prototype.executeLoad = function(success,error) {
 	var count = 0, total = this.events.length, result = [], totalcount = 0;
@@ -3860,7 +3821,7 @@ thx.js.behavior.Zoom.prototype.dispatch = function(d,i) {
 		try {
 			this._dispatcher(d,i);
 		} catch( e ) {
-			haxe.Log.trace(e,{ fileName : "Zoom.hx", lineNumber : 141, className : "thx.js.behavior.Zoom", methodName : "dispatch"});
+			null;
 		}
 	}
 }
@@ -5790,8 +5751,6 @@ rg.query.mock.RandomExecutor.prototype.time = function() {
 }
 rg.query.mock.RandomExecutor.prototype.children = function(path,options,success,error) {
 	var type = options.type;
-	haxe.Log.trace(type,{ fileName : "RandomExecutor.hx", lineNumber : 50, className : "rg.query.mock.RandomExecutor", methodName : "children"});
-	haxe.Log.trace(options,{ fileName : "RandomExecutor.hx", lineNumber : 51, className : "rg.query.mock.RandomExecutor", methodName : "children"});
 	switch(type) {
 	case "all":
 		var h = this.structure.get(path);
@@ -5802,7 +5761,6 @@ rg.query.mock.RandomExecutor.prototype.children = function(path,options,success,
 		return;
 	case "property":
 		var h = this.structure.get(path);
-		haxe.Log.trace(path,{ fileName : "RandomExecutor.hx", lineNumber : 69, className : "rg.query.mock.RandomExecutor", methodName : "children"});
 		return null == h?this.go(success,[]):this.go(success,rg.query.mock.RandomExecutor.getProperties(h.events.keys()));
 	default:
 	}
@@ -6734,18 +6692,12 @@ rg.pivottable.PivotTable.prototype.wireDateControls = function() {
 }
 rg.pivottable.PivotTable.prototype.startTimeChanged = function(n,_) {
 	var v = n.value;
-	if(v == "") this.start = null; else if(Dates.canParse(v)) this.start = Dates.parse(v); else {
-		haxe.Log.trace("unable to parse date",{ fileName : "PivotTable.hx", lineNumber : 578, className : "rg.pivottable.PivotTable", methodName : "startTimeChanged"});
-		return;
-	}
+	if(v == "") this.start = null; else if(Dates.canParse(v)) this.start = Dates.parse(v); else return;
 	this.query();
 }
 rg.pivottable.PivotTable.prototype.endTimeChanged = function(n,_) {
 	var v = n.value;
-	if(v == "") this.end = null; else if(Dates.canParse(v)) this.end = Dates.parse(v); else {
-		haxe.Log.trace("unable to parse date",{ fileName : "PivotTable.hx", lineNumber : 594, className : "rg.pivottable.PivotTable", methodName : "endTimeChanged"});
-		return;
-	}
+	if(v == "") this.end = null; else if(Dates.canParse(v)) this.end = Dates.parse(v); else return;
 	this.query();
 }
 rg.pivottable.PivotTable.prototype._loadProperties = function(v) {
@@ -6975,7 +6927,6 @@ for(var k in rg.query.QueryProperty.prototype ) rg.query.QueryPropertySeries.pro
 rg.query.QueryPropertySeries.forLineChart = function(executor,path,event,property,others,otherslabel) {
 	var query = new rg.query.QueryPropertySeries(executor,path,event,property);
 	query.transform = function(data) {
-		haxe.Log.trace(data,{ fileName : "QueryPropertySeries.hx", lineNumber : 30, className : "rg.query.QueryPropertySeries", methodName : "forLineChart"});
 		var start = null != query.time.start?query.time.start.getTime():rg.util.Periodicity.minForPeriodicityInSeries([data],query.time.periodicity), end = null != query.time.end?query.time.end.getTime():rg.util.Periodicity.maxForPeriodicityInSeries([data],query.time.periodicity), minx = Math.POSITIVE_INFINITY, maxx = Math.NEGATIVE_INFINITY, miny = Math.POSITIVE_INFINITY, maxy = Math.NEGATIVE_INFINITY;
 		var range = rg.util.Periodicity.range(start,end,query.time.periodicity), values = [], d, y;
 		d = Reflect.field(data,query.time.periodicity);
@@ -7873,7 +7824,6 @@ rg.svg.SvgLineChartHighlighter.prototype.init = function() {
 rg.svg.SvgLineChartHighlighter.prototype._eventForward = function(_,_1) {
 	var e = thx.js.Dom.event;
 	var parent = this.svg.node().parentNode;
-	haxe.Log.trace(e.target = parent,{ fileName : "SvgLineChartHighlighter.hx", lineNumber : 62, className : "rg.svg.SvgLineChartHighlighter", methodName : "_eventForward"});
 	parent.fireEvent(e.type,e);
 }
 rg.svg.SvgLineChartHighlighter.prototype.label = function(x) {
@@ -8161,41 +8111,7 @@ rg.query.QueryLimit.Bottom = function(v) { var $x = ["Bottom",1,v]; $x.__enum__ 
 rg.query.QueryLimit.NoLimit = ["NoLimit",2];
 rg.query.QueryLimit.NoLimit.toString = $estr;
 rg.query.QueryLimit.NoLimit.__enum__ = rg.query.QueryLimit;
-Main = function() { }
-Main.__name__ = ["Main"];
-Main.main = function() {
-	haxe.Firebug.redirectTraces();
-}
-Main.createTimedData = function(creator) {
-	var timer = new haxe.Timer(Main.TIME_SPAN);
-	timer.run = creator;
-	creator();
-}
-Main.createPivotRandomData = function() {
-	Main.createTimedData(Main.createPivotData);
-}
-Main.createPivotData = function() {
-	var qt = Std.random(Main.MAX_PER_CREATION - Main.MIN_PER_CREATION) + Main.MIN_PER_CREATION;
-	var now = Date.now().getTime();
-	var _g = 0;
-	while(_g < qt) {
-		var i = _g++;
-		rg.js.ReportGrid.track(Main.PATH_PIVOTS,{ count : 1, timestamp : now - Std.random(Main.TIME_SPAN), events : { click : { location : Arrays.random(Main.locations), gender : Arrays.random(Main.genders), age : Arrays.random(Main.ageranges)}}});
-	}
-}
-Main.createTweetRandomData = function() {
-	Main.createTimedData(Main.createTweetData);
-}
-Main.createTweetData = function() {
-	var qt = Std.random(Main.MAX_PER_CREATION - Main.MIN_PER_CREATION) + Main.MIN_PER_CREATION;
-	var now = Date.now().getTime();
-	var _g = 0;
-	while(_g < qt) {
-		var i = _g++;
-		rg.js.ReportGrid.track(Main.PATH_TWEETS,{ count : 1, timestamp : now - Std.random(Main.TIME_SPAN), events : { tweet : { startup : Arrays.random(Main.gluecons)}}});
-	}
-}
-Main.prototype.__class__ = Main;
+if(typeof haxe=='undefined') haxe = {}
 haxe.Log = function() { }
 haxe.Log.__name__ = ["haxe","Log"];
 haxe.Log.trace = function(v,infos) {
@@ -8756,7 +8672,6 @@ rg.query.QueryValuesSeries.prototype.executeLoad = function(success,error) {
 		success(data);
 	};
 	var _total = function(value) {
-		haxe.Log.trace(value,{ fileName : "QueryValuesSeries.hx", lineNumber : 41, className : "rg.query.QueryValuesSeries", methodName : "executeLoad"});
 		data[total - 1] = value;
 		if(++count == total) _end();
 	};
@@ -8956,7 +8871,7 @@ rg.Viz.pie = function(el,query,options) {
 	return chart;
 }
 rg.Viz.error = function(e) {
-	haxe.Log.trace("ERROR: " + e,{ fileName : "Viz.hx", lineNumber : 229, className : "rg.Viz", methodName : "error"});
+	null;
 }
 rg.Viz.sizeOptions = function(selection,options) {
 	var v;
@@ -9117,7 +9032,7 @@ rg.Viz.makeoptions = function(options,defaults) {
 }
 rg.Viz.select = function(el) {
 	var el1 = Std["is"](el,String)?thx.js.Dom.select(el):thx.js.Dom.selectNode(el);
-	if(el1.empty()) throw new thx.error.Error("invalid container",null,null,{ fileName : "Viz.hx", lineNumber : 570, className : "rg.Viz", methodName : "select"});
+	if(el1.empty()) throw new thx.error.Error("invalid container",null,null,{ fileName : "Viz.hx", lineNumber : 572, className : "rg.Viz", methodName : "select"});
 	return el1;
 }
 rg.Viz.scale = function(displayLabels,displayTicks,labellength) {
@@ -11490,6 +11405,11 @@ thx.languages.En.getLanguage();
 	d.__name__ = ["Date"];
 }
 {
+	var r = window.ReportGrid;
+	r.timeSeries = rg.Viz.line;
+	r.totals = rg.Viz.pie;
+}
+{
 	String.prototype.__class__ = String;
 	String.__name__ = ["String"];
 	Array.prototype.__class__ = Array;
@@ -11597,15 +11517,6 @@ thx.svg.LineInternals._lineBasisBezier3 = [0,1 / 6,2 / 3,1 / 6];
 rg.svg.SvgStreamGraph._pathid = 0;
 Dates._reparse = new EReg("^\\d{4}-\\d\\d-\\d\\d(( |T)\\d\\d:\\d\\d(:\\d\\d(\\.\\d{1,3})?)?)?Z?$","");
 rg.svg.SvgScaleLabel.defaultTexttextHeight = 12;
-Main.MAX_PER_CREATION = 50;
-Main.MIN_PER_CREATION = 10;
-Main.TIME_SPAN = 10000;
-Main.PATH_TWEETS = "/tweets";
-Main.PATH_PIVOTS = "/pivots";
-Main.locations = ["El Paso","Denver","Denver","Arapahoe","Jefferson","Adams","Larimer","Boulder","Boulder","Boulder","Douglas","Weld","Pueblo","Mesa","Garfield"];
-Main.genders = ["male","male","female","female","female"];
-Main.ageranges = ["13-19","20-24","25-34","25-34","25-34","35-50","35-50","over fifty"];
-Main.gluecons = ["@ReportGrid","@ReportGrid","@ReportGrid","@ReportGrid","@axiomatics","@axiomatics","@bigdoormedia","@bigdoormedia","@jexyco","@eclipse foundation","@flomio","@locvox","@proxomo","@singlyinc","@standing_cloud","@standing_cloud","@statsmix","@StreamStep","@StreamStep","@tendril","@wanderfly","@get_rainmaker"];
 thx.js.BaseTransition._id = 0;
 thx.js.BaseTransition._inheritid = 0;
 rg.Viz.executor = new rg.query.js.ReportGridExecutor();
@@ -11623,4 +11534,3 @@ thx.color.Colors._reParse = new EReg("^\\s*(?:(hsl|rgb|rgba|cmyk)\\(([^)]+)\\))|
 DateTools.DAYS_OF_MONTH = [31,28,31,30,31,30,31,31,30,31,30,31];
 rg.svg.SvgLineChart._pathid = 0;
 rg.util.Periodicity.validPeriods = ["minute","hour","day","week","month","year","eternity"];
-Main.main()

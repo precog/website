@@ -18,12 +18,9 @@
 	<script src="js/reportgrid-viz.js" type="text/javascript"></script>
 	<script type="text/javascript">
 $(document).ready(function() {
-	var basepath ="/prod",
-		start,
-		end,
-		event,
-		property,
-		pathparts = [];
+	var basepath ="/prod";
+	
+	var end, metric1, metric2, metrics = 2, pathparts = [];
 	
 	function path() {
 		return [basepath].concat(pathparts).join('/').replace('//', '/');
@@ -86,29 +83,25 @@ $(document).ready(function() {
 		buildChart();
 	});
 	
-	event = $('#event').datepicker().change(function() {
-		event = $(this).val();
-		buildChart();
-	}).val();
-	
-	property = $('#property').datepicker().change(function() {
-		property = $(this).val();
-		buildChart();
-	}).val();
+	for(var i = 0; i < metrics; i++)
+	{
+		$('#metric'+i).change(buildChart); 
+	}
 
 	function buildChart()
 	{
-		
 		var query = [];
-
-		if(!event || !property)
-			return;
-			
-		query.push({
-			path : path(),
-			event : event,
-			property : property
-		});
+		for(var i = 0; i < metrics; i++)
+		{
+			var v = $('#metric' + i).val();
+			if(v)
+			{
+				query.push({
+					path : path(),
+					event : v
+				});
+			}
+		}
 		
 		if(query.length == 0)
 		{
@@ -175,21 +168,16 @@ $(document).ready(function() {
 			</div>
 			<div>
 				<label>metrics:</label>
-				<select id="event">
-					<option value="" selected>- select event -</option>
+				<select id="metric0">
+					<option value="" selected>- select metric 1 -</option>
 					<option value="click">click</option>
 					<option value="impression">impression</option>
 				</select>
 				
-				<select id="property">
-					<option value="" selected>- select property -</option>
-					<option value="supplierId">supplier</option>
-					<option value="supplierPriceCpm">supplier price CPM</option>
-					<option value="platform">platform</option>
-					<option value="carrierId">carrier</option>
-					<option value="creativeId">creative</option>
-					<option value="placementId">placement</option>
-					<option value="contextId">context</option>
+				<select id="metric1">
+					<option value="" selected>- select metric 2 -</option>
+					<option value="click">click</option>
+					<option value="impression">impression</option>
 				</select>
 			</div>
 			<div>
