@@ -12,9 +12,11 @@
 
 .rg text
 {
-	font-family: verdana, sans-serif;
-	font-size: 10px;
-	fill: #333;
+	font-family: "Lucida Grande", "Lucida Sans Unicode", Verdana, Arial, Helvetica, sans-serif;
+	color:#666;
+	font-size:11px;
+	line-height:14px;
+	fill:#666;
 	stroke: 0;
 }
 
@@ -201,7 +203,7 @@ border: 1px solid #0026FF !important;
 	stroke-miterjoin: miter;
 	stroke-miterlimit: 1;
 }
-/*
+
 .rg g.group-0 path, ul li.logo-0
 {
 	border-color: #1f77b4;
@@ -314,7 +316,7 @@ border: 1px solid #0026FF !important;
 	stroke: #c7c7c7;
 	fill: #c7c7c7;
 }
-*/
+
 .rg line, .rg path
 {
 	stroke: #999;
@@ -342,10 +344,21 @@ border: 1px solid #0026FF !important;
 	text-align: center;
 	font-weight: bold;
 	background-color: #ffc;
-	border: 1px solid #ff9;
-	font-family: Verdana;
-	font-size: 10px;
+	border: 1px solid #cc6;
+	font-family: "Lucida Grande", "Lucida Sans Unicode", Verdana, Arial, Helvetica, sans-serif;
+	color:#333;
+	font-size:11px;
+	line-height:14px;
+	fill:#333;
 	padding: 3px 8px;
+	
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	
+	-moz-box-shadow: 2px 2px 3px #666;
+	-webkit-box-shadow: 2px 2px 3px #666;
+	box-shadow: 2px 2px 3px #666;
 }
 
 .rg g.linechart-highlighter line, line.rule
@@ -360,7 +373,7 @@ border: 1px solid #0026FF !important;
 {
 	fill: #fff;
 	stroke: #999;
-	stroke-width: 2px;
+	stroke-width: 1px;
 }
 
 .rg line.rule
@@ -377,7 +390,8 @@ border: 1px solid #0026FF !important;
 
 .rg rect.panel-frame
 {
-	fill: rgba(255,255,255,0.0);
+	fill: #fff;
+	fill-opacity: 0;
 }
 
 .rg .line-chart path.line
@@ -390,6 +404,7 @@ border: 1px solid #0026FF !important;
 	stroke-width: 4.5;
 }
 
+/*
 .rg .line-chart.dimension-0 path.line
 {
 	stroke: #1f77b4 !important;
@@ -401,6 +416,7 @@ border: 1px solid #0026FF !important;
 	stroke-width: 0 !important;
 	font-weight: bold;
 }
+*/
 
 .rg .line-chart.dimension-1 path.line
 {
