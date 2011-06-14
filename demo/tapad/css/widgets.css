@@ -17,7 +17,7 @@
 	font-size:11px;
 	line-height:14px;
 	fill:#666;
-	stroke: 0;
+	stroke-width: 0;
 }
 
 .rg .stream-chart path
@@ -182,7 +182,10 @@ border: 1px solid #0026FF !important;
 
 
 /* CHART DESIGN */
-
+#chart
+{
+	clear: left;
+}
 
 .rg
 {
@@ -418,6 +421,11 @@ border: 1px solid #0026FF !important;
 }
 */
 
+.rg .dimension-0 text
+{
+	font-weight: bold;
+}
+
 .rg .line-chart.dimension-1 path.line
 {
 	stroke: #d62728 !important;
@@ -446,7 +454,7 @@ label
 	font-weight: bold;
 	font-size: 11px;
 	float: left;
-	min-width: 50px;
+	min-width: 60px;
 	padding-top: 4px;
 }
 
@@ -454,7 +462,7 @@ label
 {
 	border: 1px solid #ccc;
 	margin: 1px 2px 0 0;
-	padding: 2px 8px;
+	padding: 0px 8px;
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	border-radius: 4px;
