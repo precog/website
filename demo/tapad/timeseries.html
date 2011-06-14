@@ -97,6 +97,8 @@ $(document).ready(function() {
 
 	function buildChart()
 	{
+		if(!start || !end)
+			return;
 		var query = [];
 		for(var i = 0; i < metrics; i++)
 		{

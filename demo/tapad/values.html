@@ -101,7 +101,9 @@ $(document).ready(function() {
 
 	function buildChart()
 	{
-		
+		if(!start || !end)
+			return;
+
 		var query = [];
 
 		if(!event || !property)
