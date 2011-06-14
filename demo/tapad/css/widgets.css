@@ -18,6 +18,7 @@
 	line-height:14px;
 	fill:#666;
 	stroke-width: 0;
+	text-rendering: optimizelegibility;
 }
 
 .rg .stream-chart path
@@ -90,12 +91,13 @@ margin: 0 4px 0 0;
 .property-panel .limit
 {
 width: 3em;
+padding: 0;
 text-align: center;
 }
 
-.time-controls input
+#dates input
 {
-width: 11em;
+width: 5em;
 text-align: center;
 }
 
@@ -447,6 +449,7 @@ border: 1px solid #0026FF !important;
 	-moz-border-radius: 4px;
 	border-radius: 4px;
 	float: left;
+	min-height: 23px;
 }
 
 label
@@ -455,7 +458,12 @@ label
 	font-size: 11px;
 	float: left;
 	min-width: 60px;
-	padding-top: 4px;
+	margin-left: 10px;
+}
+
+label:first-child
+{
+	margin-left: 0px;
 }
 
 #rootpath a, #rootpath span.current
@@ -466,7 +474,7 @@ label
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	border-radius: 4px;
-	float: left;
+/*	float: left; */
 }
 
 #rootpath span.current
