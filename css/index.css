@@ -1580,4 +1580,13 @@ strong, .aqua {
   visibility: hidden;
 }
 
-
+div.picture
+{
+	text-align: center;
+    background-color: white;
+    border-color: #F7F756;
+    border-radius: 15px 30px 15px 30px;
+    border-style: solid;
+    border-width: 1px;
+	padding: 0 20px;
+}
