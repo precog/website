@@ -218,6 +218,18 @@ ReportGrid.timeSeries(
 						<li>monotone</li>
 					</ul>
 				</div>
+				<div>
+					By default, the x scale will display regular tick values. If you want to just display the first and the last labels of the scale, use the following option (default is "false"):
+				</div>
+				<pre class="prettyprint">
+					var options = { xaxis : { labelsonbounds : true } };
+				</pre>
+				<div>
+					To display or hide the horizontal lines that match the y scale ticks, use the yscale.shoruler. By default it is set to true. Note that this feature only works with time series that use just one y scale.
+				</div>
+				<pre class="prettyprint">
+					var options = { yscale : { showrulers : true } };
+				</pre>
             </div>
 			
 			<div class="content-block">
