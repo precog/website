@@ -325,7 +325,7 @@ OR minimally
                 </tr>
                 <tr>
                   <td class="minor-text pre-explanation"><b>tokenId</b></td>
-                  <td>1A3EF8C7-7FC8-46E2-BC8C-489520510A5C</td>
+                  <td>A3BC1539-E8A9-4207-BB41-3036EC2C6E6D</td>
                 </tr>
                 <tr>
                   <td class="minor-text pre-explanation"><b>NOTE:</b></td>
@@ -341,7 +341,7 @@ OR minimally
                 <p>For this step, be sure to replace <b>[uniquePathIdentifier]</b> with an alphabetical and unique identifier (like your last name!), as this will become your tokenId's path.</p>
 
                 <textarea class="code-select"  readonly="readonly">
-curl "http://api.reportgrid.com/services/analytics/v0/tokens/?tokenId=1A3EF8C7-7FC8-46E2-BC8C-489520510A5C" -v -H "Content-Type: application/json" -d "{\"path\": \"/[uniquePathIdentifier]\"}"</textarea>
+curl "http://api.reportgrid.com/services/analytics/v0/tokens/?tokenId=A3BC1539-E8A9-4207-BB41-3036EC2C6E6D" -v -H "Content-Type: application/json" -d "{\"path\": \"/[uniquePathIdentifier]\"}"</textarea>
                 <p>Since we didn't specify limits or permissions, these are inherited from the parent (sandbox).</p>
               </div>
               <div class="curl-block">
@@ -349,7 +349,7 @@ curl "http://api.reportgrid.com/services/analytics/v0/tokens/?tokenId=1A3EF8C7-7
                 <p>A GET to the parent token will return an array of its descendent tokens.</p>
 
                 <textarea class="code-select"  readonly="readonly">
-curl "http://api.reportgrid.com/services/analytics/v0/tokens/?tokenId=1A3EF8C7-7FC8-46E2-BC8C-489520510A5C" -v -H "Content-Type: application/json"</textarea>
+curl "http://api.reportgrid.com/services/analytics/v0/tokens/?tokenId=A3BC1539-E8A9-4207-BB41-3036EC2C6E6D" -v -H "Content-Type: application/json"</textarea>
                 <p>Locate the tokenId associated with the unique path you specified and copy this.</p>
               </div>
 
@@ -399,7 +399,7 @@ curl "http://api.reportgrid.com/services/analytics/v0/search?tokenId=[copied_tok
                   <table>
                     <tr>
                       <td><p class="input-descriptor ajax-header">tokenId : </p></td>
-                      <td><input id="api-send-tokenId" type="text" value="1A3EF8C7-7FC8-46E2-BC8C-489520510A5C" /></td>
+                      <td><input id="api-send-tokenId" type="text" value="A3BC1539-E8A9-4207-BB41-3036EC2C6E6D" /></td>
                     </tr>
                     <tr>
                       <td><p class="input-descriptor ajax-header">path : </p></td>
