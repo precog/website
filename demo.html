@@ -15,7 +15,10 @@ type="text/javascript"></script>
     } catch(err) {}
     </script>
 
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js" type="text/javascript"></script>
+	<script src="http://www.reportgrid.com/api/js/reportgrid-core.js?tokenId=C7A18C95-3619-415B-A89B-4CE47693E4CC" type="text/javascript"></script>
+	<script src="http://www.reportgrid.com/api/js/reportgrid-viz.js" type="text/javascript"></script>
+	<link href="http://www.reportgrid.com/api/css/rg.css" type="text/css" rel="stylesheet" />
     <script type="text/javascript">
       var rpxJsHost = (("https:" == document.location.protocol) ? "https://" : "http://static.");
       document.write(unescape("%3Cscript src='" + rpxJsHost +
@@ -25,13 +28,6 @@ type="text/javascript"></script>
       RPXNOW.overlay = true;
       RPXNOW.language_preference = 'en';
     </script>
-    <script type="text/javascript" src="visualizations/d3.js"></script>
-    <script type="text/javascript" src="visualizations/d3.csv.js"></script>
-    <script type="text/javascript" src="visualizations/d3.time.js"></script>
-    <script type="text/javascript" src="visualizations/d3.layout.js"></script>
-    <script type="text/javascript" src="visualizations/stream_layers.js"></script>
-    <script type="text/javascript" src="visualizations/d3Pie.js"></script>
-
   </head>
   <body>
     <div id="top">
@@ -56,7 +52,54 @@ type="text/javascript"></script>
           <div id="demo-panel">
             <p class="header">Demo</p>
             <br />
-            <p class="vis-text" class="visualization">We're currently working on getting a source of data for our live analytics demos. Check back soon!</p>
+			<p class="header">Time Series</p>
+			<div class="chart"><div id="values-time"></div></div>
+			<script type="text/javascript">
+ReportGrid.timeSeries("#values-time", [{
+	path : "/rgadnet/",
+	event : "impression",
+	property : "platform"
+}], {
+	start : "2011/06/21 16:13",
+	end : "2011/06/21 15:40",
+	lineinterpolator : "cardinal-0.85"
+});
+			</script>
+			<br/>
+			
+			<table width="100%">
+				<tr>
+					<td width="45%">
+<p class="header">Pie Chart</p>
+			<div class="chart">
+				<div id="values-totals"></div>
+			</div>
+<script type="text/javascript">
+ReportGrid.totals("#values-totals", {
+	path : "/rgadnet/",
+	event : "impression",
+	property : "platform",
+	other : false
+});
+</script>
+					</td>
+					<td></td>
+					<td width="45%" valign="top">
+<p class="header">Leader Board</p>
+<div class="chart">
+	<div id="values-leaderboard"></div>
+</div>
+<script type="text/javascript">
+ReportGrid.leaderBoard("#values-leaderboard", {
+	path : "/rgadnet/",
+	event : "impression",
+	property : "platform",
+	other : false
+});
+</script>
+					</td>
+				</tr>
+			</table>
           </div>
         </div>
         <div class="bottom-cap"></div>
@@ -98,19 +141,6 @@ type="text/javascript"></script>
     </div>
 
     <script type="text/javascript">
-    d3Pie.createPie(
-      "pie-container",
-      .5,
-      {
-        viewPlayer        : 492,
-        closePlayer       : 206,
-        playSong          : 288,
-        playerProgress25  : 170,
-        playerProgress50  : 96,
-        playerProgress75  : 41,
-        playerProgress100 : 19
-      }
-    );
     $('img.rollover').hover(
       function(e) { this.setAttribute('src', this.getAttribute('src').replace('reg', 'sel')); },
       function(e) { this.setAttribute('src', this.getAttribute('src').replace('sel', 'reg')); }
@@ -140,7 +170,5 @@ type="text/javascript"></script>
 
 
     </script>
-
-        <script type="text/javascript" src="visualizations/stack.js"></script>
   </body>
 </html>

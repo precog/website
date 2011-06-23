@@ -75,7 +75,7 @@ type="text/javascript"></script>
             <!-- Overview -->
 
             <div class="overview-content-block">
-              <p class="header">Overview</p>
+              <p class="blurb">Overview</p>
               <p class="minor-text overview-text">Embedding visualizations in your webpages is really a fast task with ReportGrid. First of all you have to be sure to include the two required javascript files.</p>
 			   <p class="minor-text overview-text">The files are <code>reportgrid-core.js</code> and
 				<code>reportgrid-viz.js</code>. The first requires a parameter for your token id while the latter is a simple inclusion. The following example generates a Time Series Chart out of your data.</p>
@@ -112,13 +112,13 @@ document.addEventListener("DOMContentLoaded", function(){
 </pre>
             </div>
 			<div class="content-block">
-              <p class="header">Element Argument</p>
+              <p class="blurb">Element Argument</p>
 			  <div>
 			    When you build a visualization the first parameter always states where the chart will be placed. The element argument must be a valid CSS selector (usually an id of an element in the format #chartid) or a html node.
 			  </div>
 			</div>
 			<div class="content-block">
-              <p class="header">The Query Object Argument</p>
+              <p class="blurb">The Query Object Argument</p>
 			  <div>
 				Whenever you build a visualization you have to prepare a quey object that tells exactly what you need to display.
 				The bare bone of the query object consist in setting the path where you tracked your events.
@@ -146,7 +146,7 @@ var query = { path : "/path/to/my/events/", event : "eventname", property : "pro
 				Some charts have specific query options that are described in the chart sections.
 			</div>
 			<div class="content-block">
-              <p class="header">The Options Argument</p>
+              <p class="blurb">The Options Argument</p>
 			  <div>
 			    Some common options apply to every kind of visualization. Those parameters are passed as an object as the first argument of a visualization method. Many visualizations do not even require that argument at all.
 			  </div>
@@ -167,7 +167,7 @@ var options = {
 			  </div>
 			</div>
             <div class="content-block">
-              <p class="header">Time Series Chart</p>
+              <p class="blurb">Time Series Chart</p>
               <div>
                 <p class="medium-text">timeSeries(element, query, options)</p>
                 <p></p>
@@ -233,7 +233,7 @@ ReportGrid.timeSeries(
             </div>
 			
 			<div class="content-block">
-              <p class="header">Leaderboards and Totals Charts</p>
+              <p class="blurb">Leaderboards and Totals Charts</p>
 			  <div>
 				Leaderboards and Totals charts are basically the same kind of information displayed in different ways. While a leaderboard is essentially a list of labels, Totals Chart is a graphical representation in the form of a pie chart (more strictly a donut chart). For this reason the same options apply to both.
 			  </div>
@@ -251,7 +251,6 @@ ReportGrid.leaderBoard(
 					The example above might produce something like this:
 				</div>
 				<div class="picture"><img src="images/leaderboard.png" title=""/></div>
-				<p class="medium-text">totals(element, query, options)</p>
                 <p></p>
                 <pre class="prettyprint">
 ReportGrid.totals(
@@ -264,16 +263,73 @@ ReportGrid.totals(
 					The example above might produce something like this:
 				</div>
 				<div class="picture"><img src="images/donutchart.png" title=""/></div>
-			<div>
 				<div>
-					Optionally you can pass a "top" or "bottom" field to your query object with an integer value to indicate that you only want the top/bottom results of a certain series. The "other" field (true or false value) can be used to add a series of the cumulative values that don't fall into the range specified with "top" or "bottom".
+					<div>
+						Optionally you can pass a "top" or "bottom" field to your query object with an integer value to indicate that you only want the top/bottom results of a certain series. The "other" field (true or false value) can be used to add a series of the cumulative values that don't fall into the range specified with "top" or "bottom".
+					</div>
+					<div>
+						If you want to determine if a series should be included in your visualization at runetime, you can pass a "filter" field. The filter must be a function that takes a string (the label of the series) and an integer (the total count for that series) as parameters and that returns a boolean value (true for inclusion, false for exclusion).
+					</div>
 				</div>
-				<div>
-					If you want to determine if a series should be included in your visualization at runetime, you can pass a "filter" field. The filter must be a function that takes a string (the label of the series) and an integer (the total count for that series) as parameters and that returns a boolean value (true for inclusion, false for exclusion).
-				</div>
-            </div>
 
             </div>
+			
+			
+			<div class="content-block">
+              <p class="blurb">Pivot Table</p>
+			  <div>
+				Pivot Tables allow you to visualize intersection over serveral axis in a table format.
+			  </div>
+              <div>
+                <p class="medium-text">pivotTable(element, query, options)</p>
+                <p></p>
+                <pre class="prettyprint">
+ReportGrid.pivotTable("#pivot", {
+  path : "/rgadnet/",
+  properties : [{ 
+    event : "impression",
+    property : "ageRange"
+  }, { 
+    event : "impression",
+    property : "platform"
+  }, {
+    event : "impression",
+    property : "gender"
+  }, { 
+    event : "track",
+    property : "#timestamp"
+  }]}, {
+    start : "yesterday",
+    end : "today",
+    periodicity : "hour",
+    coldimensions : 1
+});</pre>
+
+				<div>
+					The example above shows the data intersection over three different properties plus the special time property. The result is something like this:
+				</div>
+				<div class="picture"><img src="images/pivottable.png" title=""/></div>
+                <p></p>
+				<div>
+					<div>
+						The query object for Pivot Tables is quite different from what used in other visualizations. You still need a <code>path</code> but properties and events are specified in the property array field. Each element of the array is an object and apart the mandatory <code>event</code> and <code>property</code> it can have a <code>top</code> or <code>bottom</code> field that specify how many elements you want to display. Note that those parameters are meaningless when the property is of type time. The special time property must be named <code>#timestamp</code>.
+					</div>
+					<div>
+						<p>In the options you can set the <code>coldimensions</code> (default is 1) parameter to decide how many dimension will be used on the column axis; all the remaining properties will be used in the rows.</p>
+						<p>The following options are available for the Pivot Table visualization:</p>
+						<ul>
+							<li>displayColumnTotal : boolean value (default is true)</li>
+							<li>displayRowTotal : boolean value (default is true)</li>
+							<li>heatMap : boolean value (default is true)</li>
+							<li>startColor : string value that describe a color by name or by exadeciaml value (ei: #ccffff)</li>
+							<li>endColor : value string value that describe a color by name or by exadeciaml value (ei: #ccffff)</li>
+						</ul>
+					</div>
+				</div>
+            </div>
+			</div>
+			</div>
+			</div>
           </div>
         </div>
         <div class="bottom-cap"></div>

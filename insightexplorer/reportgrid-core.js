@@ -1,4 +1,3 @@
-/**
 /* Copyright (C) 2011 by ReportGrid, Inc. All rights reserved.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -119,8 +118,8 @@ var ReportGrid = window.ReportGrid || {};
       else return url + suffix + queries.join('&');
     },
 
-    getConsole: function() {
-      var console = window.console;
+    getConsole: function(enabled) {
+      var console = enabled ? window.console : undefined;
       if (!console) {
         console = {};
 
@@ -441,23 +440,29 @@ var ReportGrid = window.ReportGrid || {};
       }
     }
   }
+  
+  $.Bool = function(v) {
+    return v === true || v === 1 || (v = (""+v).toLowerCase()) == "true" || v == "on" || v == "1";
+  }
 
   $.Extend($.Config,
     {
-      analyticsServer: "" // TODO: Insert default location to analytics server
+      analyticsServer: "http://api.reportgrid.com/services/analytics/v0/",
+	  useJsonp : "true",
+	  enableLog : "false"
     }
   );
-
+  
   $.Config.analyticsServer = Util.removeTrailingSlash($.Config.analyticsServer);
 
   $.Http = function() {
-    return ReportGrid.$.Config.useJsonp ? ReportGrid.$.Http.Jsonp : ReportGrid.$.Http.Ajax;
+    return $.Bool(ReportGrid.$.Config.useJsonp) ? ReportGrid.$.Http.Jsonp : ReportGrid.$.Http.Ajax;
   }
 
   $.Http.Ajax  = Network.createHttpInterface(Network.doAjaxRequest);
   $.Http.Jsonp = Network.createHttpInterface(Network.doJsonpRequest);
 
-  var console = Util.getConsole();
+  var console = Util.getConsole($.Bool($.Config.enableLog));
 
   $.Log = {
     log:    function(text) { console.log(text);   },
@@ -551,7 +556,7 @@ var ReportGrid = window.ReportGrid || {};
    *
    * @param path      The path to the data.
    * @param options   An object that contains an optional type
-   *                  ("path" or "property") and an optional
+   *                  ("all", "path" or "property") and an optional
    *                  property (e.g. "transaction.sender").
    *
    * ReportGrid.children("/", {"type":"all"});
@@ -647,7 +652,7 @@ var ReportGrid = window.ReportGrid || {};
   /**
    * Retrieves all values of the specified property throughout all time.
    *
-   * ReportGrid.propertyValue("/customers/jdoe/blog-posts/1/", {property: "click.gender"});
+   * ReportGrid.propertyValues("/customers/jdoe/blog-posts/1/", {property: "click.gender"});
    * > ["male", "female", "unknown"]
    */
   ReportGrid.propertyValues = function(path_, options, success, failure) {
@@ -655,9 +660,9 @@ var ReportGrid = window.ReportGrid || {};
     var property = Util.sanitizeProperty(options.property);
 
     var description = 'Get all values of property ' + path + property;
-
+	var top = options.top ? 'top/' + options.top : (options.bottom ? 'bottom/' + options.bottom : '');
     http.get(
-      $.Config.analyticsServer + '/vfs' + (path + property) + '/values/',
+      $.Config.analyticsServer + '/vfs' + (path + property) + '/values/' + top,
       Util.createCallbacks(success, failure, description),
       {tokenId: $.Config.tokenId }
     );
@@ -690,7 +695,7 @@ var ReportGrid = window.ReportGrid || {};
    * Retrieves the time series count of when the property was equal to the
    * specified value.
    *
-   * ReportGrid.propertyValueSeries("/transactions/", {property: "withdrawal", periodicity: "hour"});
+   * ReportGrid.propertyValueSeries("/transactions/", {property: "click.gender", value: "male" periodicity: "hour"});
    * > {"hour":{"1239232323":293}}
    */
   ReportGrid.propertyValueSeries = function(path_, options, success, failure) {
@@ -755,23 +760,67 @@ var ReportGrid = window.ReportGrid || {};
     var path  = Util.sanitizePath(path_);
     var peri  = options.periodicity || "eternity";
 
-    Util.normalizeTime(options, 'start');
-    Util.normalizeTime(options, 'end');
-
     var description = 'Select series/' + peri + ' from ' + path + ' where ' + JSON.stringify(options.where);
 
+	var ob = {
+	  select: "series/" + peri,
+      from:   path,
+      where:  options.where
+	};
+	
+    var start = Util.normalizeTime(options, 'start');
+    var end = Util.normalizeTime(options, 'end');
+	
+	if(start) ob.start = start;
+	if(end) ob.end = end;
+	
     http.post(
       $.Config.analyticsServer + '/search',
-      {
-        select: "series/" + peri,
-        from:   path,
-        where:  options.where,
-        start:  options.start,
-        end:    options.end
-      },
+      ob,
       Util.createCallbacks(success, failure, description),
       {tokenId: $.Config.tokenId }
     );
+  }
+  
+  /**
+   * Intersect time series for events that meet the specified constraint. Note
+   * that constraints may involve at most one event.
+   *
+   * Options:
+   *
+   *  * properties
+   *  * periodicity
+   *  * start
+   *  * end
+   *
+   *
+   * ReportGrid.intersect("/advertisers/Nike", {periodicity: "hour", properties: [{"property" : ".impression.platform", "limit" : 3, "order" : "descending"}]});
+   * > {"iphone":{"hour":{"1239232323":293}},"android":{"hour":{"1239232323":155}},"blackberry":{"hour":{"1239232323":65}}}
+   */
+  ReportGrid.intersect = function(path_, options, success, failure) {
+	var path = Util.sanitizePath(path_);
+	var peri = options.periodicity || "eternity";
+
+	var description = 'Intersect series/' + peri + ' from ' + path + ' where ' + JSON.stringify(options.properties);
+	
+	var ob = {
+	  select:     "series/" + peri,
+	  from:       path,
+	  properties: options.properties
+	};
+
+    var start = Util.normalizeTime(options, 'start');
+    var end = Util.normalizeTime(options, 'end');
+
+	if(start) ob.start = start;
+	if(end) ob.end = end;
+	
+	http.post(
+	  $.Config.analyticsServer + '/intersect',
+	  ob,
+	  Util.createCallbacks(success, failure, description),
+      {tokenId: $.Config.tokenId }
+	);
   }
 
   /** Lists all tokens.
@@ -811,4 +860,5 @@ var ReportGrid = window.ReportGrid || {};
     );
   }
 })();
+
 
