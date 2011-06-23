@@ -456,9 +456,7 @@ font-size: 85%;
 	stroke-width: 1;
 }
 
-.rg .leaderboard li
+.rg ul.leaderboard li
 {
-	color: #000;
-	font-size: 12pt;
-	
+	color: #000;	
 }
