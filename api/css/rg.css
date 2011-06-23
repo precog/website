@@ -455,3 +455,10 @@ font-size: 85%;
 {
 	stroke-width: 1;
 }
+
+.rg .leaderboard li
+{
+	color: #000;
+	font-size: 12pt;
+	
+}
