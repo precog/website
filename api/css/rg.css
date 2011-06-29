@@ -1,3 +1,76 @@
+/* COLORS */
+
+.rg .item-0
+{
+	border-color: #1f77b4;
+	stroke: #1f77b4;
+	fill: #1f77b4;
+}
+
+.rg .item-1
+{
+	border-color: #ff7f0e;
+	stroke: #ff7f0e;
+	fill: #ff7f0e;
+}
+
+
+.rg .item-2
+{
+	border-color: #2ca02c;
+	stroke: #2ca02c;
+	fill: #2ca02c;
+}
+
+.rg .item-3
+{
+	border-color: #d62728;
+	stroke: #d62728;
+	fill: #d62728;
+}
+
+.rg .item-4
+{
+	border-color: #9467bd;
+	stroke: #9467bd;
+	fill: #9467bd;
+}
+	
+.rg .item-5
+{
+	border-color: #8c564b;
+	stroke: #8c564b;
+	fill: #8c564b;
+}
+	
+.rg .item-6
+{
+	border-color: #e377c2;
+	stroke: #e377c2;
+	fill: #e377c2;
+}
+	
+.rg .item-7
+{
+	border-color: #7f7f7f;
+	stroke: #7f7f7f;
+	fill: #7f7f7f;
+}
+	
+.rg .item-8
+{
+	border-color: #bcbd22;
+	stroke: #bcbd22;
+	fill: #bcbd22;
+}
+	
+.rg .item-9
+{
+	border-color: #17becf;
+	stroke: #17becf;
+	fill: #17becf;
+}
+
 /* SVG */
 .rg 
 {
@@ -10,7 +83,7 @@
 	stroke-width: 1;
 }
 
-.rg text
+.rg text, .rg tspan
 {
 	font-family: "Lucida Grande", "Lucida Sans Unicode", Verdana, Arial, Helvetica, sans-serif;
 	color:#666;
@@ -67,120 +140,6 @@
 	stroke-miterlimit: 1;
 }
 
-.rg g.group-0 path, .rg .bar-chart rect.bar-0
-{
-	border-color: #1f77b4;
-	stroke: #1f77b4;
-	fill: #1f77b4;
-	color: #1f77b4;
-}
-
-.rg g.group-1 path, .rg .bar-chart rect.bar-1
-{
-	border-color: #aec7e8;
-	stroke: #aec7e8;
-	fill: #aec7e8;
-}
-
-
-.rg g.group-2 path, .rg .bar-chart rect.bar-2
-{
-	border-color: #ff7f0e;
-	stroke: #ff7f0e;
-	fill: #ff7f0e;
-}
-
-.rg  g.group-3 path, .rg .bar-chart rect.bar-3
-{
-	border-color: #ffbb78;
-	stroke: #ffbb78;
-	fill: #ffbb78;
-}
-
-.rg g.group-4 path, .rg .bar-chart rect.bar-4
-{
-	border-color: #2ca02c;
-	stroke: #2ca02c;
-	fill: #2ca02c;
-}
-	
-.rg g.group-5 path, .rg .bar-chart rect.bar-5
-{
-	border-color: #98df8a;
-	stroke: #98df8a;
-	fill: #98df8a;
-}
-	
-.rg g.group-6 path, .rg .bar-chart rect.bar-6
-{
-	border-color: #d62728;
-	stroke: #d62728;
-	fill: #d62728;
-}
-	
-.rg g.group-7 path, .rg .bar-chart rect.bar-7
-{
-	border-color: #ff9896;
-	stroke: #ff9896;
-	fill: #ff9896;
-}
-	
-.rg g.group-8 path, .rg .bar-chart rect.bar-8
-{
-	border-color: #9467bd;
-	stroke: #9467bd;
-	fill: #9467bd;
-}
-	
-.rg g.group-9 path, .rg .bar-chart rect.bar-9
-{
-	border-color: #c5b0d5;
-	stroke: #c5b0d5;
-	fill: #c5b0d5;
-}
-	
-.rg g.group-10 path, .rg .bar-chart rect.bar-10
-{
-	border-color: #8c564b;
-	stroke: #8c564b;
-	fill: #8c564b;
-}
-	
-.rg g.group-11 path, .rg .bar-chart rect.bar-11
-{
-	border-color: #c49c94;
-	stroke: #c49c94;
-	fill: #c49c94;
-}
-	
-.rg g.group-12 path, .rg .bar-chart rect.bar-12
-{
-	border-color: #e377c2;
-	stroke: #e377c2;
-	fill: #e377c2;
-}
-	
-.rg g.group-13 path, .rg .bar-chart rect.bar-13
-{
-	border-color: #f7b6d2;
-	stroke: #f7b6d2;
-	fill: #f7b6d2;
-}
-	
-.rg g.group-14 path, .rg .bar-chart rect.bar-14
-{
-	border-color: #7f7f7f;
-	stroke: #7f7f7f;
-	fill: #7f7f7f;
-}
-	
-.rg g.group-15 path, .rg .bar-chart rect.bar-15
-{
-	border-color: #c7c7c7;
-	stroke: #c7c7c7;
-	fill: #c7c7c7;
-}
-
 .rg line, .rg path
 {
 	stroke: #999;
@@ -201,6 +160,7 @@
 .rg .line-chart g.group path
 {
 	fill:none;
+	stroke-width: 3;
 }
 
 #tooltip
@@ -267,20 +227,6 @@
 {
 	stroke-width: 4.5;
 }
-
-/*
-.rg .line-chart.dimension-0 path.line
-{
-	stroke: #1f77b4 !important;
-}
-
-.rg .dimension-0 text
-{
-	fill: #1f77b4;
-	stroke-width: 0 !important;
-	font-weight: bold;
-}
-*/
 
 .rg .dimension-0 text
 {
@@ -433,22 +379,27 @@ font-size: 85%;
 	stroke-width: 1;
 }
 
+.rg .stack-chart rect
+{
+	shape-rendering: crispEdges;
+	stroke-width: 0;
+}
+
 .rg .border
 {
 	stroke: #666;
 	shape-rendering: crispEdges;
 }
 
-.rg .bar-chart text
+.rg .bar-chart text, .rg .pie-chart text, .rg .stack-chart text, .rg .scatter-graph	 text
 {
 	fill: #000;
 	font-weight: bold;
 }
 
-.rg .pie-chart text
+.rg .scatter-graph text
 {
-	fill: #000;
-	font-weight: bold;
+	font-size: 6pt;
 }
 
 .rg .pie-chart path
@@ -459,4 +410,37 @@ font-size: 85%;
 .rg ul.leaderboard li
 {
 	color: #000;	
+}
+
+.rg .symbol path
+{
+	fill: #fff;
+	stroke: #000;
+	stroke-width: 1px;
+}
+
+.rg .funnel-chart .funnel-outside
+{
+	stroke: none;
+}
+
+.rg .funnel-chart .arrow path
+{
+	stroke-width: 0px;
+	stroke: none;
+	fill: #fd3;
+}
+
+.rg .funnel-chart .arrow text
+{
+	fill: #000;
+	font-weight: bold;
+}
+
+.rg path.baloon-connector
+{
+	stroke: #666;
+	stroke-width: 1;
+	stroke-dasharray: 1, 1; 
+/*	shape-rendering: crispEdges; */
 }

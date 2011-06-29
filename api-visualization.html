@@ -282,19 +282,15 @@ ReportGrid.totals(
 			  </div>
               <div>
                 <p class="medium-text">pivotTable(element, query, options)</p>
-                <p></p>
                 <pre class="prettyprint">
 ReportGrid.pivotTable("#pivot", {
   path : "/rgadnet/",
   properties : [{ 
     event : "impression",
     property : "ageRange"
-  }, { 
-    event : "impression",
-    property : "platform"
   }, {
     event : "impression",
-    property : "gender"
+    property : "platform"
   }, { 
     event : "track",
     property : "#timestamp"
@@ -315,7 +311,7 @@ ReportGrid.pivotTable("#pivot", {
 						The query object for Pivot Tables is quite different from what used in other visualizations. You still need a <code>path</code> but properties and events are specified in the property array field. Each element of the array is an object and apart the mandatory <code>event</code> and <code>property</code> it can have a <code>top</code> or <code>bottom</code> field that specify how many elements you want to display. Note that those parameters are meaningless when the property is of type time. The special time property must be named <code>#timestamp</code>.
 					</div>
 					<div>
-						<p>In the options you can set the <code>coldimensions</code> (default is 1) parameter to decide how many dimension will be used on the column axis; all the remaining properties will be used in the rows.</p>
+						<p>In the options you can set the <code>coldimensions</code> parameter (default is 1) to decide how many dimensions will be used for the column axis; all the remaining properties will be used for the row axis.</p>
 						<p>The following options are available for the Pivot Table visualization:</p>
 						<ul>
 							<li>displayColumnTotal : boolean value (default is true)</li>
