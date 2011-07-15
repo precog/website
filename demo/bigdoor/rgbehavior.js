@@ -58,10 +58,13 @@ $('.bd-badges')
 $('.bd-help')
 	.mouseenter(function() { track(path, event("over_help")); })
 	.click(function() { track(path, event("click_help")); });
-var open = true;
+
 $('.bd-toggler')
 	.mouseenter(function() { track(path, event(open ? "over_close" : "over_open")); })
-	.click(function() { track(path, event(open ? "close_bar" : "open_bar")); open = !open; });
+	.toggle(
+		function() { track(path, event("close_bar")); }, 
+		function() { track(path, event("open_bar")); }
+	);
 
 // LOGIN/LOGOUT
 var login = BDM.auth.login,
