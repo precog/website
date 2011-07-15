@@ -85,10 +85,10 @@ var login = BDM.auth.login,
 	logout = BDM.auth.logout,
 	lastlogout = (new Date().getTime());
 BDM.auth.login = function(end_user_login, callback) {
-	console.log("BDM.auth.login");
+//	console.log("BDM.auth.login");
 	if(!loggedin && ((lastlogout + 1000) < (new Date().getTime()))) { 
-		console.log("LOGGED IN");
 	// the guard is required because BDM.auth.login seems to be called several times for each login attempt and there is a login call after each logout call
+//		console.log("LOGGED IN");
 		track(path, "login");
 		loggedin = true;
 		setTimeout(wireEvents, 2000);
@@ -97,9 +97,9 @@ BDM.auth.login = function(end_user_login, callback) {
 };
 
 BDM.auth.logout = function(callback) {
-	console.log("BDM.auth.logout");
+//	console.log("BDM.auth.logout");
 	if(loggedin) {
-		console.log("LOGGED OUT");
+//		console.log("LOGGED OUT");
 		track(path, "logout");
 		loggedin = false;
 		lastlogout = (new Date().getTime());
