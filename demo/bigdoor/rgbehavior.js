@@ -95,7 +95,7 @@ BDM.auth.login = function(end_user_login, callback) {
 	// the guard is required because BDM.auth.login seems to be called several times for each login attempt and there is a login call after each logout call
 		track(path, "login");
 		loggedin = true;
-		wireEvents();
+		setTimeout(wireEvents, 2000);
 	}
 	login(end_user_login, callback);
 };
@@ -107,7 +107,7 @@ BDM.auth.logout = function(callback) {
 		track(path, "logout");
 		loggedin = false;
 		lastlogout = (new Date().getTime());
-		wireEvents();
+		setTimeout(wireEvents, 2000);
 	}
 	logout(callback);
 };
