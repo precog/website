@@ -101,7 +101,7 @@ BDM.auth.login = function(end_user_login, callback) {
 };
 
 BDM.auth.logout = function(callback) {
-	console.log("BDM.auth.login");
+	console.log("BDM.auth.logout");
 	if(loggedin) {
 		console.log("LOGGED OUT");
 		track(path, "logout");
