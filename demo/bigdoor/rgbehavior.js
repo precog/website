@@ -84,11 +84,13 @@ var login = BDM.auth.login,
 	logout = BDM.auth.logout;
 BDM.auth.login = function(end_user_login, callback) {
 	track(path, "login");
+	loggedin = true;
 	login(end_user_login, callback);
 };
 
 BDM.auth.logout = function(callback) {
 	track(path, "logout");
+	loggedin = false;
 	logout(callback);
 };
 
