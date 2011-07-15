@@ -80,12 +80,15 @@ var login = BDM.auth.login,
 	logout = BDM.auth.logout;
 console.log("wire login");
 BDM.auth.login = function(end_user_login, callback) {
+	console.log(end_user_login);
+	console.log("login:" + callback);
 	track(path, "login");
 	loggedin = true;
 	login(end_user_login, callback);
 };
 
 BDM.auth.logout = function(callback) {
+	console.log("logout:" + callback);
 	track(path, "logout");
 	loggedin = false;
 	logout(callback);
