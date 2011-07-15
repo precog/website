@@ -23,7 +23,7 @@ function track(path, event)
 	BDM.profile.balances(function(balances) {
 		p.balance = (balances[0] && balances[0].current_balance) || 0;
 		badges.forEach(function(badge) {
-			p[badge.pub_title.toLowerCase().replace(/ /g, '_')] = true;
+			p["badge_" + badge.pub_title.toLowerCase().replace(/ /g, '_')] = true;
 		});
 		ReportGrid.track(path, { events : e }, function(r) { console.log("track:"+path+" " + dump(e)); });
 	});
