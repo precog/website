@@ -3,31 +3,27 @@ function dump(o) { if(typeof(o) == 'object') { var buf = []; for(f in o) buf.pus
 $.cookie = function (key, value, options) {if (arguments.length > 1 && String(value) !== "[object Object]") {options = jQuery.extend({}, options);if (value === null || value === undefined) {options.expires = -1;}if (typeof options.expires === 'number') {var days = options.expires, t = options.expires = new Date();t.setDate(t.getDate() + days);} value = String(value);return (document.cookie = [encodeURIComponent(key), '=',options.raw ? value : encodeURIComponent(value),options.expires ? '; expires=' + options.expires.toUTCString() : '',options.path ? '; path=' + options.path : '',options.domain ? '; domain=' + options.domain : '',options.secure ? '; secure' : ''].join(''));}options = value || {};var result, decode = options.raw ? function (s) { return s; } : decodeURIComponent;return (result = new RegExp('(?:^|; )' + encodeURIComponent(key) + '=([^;]*)').exec(document.cookie)) ? decode(result[1]) : null;};
 
 var host = window.location.hostname.replace(/\./g, '_'),
-	path = "/bdtest/bigdoor/" + host,
+	path = "/bdtest/bigdoor2/" + host,
 	cvisit = "rgbd-visits",
 	previous_visits = $.cookie(cvisit) || 0,
 	loggedin = false,
 	dcount = 0.5,
 	open = true;
 
-function track(path, event, properties)
+function track(path, event)
 {
 	var e = {},
 		durationrange = dcount <= 2 ? "" + dcount : (((dcount/2)+1)+"-"+dcount),
-		p = { 
-			loggedin : loggedin,
-			duration : durationrange,
-			previousVisits : previous_visits
-		};
-	e[event] = p;
-	if(properties)
-		for(field in properties)
-			p[field] = properties[field];
+		p = e[event] = { 
+		loggedin : loggedin,
+		duration : durationrange,
+		previousVisits : previous_visits
+	};
 	BDM.profile.badges(function(badges) {
 	BDM.profile.balances(function(balances) {
-		e.balance = (balances[0] && balances[0].current_balance) || 0;
+		p.balance = (balances[0] && balances[0].current_balance) || 0;
 		badges.forEach(function(badge) {
-			e[badge.pub_title.toLowerCase().replace(/ /g, '_')] = true;
+			p[badge.pub_title.toLowerCase().replace(/ /g, '_')] = true;
 		});
 		ReportGrid.track(path, { events : e }, function(r) { console.log("track:"+path+" " + dump(e)); });
 	});
