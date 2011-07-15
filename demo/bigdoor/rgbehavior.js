@@ -6,11 +6,13 @@ var host = window.location.hostname.replace(/\./g, '_'),
 	path = "/bdtest/bigdoor/" + host,
 	cvisit = "rgbd-visits",
 	previous_visits = $.cookie(cvisit) || 0,
-	loggedin = false;
+	loggedin = false,,
+	dcount = 0.5;
 	
 function event(name, properties) {
 	var event = {},
-		p = { loggedin : loggedin };
+		durationrange = dcount <= 2 ? "" + dcount : (((dcount/2)+1)+"-"+dcount),
+		p = { loggedin : loggedin, duration : durationrange };
 	event[name] = p;
 	if(properties)
 		for(field in properties)
@@ -23,10 +25,18 @@ function track(name, properties)
 	ReportGrid.track(name, properties, console.log);
 }
 
-$(document).ready(function() { window.setTimeout(function() {
+function elapsed()
+{
+	dcount *= 2;
+	track("onpage");
+	setTimeout(elapsed, dcount);
+}
 
 BDM.auth.status(function(status) {
 loggedin = !!status;
+// TIME ON PAGE
+elapsed();
+
 // ENGAGEMENT
 track(path, event("engagement", { previousVisits : previous_visits }));
 // FIRST ENGAGEMENT
@@ -80,8 +90,6 @@ BDM.auth.logout = function(callback) {
 };
 
 });
-
-}, 3000)});
 
 })();
 
