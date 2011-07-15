@@ -70,16 +70,16 @@ $('.bd-toggler')
 	.click(function() { ReportGrid.track(path, event(open ? "close_bar" : "open_bar")); open = !open; });
 
 // LOGIN/LOGOUT
-var lin = BDM.auth.login,
-	lout = BDM.auth.logout;
+var login = BDM.auth.login,
+	logout = BDM.auth.logout;
 BDM.auth.login = function(end_user_login, callback) {
 	ReportGrid.track(path, event("login"));
-	lin(end_user_login, callback);
+	login(end_user_login, callback);
 };
 
 BDM.auth.logout = function(callback) {
 	ReportGrid.track(path, event("logout"));
-	lout(end_user_login, callback);
+	logout(callback);
 };
 
 });
