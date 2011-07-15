@@ -7,8 +7,7 @@ var host = window.location.hostname.replace(/\./g, '_'),
 	cvisit = "rgbd-visits",
 	previous_visits = $.cookie(cvisit) || 0,
 	loggedin = false,
-	dcount = 0.5,
-	id = null;
+	dcount = 0.5;
 
 function track(path, event, properties)
 {
@@ -23,7 +22,15 @@ function track(path, event, properties)
 	if(properties)
 		for(field in properties)
 			p[field] = properties[field];
-	ReportGrid.track(path, { events : e }, function(r) { console.log("track:"+path+" " + dump(e)); });
+	BDM.profile.badges(function(badges) {
+	BDM.profile.balances(function(balances) {
+		e.balance = (balances[0] && balances[0].current_balance) || 0;
+		badges.forEach(function(badge) {
+			e[badge.pub_title.toLowerCase().replace(/ /g, '_')] = true;
+		});
+		ReportGrid.track(path, { events : e }, function(r) { console.log("track:"+path+" " + dump(e)); });
+	});
+	});
 }
 
 function elapsed()
@@ -81,10 +88,9 @@ var login = BDM.auth.login,
 	logout = BDM.auth.logout;
 BDM.auth.login = function(end_user_login, callback) {
 	console.log(end_user_login + " " + callback);
-	if(!loggedin && end_user_login != id) { // the guard is required because BDM.auth.login seems to be called several times for each login attempt
+	if(!loggedin && end_user_login) { // the guard is required because BDM.auth.login seems to be called several times for each login attempt
 		track(path, "login");
 		loggedin = true;
-		id = end_user_login;
 	}
 	login(end_user_login, callback);
 };
