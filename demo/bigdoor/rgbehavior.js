@@ -41,7 +41,7 @@ elapsed();
 track(path, "engagement");
 // FIRST ENGAGEMENT
 if(!previous_visits)
-	track(path, "first_engagement"));
+	track(path, "first_engagement");
 
 $.cookie(cvisit, ++previous_visits, { expires: 365, path: '/' });
 
@@ -69,23 +69,24 @@ $('.bd-help')
 	.mouseenter(function() { track(path, "over_help"); })
 	.click(function() { track(path, "click_help"); });
 
+var open = true;
 $('.bd-toggler')
-	.mouseenter(function() { track(path, open ? "over_close" : "over_open")); })
+	.mouseenter(function() { track(path, open ? "over_close" : "over_open"); })
 	.toggle(
-		function() { track(path, "close_bar"); }, 
-		function() { track(path, "open_bar"); }
+		function() { track(path, "close_bar"); open = false; }, 
+		function() { track(path, "open_bar"); open = true; }
 	);
 
 // LOGIN/LOGOUT
 var login = BDM.auth.login,
 	logout = BDM.auth.logout;
 BDM.auth.login = function(end_user_login, callback) {
-	track(path, "login"));
+	track(path, "login");
 	login(end_user_login, callback);
 };
 
 BDM.auth.logout = function(callback) {
-	track(path, "logout"));
+	track(path, "logout");
 	logout(callback);
 };
 
