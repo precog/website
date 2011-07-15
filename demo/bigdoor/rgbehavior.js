@@ -33,16 +33,16 @@ function elapsed()
 }
 
 BDM.auth.status(function(status) {
-console.log(status);
 loggedin = status && typeof(status.end_user_login)!="undefined";
-// TIME ON PAGE
-elapsed();
 
 // ENGAGEMENT
 track(path, "engagement");
 // FIRST ENGAGEMENT
 if(!previous_visits)
 	track(path, "first_engagement");
+
+// TIME ON PAGE
+elapsed();
 
 $.cookie(cvisit, ++previous_visits, { expires: 365, path: '/' });
 
@@ -78,6 +78,7 @@ $('.bd-toggler')
 // LOGIN/LOGOUT
 var login = BDM.auth.login,
 	logout = BDM.auth.logout;
+console.log("wire login");
 BDM.auth.login = function(end_user_login, callback) {
 	track(path, "login");
 	loggedin = true;
