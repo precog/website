@@ -12,8 +12,8 @@ $.cookie = function (key, value, options) {if (arguments.length > 1 && String(va
 
 
 var ReportGrid = window.ReportGrid || { track : function(path, o) { console.log("track: " + path + " " + dump(o)); } },
-	host = window.location.hostname,
-	path = "/t/bigdoor/" + host,
+	host = window.location.hostname.replace('.', '_'),
+	path = "/test/bigdoor/" + host,
 	cvisit = "rgbd-visits",
 	previous_visits = $.cookie(cvisit) || 0;
 	
