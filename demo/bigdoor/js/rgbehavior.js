@@ -21,7 +21,7 @@ function track(path, event)
 			previousVisits : previous_visits,
 			os : BrowserDetect.OS,
 			browser : BrowserDetect.browser,
-			browser_version : BrowserDetect.version
+			browser_version : BrowserDetect.browser + " " + BrowserDetect.version
 		};
 	BDM.profile.badges(function(badges) {
 	BDM.profile.balances(function(balances) {
