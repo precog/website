@@ -29,9 +29,9 @@ function track(event)
 		badges.forEach(function(badge) {
 			p["badge_" + badge.pub_title.toLowerCase().replace(/ /g, '_')] = true;
 		});
-		for(path in paths)
-			ReportGrid.track(path, { events : e }
-//				, function(r) { console.log("track:"+path+" " + dump(e)); }
+		for(var i = 0; i < paths.length; i++)
+			ReportGrid.track(paths[i], { events : e }
+//				, function(r) { console.log("track:"+paths[i]+" " + dump(e)); }
 			);
 	});
 	});
@@ -92,10 +92,8 @@ var login = BDM.auth.login,
 	logout = BDM.auth.logout,
 	lastlogout = (new Date().getTime());
 BDM.auth.login = function(end_user_login, callback) {
-//	console.log("BDM.auth.login");
 	if(!loggedin && ((lastlogout + 1000) < (new Date().getTime()))) { 
 	// the guard is required because BDM.auth.login seems to be called several times for each login attempt and there is a login call after each logout call
-//		console.log("LOGGED IN");
 		track("login");
 		loggedin = true;
 		setTimeout(wireEvents, 3000);
@@ -104,9 +102,7 @@ BDM.auth.login = function(end_user_login, callback) {
 };
 
 BDM.auth.logout = function(callback) {
-//	console.log("BDM.auth.logout");
 	if(loggedin) {
-//		console.log("LOGGED OUT");
 		track("logout");
 		loggedin = false;
 		lastlogout = (new Date().getTime());
