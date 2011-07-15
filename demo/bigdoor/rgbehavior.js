@@ -6,7 +6,7 @@ var host = window.location.hostname.replace(/\./g, '_'),
 	path = "/bdtest/bigdoor/" + host,
 	cvisit = "rgbd-visits",
 	previous_visits = $.cookie(cvisit) || 0,
-	loggedin = false,,
+	loggedin = false,
 	dcount = 0.5;
 	
 function event(name, properties) {
