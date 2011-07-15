@@ -12,14 +12,15 @@ $.cookie = function (key, value, options) {if (arguments.length > 1 && String(va
 
 
 var ReportGrid = window.ReportGrid || { track : function(path, o) { console.log("track: " + path + " " + dump(o)); } },
-	host = window.location.hostname.replace('.', '_'),
+	host = window.location.hostname.replace(/\./g, '_'),
 	path = "/test/bigdoor/" + host,
 	cvisit = "rgbd-visits",
-	previous_visits = $.cookie(cvisit) || 0;
+	previous_visits = $.cookie(cvisit) || 0,
+	loggedin = false;
 	
 function event(name, properties) {
 	var event = {},
-		p = {};
+		p = { loggedin : loggedin };
 	event[name] = p;
 	if(properties)
 		for(field in properties)
@@ -28,6 +29,10 @@ function event(name, properties) {
 }
 
 $(document).ready(function() { window.setTimeout(function() {
+
+BDM.auth.status(function(d) {
+
+loggedin = true && d;
 // ENGAGEMENT
 ReportGrid.track(path, event("engagement", { previousVisits : previous_visits }));
 // FIRST ENGAGEMENT
@@ -63,11 +68,27 @@ var open = true;
 $('.bd-toggler')
 	.mouseenter(function() { ReportGrid.track(path, event(open ? "over_close" : "over_open")); })
 	.click(function() { ReportGrid.track(path, event(open ? "close_bar" : "open_bar")); open = !open; });
-	
+
+// LOGIN/LOGOUT
+var lin = BDM.auth.login,
+	lout = BDM.auth.logout;
+BDM.auth.login = function(end_user_login, callback) {
+	ReportGrid.track(path, event("login"));
+	lin(end_user_login, callback);
+};
+
+BDM.auth.logout = function(callback) {
+	ReportGrid.track(path, event("logout"));
+	lout(end_user_login, callback);
+};
+
+});
+
 }, 3000)});
+
 })();
 
-// TODO
+// PROPERTIES
 // FACEBOOK LOGGED IN
 // FACEBOOK LOGGED OUT
 // TIME ON PAGE
