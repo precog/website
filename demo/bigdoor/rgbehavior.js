@@ -85,10 +85,11 @@ $('.bd-toggler')
 
 // LOGIN/LOGOUT
 var login = BDM.auth.login,
-	logout = BDM.auth.logout;
+	logout = BDM.auth.logout,
+	lastlogout = (new Date().getTime());
 BDM.auth.login = function(end_user_login, callback) {
-	console.log(end_user_login + " " + callback);
-	if(!loggedin && end_user_login) { // the guard is required because BDM.auth.login seems to be called several times for each login attempt
+	if(!loggedin && (!lastlogout || (lastlogout + 500) < (new Date().getTime()))) { 
+	// the guard is required because BDM.auth.login seems to be called several times for each login attempt and there is a login call after each logout call
 		track(path, "login");
 		loggedin = true;
 	}
@@ -100,6 +101,7 @@ BDM.auth.logout = function(callback) {
 	if(loggedin) {
 		track(path, "logout");
 		loggedin = false;
+		lastlogout = (new Date().getTime());
 	}
 };
 
