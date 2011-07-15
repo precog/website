@@ -28,7 +28,7 @@ function track(path, event, properties)
 function elapsed()
 {
 	dcount *= 2;
-	track("onpage");
+	track(path, "onpage");
 	setTimeout(elapsed, dcount * 1000);
 }
 
