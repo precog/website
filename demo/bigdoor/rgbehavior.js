@@ -88,7 +88,8 @@ var login = BDM.auth.login,
 	logout = BDM.auth.logout,
 	lastlogout = (new Date().getTime());
 BDM.auth.login = function(end_user_login, callback) {
-	if(!loggedin && (!lastlogout || (lastlogout + 500) < (new Date().getTime()))) { 
+console.log(lastlogout + " VS " + (new Date().getTime()));
+	if(!loggedin && ((lastlogout + 1000) < (new Date().getTime()))) { 
 	// the guard is required because BDM.auth.login seems to be called several times for each login attempt and there is a login call after each logout call
 		track(path, "login");
 		loggedin = true;
