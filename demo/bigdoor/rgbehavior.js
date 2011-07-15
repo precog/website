@@ -7,7 +7,8 @@ var host = window.location.hostname.replace(/\./g, '_'),
 	cvisit = "rgbd-visits",
 	previous_visits = $.cookie(cvisit) || 0,
 	loggedin = false,
-	dcount = 0.5;
+	dcount = 0.5,
+	open = true;
 
 function track(path, event, properties)
 {
@@ -54,35 +55,35 @@ elapsed();
 
 $.cookie(cvisit, ++previous_visits, { expires: 365, path: '/' });
 
-// ADD MOUSE OVER/CLICK EVENTS
-$('.bd-bar').mouseenter(function() { track(path, "over_bar"); });
-$('.bd-branding-picture')
-	.mouseenter(function() { track(path, "over_bigdoor"); })
-	.click(function() { track(path, "click_bigdoor"); });
-$('.bd-login-facebook')
-	.mouseenter(function() { track(path, "over_login"); })
-	.click(function() { track(path, "click_login"); });
-$('.bd-checkin')
-	.mouseenter(function() { track(path, "over_checkin"); })
-	.click(function() { track(path, "click_checkin"); });
-$('.bd-linkshare')
-	.mouseenter(function() { track(path, "over_linkshare"); })
-	.click(function() { track(path, "click_linkshare"); });	
-$('.bd-deals')
-	.mouseenter(function() { track(path, "over_deals"); })
-	.click(function() { track(path, "click_deals"); });
-$('.bd-badges')
-	.mouseenter(function() { track(path, "over_badges"); })
-	.click(function() { track(path, "click_badges"); });
-$('.bd-help')
-	.mouseenter(function() { track(path, "over_help"); })
-	.click(function() { track(path, "click_help"); });
-
-var open = true;
-$('.bd-toggler')
-	.mouseenter(function() { track(path, open ? "over_close" : "over_open"); })
-	.click(function() { track(path, open ? "close_bar" : "open_bar"); open = !open; });
-
+function wireEvents()
+{
+	// ADD MOUSE OVER/CLICK EVENTS
+	$('.bd-bar').mouseenter(function() { track(path, "over_bar"); });
+	$('.bd-branding-picture')
+		.mouseenter(function() { track(path, "over_bigdoor"); })
+		.click(function() { track(path, "click_bigdoor"); });
+	$('.bd-login-facebook')
+		.mouseenter(function() { track(path, "over_login"); })
+		.click(function() { track(path, "click_login"); });
+	$('.bd-checkin')
+		.mouseenter(function() { track(path, "over_checkin"); })
+		.click(function() { track(path, "click_checkin"); });
+	$('.bd-linkshare')
+		.mouseenter(function() { track(path, "over_linkshare"); })
+		.click(function() { track(path, "click_linkshare"); });	
+	$('.bd-deals')
+		.mouseenter(function() { track(path, "over_deals"); })
+		.click(function() { track(path, "click_deals"); });
+	$('.bd-badges')
+		.mouseenter(function() { track(path, "over_badges"); })
+		.click(function() { track(path, "click_badges"); });
+	$('.bd-help')
+		.mouseenter(function() { track(path, "over_help"); })
+		.click(function() { track(path, "click_help"); });
+	$('.bd-toggler')
+		.mouseenter(function() { track(path, open ? "over_close" : "over_open"); })
+		.click(function() { track(path, open ? "close_bar" : "open_bar"); open = !open; });
+}
 // LOGIN/LOGOUT
 var login = BDM.auth.login,
 	logout = BDM.auth.logout,
@@ -93,6 +94,7 @@ console.log(lastlogout + " VS " + (new Date().getTime()));
 	// the guard is required because BDM.auth.login seems to be called several times for each login attempt and there is a login call after each logout call
 		track(path, "login");
 		loggedin = true;
+		wireEvents();
 	}
 	login(end_user_login, callback);
 };
@@ -103,8 +105,10 @@ BDM.auth.logout = function(callback) {
 		track(path, "logout");
 		loggedin = false;
 		lastlogout = (new Date().getTime());
+		wireEvents();
 	}
 };
+wireEvents();
 
 });
 
