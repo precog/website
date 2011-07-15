@@ -33,6 +33,7 @@ function elapsed()
 }
 
 BDM.auth.status(function(status) {
+console.log(status);
 loggedin = typeof(status)!="undefined";
 // TIME ON PAGE
 elapsed();
