@@ -32,28 +32,43 @@ $(document).ready(function() { window.setTimeout(function() {
 ReportGrid.track(path, event("engagement", { previousVisits : previous_visits }));
 // FIRST ENGAGEMENT
 if(!previous_visits)
-	ReportGrid.track(path, event("first_engagement", { }));
+	ReportGrid.track(path, event("first_engagement"));
 
 $.cookie(cvisit, ++previous_visits, { expires: 365, path: '/' });
 
-
-	$('.bd-checkin-title').mouseover(function() {
-		console.log("over button");
-	});
-	$('.bd-bar').mouseover(function() {
-		console.log("over bar");
-	});
+// ADD MOUSE OVER/CLICK EVENTS
+$('.bd-bar').mouseenter(function() { ReportGrid.track(path, event("over_bar")); });
+$('.bd-branding-picture')
+	.mouseenter(function() { ReportGrid.track(path, event("over_bigdoor")); })
+	.click(function() { ReportGrid.track(path, event("click_bigdoor")); });
+$('.bd-login-facebook')
+	.mouseenter(function() { ReportGrid.track(path, event("over_login")); })
+	.click(function() { ReportGrid.track(path, event("click_login")); });
+$('.bd-checkin')
+	.mouseenter(function() { ReportGrid.track(path, event("over_checkin")); })
+	.click(function() { ReportGrid.track(path, event("click_checkin")); });
+$('.bd-linkshare')
+	.mouseenter(function() { ReportGrid.track(path, event("over_linkshare")); })
+	.click(function() { ReportGrid.track(path, event("click_linkshare")); });	
+$('.bd-deals')
+	.mouseenter(function() { ReportGrid.track(path, event("over_deals")); })
+	.click(function() { ReportGrid.track(path, event("click_deals")); });
+$('.bd-badges')
+	.mouseenter(function() { ReportGrid.track(path, event("over_badges")); })
+	.click(function() { ReportGrid.track(path, event("click_badges")); });
+$('.bd-help')
+	.mouseenter(function() { ReportGrid.track(path, event("over_help")); })
+	.click(function() { ReportGrid.track(path, event("click_help")); });
+var open = true;
+$('.bd-toggler')
+	.mouseenter(function() { ReportGrid.track(path, event(open ? "over_close" : "over_open")); })
+	.click(function() { ReportGrid.track(path, event(open ? "close_bar" : "open_bar")); open = !open; });
+	
 }, 3000)});
 })();
 
-// .bd-bar
-
-// .bd-branding-picture
-// .bd-login-facebook
-// .bd-checkin
-// .bd-linkshare
-// .bd-deals
-// .bd-badges
-
-// .bd-help
-// .bd-toggler
+// TODO
+// FACEBOOK LOGGED IN
+// FACEBOOK LOGGED OUT
+// TIME ON PAGE
+// TIME ON WIDGET
