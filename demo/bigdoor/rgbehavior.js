@@ -73,10 +73,7 @@ $('.bd-help')
 var open = true;
 $('.bd-toggler')
 	.mouseenter(function() { track(path, open ? "over_close" : "over_open"); })
-	.toggle(
-		function() { track(path, "close_bar"); open = false; }, 
-		function() { track(path, "open_bar"); open = true; }
-	);
+	.click(function() { track(path, open ? "close_bar" : "open_bar"); open = !open; });
 
 // LOGIN/LOGOUT
 var login = BDM.auth.login,
