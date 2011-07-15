@@ -8,21 +8,17 @@ var host = window.location.hostname.replace(/\./g, '_'),
 	previous_visits = $.cookie(cvisit) || 0,
 	loggedin = false,
 	dcount = 0.5;
-	
-function event(name, properties) {
-	var event = {},
+
+function track(path, event, properties)
+{
+	var e = {},
 		durationrange = dcount <= 2 ? "" + dcount : (((dcount/2)+1)+"-"+dcount),
 		p = { loggedin : loggedin, duration : durationrange };
-	event[name] = p;
+	e[event] = p;
 	if(properties)
 		for(field in properties)
 			p[field] = properties[field];
-	return { events : event };
-}
-
-function track(name, properties)
-{
-	ReportGrid.track(name, properties, console.log);
+	ReportGrid.track(path, { events : e }, console.log);
 }
 
 function elapsed()
@@ -38,54 +34,54 @@ loggedin = !!status;
 elapsed();
 
 // ENGAGEMENT
-track(path, event("engagement", { previousVisits : previous_visits }));
+track(path, "engagement", { previousVisits : previous_visits }));
 // FIRST ENGAGEMENT
 if(!previous_visits)
-	track(path, event("first_engagement"));
+	track(path, "first_engagement"));
 
 $.cookie(cvisit, ++previous_visits, { expires: 365, path: '/' });
 
 // ADD MOUSE OVER/CLICK EVENTS
-$('.bd-bar').mouseenter(function() { track(path, event("over_bar")); });
+$('.bd-bar').mouseenter(function() { track(path, "over_bar"); });
 $('.bd-branding-picture')
-	.mouseenter(function() { track(path, event("over_bigdoor")); })
-	.click(function() { track(path, event("click_bigdoor")); });
+	.mouseenter(function() { track(path, "over_bigdoor"); })
+	.click(function() { track(path, "click_bigdoor"); });
 $('.bd-login-facebook')
-	.mouseenter(function() { track(path, event("over_login")); })
-	.click(function() { track(path, event("click_login")); });
+	.mouseenter(function() { track(path, "over_login"); })
+	.click(function() { track(path, "click_login"); });
 $('.bd-checkin')
-	.mouseenter(function() { track(path, event("over_checkin")); })
-	.click(function() { track(path, event("click_checkin")); });
+	.mouseenter(function() { track(path, "over_checkin"); })
+	.click(function() { track(path, "click_checkin"); });
 $('.bd-linkshare')
-	.mouseenter(function() { track(path, event("over_linkshare")); })
-	.click(function() { track(path, event("click_linkshare")); });	
+	.mouseenter(function() { track(path, "over_linkshare"); })
+	.click(function() { track(path, "click_linkshare"); });	
 $('.bd-deals')
-	.mouseenter(function() { track(path, event("over_deals")); })
-	.click(function() { track(path, event("click_deals")); });
+	.mouseenter(function() { track(path, "over_deals"); })
+	.click(function() { track(path, "click_deals"); });
 $('.bd-badges')
-	.mouseenter(function() { track(path, event("over_badges")); })
-	.click(function() { track(path, event("click_badges")); });
+	.mouseenter(function() { track(path, "over_badges"); })
+	.click(function() { track(path, "click_badges"); });
 $('.bd-help')
-	.mouseenter(function() { track(path, event("over_help")); })
-	.click(function() { track(path, event("click_help")); });
+	.mouseenter(function() { track(path, "over_help"); })
+	.click(function() { track(path, "click_help"); });
 
 $('.bd-toggler')
-	.mouseenter(function() { track(path, event(open ? "over_close" : "over_open")); })
+	.mouseenter(function() { track(path, open ? "over_close" : "over_open")); })
 	.toggle(
-		function() { track(path, event("close_bar")); }, 
-		function() { track(path, event("open_bar")); }
+		function() { track(path, "close_bar"); }, 
+		function() { track(path, "open_bar"); }
 	);
 
 // LOGIN/LOGOUT
 var login = BDM.auth.login,
 	logout = BDM.auth.logout;
 BDM.auth.login = function(end_user_login, callback) {
-	track(path, event("login"));
+	track(path, "login"));
 	login(end_user_login, callback);
 };
 
 BDM.auth.logout = function(callback) {
-	track(path, event("logout"));
+	track(path, "logout"));
 	logout(callback);
 };
 
