@@ -18,56 +18,61 @@ function event(name, properties) {
 	return { events : event };
 }
 
+function track(name, properties)
+{
+	ReportGrid.track(name, properties, console.log);
+}
+
 $(document).ready(function() { window.setTimeout(function() {
 
 BDM.auth.status(function(status) {
 loggedin = !!status;
 // ENGAGEMENT
-ReportGrid.track(path, event("engagement", { previousVisits : previous_visits }));
+track(path, event("engagement", { previousVisits : previous_visits }));
 // FIRST ENGAGEMENT
 if(!previous_visits)
-	ReportGrid.track(path, event("first_engagement"));
+	track(path, event("first_engagement"));
 
 $.cookie(cvisit, ++previous_visits, { expires: 365, path: '/' });
 
 // ADD MOUSE OVER/CLICK EVENTS
-$('.bd-bar').mouseenter(function() { ReportGrid.track(path, event("over_bar")); });
+$('.bd-bar').mouseenter(function() { track(path, event("over_bar")); });
 $('.bd-branding-picture')
-	.mouseenter(function() { ReportGrid.track(path, event("over_bigdoor")); })
-	.click(function() { ReportGrid.track(path, event("click_bigdoor")); });
+	.mouseenter(function() { track(path, event("over_bigdoor")); })
+	.click(function() { track(path, event("click_bigdoor")); });
 $('.bd-login-facebook')
-	.mouseenter(function() { ReportGrid.track(path, event("over_login")); })
-	.click(function() { ReportGrid.track(path, event("click_login")); });
+	.mouseenter(function() { track(path, event("over_login")); })
+	.click(function() { track(path, event("click_login")); });
 $('.bd-checkin')
-	.mouseenter(function() { ReportGrid.track(path, event("over_checkin")); })
-	.click(function() { ReportGrid.track(path, event("click_checkin")); });
+	.mouseenter(function() { track(path, event("over_checkin")); })
+	.click(function() { track(path, event("click_checkin")); });
 $('.bd-linkshare')
-	.mouseenter(function() { ReportGrid.track(path, event("over_linkshare")); })
-	.click(function() { ReportGrid.track(path, event("click_linkshare")); });	
+	.mouseenter(function() { track(path, event("over_linkshare")); })
+	.click(function() { track(path, event("click_linkshare")); });	
 $('.bd-deals')
-	.mouseenter(function() { ReportGrid.track(path, event("over_deals")); })
-	.click(function() { ReportGrid.track(path, event("click_deals")); });
+	.mouseenter(function() { track(path, event("over_deals")); })
+	.click(function() { track(path, event("click_deals")); });
 $('.bd-badges')
-	.mouseenter(function() { ReportGrid.track(path, event("over_badges")); })
-	.click(function() { ReportGrid.track(path, event("click_badges")); });
+	.mouseenter(function() { track(path, event("over_badges")); })
+	.click(function() { track(path, event("click_badges")); });
 $('.bd-help')
-	.mouseenter(function() { ReportGrid.track(path, event("over_help")); })
-	.click(function() { ReportGrid.track(path, event("click_help")); });
+	.mouseenter(function() { track(path, event("over_help")); })
+	.click(function() { track(path, event("click_help")); });
 var open = true;
 $('.bd-toggler')
-	.mouseenter(function() { ReportGrid.track(path, event(open ? "over_close" : "over_open")); })
-	.click(function() { ReportGrid.track(path, event(open ? "close_bar" : "open_bar")); open = !open; });
+	.mouseenter(function() { track(path, event(open ? "over_close" : "over_open")); })
+	.click(function() { track(path, event(open ? "close_bar" : "open_bar")); open = !open; });
 
 // LOGIN/LOGOUT
 var login = BDM.auth.login,
 	logout = BDM.auth.logout;
 BDM.auth.login = function(end_user_login, callback) {
-	ReportGrid.track(path, event("login"));
+	track(path, event("login"));
 	login(end_user_login, callback);
 };
 
 BDM.auth.logout = function(callback) {
-	ReportGrid.track(path, event("logout"));
+	track(path, event("logout"));
 	logout(callback);
 };
 
