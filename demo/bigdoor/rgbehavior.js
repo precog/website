@@ -13,7 +13,11 @@ function track(path, event, properties)
 {
 	var e = {},
 		durationrange = dcount <= 2 ? "" + dcount : (((dcount/2)+1)+"-"+dcount),
-		p = { loggedin : loggedin, duration : durationrange };
+		p = { 
+			loggedin : loggedin,
+			duration : durationrange,
+			previousVisits : previous_visits
+		};
 	e[event] = p;
 	if(properties)
 		for(field in properties)
@@ -34,7 +38,7 @@ loggedin = !!status;
 elapsed();
 
 // ENGAGEMENT
-track(path, "engagement", { previousVisits : previous_visits }));
+track(path, "engagement");
 // FIRST ENGAGEMENT
 if(!previous_visits)
 	track(path, "first_engagement"));
