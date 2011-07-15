@@ -95,7 +95,7 @@ BDM.auth.login = function(end_user_login, callback) {
 //		console.log("LOGGED IN");
 		track(path, "login");
 		loggedin = true;
-		setTimeout(wireEvents, 2000);
+		setTimeout(wireEvents, 3000);
 	}
 	login(end_user_login, callback);
 };
@@ -107,7 +107,7 @@ BDM.auth.logout = function(callback) {
 		track(path, "logout");
 		loggedin = false;
 		lastlogout = (new Date().getTime());
-		setTimeout(wireEvents, 2000);
+		setTimeout(wireEvents, 3000);
 	}
 	logout(callback);
 };
