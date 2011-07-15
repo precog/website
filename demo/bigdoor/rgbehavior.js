@@ -79,6 +79,7 @@ $('.bd-toggler')
 var login = BDM.auth.login,
 	logout = BDM.auth.logout;
 BDM.auth.login = function(end_user_login, callback) {
+	console.log(end_user_login + " " + callback);
 	if(!loggedin) { // the guard is required because BDM.auth.login seems to be called several times for each login attempt
 		track(path, "login");
 		loggedin = true;
@@ -99,7 +100,3 @@ BDM.auth.logout = function(callback) {
 })();
 
 // PROPERTIES
-// FACEBOOK LOGGED IN
-// FACEBOOK LOGGED OUT
-// TIME ON PAGE
-// TIME ON WIDGET
