@@ -29,7 +29,7 @@ function elapsed()
 {
 	dcount *= 2;
 	track("onpage");
-	setTimeout(elapsed, dcount);
+	setTimeout(elapsed, dcount * 1000);
 }
 
 BDM.auth.status(function(status) {
