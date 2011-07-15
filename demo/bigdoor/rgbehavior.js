@@ -22,7 +22,7 @@ function track(path, event, properties)
 	if(properties)
 		for(field in properties)
 			p[field] = properties[field];
-	ReportGrid.track(path, { events : e }, function(r) { console.log(r); });
+	ReportGrid.track(path, { events : e }, function(r) { console.log("track:"+path+" " + dump(e)); });
 }
 
 function elapsed()
