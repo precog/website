@@ -11,7 +11,7 @@ var host = window.location.hostname.replace(/\./g, '_'),
 	dcount = 0.5,
 	open = true;
 
-function track(path, event)
+function track(event)
 {
 	var e = {},
 		durationrange = dcount <= 2 ? "" + dcount : (((dcount/2)+1)+"-"+dcount),
@@ -30,7 +30,7 @@ function track(path, event)
 			p["badge_" + badge.pub_title.toLowerCase().replace(/ /g, '_')] = true;
 		});
 		for(path in paths)
-			ReportGrid.track(path, { events : e }
+			ReportGrid.track({ events : e }
 //				, function(r) { console.log("track:"+path+" " + dump(e)); }
 			);
 	});
@@ -40,7 +40,7 @@ function track(path, event)
 function elapsed()
 {
 	dcount *= 2;
-	track(path, "onpage");
+	track("onpage");
 	setTimeout(elapsed, dcount * 1000);
 }
 
@@ -48,10 +48,10 @@ BDM.auth.status(function(status) {
 loggedin = status && typeof(status.end_user_login)!="undefined";
 
 // ENGAGEMENT
-track(path, "engagement");
+track("engagement");
 // FIRST ENGAGEMENT
 if(!previous_visits)
-	track(path, "first_engagement");
+	track("first_engagement");
 
 // TIME ON PAGE
 elapsed();
@@ -61,31 +61,31 @@ $.cookie(cvisit, ++previous_visits, { expires: 365, path: '/' });
 function wireEvents()
 {
 	// ADD MOUSE OVER/CLICK EVENTS
-	$('.bd-bar').mouseenter(function() { track(path, "over_bar"); });
+	$('.bd-bar').mouseenter(function() { track("over_bar"); });
 	$('.bd-branding-picture')
-		.mouseenter(function() { track(path, "over_bigdoor"); })
-		.click(function() { track(path, "click_bigdoor"); });
+		.mouseenter(function() { track("over_bigdoor"); })
+		.click(function() { track("click_bigdoor"); });
 	$('.bd-login-facebook')
-		.mouseenter(function() { track(path, "over_login"); })
-		.click(function() { track(path, "click_login"); });
+		.mouseenter(function() { track("over_login"); })
+		.click(function() { track("click_login"); });
 	$('.bd-checkin')
-		.mouseenter(function() { track(path, "over_checkin"); })
-		.click(function() { track(path, "click_checkin"); });
+		.mouseenter(function() { track("over_checkin"); })
+		.click(function() { track("click_checkin"); });
 	$('.bd-linkshare')
-		.mouseenter(function() { track(path, "over_linkshare"); })
-		.click(function() { track(path, "click_linkshare"); });	
+		.mouseenter(function() { track("over_linkshare"); })
+		.click(function() { track("click_linkshare"); });	
 	$('.bd-deals')
-		.mouseenter(function() { track(path, "over_deals"); })
-		.click(function() { track(path, "click_deals"); });
+		.mouseenter(function() { track("over_deals"); })
+		.click(function() { track("click_deals"); });
 	$('.bd-badges')
-		.mouseenter(function() { track(path, "over_badges"); })
-		.click(function() { track(path, "click_badges"); });
+		.mouseenter(function() { track("over_badges"); })
+		.click(function() { track("click_badges"); });
 	$('.bd-help')
-		.mouseenter(function() { track(path, "over_help"); })
-		.click(function() { track(path, "click_help"); });
+		.mouseenter(function() { track("over_help"); })
+		.click(function() { track("click_help"); });
 	$('.bd-toggler')
-		.mouseenter(function() { track(path, open ? "over_close" : "over_open"); })
-		.click(function() { track(path, open ? "close_bar" : "open_bar"); open = !open; });
+		.mouseenter(function() { track(open ? "over_close" : "over_open"); })
+		.click(function() { track(open ? "close_bar" : "open_bar"); open = !open; });
 }
 // LOGIN/LOGOUT
 var login = BDM.auth.login,
@@ -96,7 +96,7 @@ BDM.auth.login = function(end_user_login, callback) {
 	if(!loggedin && ((lastlogout + 1000) < (new Date().getTime()))) { 
 	// the guard is required because BDM.auth.login seems to be called several times for each login attempt and there is a login call after each logout call
 //		console.log("LOGGED IN");
-		track(path, "login");
+		track("login");
 		loggedin = true;
 		setTimeout(wireEvents, 3000);
 	}
@@ -107,7 +107,7 @@ BDM.auth.logout = function(callback) {
 //	console.log("BDM.auth.logout");
 	if(loggedin) {
 //		console.log("LOGGED OUT");
-		track(path, "logout");
+		track("logout");
 		loggedin = false;
 		lastlogout = (new Date().getTime());
 		setTimeout(wireEvents, 3000);
