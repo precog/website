@@ -42,19 +42,24 @@ $(document).ready(function() {
 		path : "/bigdoor",
 		events : ["bar_engagement", "share_engagement", "share_click"]
 	}, { label : label });
-	
-	ReportGrid.funnelChart("#chart4", {
-		path : "/bigdoor",
-		events : ["bar_engagement", "share_engagement", "share_click"]
-	}, { label : label });
 });
 	</script>
 </head>
 <body>
 	<div id="main">
 		<div class="container funnel">
-			<h1>Operative System</h1>
+			<h1>Login/Logout</h1>
 			<div id="chart1"></div>
+		</div>
+		
+		<div class="container funnel">
+			<h1>Checkin</h1>
+			<div id="chart2"></div>
+		</div>
+		
+		<div class="container funnel">
+			<h1>Share</h1>
+			<div id="chart3"></div>
 		</div>
 	</div>
 </body>
