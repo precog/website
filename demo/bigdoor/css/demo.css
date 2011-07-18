@@ -52,6 +52,12 @@ ul
 	width: 550px;
 }
 
+.container.wide
+{
+	width: 800px;
+	height: 400px;
+}
+
 .container.linechart div
 {
 	height: 240px;
@@ -61,12 +67,6 @@ ul
 .container.leaderboard .rg
 {
 	padding: 0 20px;
-}
-
-.container.funnel
-{
-	width: 240px;
-	height: 320px;
 }
 
 .chart
@@ -100,4 +100,10 @@ h1
 #pivot
 {
 	margin-top: 10px;
+}
+
+.container.funnel
+{
+	width: 290px;
+	height: 320px;
 }
