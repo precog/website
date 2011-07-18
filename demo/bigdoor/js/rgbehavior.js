@@ -30,9 +30,12 @@ function track(event)
 			p["badge_" + badge.pub_title.toLowerCase().replace(/ /g, '_')] = true;
 		});
 		for(var i = 0; i < paths.length; i++)
+		{
+			console.log(paths[i]);
 			ReportGrid.track(paths[i], { events : e }
-				, function(r) { console.log("track:"+paths[i]+" " + dump(e)); }
+				, function(r) { console.log("track:" + (paths[i]) + " " + dump(e)); }
 			);
+		}
 	});
 	});
 }
