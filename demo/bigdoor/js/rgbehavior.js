@@ -31,7 +31,7 @@ function track(event)
 		});
 		for(var i = 0; i < paths.length; i++)
 			ReportGrid.track(paths[i], { events : e }
-//				, function(r) { console.log("track:"+paths[i]+" " + dump(e)); }
+				, function(r) { console.log("track:"+paths[i]+" " + dump(e)); }
 			);
 	});
 	});
