@@ -29,17 +29,17 @@ $(document).ready(function() {
 		return d.label.split("_").join(" ").replace("engagement", "engage");
 	}
 	ReportGrid.funnelChart("#chart1", {
-		path : "/",
+		path : "/bigdoor",
 		events : ["bar_engagement", "login", "logout"]
 	}, { label : label });
 	
 	ReportGrid.funnelChart("#chart2", {
-		path : "/",
+		path : "/bigdoor",
 		events : ["bar_engagement", "checkin_engagement", "checkin_click"]
 	}, { label : label });
 	
 	ReportGrid.funnelChart("#chart3", {
-		path : "/",
+		path : "/bigdoor",
 		events : ["bar_engagement", "share_engagement", "share_click"]
 	}, { label : label });
 });
