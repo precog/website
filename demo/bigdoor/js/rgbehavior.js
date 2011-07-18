@@ -32,8 +32,8 @@ function track(event)
 		for(var i = 0; i < paths.length; i++)
 		{
 			var debug = (function(path) { return function(r) { console.log("track:" + path + " " + dump(e)); }; })(paths[i]);
-			console.log(path[i]);
-			ReportGrid.track(path[i], { events : e }
+			console.log(paths[i]);
+			ReportGrid.track(paths[i], { events : e }
 				, debug
 			);
 		}
