@@ -837,7 +837,12 @@ var ReportGrid = window.ReportGrid || {};
   
   ReportGrid.token = function(token, success, failure) {
     var http = $.Http();
-
+	if(typeof(token) != "string")
+	{
+		failure = success;
+		success = token;
+		token = $.Config.tokenId;
+	}
     http.get(
       $.Config.analyticsServer + '/tokens/' + token,
       Util.createCallbacks(success, failure, 'List all tokens'),
