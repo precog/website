@@ -223,9 +223,11 @@ OR minimally
                 </tr>
               </table>
 
-              <p>ReportGrid's events API can be accessed by calling <b> API root + vfs/ + [path]/ </b> </p>
+              <p>ReportGrid's event tracking can be accessed by calling <b> API root + vfs/ + [path]/ </b></p>
 
               <pre class="prettyprint pre-text">api.reportgrid.com/services/analytics/v0/vfs/schedules/trains/?tokenId=[guid]</pre>
+
+              <p>A couple of things to note: when sending a POST request with the JSON object embedded in the contents of the POST, you will need to ensure that the Content-Type header for this request is set to <b>application/json</b>. Also, the tokenId parameter must always appear in the query string of the URL as shown above, even in the case that the request is a POST.</p>
             </div>
             <div class="content-block">
               <h1>Querying</h1>
