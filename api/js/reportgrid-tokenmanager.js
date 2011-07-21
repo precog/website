@@ -8,24 +8,21 @@ ReportGrid.tokenManager = function(target_div,$) {
    // NOTE: This should be rewritten to use $.tmpl and $.template as soon as
    // those features are moved from BETA to production in jQuery. This right
    // here is fast but not maintainable
-   var token_row_template = function(args){return "\
-<tr> \
-   <td><a name=\""+ args.token.tokenId +"\">"+ args.token.tokenId +"</a></td> \
-   <td><a href=\"#"+ args.token.accountTokenId +"\">"+
-args.token.accountTokenId +"</a></td> \
-   <td>"+ args.token.expires +"</td> \
-   <td>"+ args.token.limits.depth +"</td> \
-   <td>"+ args.token.limits.limit +"</td> \
-   <td>"+ args.token.limits.order +"</td> \
-   <td><a href=\"#"+ args.token.parentTokenId +"\">"+
-args.token.parentTokenId +"</a></td> \
-   <td>"+ args.token.path +"</td> \
-   <td>"+ args.token.permissions.read +"</td> \
-   <td>"+ args.token.permissions.share +"</td> \
-   <td>"+ args.token.permissions.write +"</td> \
-   <td><a href=\"#delete-"+ args.token.tokenId +"\" id=\"delete-"+
-args.token.tokenId +"\">Delete</a></td> \
-</tr>"};
+   var token_row_template = function(args){return 
+ "<tr>\n"
++"   <td><a name=\""+ args.token.tokenId +"\">"+ args.token.tokenId +"</a></td>\n"
++"   <td><a href=\"#"+ args.token.accountTokenId +"\">" + args.token.accountTokenId +"</a></td>\n"
++"   <td>"+ args.token.expires +"</td>\n"
++"   <td>"+ args.token.limits.depth +"</td>\n"
++"   <td>"+ args.token.limits.limit +"</td>\n"
++"   <td>"+ args.token.limits.order +"</td>\n"
++"   <td><a href=\"#"+ args.token.parentTokenId +"\">" + args.token.parentTokenId +"</a></td>\n"
++"   <td>"+ args.token.path +"</td>\n"
++"   <td>"+ args.token.permissions.read +"</td>\n"
++"   <td>"+ args.token.permissions.share +"</td>\n"
++"   <td>"+ args.token.permissions.write +"</td>\n"
++"   <td><a href=\"#delete-"+ args.token.tokenId +"\" id=\"delete-" + args.token.tokenId +"\">Delete</a></td>\n"
++"</tr>"};
 
    var token_table_template = "\
        <table id=\"token-table\">\
