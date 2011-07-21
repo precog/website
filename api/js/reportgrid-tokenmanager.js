@@ -24,62 +24,54 @@ ReportGrid.tokenManager = function(target_div,$) {
 +"   <td><a href=\"#delete-"+ args.token.tokenId +"\" id=\"delete-" + args.token.tokenId +"\">Delete</a></td>\n"
 +"</tr>"};
 
-   var token_table_template = "\
-       <table id=\"token-table\">\
-           <thead>\
-               <tr>\
-                   <th>TokenId:</th>\
-                   <th>Account Token:</th>\
-                   <th>Expires:</th>\
-                   <th>Depth:</th>\
-                   <th>Limit:</th>\
-                   <th>Order:</th>\
-                   <th>Parent:</th>\
-                   <th>Path:</th>\
-                   <th>Read:</th>\
-                   <th>Share:</th>\
-                   <th>Write:</th>\
-                   \
-                   <th>Actions:</th>\
-               </tr>\
-           </thead>\
-           <tbody id=\"token-list\">\
-           </tbody>\
-       </table>";
+   var token_table_template = 
+ "       <table id=\"token-table\">\n"
++"           <thead>\n"
++"               <tr>\n"
++"                   <th>TokenId:</th>\n"
++"                   <th>Account Token:</th>\n"
++"                   <th>Expires:</th>\n"
++"                   <th>Depth:</th>\n"
++"                   <th>Limit:</th>\n"
++"                   <th>Order:</th>\n"
++"                   <th>Parent:</th>\n"
++"                   <th>Path:</th>\n"
++"                   <th>Read:</th>\n"
++"                   <th>Share:</th>\n"
++"                   <th>Write:</th>\n"
++"                   <th>Actions:</th>\n"
++"               </tr>\n"
++"           </thead>\n"
++"           <tbody id=\"token-list\">\n"
++"           </tbody>\n"
++"       </table>";
 
    // Use HTML5 elements, they fallback if the browser doesn't understand
-   var new_token_template = "\
-       <div id=\"token-create\">\
-           <h3>New token:</h3>\
-           <form id=\"new-token-form\">\
-               <dl>\
-                   <dt><label for=\"token-path\">Path:</label></dt>\
-                   <dd><input type=\"text\" id=\"token-path\"></dd>\
-\
-                   <h4>Permissions</h4>\
-                   <dt><label for=\"token-read\">Read:</label></dt>\
-                   <dd><input type=\"checkbox\" id=\"token-read\"></dd>\
-\
-                   <dt><label for=\"token-write\">Write:</label></dt>\
-                   <dd><input type=\"checkbox\" id=\"token-write\"></dd>\
-\
-                   <dt><label for=\"token-share\">Share:</label></dt>\
-                   <dd><input type=\"checkbox\" id=\"token-share\"></dd>\
-\
-                   <h4>Limits</h4>\
-                   <dt><label for=\"token-order\">Order:</label></dt>\
-                   <dd><input type=\"number\" id=\"token-order\"></dd>\
-\
-                   <dt><label for=\"token-limit\">Limit:</label></dt>\
-                   <dd><input type=\"number\" id=\"token-limit\"></dd>\
-\
-                   <dt><label for=\"token-depth\">Depth:</label></dt>\
-                   <dd><input type=\"number\" id=\"token-depth\"></dd>\
-               </dl>\
-               <input id=\"submit-new-token\" type=\"submit\"
-value=\"Create new token\" />\
-           </form>\
-       </div>";
+   var new_token_template =
+ "       <div id=\"token-create\">\n"
++"           <h3>New token:</h3>\n"
++"           <form id=\"new-token-form\">\n"
++"               <dl>\n"
++"                   <dt><label for=\"token-path\">Path:</label></dt>\n"
++"                   <dd><input type=\"text\" id=\"token-path\"></dd>\n"
++"                   <h4>Permissions</h4>\n"
++"                   <dt><label for=\"token-read\">Read:</label></dt>\n"
++"                   <dd><input type=\"checkbox\" id=\"token-read\"></dd>\n"
++"                   <dt><label for=\"token-write\">Write:</label></dt>\n"
++"                   <dd><input type=\"checkbox\" id=\"token-write\"></dd>\n"
++"                   <dt><label for=\"token-share\">Share:</label></dt>\n"
++"                   <dd><input type=\"checkbox\" id=\"token-share\"></dd>\n"
++"                   <h4>Limits</h4>\n"
++"                   <dt><label for=\"token-order\">Order:</label></dt>\n"
++"                   <dd><input type=\"number\" id=\"token-order\"></dd>\n"
++"                   <dt><label for=\"token-limit\">Limit:</label></dt>\n"
++"                   <dd><input type=\"number\" id=\"token-limit\"></dd>\n"
++"                   <dt><label for=\"token-depth\">Depth:</label></dt>\n"
++"                   <dd><input type=\"number\" id=\"token-depth\"></dd>\n"
++"               </dl>\n"
++"               <input id=\"submit-new-token\" type=\"submit\" value=\"Create new token\" />\n"
++"           </form>\n"
++"       </div>";
 
    // Error callback
    function error(e) {
