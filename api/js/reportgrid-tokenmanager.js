@@ -8,8 +8,8 @@ ReportGrid.tokenManager = function(target_div,$) {
    // NOTE: This should be rewritten to use $.tmpl and $.template as soon as
    // those features are moved from BETA to production in jQuery. This right
    // here is fast but not maintainable
-   var token_row_template = function(args){return 
- "<tr>\n"
+   var token_row_template = function(args){
+   return "<tr>\n"
 +"   <td><a name=\""+ args.token.tokenId +"\">"+ args.token.tokenId +"</a></td>\n"
 +"   <td><a href=\"#"+ args.token.accountTokenId +"\">" + args.token.accountTokenId +"</a></td>\n"
 +"   <td>"+ args.token.expires +"</td>\n"
@@ -22,7 +22,7 @@ ReportGrid.tokenManager = function(target_div,$) {
 +"   <td>"+ args.token.permissions.share +"</td>\n"
 +"   <td>"+ args.token.permissions.write +"</td>\n"
 +"   <td><a href=\"#delete-"+ args.token.tokenId +"\" id=\"delete-" + args.token.tokenId +"\">Delete</a></td>\n"
-+"</tr>"};
++"</tr>";};
 
    var token_table_template = 
  "       <table id=\"token-table\">\n"
@@ -118,7 +118,7 @@ ReportGrid.tokenManager = function(target_div,$) {
    function display_token(token) {
        ReportGrid.token(token, function(token) {
            // Now that we have the token, render it
-           token_row = token_row_template({"token":token});
+           var token_row = token_row_template({"token":token});
            $('#token-list').append($(token_row));
            $('#delete-'+token.tokenId).click(function() {
                delete_token(token);
