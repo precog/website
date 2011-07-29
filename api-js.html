@@ -86,7 +86,7 @@ type="text/javascript"></script>
   &lt;head&gt;
     &lt;title&gt;MySite.com&lt;/title&gt;
     &lt;script type=&quot;text/javascript&quot;
-      src=&quot;http://www.reportgrid.com/api/js/reportgrid-core.js?tokenId=[YOUR TOKEN ID]&quot;&gt;&lt;/script&gt;
+      src=&quot;http://api.reportgrid.com/js/reportgrid-core.js?tokenId=[YOUR TOKEN ID]&quot;&gt;&lt;/script&gt;
   &lt;/head&gt;
   &lt;body&gt;
 
@@ -136,7 +136,7 @@ ReportGrid.track(
               <p class="header">ReportGrid Event Metric Retrieval
               </p>
               <div>
-                <p class="medium-text">fieldCount(path, field, success, failure)
+                <p class="medium-text">propertyCount(path, property, success, failure)
                 </p>
                 <table>
                   <tr>
@@ -144,10 +144,10 @@ ReportGrid.track(
                     <td class="minor-text table-head" colspan='3' width="500"><b>PARAMETERS</b></td>
                   </tr>
                   <tr>
-                    <td class="minor-text js-parameters">fieldCount</td>
+                    <td class="minor-text js-parameters">propertyCount</td>
                     <td class="minor-text js-parameters" colspan="2">
                       <span class="js-param">path,</span>
-                      <span class="js-param">field : [eventPath],</span>
+                      <span class="js-param">peroperty : [propertyPath],</span>
                       <span class="js-param">success(v),</span>
                       <span class="js-param">failure(e)</span>
                     </td>
@@ -156,19 +156,19 @@ ReportGrid.track(
                     <td class="minor-text table-head"><b>Result</b></td>
                   </tr>
                   <tr>
-                    <td class="minor-text" colspan="3">The total counts of how often the specified field appeared in events of the specified type.</td>
+                    <td class="minor-text" colspan="3">The total counts of how often the specified event or property appeared in the specified path.</td>
                   </tr>
                   <tr>
                     <td class="minor-text table-head"><b>EXAMPLE</b></td>
                   </tr>
                   <tr>
-                    <td class="minor-text" colspan="3">Retrieve count of field delivery.status from path /account/jdoe/emails/</td>
+                    <td class="minor-text" colspan="3">Retrieve count of property delivery.status from path /account/jdoe/emails/</td>
                   </tr>
                 </table>
                 <pre class="prettyprint">
-ReportGrid.fieldCount(
+ReportGrid.propertyCount(
   "/account/jdoe/emails/",
-  { "field" : "delivery.status" },
+  { "property" : "delivery.status" },
   alert,
   logger.error
 );</pre>
@@ -177,7 +177,7 @@ ReportGrid.fieldCount(
 
 
               <div>
-                <p class="medium-text">fieldSeries(path, opt, success, failure)
+                <p class="medium-text">propertySeries(path, opt, success, failure)
                 </p>
                 <table>
                   <tr>
@@ -185,10 +185,10 @@ ReportGrid.fieldCount(
                     <td class="minor-text table-head" colspan='3' width="500"><b>PARAMETERS</b></td>
                   </tr>
                   <tr>
-                    <td class="minor-text js-parameters">fieldSeries</td>
+                    <td class="minor-text js-parameters">propertySeries</td>
                     <td class="minor-text js-parameters" colspan="2">
                       <span class="js-param">path,</span>
-                      <span class="js-param">opt : {field : fieldName, periodicity : selectedPeriodicity},</span>
+                      <span class="js-param">opt : {property : propertyName, periodicity : selectedPeriodicity},</span>
                       <span class="js-param">success(v),</span>
                       <span class="js-param">failure(e)</span>
                     </td>
@@ -197,20 +197,20 @@ ReportGrid.fieldCount(
                     <td class="minor-text table-head"><b>Result</b></td>
                   </tr>
                   <tr>
-                    <td class="minor-text" colspan="3">The time series counts of how often the specified field appeared in events of the specified type.</td>
+                    <td class="minor-text" colspan="3">The time series counts of how often the specified event or property appeared in the specified path over time.</td>
                   </tr>
                   <tr>
                     <td class="minor-text table-head"><b>EXAMPLE</b></td>
                   </tr>
                   <tr>
-                    <td class="minor-text" colspan="3">Retrieve time series by day of field delivery.status from path /account/jdoe/emails/</td>
+                    <td class="minor-text" colspan="3">Retrieve time series by day of property delivery.status from path /account/jdoe/emails/</td>
                   </tr>
                 </table>
                 <pre class="prettyprint">
-ReportGrid.fieldSeries(
+ReportGrid.propertySeries(
   "/account/jdoe/emails/",
   {
-    "field" : "delivery.status",
+    "property" : "delivery.status",
     "periodicity" : "day"
   },
   toChart,
@@ -220,7 +220,7 @@ ReportGrid.fieldSeries(
               </div>
 
               <div>
-                <p class="medium-text">fieldValueCount(path, opt, success, failure)
+                <p class="medium-text">propertyValueCount(path, opt, success, failure)
                 </p>
                 <table>
                   <tr>
@@ -228,10 +228,10 @@ ReportGrid.fieldSeries(
                     <td class="minor-text table-head" colspan='3' width="500"><b>PARAMETERS</b></td>
                   </tr>
                   <tr>
-                    <td class="minor-text js-parameters">fieldValueCount</td>
+                    <td class="minor-text js-parameters">propertyValueCount</td>
                     <td class="minor-text js-parameters" colspan="2">
                       <span class="js-param">path,</span>
-                      <span class="js-param">opt : { field: eventPath, value: valueName },</span>
+                      <span class="js-param">opt : { property: propertyPath, value: valueName },</span>
                       <span class="js-param">success(v),</span>
                       <span class="js-param">failure(e)</span>
                     </td>
@@ -240,7 +240,7 @@ ReportGrid.fieldSeries(
                     <td class="minor-text table-head"><b>Result</b></td>
                   </tr>
                   <tr>
-                    <td class="minor-text" colspan="3">The total number of times the field was equal to the specified value.</td>
+                    <td class="minor-text" colspan="3">The total number of times the property was equal to the specified value.</td>
                   </tr>
                   <tr>
                     <td class="minor-text table-head"><b>EXAMPLE</b></td>
@@ -250,11 +250,11 @@ ReportGrid.fieldSeries(
                   </tr>
                 </table>
                 <pre class="prettyprint">
-ReportGrid.fieldValueCount(
+ReportGrid.propertyValueCount(
   "/customers/jdoe/blog-posts/1/",
   {
-    "field": "click.gender",
-    "value": "male"
+    property: "click.gender",
+    value: "male"
   },
   updateMetrics,
   logger.error
@@ -264,7 +264,7 @@ ReportGrid.fieldValueCount(
 
 
               <div>
-                <p class="medium-text">fieldValueSeries(path, opt, success, failure)
+                <p class="medium-text">propertyValueSeries(path, opt, success, failure)
                 </p>
                 <table>
                   <tr>
@@ -272,10 +272,10 @@ ReportGrid.fieldValueCount(
                     <td class="minor-text table-head" colspan='3' width="500"><b>PARAMETERS</b></td>
                   </tr>
                   <tr>
-                    <td class="minor-text js-parameters">fieldValueSeries</td>
+                    <td class="minor-text js-parameters">propertyValueSeries</td>
                     <td class="minor-text js-parameters" colspan="2">
                       <span class="js-param">path,</span>
-                      <span class="js-param">opt : {field: fieldName, periodicity: selectedPeriodicity},</span>
+                      <span class="js-param">opt : {property: propertyName, periodicity: selectedPeriodicity},</span>
                       <span class="js-param">success(v),</span>
                       <span class="js-param">failure(e)</span>
                     </td>
@@ -284,7 +284,7 @@ ReportGrid.fieldValueCount(
                     <td class="minor-text table-head"><b>Result</b></td>
                   </tr>
                   <tr>
-                    <td class="minor-text" colspan="3">The time series count of when the field was equal to the value.</td>
+                    <td class="minor-text" colspan="3">The time series count of when the property was equal to the value over time.</td>
                   </tr>
                   <tr>
                     <td class="minor-text table-head"><b>EXAMPLE</b></td>
@@ -294,10 +294,10 @@ ReportGrid.fieldValueCount(
                   </tr>
                 </table>
                 <pre class="prettyprint">
-ReportGrid.fieldValueSeries(
+ReportGrid.propertyValueSeries(
   "/transactions/",
   {
-    field: "withdrawal",
+    property: "withdrawal",
     periodicity: "hour"
   },
   success,
@@ -551,7 +551,7 @@ ReportGrid.deleteToken(
                     <td class="minor-text js-parameters">children</td>
                     <td class="minor-text js-parameters" colspan="2">
                       <span class="js-param">path,</span>
-                      <span class="js-param">type : { type: [all|field|path] },</span>
+                      <span class="js-param">type : { type: [all|property|path] },</span>
                       <span class="js-param">success(a),</span>
                       <span class="js-param">failure(e)</span>
                     </td>
@@ -572,7 +572,7 @@ ReportGrid.deleteToken(
                 <pre class="prettyprint">
 ReportGrid.children(
   "/customers/",
-  {"type":"all"},
+  {type:"all"},
   sortChildren,
   logger.error
 );</pre>
@@ -581,7 +581,7 @@ ReportGrid.children(
 
 
               <div>
-                <p class="medium-text">fieldValues(path, opt, success, failure)
+                <p class="medium-text">propertyValues(path, opt, success, failure)
                 </p>
                 <table>
                   <tr>
@@ -589,10 +589,10 @@ ReportGrid.children(
                     <td class="minor-text table-head" colspan='3' width="500"><b>PARAMETERS</b></td>
                   </tr>
                   <tr>
-                    <td class="minor-text js-parameters">fieldValues</td>
+                    <td class="minor-text js-parameters">propertyValues</td>
                     <td class="minor-text js-parameters" colspan="2">
                       <span class="js-param">path,</span>
-                      <span class="js-param">opt : {field: pathToFieldName},</span>
+                      <span class="js-param">opt : {property: propertyName},</span>
                       <span class="js-param">success(a),</span>
                       <span class="js-param">failure(e)</span>
                     </td>
@@ -601,19 +601,19 @@ ReportGrid.children(
                     <td class="minor-text table-head"><b>Result</b></td>
                   </tr>
                   <tr>
-                    <td class="minor-text" colspan="3">An array of all of the values of the specified field for all time.</td>
+                    <td class="minor-text" colspan="3">An array of all of the values of the specified property for all time.</td>
                   </tr>
                   <tr>
                     <td class="minor-text table-head"><b>EXAMPLE</b></td>
                   </tr>
                   <tr>
-                    <td class="minor-text" colspan="3">Retrieve all the values for field click.gender</td>
+                    <td class="minor-text" colspan="3">Retrieve all the values for property click.gender</td>
                   </tr>
                 </table>
                 <pre class="prettyprint">
-ReportGrid.fieldValues(
+ReportGrid.propertyValues(
   "/customers/jdoe/blog-posts/1/",
-  { field: "click.gender" }
+  { property: "click.gender" }
 );</pre>
                 <p class="returns"> ["male", "female", "unknown"]</p>
               </div>
