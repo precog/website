@@ -53,21 +53,21 @@ ReportGrid.tokenManager = function(target_div,$) {
 +"           <form id=\"new-token-form\">\n"
 +"               <dl>\n"
 +"                   <dt><label for=\"token-path\">Path:</label></dt>\n"
-+"                   <dd><input type=\"text\" id=\"token-path\"></dd>\n"
++"                   <dd><input type=\"text\" id=\"token-path\" value=\"/\"></dd>\n"
 +"                   <h4>Permissions</h4>\n"
 +"                   <dt><label for=\"token-read\">Read:</label></dt>\n"
-+"                   <dd><input type=\"checkbox\" id=\"token-read\"></dd>\n"
++"                   <dd><input type=\"checkbox\" id=\"token-read\" checked></dd>\n"
 +"                   <dt><label for=\"token-write\">Write:</label></dt>\n"
-+"                   <dd><input type=\"checkbox\" id=\"token-write\"></dd>\n"
++"                   <dd><input type=\"checkbox\" id=\"token-write\" checked></dd>\n"
 +"                   <dt><label for=\"token-share\">Share:</label></dt>\n"
-+"                   <dd><input type=\"checkbox\" id=\"token-share\"></dd>\n"
++"                   <dd><input type=\"checkbox\" id=\"token-share\" checked></dd>\n"
 +"                   <h4>Limits</h4>\n"
-+"                   <dt><label for=\"token-order\">Order:</label></dt>\n"
-+"                   <dd><input type=\"number\" id=\"token-order\"></dd>\n"
-+"                   <dt><label for=\"token-limit\">Limit:</label></dt>\n"
-+"                   <dd><input type=\"number\" id=\"token-limit\"></dd>\n"
 +"                   <dt><label for=\"token-depth\">Depth:</label></dt>\n"
-+"                   <dd><input type=\"number\" id=\"token-depth\"></dd>\n"
++"                   <dd><input type=\"number\" id=\"token-depth\" value=\"3\"></dd>\n"
++"                   <dt><label for=\"token-limit\">Limit:</label></dt>\n"
++"                   <dd><input type=\"number\" id=\"token-limit\" value=\"20\"></dd>\n"
++"                   <dt><label for=\"token-order\">Order:</label></dt>\n"
++"                   <dd><input type=\"number\" id=\"token-order\" value=\"2\"></dd>\n"
 +"               </dl>\n"
 +"               <input id=\"submit-new-token\" type=\"submit\" value=\"Create new token\" />\n"
 +"           </form>\n"
@@ -100,14 +100,14 @@ ReportGrid.tokenManager = function(target_div,$) {
        new_token = {
            "path":$('#token-path').val(),
            "permissions":{
-               "read":$('#token-read').val() == "on",
-               "write":$('#token-write').val() == "on",
-               "share":$('#token-share').val() == "on",
+               "read":$('#token-read').is(':checked'),
+               "write":$('#token-write').is(':checked'),
+               "share":$('#token-share').is(':checked')
            },
            "limits":{
                "order":$('#token-order').val(),
                "limit":$('#token-limit').val(),
-               "depth":$('#token-depth').val(),
+               "depth":$('#token-depth').val()
            },
        };
 
