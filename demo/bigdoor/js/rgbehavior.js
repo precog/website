@@ -13,6 +13,7 @@ var host = window.location.hostname, //.replace(/\./g, '_'),
 
 function track(event)
 {
+	console.log(host);
 	var e = {},
 		d = dcount <= 2 ? "" + dcount : (((dcount/2)+1)+"-"+dcount),
 		p = e[event] = { 
