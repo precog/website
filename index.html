@@ -1,208 +1,247 @@
-<!DOCTYPE HTML>
 <html>
-  <head>
+    <head>
+        <title> Welcome to ReportGrid </title>
+        
+        <!--[if IE]>
+        <link rel="stylesheet" type="text/css" href="ie.css" />
+        <![endif]-->
 
-    <title>ReportGrid -- Home</title>
-    <link type="text/css" rel="stylesheet" href="css/index.css" />
+    <style type="text/css"> 
 
-    <script src="//d1nu2rn22elx8m.cloudfront.net/performable/pax/95ULyB.js"
-type="text/javascript"></script>
+    #mce-EMAIL{
+        background-image: url(images/newsletter.png);
+        background-color: 1f2126;
+        padding: 0px;
+        width: 142px;
+        height: 22px;
+        border: 0px;
+        margin-right: 2px;
+        font-family: AbelRegular, arial, sans-serif;
+        font-size: 12pt;
+    }
+        
+    #mc-embedded-subscribe {
+        background-image: url(images/subscribebutton.png);
+        background-color: 1f2126;
+        padding: 0px;
+        border: 0px;
+        height: 22px;
+        width: 14px;
+        font-family: AbelRegular, arial, sans-serif;
+        font-size: 12pt;
+    }
 
-    <script type="text/javascript" src="http://include.reinvigorate.net/re_.js"></script>
-    <script type="text/javascript">
-    try {
-    reinvigorate.track("j780b-u1448cw0d9");
-    } catch(err) {}
-    </script>
+    #mc-embedded-subscribe:hover {
+        background-image: url(images/subscribebuttonrollover.png);
+        background-color: 1f2126;
+        border: 0px;
+        height: 22px;
+        width: 14px;
+    }
+        
+    @font-face {
+        font-family: 'AbelRegular';
+        src: url('fonts/abel-regular-webfont.eot');
+        src: url('fonts/abel-regular-webfont.eot?#iefix') format('embedded-opentype'),
+             url('fonts/abel-regular-webfont.woff') format('woff'),
+             url('fonts/abel-regular-webfont.ttf') format('truetype'),
+             url('fonts/abel-regular-webfont.svg#AbelRegular') format('svg');
+        font-weight: normal;
+        font-style: normal;
+    }
+      
+    @font-face {
+        font-family: 'RexliaFree';
+        src: url('fonts/rexlia_free-webfont.eot');
+        src: url('fonts/rexlia_free-webfont.eot?#iefix') format('embedded-opentype'),
+             url('fonts/rexlia_free-webfont.woff') format('woff'),
+             url('fonts/rexlia_free-webfont.ttf') format('truetype'),
+             url('fonts/rexlia_free-webfont.svg#RexliaFree') format('svg');
+        font-weight: normal;
+        font-style: normal;
+    
+    }   
+    A:link{color:ffffff;text-decoration:none}
+   
+    A:visited{color:60B2DC;text-decoration:none}
+        
+    A:hover{color:7AC943;text-decoration: underline}        
+        
+    P {
+        font-size:16px;
+        font-family: AbelRegular, arial, sans-serif;
+        }
+    
+    #wrapper {
+        margin: 0 auto;
+        top margin: 0px;
+        width: 1094px;
+        background: 999999;
+        border: 0px;
+    }
+    
+    #main {
+        position:relative;
+        margin: 0px auto;
+        margin-top: 0px;
+        width: 1094px;
+        height: 404px;
+        background-color: 1F2126;
+    }
+    
+    #footer {
+        position:relative;
+    }
+    
+    #what {
+        position: absolute;
+        top:-4px;left:100px;
+        color: ffffff;
+        width:376px;
+        height:94px;
+    }
+    
+    #how {
+        position: absolute;
+        top:-4px;left:810px;
+        color: ffffff;
+        width:202px;
+        height:160px;
+    }
 
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
-    <script type="text/javascript">
-      var rpxJsHost = (("https:" == document.location.protocol) ? "https://" : "http://static.");
-      document.write(unescape("%3Cscript src='" + rpxJsHost +
-    "rpxnow.com/js/lib/rpx.js' type='text/javascript'%3E%3C/script%3E"));
-    </script>
-    <script type="text/javascript">
-      RPXNOW.overlay = true;
-      RPXNOW.language_preference = 'en';
-    </script>
-  </head>
-  <body>
-    <div id="top">
+    #why {
+        position: absolute;
+        top:200px;left:810px;
+        color: ffffff;
+        width:200px;
+        height:160px;
+    }
 
-      <div class="top-center">
-        <div id="index-header">
-          <a href="index.html"><div class="clickable" id="logo"></div></a>
-          <div id="login-button" class="clickable"><a class="rpxnow" onclick="return false;"
-          href="https://reportgrid.rpxnow.com/openid/v2/signin?token_url=http%3A%2F%2Freportgrid.com%2Flogin.html"><img class="clickable rollover" src="images/loginbuttonreg.png" /></a></div>
-          <div id="nav-bar">
-            <div class="button clickable" id="demo-button"><a href="demo.html"><img class="clickable rollover" src="images/demoreg.png" /></a></div>
-            <div class="button clickable" id="features-button"><a href="features.html"><img class="clickable rollover" src="images/featuresreg.png" /></a></div>
-            <div class="button clickable" id="api-button"><a href="api.html"><img class="clickable rollover" src="images/apireg.png" /></a></div>
-            <div class="button clickable" id="pricing-button"><a href="pricing.html"><img class="clickable rollover" src="images/pricingreg.png" /></a></div>
-            <div class="button clickable" id="about-button"><a href="about.html"><img class="clickable rollover" src="images/aboutreg.png" /></a></div>
-          </div>
+    #newsletter {
+        position: absolute;
+        top:320px;left:100px;
+        color: ffffff;
+        width:192px;
+        height:30px;
+    }
+    
+    #mc_embed_signup {
+        position: absolute;
+        top:340px;left:300px;
+        color: ffffff;
+    }
+    
+    body {
+    margin-top: 0px;
+    background-color: 000000;
+    }
+    
+    </style>
+    </head>
+    
+        <body>
+            
+    <div id="wrapper">
+            <div style="position:relative;top:127px;left:290px">
+                <img src="images/logo.png" style="position:absolute";>
+            </div>    
+            
+            <div style="position:relative;top:280px;left:262px">
+                <img src="images/slogan.png" style="position:absolute">
+            </div>
+        
+        <div id="header">
+            <img src="images/header.png" style="position-relative">
         </div>
-
-
-        <div id="scroll-panel">
-          <div id="panel-bounder">
-            <div id="panels">
-              <div class="panel" id="overview-panel">
-                <div class="content">
-                  <p class="header">Real-Time Analytics and Reporting Engine</p>
-                  <div class="left">
-                    <img id="overview" src="images/overviewgraphic.png" />
-                  </div>
-                  <div class="right">
-                    <p>ReportGrid helps you add high-end analytics and visualizations to your web-based platform. Give your customers <strong>self-serve reporting</strong> that will delight them with stunning insights.</p>
-                    <div class="get-started-button  overview-start">
-                      <a href="pricing.html"><img class="rollover clickable" src="images/getstartedroundreg.png" /></a>
-                    </div>
-                  </div>
+        
+        <div id="main">
+                <div style="position:relative;top:180px;left:100px">
+                    <img src="images/diagram.png" style="position:absolute">
                 </div>
-              </div>
-              <div class="panel" id="analyze-panel">
-                <div class="content">
-                  <p class="blurb">Our generalized analytics engine aggregates arbitrary events in <strong>real-time</strong>, whether your events are simple or very complicated, and whether you produce one or <strong>billions</strong> per month. Think of our engine as a high-level, real-time analytics database that scales with your needs.</p>
-                  <div class="left">
-                    <img id="analysis" src="images/analyzegraphic.png" />
-                  </div>
-                  <div class="right">
-                    <ul>
-                      <li><span>Real-time aggregation and time series</span></li>
-                      <li><span>Events can have arbitrary properties</span></li>
-                      <li><span>Real-time intersection queries</span></li>
-                      <li><span>Real-time correlation detection</span><img class="coming-soon" src="images/comingsoonicon.png" /></li>
-                      <li><span>Time series prediction</span><img class="coming-soon" src="images/comingsoonicon.png" /></li>
-                    </ul>
-                    <div class="get-started-button">
-                      <a href="pricing.html"><img class="rollover clickable" src="images/getstartedrecreg.png" /></a>
-                    </div>
-                  </div>
+                
+                <div style="position:relative;top:0px;left:552px">
+                    <img src="images/backgroundforhow.png" style="position:absolute">
                 </div>
-              </div>
-              <div class="panel" id="visualize-panel">
-                <div class="content">
-                  <p class="blurb">"Running reports," is a thing of the past. Our real-time visualization engine produces <strong>stunningly beautiful</strong>, <strong>interactive reports</strong> that allow your customers to explore <strong>big data</strong>. Say hello to the future of visualization.</p>
-                  <div class="left">
-                    <img id="visualize" src="images/vizualizegraphic.png" />
-                  </div>
-                  <div class="right">
-                    <ul>
-                      <li><span>Embed visualizations in your website</span></li>
-                      <li><span>Insight Explorer for interactive exploration</span></li>
-                      <li><span>Pie charts, bar charts, donut charts</span></li>
-                      <li><span>Line/spline charts for time series</span></li>
-                      <li><span>Area charts, scatter plots</span></li>
-                      <li><span>Customizable look/feel for everything</span></li>
-                      <li><span>Geo maps, heat maps, streams</span><img class="coming-soon" src="images/comingsoonicon.png" /></li>
-                    </ul>
-                    <div class="get-started-button">
-                      <a href="pricing.html"><img class="rollover clickable" src="images/getstartedrecreg.png" /></a>
-                    </div>
-                  </div>
+                
+                <div style="position:relative;top:66px;left:588px">
+                    <img src="images/howimage.png" style="position:absolute">
                 </div>
-              </div>
-              <div class="panel" id="delight-panel">
-                <div class="content">
-                  <p class="blurb">Your customers may come to you for your features, but they will come back to you for the insights you give them. ReportGrid lets you <strong>delight</strong> your customers with deep analytics, and sharp, self-service reporting that would take <strong>years</strong> for your engineering team to build.</p>
-                  <div class="left">
-                    <img id="delight" src="images/delightgraphic.png" />
-                  </div>
-                  <div class="right">
-                    <ul>
-                      <li><span>Addict your customers to insights</span></li>
-                      <li><span>Let customers explore data on their own</span></li>
-                      <li><span>Say no to CSVs and boring tables</span></li>
-                      <li><span>Free engineering to focus on your core</span></li>
-                      <li><span>Monetize through paid analytics</span></li>
-                      <li><span>Leapfrog competitors with analytics/reporting</span></li>
-                    </ul>
-                    <div class="get-started-button">
-                      <a href="pricing.html"><img class="rollover clickable" src="images/getstartedrecreg.png" /></a>
-                    </div>
-                  </div>
+                
+                <div style="position:relative;top:256px;left:588px">
+                    <img src="images/whyimage.png" style="position:absolute">
+                </div> 
+                
+            <div id="what">
+                <div style="position:absolute;">
+                <p style="font-size:26px;color: 7AC943;">What does ReportGrid do?
+                </p>
+                <p>ReportGrid provides an API for analytics and reporting that's powered by our powerful, cloud-scalable analytics database and visualization engine.
+                </p>
                 </div>
-              </div>
             </div>
-          </div>
-          <div id="panel-footer">
-            <img class="panel-selector clickable rollover" src="images/overviewbuttonreg.png" id="overview-icon" />
-            <img class="panel-selector clickable rollover" src="images/analyzebuttonreg.png" id="analyze-icon" />
-            <img class="panel-selector clickable rollover" src="images/visualizebuttonreg.png" id="visualize-icon" />
-            <img class="panel-selector clickable rollover" src="images/delightbuttonreg.png" id="delight-icon" />
-          </div>
+            
+            <div id="how">
+                <div style="position:absolute;">
+                <p style="font-size:20px;color: 3FA9F5;">How can we help you?
+                </p>
+                <p style="font-size:12px;">Most of our customers develop web and mobile applications, and they use our technology to give their end-users analytics and reporting. You can also use our technology to power your internal reporting dashboards.
+                </p>
+                </div>
+            </div>
+            
+            <div id="why">
+                <div style="position:absolute;">
+                <p style="font-size:16px;color: 3FA9F5;">Why should you use us?
+                </p>
+                <p style="font-size:12px;">If you need insightful analytics, building your solution on top of our platform will save you time and money, and let you launch your solution in days instead of months.
+                </p>
+                </div>
+            </div>
+    
+            <div id="newsletter">
+                <div style="position:absolute;">
+                <p style="font-size:13px;">Sign up for our <b>Newsletter</b> to keep current on all <b>ReportGrid</b> news.
+                </p>
+                </div>
+            </div>
+                
+            <!-- Begin MailChimp Signup Form -->
+            <div id="mc_embed_signup">
+            <form action="http://reportgrid.us2.list-manage1.com/subscribe/post?u=e40fc014d1fba80ca1ff06902&amp;id=e5f34c05e6" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
+            	<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder=" your e-mail" required>
+        	<input type="submit" value="" name="subscribe" id="mc-embedded-subscribe" class="image">
+            </form>
+            </div>
+            <!--End mc_embed_signup--> 
+                
         </div>
-      </div>
-      <div class="bottom">
-        <div id="contact-strip">
-          <div id="contact-center">
-            <div class="phone-number">
-              <span class="white">1-</span><span class="green">303</span><span class="white">-921-</span><span class="green">5784</span>
+                <div id="phone">
+                    <div style="position:absolute;padding-left:100px;padding-top:0px;">
+                    <p style="font-family: RexliaFree;font-size:12px;color:ffffff;">303.921.5784
+                    </p>
+                    </div>
+                </div>
+                
+                <div id="contactus">
+                    <div style="position:absolute;padding-left:930px;padding-top:0px;">
+                    <p style="font-family: RexliaFree;font-size:12px;color:ffffff;"><a href="mailto:contact@reportgrid.com">contact us</a>
+                    </p>
+                    </div>
+                </div>
+                
+                <div id="api">
+                    <div style="position:absolute;padding-left:510px;padding-top:0px;">
+                    <p style="font-family: abelregular;font-size:12px;color:ffffff;"><a href="http://www.reportgrid.com/api.html">api documents</a>
+                    </p>
+                    </div>
+                </div>
+        
+            <div ="footer">
+                <img src="images/footer.png"
+                 
             </div>
-            <img id="facebook-button" class="clickable" src="images/followusfacebook.png" />
-            <img id="twitter-button" class="clickable" src="images/followustwitter.png" />
-          </div>
         </div>
-        <!--
-        <div class="bottom-center">
-          <div class="left">
-          </div>
-          <div class="right">
-            <div id="quote-background">
-              <p class="text">dolor lorem ipsum </p>
-              <p class="name">John Green, founder <a href="http://www.trackoftheday.com" target="_blank">trackoftheday.com</a></p>
-            </div>
-          </div>
-        </div>
-        -->
-        <div id="footer">
-          <div class="center">
-            <div class="left">
-              <span><a href="privacy-policy.doc" target="_blank">privacy policy</a> - <a href="terms-of-use.doc" target="_blank">terms of use</a></span>
-            </div>
-            <div class="right">
-              <span>Copyright 2010-2011 ReportGrid - All Rights Reserved</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div id="preloader"></div>
     </div>
-
-    <script type="text/javascript">
-    $('#overview-icon').mouseover(function(e) { $('#panels').stop(true).animate({left : -0 }, 500, function(r) {}) });
-    $('#analyze-icon').mouseover(function(e) { $('#panels').stop(true).animate({left : -922 }, 500, function(r) {}) });
-    $('#visualize-icon').mouseover(function(e) { $('#panels').stop(true).animate({left : -1844 }, 500, function(r) {}) });
-    $('#delight-icon').mouseover(function(e) { $('#panels').stop(true).animate({left : -2766 }, 500, function(r) {}) });
-    $('img.rollover').hover(
-      function(e) { this.setAttribute('src', this.getAttribute('src').replace('reg', 'sel')); },
-      function(e) { this.setAttribute('src', this.getAttribute('src').replace('sel', 'reg')); }
-    );
-    $("#facebook-button").click(function() {window.open("http://www.facebook.com/pages/ReportGrid/155235737848809?v=wall"); });
-    $("#twitter-button").click(function() {window.open("http://twitter.com/#!/ReportGrid"); });
-
-    function preload(a) {
-
-      for (i=0; i < a.length; i++) {
-        var e = document.createElement("img");
-        e.setAttribute('src', a[i]);
-        document.getElementById('preloader').appendChild(e);
-      }
-    }
-
-    function preloadAllImages() {
-      var images = document.getElementsByTagName('img');
-      var imageSources = new Array();
-
-      for (i=0; i < images.length; i++) {
-        imageSources.push(images[i].getAttribute('src'));
-      }
-      preload(imageSources.concat(['images/featuressel.png', 'images/apisel.png','images/aboutsel.png', 'images/loginbuttonsel.png', 'images/getstartedroundsel.png', 'images/whysel.png', 'images/pricingsel.png', 'images/getstartedrecsel.png', 'images/demosel.png', "images/overviewbuttonsel.png", "images/analyzebuttonsel.png", "images/visualizebuttonsel.png", "images/delightbuttonsel.png"]));
-    }
-    preloadAllImages();
-
-
-    </script>
-  </body>
+    
+        </body>
 </html>

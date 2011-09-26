@@ -1,0 +1,136 @@
+    * {
+        border: 0px;
+        padding: 0px;
+        margin: 0px;
+    }
+    
+    #mce-EMAIL{
+        background-image: url(images/newsletter.png);
+        background-color: 1f2126;
+        width: 142px;
+        height: 22px;
+        border: 0px;
+        margin-right: 2px;
+        font-family: AbelRegular, arial, sans-serif;
+        font-size: 12pt;
+    }
+        
+    #mc-embedded-subscribe {
+        background-image: url(images/subscribebutton.png);
+        background-color: 1f2126;
+        border: 0px;
+        height: 22px;
+        width: 14px;
+    }
+
+    #mc-embedded-subscribe:hover {
+        background-image: url(images/subscribebuttonrollover.png);
+        background-color: 1f2126;
+        border: 0px;
+        height: 22px;
+        width: 14px;
+    }
+        
+    @font-face {
+        font-family: 'AbelRegular';
+        src: url('fonts/abel-regular-webfont.eot');
+        src: url('fonts/abel-regular-webfont.eot?#iefix') format('embedded-opentype'),
+             url('fonts/abel-regular-webfont.woff') format('woff'),
+             url('fonts/abel-regular-webfont.ttf') format('truetype'),
+             url('fonts/abel-regular-webfont.svg#AbelRegular') format('svg');
+        font-weight: normal;
+        font-style: normal;
+    }
+      
+    @font-face {
+        font-family: 'RexliaFree';
+        src: url('fonts/rexlia_free-webfont.eot');
+        src: url('fonts/rexlia_free-webfont.eot?#iefix') format('embedded-opentype'),
+             url('fonts/rexlia_free-webfont.woff') format('woff'),
+             url('fonts/rexlia_free-webfont.ttf') format('truetype'),
+             url('fonts/rexlia_free-webfont.svg#RexliaFree') format('svg');
+        font-weight: normal;
+        font-style: normal;
+    
+    }   
+    A:link{color:ffffff;text-decoration:none}
+   
+    A:visited{color:60B2DC;text-decoration:none
+        
+    P {
+        font-size:16px;
+        font-family: AbelRegular, arial, sans-serif;
+        }
+    
+    #wrapper {
+        margin: 0 auto;
+        top margin: 0px;
+        width: 1094px;
+        background: 999999;
+        border: 0px;
+    }
+    
+    #main {
+        position:relative;
+        margin: 0px auto;
+        margin-top: 0px;
+        width: 1094px;
+        height: 404px;
+        background-color: 1F2126;
+    }
+    
+    #footer {
+        position:relative;
+    }
+    
+    #what {
+        padding-top: 16px;
+        position: absolute;
+        top:100px;left:0px;
+        text-align:left;
+        color: ffffff;
+        width:376px;
+        height:94px;
+    }
+    
+    #how {
+        padding-top: 16px;
+        position: absolute;
+        text-align:left;
+        top:-4px;left:810px;
+        color: ffffff;
+        width:202px;
+        height:160px;
+    }
+
+    #why {
+        padding-top: 16px;
+        position: absolute;
+        text-align:left;
+        top:200px;left:810px;
+        color: ffffff;
+        width:200px;
+        height:160px;
+    }
+
+    #newsletter {
+        padding-top: 16px;        
+        position: absolute;
+        text-align:left;
+        top:320px;left:100px;
+        color: ffffff;
+        width:192px;
+        height:30px;
+    }
+    
+    #mc_embed_signup {
+        position: absolute;
+        text-align:left;
+        top:340px;left:300px;
+        color: ffffff;
+    }
+    
+    body { 
+    margin-top: 0px;
+    background-color: 000000;
+    }
