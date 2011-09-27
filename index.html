@@ -1,44 +1,24 @@
 <html>
     <head>
-        <title> Welcome to ReportGrid </title>
-        
+        <title>Welcome to ReportGrid</title>
         <!--[if IE]>
         <link rel="stylesheet" type="text/css" href="ie.css" />
         <![endif]-->
-
     <style type="text/css"> 
 
-    #mce-EMAIL{
-        background-image: url(images/newsletter.png);
-        background-color: 1f2126;
-        padding: 0px;
-        width: 142px;
-        height: 22px;
-        border: 0px;
-        margin-right: 2px;
-        font-family: AbelRegular, arial, sans-serif;
-        font-size: 12pt;
-    }
-        
-    #mc-embedded-subscribe {
-        background-image: url(images/subscribebutton.png);
-        background-color: 1f2126;
-        padding: 0px;
-        border: 0px;
-        height: 22px;
-        width: 14px;
-        font-family: AbelRegular, arial, sans-serif;
-        font-size: 12pt;
-    }
+* {
+  margin:           0px;
+  padding:          0px;
+  border:           0px;
+  list-style-type:  none;
+  text-decoration:  none;
+  position:         relative;
+  color: white;
+  -webkit-user-select: text;
+  -moz-user-select: none;
+  user-select: none
+}
 
-    #mc-embedded-subscribe:hover {
-        background-image: url(images/subscribebuttonrollover.png);
-        background-color: 1f2126;
-        border: 0px;
-        height: 22px;
-        width: 14px;
-    }
-        
     @font-face {
         font-family: 'AbelRegular';
         src: url('fonts/abel-regular-webfont.eot');
@@ -60,121 +40,176 @@
         font-weight: normal;
         font-style: normal;
     
-    }   
-    A:link{color:ffffff;text-decoration:none}
+    }  
+
+body {
+  background-color: black;
+}
+
+A:link{color:ffffff;text-decoration:none}
    
-    A:visited{color:60B2DC;text-decoration:none}
+A:visited{color:60B2DC;text-decoration:none}
         
-    A:hover{color:7AC943;text-decoration: underline}        
-        
-    P {
-        font-size:16px;
-        font-family: AbelRegular, arial, sans-serif;
-        }
-    
-    #wrapper {
-        margin: 0 auto;
-        top margin: 0px;
-        width: 1094px;
-        background: 999999;
-        border: 0px;
-    }
-    
-    #main {
-        position:relative;
-        margin: 0px auto;
-        margin-top: 0px;
-        width: 1094px;
-        height: 404px;
-        background-color: 1F2126;
-    }
-    
-    #footer {
-        position:relative;
-    }
-    
-    #what {
-        position: absolute;
-        top:-4px;left:100px;
-        color: ffffff;
-        width:376px;
-        height:94px;
-    }
-    
-    #how {
-        position: absolute;
-        top:-4px;left:810px;
-        color: ffffff;
-        width:202px;
-        height:160px;
+A:hover{color:7AC943;text-decoration: underline}  
+
+P {
+    font-size:16px;
+    font-family: AbelRegular, arial, sans-serif;
     }
 
-    #why {
-        position: absolute;
-        top:200px;left:810px;
-        color: ffffff;
-        width:200px;
-        height:160px;
-    }
+h1 {
+  font-size:16px;
+  font-family:arial;
+}
 
-    #newsletter {
-        position: absolute;
-        top:320px;left:100px;
-        color: ffffff;
-        width:192px;
-        height:30px;
-    }
+#wrapper {
+  margin: 0 auto;
+  top margin: 0px;
+  width: 1094px;
+  background: 999999;
+  border: 0px;
+}
+
+#wrapper .header {
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  height: 421px;
+  background-image: url("images/header.png");
+}
+
+#slogan {
+    position: absolute;
+    top:280px;left:244px;
+    color: ffffff;
+    width: 800px;
+    height:94px;
+}
+
+#wrapper .middle {
+  position: absolute;
+  top: 421px;
+  width: 100%;
+  height: 403px;
+  background-color: #1F2126;
+}
+
+#what {
+    position: absolute;
+    top:20px;left:100px;
+    color: ffffff;
+    width:376px;
+    height:94px;
+}
     
+#how {
+    position: absolute;
+    top:18px;left:810px;
+    color: ffffff;
+    width:202px;
+    height:160px;
+}
+
+#why {
+    position: absolute;
+    top:212px;left:810px;
+    color: ffffff;
+    width:200px;
+    height:160px;
+}
+
+#newsletter {
+    position: absolute;
+    top:320px;left:100px;
+    color: ffffff;
+    width:192px;
+    height:30px;
+}
+
+
     #mc_embed_signup {
         position: absolute;
-        top:340px;left:300px;
+        top:328px;left:300px;
         color: ffffff;
     }
-    
-    body {
-    margin-top: 0px;
-    background-color: 000000;
+
+    #mce-EMAIL{
+        background-image: url(images/newsletter.png);
+        background-color: 1f2126;
+        padding: 0px;
+        width: 142px;
+        height: 22px;
+        border: 0px;
+        margin-right: 2px;
+        font-family: AbelRegular, arial, sans-serif;
+        font-size: 12pt;
+        color: black;
     }
-    
+        
+    #mc-embedded-subscribe {
+        background-image: url(images/subscribebutton.png);
+        background-color: 1f2126;
+        padding: 0px;
+        border: 0px;
+        height: 22px;
+        width: 14px;
+        font-family: AbelRegular, arial, sans-serif;
+        font-size: 12pt;
+    }
+
+    #mc-embedded-subscribe:hover {
+        background-image: url(images/subscribebuttonrollover.png);
+        background-color: 1f2126;
+        border: 0px;
+        height: 22px;
+        width: 14px;
+    }
+
+#wrapper .footer {
+  position: absolute;
+  top: 822px;
+  width: 100%;
+  height: 210px;
+  background-image: url("images/footer.png");
+}
     </style>
     </head>
     
-        <body>
-            
-    <div id="wrapper">
+ <body>
+      <div id="wrapper">
+        <div class="header">
             <div style="position:relative;top:127px;left:290px">
                 <img src="images/logo.png" style="position:absolute";>
             </div>    
-            
-            <div style="position:relative;top:280px;left:262px">
-                <img src="images/slogan.png" style="position:absolute">
-            </div>
-        
-        <div id="header">
-            <img src="images/header.png" style="position-relative">
+            <div id="slogan">
+                <div style="position:absolute;">
+                <p style="font-size:40px;">THE API FOR ANALYTICS AND REPORTING.
+                </p>
+                </div>
+            </div>        
         </div>
-        
-        <div id="main">
-                <div style="position:relative;top:180px;left:100px">
-                    <img src="images/diagram.png" style="position:absolute">
-                </div>
-                
-                <div style="position:relative;top:0px;left:552px">
-                    <img src="images/backgroundforhow.png" style="position:absolute">
-                </div>
-                
-                <div style="position:relative;top:66px;left:588px">
-                    <img src="images/howimage.png" style="position:absolute">
-                </div>
-                
-                <div style="position:relative;top:256px;left:588px">
-                    <img src="images/whyimage.png" style="position:absolute">
-                </div> 
-                
+        <div class="middle">
+            <div style="position:relative;top:180px;left:100px">
+                <img src="images/diagram.png" style="position:absolute">
+            </div>
+            
+            <div style="position:relative;top:0px;left:552px">
+                <img src="images/backgroundforhow.png" style="position:absolute">
+            </div>
+            
+            <div style="position:relative;top:66px;left:588px">
+                <img src="images/howimage.png" style="position:absolute">
+            </div>
+            
+            <div style="position:relative;top:256px;left:588px">
+                <img src="images/whyimage.png" style="position:absolute">
+            </div>
+            
             <div id="what">
                 <div style="position:absolute;">
                 <p style="font-size:26px;color: 7AC943;">What does ReportGrid do?
                 </p>
+                <br>
                 <p>ReportGrid provides an API for analytics and reporting that's powered by our powerful, cloud-scalable analytics database and visualization engine.
                 </p>
                 </div>
@@ -184,6 +219,7 @@
                 <div style="position:absolute;">
                 <p style="font-size:20px;color: 3FA9F5;">How can we help you?
                 </p>
+                <br>                
                 <p style="font-size:12px;">Most of our customers develop web and mobile applications, and they use our technology to give their end-users analytics and reporting. You can also use our technology to power your internal reporting dashboards.
                 </p>
                 </div>
@@ -193,6 +229,7 @@
                 <div style="position:absolute;">
                 <p style="font-size:16px;color: 3FA9F5;">Why should you use us?
                 </p>
+                <br>
                 <p style="font-size:12px;">If you need insightful analytics, building your solution on top of our platform will save you time and money, and let you launch your solution in days instead of months.
                 </p>
                 </div>
@@ -204,7 +241,7 @@
                 </p>
                 </div>
             </div>
-                
+            
             <!-- Begin MailChimp Signup Form -->
             <div id="mc_embed_signup">
             <form action="http://reportgrid.us2.list-manage1.com/subscribe/post?u=e40fc014d1fba80ca1ff06902&amp;id=e5f34c05e6" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
@@ -212,36 +249,33 @@
         	<input type="submit" value="" name="subscribe" id="mc-embedded-subscribe" class="image">
             </form>
             </div>
-            <!--End mc_embed_signup--> 
-                
+            <!--End mc_embed_signup-->             
+            
         </div>
+        <div class="footer">
                 <div id="phone">
-                    <div style="position:absolute;padding-left:100px;padding-top:0px;">
-                    <p style="font-family: RexliaFree;font-size:12px;color:ffffff;">303.921.5784
+                    <div style="position:absolute;padding-left:100px;padding-top:16px;">
+                    <p style="font-family: RexliaFree;font-size:12px;color:ffffff;">888.673.9958
                     </p>
                     </div>
                 </div>
                 
                 <div id="contactus">
-                    <div style="position:absolute;padding-left:930px;padding-top:0px;">
+                    <div style="position:absolute;padding-left:930px;padding-top:16px;">
                     <p style="font-family: RexliaFree;font-size:12px;color:ffffff;"><a href="mailto:contact@reportgrid.com">contact us</a>
                     </p>
                     </div>
                 </div>
                 
                 <div id="api">
-                    <div style="position:absolute;padding-left:510px;padding-top:0px;">
-                    <p style="font-family: abelregular;font-size:12px;color:ffffff;"><a href="http://www.reportgrid.com/api.html">api documentation</a>
+                    <div style="position:absolute;padding-left:510px;padding-top:16px;">
+                    <p style="font-family: AbelRegular;font-size:12px;color:ffffff;"><a href="http://www.reportgrid.com/api.html">api documentation</a>
                     </p>
                     </div>
                 </div>
-        
-            <div ="footer">
-                <img src="images/footer.png"
-                 
-            </div>
         </div>
-    </div>
-    
-        </body>
+
+      </div>
+
+    </body>
 </html>
