@@ -13,7 +13,6 @@
   list-style-type:  none;
   text-decoration:  none;
   position:         relative;
-  color: white;
   -webkit-user-select: text;
   -moz-user-select: none;
   user-select: none
@@ -91,64 +90,57 @@ h1 {
   top: 421px;
   margin-left: 2px;
   width: 1092;
-  height: 403px;
+  height: 500px;
   background-color: #1F2126;
 }
 
-#what {
-    position: absolute;
-    top:20px;left:100px;
-    color: ffffff;
-    width:376px;
-    height:94px;
-}
-    
-#how {
-    position: absolute;
-    top:18px;left:588px;
-    color: ffffff;
-    width:202px;
-    height:160px;
+#subscribeFormWelcome {
+    position: relative;
+    top: 20px;
+    left: 300px;
+    width: 500px;
+    font-family: abel;
+    color: white;
 }
 
-#why {
-    position: absolute;
-    top:206px;left:588px;
-    color: ffffff;
-    width:200px;
-    height:160px;
+.indicates-required {
+    position: relative;
+    top: 40px;
+    left: 300px;
+    width: 500px;
+    font-family: abel;
+    font-size: 10pt;
+    color: white;
 }
 
-#newsletter {
-    position: absolute;
-    top:320px;left:100px;
-    color: ffffff;
-    width:192px;
-    height:30px;
+#mergeTable {
+    position: relative;
+    top: 60px;
+    left: 300px;
+    width: 500px;
+    font-family: abel;
+    font-size: 10pt;
+    color: #ffffff;
 }
 
-    #mc_embed_signup {
-        position: absolute;
-        top:328px;left:300px;
-        color: ffffff;
-    }
+.field-group input {
+    border: 0 none;
+    display: block;
+    padding: 4px;
+    width: 50%
+}
 
-    #mce-EMAIL{
-        background-image: url(images/newsletter.png);
-        background-color: 1f2126;
-        padding: 0px;
-        width: 142px;
-        height: 22px;
-        border: 0px;
-        margin-right: 2px;
-        font-family: AbelRegular, arial, sans-serif;
-        font-size: 12pt;
-        color: black;
-    }
-        
-    #mc-embedded-subscribe {
+.field-group {
+    border-style: solid;
+    float: none;
+    margin: 3px 0 10px;
+}
+
+    #submit {
         background-image: url(images/subscribebutton.png);
         background-color: 1f2126;
+        left: 300px;
+        top: 50;
         padding: 0px;
         border: 0px;
         height: 22px;
@@ -157,7 +149,7 @@ h1 {
         font-size: 12pt;
     }
 
-    #mc-embedded-subscribe:hover {
+    #submit:hover {
         background-image: url(images/subscribebuttonrollover.png);
         background-color: 1f2126;
         border: 0px;
@@ -167,7 +159,7 @@ h1 {
 
 #wrapper .footer {
   position: absolute;
-  top: 822px;
+  top: 880px;
   width: 100%;
   height: 210px;
   background-image: url("images/footer.png");
@@ -186,74 +178,72 @@ h1 {
                 <p style="font-size:40px;">THE API FOR ANALYTICS AND REPORTING.
                 </p>
                 </div>
-            </div>
-                <div style="position:relative;top:372px;left:872px"><a href="http://www.reportgrid.com/learnmore.html">
-                <img src="images/learnmore.png" />
-                </a>
-            </div>
         </div>
         <div class="middle">
-            <div style="position:relative;top:180px;left:100px">
-                <img src="images/diagram.png" style="position:absolute">
+            
+            <div id="subscribeFormWelcome">Thanks for your interest in learning more about the ReportGrid API! To receive notification on our public launch, or to request a whitepaper on the ReportGrid platform, please fill out the form below:
+            </div>
+            <div class="indicates-required"><span class="asterisk">*</span> required</div>
+            
+            <form action="http://reportgrid.us2.list-manage.com/subscribe/post" method="POST">
+            <input type="hidden" name="u" value="e40fc014d1fba80ca1ff06902">
+            <input type="hidden" name="id" value="e5f34c05e6">
+            
+            <div id="mergeTable" class="mergeTable">
+            
+            <div class="mergeRow dojoDndItem mergeRow-email" id="mergeRow-0">
+            <label for="MERGE0"><strong>Email Address</strong> <span class="asterisk">*</span></label>
+            <div class="field-group">
+                <input type="email" autocapitalize="off" autocorrect="off" name="MERGE0" id="MERGE0" size="25" value="">
+                
             </div>
             
-            <div style="position:relative;top:0px;left:552px">
-                <img src="images/backgroundforhow.png" style="position:absolute">
             </div>
             
-            <div style="position:relative;top:66px;left:810px">
-                <img src="images/howimage.png" style="position:absolute">
+            <div class="mergeRow dojoDndItem mergeRow-url" id="mergeRow-3">
+            <label for="MERGE3"><strong>Company Website</strong> <span class="asterisk">*</span></label>
+            <div class="field-group">
+                <input type="text" autocapitalize="off" autocorrect="off" name="MERGE3" id="MERGE3" size="25" value="">
+                
             </div>
             
-            <div style="position:relative;top:256px;left:810px">
-                <img src="images/whyimage.png" style="position:absolute">
             </div>
             
-            <div id="what">
-                <div style="position:absolute;">
-                <p style="font-size:26px;color: 7AC943;">What does ReportGrid do?
-                </p>
-                <br>
-                <p>ReportGrid provides an API for analytics and reporting that's powered by our powerful, cloud-scalable analytics database and visualization engine.
-                </p>
-                </div>
+            <div class="mergeRow dojoDndItem mergeRow-dropdown" id="mergeRow-6">
+            <label for="MERGE6"><strong>Job Title</strong> <span class="asterisk">*</span></label>
+            <div class="field-group">
+                <select id="MERGE6" name="MERGE6"><option value="Software Engineer">Software Engineer</option><option value="CEO">CEO</option><option value="CTO">CTO</option><option value="CFO">CFO</option><option value="CIO">CIO</option><option value="COO">COO</option><option value="VP of Engineering">VP of Engineering</option><option value="VP of Product">VP of Product</option><option value="VP of Sales">VP of Sales</option><option value="VP of Finance">VP of Finance</option><option value="VP of Operations">VP of Operations</option><option value="Engineering Manager">Engineering Manager</option><option value="Product Manager">Product Manager</option><option value="Sales Manager">Sales Manager</option><option value="Finance Manager">Finance Manager</option><option value="Operations Manager">Operations Manager</option><option value="Sales">Sales</option></select>
+            
             </div>
             
-            <div id="how">
-                <div style="position:absolute;">
-                <p style="font-size:20px;color: 3FA9F5;">How can we help you?
-                </p>
-                <br>                
-                <p style="font-size:12px;">Most of our customers develop web and mobile applications, and they use our technology to give their end-users analytics and reporting. You can also use our technology to power your internal reporting dashboards.
-                </p>
-                </div>
             </div>
             
-            <div id="why">
-                <div style="position:absolute;">
-                <p style="font-size:20px;color: 3FA9F5;">Why should you use us?
-                </p>
-                <br>
-                <p style="font-size:12px;">If you need insightful analytics, building your solution on top of our platform will save you time and money, and let you launch your solution in days instead of months.
-                </p>
-                </div>
-            </div>
-    
-            <div id="newsletter">
-                <div style="position:absolute;">
-                <p style="font-size:13px;">Sign up for our <b>Newsletter</b> to keep current on all <b>ReportGrid</b> news.
-                </p>
-                </div>
+            <div class="mergeRow dojoDndItem mergeRow-text" id="mergeRow-1">
+            <label for="MERGE1"><strong>First Name</strong> <span class="asterisk">*</span></label>
+            <div class="field-group">
+                <input type="text" name="MERGE1" id="MERGE1" size="25" value="">
+                
             </div>
             
-            <!-- Begin MailChimp Signup Form -->
-            <div id="mc_embed_signup">
-            <form action="http://reportgrid.us2.list-manage1.com/subscribe/post?u=e40fc014d1fba80ca1ff06902&amp;id=e5f34c05e6" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
-            	<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder=" your e-mail" required>
-        	<input type="submit" value="" name="subscribe" id="mc-embedded-subscribe" class="image">
+            </div>
+            
+            <div class="mergeRow dojoDndItem mergeRow-text" id="mergeRow-2">
+            <label for="MERGE2"><strong>Last Name</strong> <span class="asterisk">*</span></label>
+            <div class="field-group">
+                <input type="text" name="MERGE2" id="MERGE2" size="25" value="">
+                
+                
+            </div>
+            
+            </div>
+            
+            </div>
+            
+            
+            <br>
+            
+            <input type="submit" value="" name="subscribe" id="submit" class="image">
             </form>
-            </div>
-            <!--End mc_embed_signup-->             
             
         </div>
         <div class="footer">
