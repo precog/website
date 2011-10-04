@@ -301,16 +301,16 @@ _______________ No Effect ____________*/
 
 .rg ul.leaderboard
 {
-        stroke:#666;
+	boarder:1px solid #F9F9F9;
+	stroke:#666;
     stroke-width:10px;
-    
-    boarder:1px solid #000;
+	line-height:15px;
+
 	list-style-type:square;
 	margin:0px 5px 5px 5px;
     padding:5px 5px 5px 20px;
-    background-color:#fff;
-    boarder:1px solid #ccc;
-    
+    background-color:#F9F9F9;
+	    
     box-shadow: 2px 2px 2px rgba(200,200,200,0.15),
 	inset 0px 0px 0px rgba(255,255,255,0.25);
 	-o-box-shadow: 2px 2px 2px rgba(0,0,0,0.15),
@@ -322,23 +322,27 @@ _______________ No Effect ____________*/
 }
 
 .rg ul.leaderboard li
-{
+{	
+	color:inherit;
 	font-family:Veranda, Arial, Helvetica, sans-serif;
-	font-size: 8pt;
+	font-size: 12px;
     stroke:#666;
     stroke-width:10px;
-    background-color:#FFF;
+    background-color:#F9F9F9;
 
 }
 
 .rg .leaderboard li.nogradient
 {
 	background-image: none;
+	color:inherit;
+	boarder:1px solid #666;
 }
 
 .rg li
 {	
-	background-color:inherit;
+	color:inherit;
+	
 }
 
 .rg div.clear
@@ -446,12 +450,6 @@ _______________ No Effect ____________*/
 	shape-rendering: crispEdges;
 	stroke-width: 0;
 }
-
-.rg .bar-chart rect.bar:hover
-{
-	width: 1*1.2;
-}
-
 
 .rg .border
 {

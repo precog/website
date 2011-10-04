@@ -13,7 +13,8 @@
 	<link rel="stylesheet" href="css/ui.daterangepicker.css" type="text/css" />
 	<link rel="stylesheet" href="css/redmond/jquery-ui-1.7.1.custom.css" type="text/css" title="ui-theme" />
 
-	<link rel="stylesheet" type="text/css" href="http://api.reportgrid.com/css/rg.css"/>
+	<link rel="stylesheet" type="text/css" href="css/rg.css"/>
+	<link rel="stylesheet" type="text/css" href="css/rg-colors-snapengage.css"/>
 	<script src="http://api.reportgrid.com/js/reportgrid-core.js?tokenId=66178806-8389-42CA-9E6B-86B4285F487A"></script>
 	<script src="http://api.reportgrid.com/js/reportgrid-viz.js"></script>
 <!--
@@ -223,28 +224,29 @@ $(function(){
 body
 {
 	font-size: 73%;
-	background-color: #aaa;
+	background-color: #FFF;
 	padding: 8px;
 }
 
 .container
 {
+	color:inherit;
 	float: left;
 	margin: 0 8px 8px 0;
 	padding: 8px;
-	background-color: #eee;
-	-moz-border-radius: 10px;
-	-webkit-border-radius: 10px;
-	border-radius: 10px;
+	background-color: #FFF;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
 	
-	box-shadow: 8px 10px 10px rgba(0,0,0,0.5),
-	inset 8px 10px 10px rgba(255,255,255,0.75);
-	-o-box-shadow: 8px 10px 10px rgba(0,0,0,0.5),
-	inset 8px 10px 10px rgba(255,255,255,0.75);
+	box-shadow: 4px 5px 5px rgba(0,0,0,0.5),
+	inset 4px 5px 5px rgba(255,255,255,0.75);
+	-o-box-shadow: 4px 5px 5px rgba(0,0,0,0.5),
+	inset 4px 5px 5px rgba(255,255,255,0.75);
 	-webkit-box-shadow: 8px 10px 10px rgba(0,0,0,0.5),
-	inset 8px 10px 10px rgba(255,255,255,0.75);
-	-moz-box-shadow: 8px 10px 10px rgba(0,0,0,0.5),
-	inset 8px 10px 10px rgba(255,255,255,0.75);
+	inset 4px 5px 5px rgba(255,255,255,0.75);
+	-moz-box-shadow: 4px 5px 5px rgba(0,0,0,0.5),
+	inset 4px 5px 5px rgba(255,255,255,0.75);
 }
 
 .clear
@@ -269,14 +271,12 @@ h1
 	clear: left;
 	padding: 8px 0 2px 0;
 	font-size:20px;
-	color: #fff;
-	text-shadow: 0px 1px 2px #000;
+	color: #666;
 }
-
-h1:hover
-{
-	color: #fff;
-}
+rg. .leaderboard {
+	color:inherit;
+	boarder:1px solid #666;
+	}
 
 
 </style>
@@ -341,28 +341,32 @@ h1:hover
 		</div>
 	</div>
 	
-	<h1>activity by hour of the day</h1>
+
 	<div class="container">
+		<h1>activity by hour of the day</h1>
 		<div id="activity" class="chart wide"></div>
 		<div class="clear"></div>
 	</div>
 	
-	<h1>requests</h1>
+
 	<div class="container">
-		<div id="caseslegend" class="chart"></div>
+		<h1>requests</h1>
+		<div id="caseslegend" class="chart" style="font-size:20px"></div>
 		<div id="cases" class="chart"></div>
 		<div id="casestime" class="chart wide"></div>
 		<div class="clear"></div>
 	</div>
-	<h1>operating systems</h1>
+	
 	<div class="container">
-		<div id="oses" class="chart"></div>
+	<h1>operating systems</h1>
+		<div id="oses" class="chart"style="font-size:20px"></div>
 		<div id="osestime" class="chart wide"></div>
 		<div class="clear"></div>
 	</div>
-	<h1>browsers</h1>
 	<div class="container">
-		<div id="browsers" class="chart"></div>
+		<h1>browsers</h1>
+
+		<div id="browsers" class="chart"style="font-size:20px"></div>
 		<div id="browserstime" class="chart wide"></div>
 		<div class="clear"></div>
 	</div>
