@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<title>ReportGrid.Visualization.Demos</title>
+        <!--[if IE]>
+        <link rel="stylesheet" type="text/css" href="ie.css" />
+        <![endif]-->
+
+		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>		
+		<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.3.0/build/cssfonts/fonts-min.css"/>
+		<link rel="stylesheet" type="text/css" href="demo/css/demo.css"/>
+		<script type="text/javascript" src="http://include.reinvigorate.net/re_.js"></script>
+		<script type="text/javascript">
+		try {
+		reinvigorate.track("j780b-u1448cw0d9");
+		} catch(err) {}
+		</script>
+
+<link rel="stylesheet" type="text/css" href="css/rg.css"/>
+	<script src="js/reportgrid-core.js?tokenId=66178806-8389-42CA-9E6B-86B4285F487A"></script>
+	<script src="js/reportgrid-viz.js"></script>
+<script type="text/javascript">
+document.addEventListener("DOMContentLoaded", function(){
+
+	var start = "100 hours ago",
+		end = "now",
+		range = ReportGrid.date.range(start, end, "hour"),
+		data1 = range.map(function(d,i) {
+			var count = ReportGrid.math.random() * 100 + 10;
+			return {
+				".#time:hour" : d,
+				event : "impression",
+				impression : count,
+				count : count
+			};
+		}),
+		data2 = range.map(function(d,i) {
+			var count = ReportGrid.math.random() * 40 + 10;
+			return {
+				".#time:hour" : d,
+				event : "click",
+				click : count,
+				count : count
+			};
+		}),
+		data3 = range.map(function(d,i) {
+			var count = ReportGrid.math.random() * 20 + 10;
+			return {
+				".#time:hour" : d,
+				event : "conversion",
+				conversion : count,
+				count : count
+			};
+		})
+	;
+
+	ReportGrid.streamGraph("#chart1", {
+		axes : [{
+			type : ".#time:hour",
+			view : [start, end],
+			variable : "independent"
+		}, {
+			type : "count"
+		}],
+		data : [
+			{ src : { data : data1 } }, 
+			{ src : { data : data2 } },
+			{ src : { data : data3 } }
+		],
+		options : {
+			effect : "gradient-0.85",
+			segmenton : "event",
+			label : { datapointover : function(dp) {  return dp.event + ": " + ReportGrid.format(dp["count"]);  } },
+			click : function(dp) { alert(dp.event + ": " + ReportGrid.format(dp.count)); },
+			height: 200
+		}
+	});
+
+	var ageRanges = ["0-13", "14-15", "16-20", "21-35",  "91-100", "100+"];
+
+	ReportGrid.streamGraph("#chart2", {
+		axes : [{
+			type : "age",
+			values : ageRanges,
+			variable : "independent"
+		}, {
+			type : "count"
+		}],
+		data : [{
+			src : {
+				data : ageRanges.map(function(d,i) {
+					return {
+						count : ReportGrid.math.random() * 35 + 5,
+						age : d
+					};
+				})
+			}
+		}],
+		options : {
+			height : 120,
+			label : {
+				datapointover : function(dp) { 
+					return ReportGrid.format(dp["count"]); 
+				},
+				axis : function(name) { return ReportGrid.humanize(name); }
+			},
+			effect : "gradienth-0.85"
+		}
+	});
+	
+	var interests = ["sport", "tv", "internet", "art", "history", "diy"];
+	ReportGrid.streamGraph("#chart3", {
+		axes : [{
+			type : "age",
+			values : ageRanges,
+			view : ["0-13", "100+"],
+			variable : "independent"
+		}, {
+			type : "interest",
+			view : ["sport", "diy"],
+			values : interests
+		}],
+		data : [{
+			src : {
+				data : ageRanges.map(function(d,i) {
+					return {
+						interest : interests[Math.floor(ReportGrid.math.random()*interests.length)],
+						age : d
+					};
+				})
+			}
+		}],
+		options : {
+			height : 120,
+			label : {
+				title : "Interests by Age Groups",
+				datapointover : function(dp) {  return dp["age"] + ": " + dp["interest"];  },
+				axis : function(name) { return ReportGrid.humanize(name); }
+			},
+			effect : "gradientv-0.85"
+		}
+	});
+}, false)
+</script>
+    </head>
+    
+ <body>
+      <div class="wrapper">
+        <div class="header">
+                <img src="images/rg_27x200_logo.png" style="padding-top:26px">
+		<ul class="demos">
+			<li><a class="bar" href="barchart-static.html">Bar Charts</a></li>
+			<li><a class="line" href="linechart-static.html">Line Charts</a></li>
+			<li><a class="pie" href="piechart-static.html">Pie Charts</a></li>
+			<li><a class="leaderboard" href="leaderboard-static.html">Leaderboard</a></li>
+			<li><a class="funnel" href="funnelchart-static.html">Funnel Charts</a></li>
+			<li><a class="streamgraph" href="streamgraph-static.html">Stream Graphs</a></li>
+			<li><a class="heatgrid" href="heatgrid-static.html">Heat Grids</a></li>
+			<li><a class="pivot" href="pivottable.html">Pivot Table</a></li>
+			<li><a class="scatter" href="scatterplot-static.html">Scatter Plot</a></li>
+			<li><a class="geo" href="geo-static.html">Geo</a></li>
+			<li><a class="snapengage" href="demo/snapengage/index.html">SnapEngage</a></li>
+			</ul>
+           </div>
+        		<div class="mainContent">
+					<div class="contentWhiteBG">
+			
+			<div id="chart8"></div>
+			<div id="chart7"></div>
+			<div id="chart6"></div>
+			<div id="chart5"></div>
+			<div id="chart4"></div>
+			<div  id="chart3"></div>
+			<div id="chart2"></div>
+			<div id="chart1"></div>
+			<div id="haxe:trace"></div>
+        	</div>
+</div>
+        <div class="footer">
+					
+                    <div style="float:right; font-family: RexliaFree;font-size:12px;"><a href="mailto:contact@reportgrid.com"><span style="color:#FFF">contact us</span></a></div>
+                    <div style="float:left; font-family: RexliaFree;font-size:12px;color:#FFF;">888.673.9958</div>
+                    <div style="text-align:center; font-family: AbelRegular;font-size:12px;color:#FFF;"><a href="http://www.reportgrid.com">Home</a></div>
+
+                
+               
+</div>
+      </div>
+
+    </body>
+</html>

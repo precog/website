@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<title>ReportGrid.Visualization.Demos</title>
+        <!--[if IE]>
+        <link rel="stylesheet" type="text/css" href="ie.css" />
+        <![endif]-->
+
+		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>		
+		<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.3.0/build/cssfonts/fonts-min.css"/>
+		<link rel="stylesheet" type="text/css" href="demo/css/demo.css"/>
+		<link rel="stylesheet" type="text/css" href="css/rg.css"/>
+	<link rel="stylesheet" type="text/css" href="css/colors/rg-colors-brbg-9-div.css"/>
+	<script src="js/reportgrid-core.js?tokenId=66178806-8389-42CA-9E6B-86B4285F487A"></script>
+	<script src="js/reportgrid-viz.js"></script>
+<script type="text/javascript">
+document.addEventListener("DOMContentLoaded", function(){
+	var ageranges = ["0-13", "14-15", "16-20", "21-35",  "91-100", "100+"],
+		heights   = ["up to 1 foot", "2 feet", "3 feet", "4 feet", "5 feet", "6 feet", "over"],
+		data = [];
+	ageranges.forEach(function(age) {
+		data = data.concat(heights.map(function(height) {
+			return {
+				height : height,
+				age    : age,
+				value  : ReportGrid.math.random()
+			};
+		}));
+	});
+	
+	ReportGrid.heatGrid("#chart1", {
+		axes : [{
+			type : "age",
+			variable : "independent"
+		}, {
+			type : "height",
+			variable : "independent"
+		}, { type : "value" }],
+		data : [ { src : { data : data } } ],
+		options : {
+			label : { datapointover : function(dp) { return dp.height + ", " + dp.age + ": " + ReportGrid.format(dp.value); } },
+			click : function(dp) { alert(dp.height + ", " + dp.age + ": " + ReportGrid.format(dp.value)); },
+			height: 200,
+			color: "css",
+			width: 240
+		}
+	});
+	
+	ReportGrid.heatGrid("#chart2", {
+		axes : [{
+			type : "age",
+			variable : "independent"
+		}, {
+			type : "height",
+			variable : "independent"
+		}, { type : "value" }],
+		data : [ { src : { data : data } } ],
+		options : {
+			label : { datapointover : function(dp) { return dp.height + ", " + dp.age + ": " + ReportGrid.format(dp.value); } },
+			click : function(dp) { alert(dp.height + ", " + dp.age + ": " + ReportGrid.format(dp.value)); },
+			color : "i-lightcoral,white, lightgreen",
+			height: 200,
+			width: 240
+		}
+	});
+	
+	ReportGrid.heatGrid("#chart3", {
+		axes : [{
+			type : "age",
+			variable : "independent"
+		}, {
+			type : "height",
+			variable : "independent"
+		}, { type : "value" }],
+		data : [ { src : { data : data } } ],
+		options : {
+			label : { datapointover : function(dp) { return dp.height + ", " + dp.age + ": " + ReportGrid.format(dp.value); } },
+			click : function(dp) { alert(dp.height + ", " + dp.age + ": " + ReportGrid.format(dp.value)); },
+			height: 200,
+			width: 240,
+			color : "i-yellow,orange"
+		}
+	});
+}, false)
+</script>
+
+    </head>
+    
+ <body>
+      <div class="wrapper">
+        <div class="header">
+                <img src="images/rg_27x200_logo.png" style="padding-top:26px">
+		<ul class="demos">
+			<li><a class="bar" href="barchart-static.html">Bar</a></li>
+			<li><a class="line" href="linechart-static.html">Line</a></li>
+			<li><a class="pie" href="piechart-static.html">Pie</a></li>
+			<li><a class="leaderboard" href="leaderboard-static.html">Leaderboard</a></li>
+			<li><a class="funnel" href="funnelchart-static.html">Funnel</a></li>
+			<li><a class="streamgraph" href="streamgraph-static.html">Stream</a></li>
+			<li><a class="heatgrid" href="heatgrid-static.html">Heat Grids</a></li>
+			<li><a class="pivot" href="pivottable.html">Pivot</a></li>
+			<li><a class="scatter" href="scatterplot-static.html">Scatter</a></li>
+			<li><a class="geo" href="geo-static.html">Geo</a></li>
+			<li><a class="snapengage" href="demo/snapengage/index.html">SnapEngage</a></li>
+			</ul>
+           </div>
+        		<div class="mainContent">
+					<div class="contentWhiteBG">
+				<div  style="float:left" id="chart3"></div>
+				<div  style="float:left" id="chart2"></div>
+				<div  style="float:left" id="chart1"></div>
+				<div id="haxe:trace"></div>
+        	</div>
+</div>
+        <div class="footer">
+					
+                    <div style="float:right; font-family: RexliaFree;font-size:12px;"><a href="mailto:contact@reportgrid.com"><span style="color:#FFF">contact us</span></a></div>
+                    <div style="float:left; font-family: RexliaFree;font-size:12px;color:#FFF;">888.673.9958</div>
+                    <div style="text-align:center; font-family: AbelRegular;font-size:12px;color:#FFF;"><a href="http://www.reportgrid.com">Home</a></div>
+
+                
+               
+</div>
+      </div>
+
+    </body>
+</html>

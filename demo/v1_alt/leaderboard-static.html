@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<title>ReportGrid.Visualization.Demos</title>
+        <!--[if IE]>
+        <link rel="stylesheet" type="text/css" href="ie.css" />
+        <![endif]-->
+
+		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>		
+		<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.3.0/build/cssfonts/fonts-min.css"/>
+		<link rel="stylesheet" type="text/css" href="demo/css/demo.css"/>
+		<link rel="stylesheet" type="text/css" href="css/rg.css"/>
+	<script src="js/reportgrid-core.js?tokenId=66178806-8389-42CA-9E6B-86B4285F487A"></script>
+	<script src="js/reportgrid-viz.js"></script>
+<script type="text/javascript">
+document.addEventListener("DOMContentLoaded", function(){
+	ReportGrid.leaderBoard("#chart1", {
+		axes : [{
+			type : ".browser",
+			variable : "independent"
+		}, {
+			type : "count"
+		}],
+		data : {
+			src : { data : [
+				{ ".browser" : "PC", count : 100 },
+				{ ".browser" : "iOS", count : 80 },
+				{ ".browser" : "Mac", count : 60 },
+				{ ".browser" : "Android", count : 50 },
+				{ ".browser" : "linux", count : 30 },
+				{ ".browser" : "WebOS", count : 5 }
+			]}
+		},
+		options : {
+			animation : {
+				animated : true,
+				duration : 250,
+				delay : 250
+			},
+			label : { datapoint : function(dp) { return dp[".browser"] + ": " + ReportGrid.format(dp["count"]); } },
+			click : function(dp) { alert(dp[".browser"]); },
+//			sort : function(d1, d2) { return ReportGrid.compare(d2[".browser"], d1[".browser"]); },
+			effect : "gradient"
+		}
+	});
+	ReportGrid.leaderBoard("#chart2", {
+		axes : [{
+			type : ".browser",
+			variable : "independent"
+		}, {
+			type : "count"
+		}],
+		data : {
+			src : { data : [
+				{ ".browser" : "PC", count : 100 },
+				{ ".browser" : "iOS", count : 80 },
+				{ ".browser" : "Mac", count : 60 },
+				{ ".browser" : "Android", count : 50 },
+				{ ".browser" : "linux", count : 30 },
+				{ ".browser" : "WebOS", count : 5 }
+			]}
+		},
+		options : {
+			animation : {
+				animated : true,
+				duration : 250,
+				delay : 250
+			},
+			label : { datapoint : function(dp) { return dp[".browser"] + ": " + ReportGrid.format(dp["count"]); } },
+			click : function(dp) { alert(dp[".browser"]); },
+//			sort : function(d1, d2) { return ReportGrid.compare(d2[".browser"], d1[".browser"]); },
+			effect : "gradient-tot"
+		}
+	});
+
+}, false)
+</script>
+
+    </head>
+    
+ <body>
+      <div class="wrapper">
+        <div class="header">
+                <img src="images/rg_27x200_logo.png" style="padding-top:26px">
+		<ul class="demos">
+			<li><a class="bar" href="barchart-static.html">Bar Charts</a></li>
+			<li><a class="line" href="linechart-static.html">Line Charts</a></li>
+			<li><a class="pie" href="piechart-static.html">Pie Charts</a></li>
+			<li><a class="leaderboard" href="leaderboard-static.html">Leaderboard</a></li>
+			<li><a class="funnel" href="funnelchart-static.html">Funnel Charts</a></li>
+			<li><a class="streamgraph" href="streamgraph-static.html">Stream Graphs</a></li>
+			<li><a class="heatgrid" href="heatgrid-static.html">Heat Grids</a></li>
+			<li><a class="pivot" href="pivottable.html">Pivot Table</a></li>
+			<li><a class="scatter" href="scatterplot-static.html">Scatter Plot</a></li>
+			<li><a class="geo" href="geo-static.html">Geo</a></li>
+			<li><a class="snapengage" href="demo/snapengage/index.html">SnapEngage</a></li>
+			</ul>
+           </div>
+        		<div class="mainContent">
+					<div class="contentWhiteBG">
+						<div style="width:100px" id="chart1"></div>
+						<div style="width:100px" id="chart2"></div>
+						<div id="haxe:trace"></div>
+        	</div>
+</div>
+        <div class="footer">
+					
+                    <div style="float:right; font-family: RexliaFree;font-size:12px;"><a href="mailto:contact@reportgrid.com"><span style="color:#FFF">contact us</span></a></div>
+                    <div style="float:left; font-family: RexliaFree;font-size:12px;color:#FFF;">888.673.9958</div>
+                    <div style="text-align:center; font-family: AbelRegular;font-size:12px;color:#FFF;"><a href="http://www.reportgrid.com">Home</a></div>
+
+                
+               
+</div>
+      </div>
+
+    </body>
+</html>
