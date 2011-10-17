@@ -1,7 +1,6 @@
 /* _____________________  BASE COLORS  _____________________ */
 
-@import url('rg-colors-default.css');
-
+@import url('css/colors/rg-colors-snapengage.css');
 /* _____________________  SVG  _____________________ */
 
 .rg 
@@ -11,7 +10,7 @@
 }
 
 .rg line, .rg path
-{
+{		list-style:square
 	stroke-width: 1;
 	stroke: #CCC;
 }
@@ -20,8 +19,8 @@
 {
 	font-family: Arial, Helvetica, sans-serif;
 	color:#999;
-	font-size:11px;
-	line-height:14px;
+	font-size:83%;
+	line-height:108%;
 	fill:#999;
 	stroke-width: 0;
 	text-rendering: optimizelegibility;
@@ -30,36 +29,29 @@
 .rg .title .label text
 {
 	font-weight: bold;
-	font-size: 18px;
+	font-size: 138.5%;
 }
+
+/* ______________ Stream Graph ____________________ */
 
 .rg .stream-chart path
 {
-	
-}
-
-.rg .group, .rg .group path:hover
-{
-	-webkit-transition: all 0.25s ease-in-out;
-	-moz-transition: all 0.25s ease-in-out;
-	-o-transition: all 0.25s ease-in-out;
-	-ms-transition: all 0.25s ease-in-out;
-	transition: all 0.25s ease-in-out;
-}
-
-.rg .group path
-{
-
-}
-
-.rg .group:hover path
-{
-    opacity: 0.75;
-    stroke-opacity: 0.5;
     stroke-width:0;
-    stroke:#FFF;
 }
 
+.rg .stream-chart path:hover 
+{
+    fill-opacity:.9;
+	stroke:inherit;
+	stroke-width:1;
+}
+
+.rg .stream-chart g.group
+{
+	stroke-width: 1;
+	stroke-miterjoin:miter;
+	stroke-miterlimit:1;
+}
 /* _____________________  CHART DESIGN  _____________________ */
 .rg
 {
@@ -76,22 +68,27 @@
 
 .rg g.group
 {
-	stroke-width: 5;
+	stroke-width: 1;
 }
 
 /* ___________________ Pie Chart ________________*/
 
-.rg .pie-chart g.group, .rg .stream-chart g.group
+.rg .pie-chart g.group
 {
-	stroke-width: 3;
+	stroke-width: 1;
 	stroke-miterjoin:miter;
 	stroke-miterlimit:1;
 }
 
 .rg .pie-chart g.group path
 {
-	stroke: #333;
-	stroke-opacity: 0.4;
+	stroke: #inherit;
+	stroke-opacity: 1;
+}
+.rg .pie-chart g.group:hover 
+{
+	fill-opacity: .85;
+    stroke-width:2;
 }
 
 /* _____________________ Line Chart _______________*/
@@ -99,7 +96,7 @@
 .rg .line-chart g.group path.gradient
 {
 	fill:none;
-	stroke-width: 1;
+	stroke-width: 3;
 }
 
 .rg .line-chart g.group path.area
@@ -108,53 +105,101 @@
 	fill-opacity: 0.2;
 }
 
-.rg .line-chart g.group path.noeffect
-{
-	fill:none;
-	stroke-width: 2;
-}
-
-.rg .line-chart g.group path.dropshadow
-{
-	fill:none;
-	stroke-width: 2;
-}
-
-.rg .line-chart g.group path.shadow
-{
-	fill:none;
-	stroke-width: 3;
-	stroke-opacity: 0.2;
-	stroke: #999;
-}
-
-.rg .line-chart g.group path.grad-0
-{
-	fill:none;
-	stroke-width: 3;
-	stroke-opacity: 0.75;
-}
-
-.rg .line-chart g.group path.grad-1
-{
-	fill:none;
-	stroke-width: 10;
-	stroke-opacity: 0;
-}
+/* ________Symbol Effects _________*/
 
 .rg .line-chart g.group .symbols path
 {
 	fill: #fff;
 	stroke: inherit;
+	stroke-width:inherit;
 }
 
-.rg .line-chart path.line:hover
+
+
+/*!!----------------------EFFECT STYLES--------------------!!
+
+_______________ No Effect ____________*/
+
+.rg .line-chart g.group path.noeffect
 {
-	stroke-width: 4.5;
+	fill:none;
+	stroke-width: 1;
+}
+
+/* _______________ Drop Shadow ____________*/
+
+.rg .line-chart g.group path.dropshadow
+{
+	fill:none;
+	stroke-width: 1;
+}
+
+.rg .line-chart g.group path.shadow
+{
+	fill:none;
+	stroke-width: 22;
+	stroke-opacity: 0.5;
+	stroke: #666;
+}
+
+/* _______________ Gradiant ____________*/
+
+.rg .line-chart g.group path.grad-0
+{
+	fill:none;
+	stroke-width: 1;
+    stroke-opacity:1.0;
+}
+
+.rg .line-chart g.group path.grad-1
+{
+	fill:none;
+	stroke-width: 2;
+	stroke-opacity: 0.75;
+}
+
+/*   !!-------------  Hover State's -----------------!!   */
+
+.rg .bar path.
+
+.rg .line-chart path.line:hover path
+{
+	stroke-width: 3;
 }
 
 
-/* _____________________  Tool Tip  _____________________ */
+.rg .group, .rg .group path:hover
+{
+	-webkit-transition: all 0.15s ease-in-out;
+	-moz-transition: all 0.15s ease-in-out;
+	-o-transition: all 0.15s ease-in-out;
+	-ms-transition: all 0.15s ease-in-out;
+	transition: all 0.15s ease-in-out;
+
+}
+
+
+.rg line-chart .group:hover path
+{
+    opacity: 1;
+    stroke-width: 3;
+}
+
+.rg .line-chart g.group:hover path.grad-1   
+{
+    opacity: .75;
+    stroke-width: 4;
+    
+}
+
+.rg .line-chart g.group path.grad-0 
+{
+    opacity:0;
+    stroke-width: 20;
+    
+}
+
+/*  !! ---------------------------  Tool Tip ------------------------!!   */
 
 #tooltip
 {
@@ -164,8 +209,8 @@
 	border: 1px solid #ccc;
 	font-family: Arial, Helvetica, sans-serif;
 	color:#4d4d4d;
-	font-size:10px;
-	line-height:14px;
+	font-size:77%;
+	line-height:108%;
 	fill:#4d4d4d;
 	padding: 4px 8px;
 	
@@ -179,7 +224,7 @@
 }
 
 
-/* _______________Horizontal/Vertical Lines Etc _________*/ 
+/*   !!------------- Horizontal/Vertical Lines Etc ----------------!!   */ 
 
 .rg g.linechart-highlighter line, line.rule
 {
@@ -193,7 +238,7 @@
 {
 	fill: #fff;
 	stroke: #CCC;
-	stroke-width: 6px;
+	stroke-width: 1px;
 }
 
 .rg line.rule
@@ -237,7 +282,7 @@
 	fill-opacity: 0;
 }
 
-/* _____________________  Scales  _____________________ */
+/*   !!-----------------  Scales  ---------------------!!   */
 
 .rg .dimension-0 text
 {
@@ -260,17 +305,27 @@
 
 .rg ul.leaderboard
 {
-	list-style: none;
-	margin: 0;
-	padding: 0;
+	stroke:#666;
+	list-style-type:square;
+	margin:0px 5px 5px 5px;
+    padding:5px 5px 5px 20px;
+    background-color:#FFF;
+    boarder:2px solid #000;
+    
+	box-shadow: 2px 2px 2px rgba(200,200,200,0.15),
+	inset 0px 0px 0px rgba(255,255,255,0.25);
+	-o-box-shadow: 2px 2px 2px rgba(0,0,0,0.15),
+	inset 0px 0px 0px rgba(255,255,255,0.25);
+	-webkit-box-shadow: 2px 2px 2px rgba(0,0,0,0.15),
+	inset 0px 0px 0px rgba(255,255,255,0.25);
+	-moz-box-shadow: 2px 2px 2px rgba(0,0,0,0.15),
+	inset 0px 0px 0px rgba(255,255,255,0.25);    
 }
 
 .rg ul.leaderboard li
 {
-	font-family:Arial,Helvetica,sans-serif;
-	font-size: 8pt;
-	color: #999;
-	text-shadow: 0px 0px 0px #999;
+	font-family:Veranda, Arial, Helvetica, sans-serif;
+	font-size: 77%;
 }
 
 .rg .leaderboard li.nogradient
@@ -279,110 +334,72 @@
 }
 
 .rg li
-{
-	padding: 0;
-	margin: 0;
-
-	background-image: -webkit-gradient(
-		linear,
-		left top,
-		right top,
-		color-stop(0.0, rgb(252,252,252)),
-		color-stop(1, rgb(225,225,225))
-	);
-	background-image: -moz-linear-gradient(
-		left center,
-		rgb(252,252,252) 0%,
-		rgb(225,225,225) 100%
-	);
-
-	background-repeat: repeat-y;
-	
-	border: 1px solid #ccc;
-	margin: 0 0 4px 0;
-	max-width: 200px;
-	padding: 4px 6px;
-	
-	font-weight: bold;
-	font-size: 100%;
-	
-	/*-webkit-text-shadow: 0 1px 0 white;
-	-moz-text-shadow: 0 1px 0 white;
-	text-shadow: 0 1px 0 white;
-    */
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-	border-radius: 5px;
-	
+{	
 }
 
 .rg div.clear
 {
 	clear: left;
 }
-
 /* _____________ PIVOT TABLE _____________________ */
-.rg table.pivot-table
+.rg .pivot-table table
 {
-	clear:left;
-	border-spacing:0;
-	font-family:Arial,Helvetica,sans-serif;
-	font-size: 10pt;
+	font-family:Veranda, Arial, Helvetica, sans-serif;
+	border: none;
+clear:left;
 }
+
 
 .rg .pivot-table td
 {
-	border-left: 1px solid #f0f0f0;
-	border-right: 1px solid #CECECE;
-	border-top: 1px solid #f0f0f0;
-	border-bottom: 1px solid #CECECE;
-	padding: 1px 6px 1px 3px;
-	text-align: right;
-
-	font-size: 11px;
-	text-shadow: 1px 1px 1px #FFF;
-	-moz-text-shadow: 0.5px 0.25px 1px #FFF;
-	min-width: 40px;
-	background-color: #FFF;
+border-top:1px solid #F1F2F2; 
+border-left:1px solid #F1F2F2; 
+padding: 1px 8px 1px 5px;
+text-align: center;
+background-color: #FFF;
 }
 
 .rg .pivot-table th
 {
-	border-left: 1px solid #f0f0f0;
-	border-top: 1px solid #f0f0f0;
-	border-right: 1px solid #969696;
-	border-bottom: 1px solid #969696;
-	background-color: #e4e4e4;
-	padding: 0 2px 0 3px;
-	text-shadow: 1px 1px 0 #FFFFFF;
-	-moz-text-shadow: 1px 1px 0 #FFFFFF;
-	-webkit-text-shadow: 1px 1px 0 #FFFFFF;
-	font-weight: normal;
-	color: #000000;
+font-weight: normal;
+color: #666;
 }
 
-.rg .pivot-table tfoot th.column.total, .rg .pivot-table tbody th.row.total, .rg .pivot-table tfoot th.table.total
+.rg .pivot-table tfoot th.column.total, .pivot-table tbody th.row.total, th.table.total
 {
-	font-weight: bold;
-	font-size: 10px;
-	text-align: right;
-	padding-right: 4px;
+min-width:50px;
+font-size: 150%;
+font-weight: bold;
+text-align: center;
+padding: 4px 10px;
+background-color:#D1D3D4;
+
 }
 
-.rg .pivot-table thead th.col-header, .rg .pivot-table thead th.row-header
+
+.rg .pivot-table thead th.col-header, .rg.pivot-table thead th.row-header
 {
-	font-weight: bold;
-	padding: 0px 6px;
-	font-size: 10px;
-	background-color: #eee;
-	color: #444;
+padding: 0px 6px;
+font-weight:bold;
+font-size:150%;
 }
 
-.rg .pivot-table th.column.value, .rg .pivot-table th.row.value
+.rg .pivot-table th.column.value, .rg.pivot-table th.row.value
 {
-	font-weight: bold;
-	padding: 2px 6px;
-	font-size: 10px;
+font-weight: bold;
+padding: 2px 6px;
+text-align: left;
+}
+
+
+.rg .pivot-table th.row.valuealt
+{
+	border-bottom:1px solid #CCC;
+}
+
+.rg .pivot-table th.column.value
+{
+	background-color:#F1F2F2;
 }
 
 .rg .pivot-table thead th
@@ -396,12 +413,7 @@
 	text-align: left;
 }
 
-.rg .pivot-table td:hover
-{
-	border: 1px solid #0026FF !important;
-}
-
-.rg.pivot-table .spacer
+.rg .pivot-table .spacer
 {
 	background: none;
 	border: 0;
@@ -420,6 +432,13 @@
 {
 	shape-rendering: crispEdges;
 	stroke-width: 0;
+	opacity: .9;
+}
+
+.rg .bar-chart rect.bar:hover
+{
+	opacity:1;
+	stroke-width:0;
 }
 
 .rg .border
@@ -434,7 +453,7 @@
 {
 	font-family: Arial, Helvatica, sans-serif;
 	font-weight: bold;
-	font-size: 10px;
+	font-size: 77%;
 	fill: #FFF;
 	stroke: none;
 }
@@ -450,9 +469,9 @@
 
 .rg .label text.shadow
 {
-	fill: #000000;
+	fill: #CCC;
 	stroke-width: 3px;
-	stroke: #000000;
+	stroke: #CCC;
 	opacity: 0;
 }
 
@@ -475,7 +494,7 @@
 
 .rg .tick .label text
 {
-	font-size: 10px;
+	font-size: 77%;
 }
 
 .rg .label text.outline
@@ -488,7 +507,7 @@
 
 .rg .scatter-graph text
 {
-	font-size: 10pt;
+	font-size: 77%;
 }
 
 .rg .scatter-graph g.symbol path
@@ -512,14 +531,15 @@
 
 .rg .funnel-chart .arrow path
 {
-	stroke-width: 0px;
-	stroke: none;
+	stroke-width: .5px;
+	stroke: #DDD;
 	fill: #FFF;
 }
 
 .rg .funnel-chart .arrow text
 {
-	font-size: 10px;
+    fill: #666;
+	font-size: 77%;
 	font-weight: bold;
 }
 
@@ -529,12 +549,12 @@
 {
 	stroke: #FFF;
 	stroke-width: 1;
-	stroke-dasharray: 1, 1;
+	stroke-dasharray: 0, 0;
 }
 
 .rg .balloon .label text.nooutline, .rg .balloon .label text.shadow.nooutline
 {
-	font-size: 10px;
+	font-size: 93%;
 	font-weight: bold;
 }
 
@@ -544,11 +564,13 @@
 	stroke : #ddd;
 	fill-opacity : 1;
 	stroke-width : 1;
+
+
 }
 
 .rg .balloon path.shadow
 {
-	opacity : 0.4;
+	opacity : 0.25;
 	fill : #666;
 	stroke : #666;
 	stroke-width : 1;
@@ -559,6 +581,42 @@
 .rg .heat-grid rect
 {
 	shape-rendering: crispEdges;
+	stroke-width: 0;
+}
+
+
+/* -------------------Geo (map ---------------------*/
+.rg .geo
+{
+	stroke-opacity:0.5;
+	opacity:1;
+}
+
+.rg .geo path:hover
+{
+	stroke-opacity:1;
+	opacity: 0.75;
+}
+
+.rg .geo .contour path
+{
+	stroke: #ccc;
 	stroke-width: 1;
 }
 
+.rg .geo .centroid circle
+{
+	stroke: none;
+	fill-opacity: 0.50;
+}
+
+.rg .geo .map .county path
+{
+	stroke: none;
+}
+
+.rg .geo .map text
+{	
+	font-weight:bold;
+	font-size: 10px;	
+}

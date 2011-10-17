@@ -1,6 +1,6 @@
 /* _____________________  BASE COLORS  _____________________ */
 
-@import url('colors/rg-colors-snapengage.css');
+@import url('colors/rg-colors-default-001.css');
 /* _____________________  SVG  _____________________ */
 
 .rg 
@@ -160,7 +160,7 @@ _______________ No Effect ____________*/
 
 /*   !!-------------  Hover State's -----------------!!   */
 
-
+.rg .bar path.
 
 .rg .line-chart path.line:hover path
 {
@@ -344,19 +344,18 @@ _______________ No Effect ____________*/
 /* _____________ PIVOT TABLE _____________________ */
 .rg .pivot-table table
 {
-font-family:Veranda, Arial, Helvetica, sans-serif;
+	font-family:Veranda, Arial, Helvetica, sans-serif;
+	border: none;
 clear:left;
 }
-/* End Edit  */
 
 
 .rg .pivot-table td
 {
 border-top:1px solid #F1F2F2; 
 border-left:1px solid #F1F2F2; 
-padding: 1px 6px 1px 3px;
+padding: 1px 8px 1px 5px;
 text-align: center;
-font-size: 77%;
 background-color: #FFF;
 }
 
@@ -364,42 +363,32 @@ background-color: #FFF;
 {
 font-weight: normal;
 color: #666;
-min-width:40px; 
 }
 
-.rg .pivot-table tfoot th.column.total, .pivot-table tbody th.row.total
+.rg .pivot-table tfoot th.column.total, .pivot-table tbody th.row.total, th.table.total
 {
 min-width:50px;
+font-size: 150%;
+font-weight: bold;
 text-align: center;
 padding: 4px 10px;
-font-style:italic;
 background-color:#D1D3D4;
-/*
-border-bottom:1px solid #CCC;
-*/
+
 }
 
- .rg .pivot-table tfoot th.table.total 
- {
-font-size: 108%px;
-font-weight:bold;
-text-align: center;
-padding: 4px 10px;
-background-color:#F1F2F2;
-}
 
 .rg .pivot-table thead th.col-header, .rg.pivot-table thead th.row-header
 {
 padding: 0px 6px;
 font-weight:bold;
-font-size:138.5%;
+font-size:150%;
 }
 
 .rg .pivot-table th.column.value, .rg.pivot-table th.row.value
 {
 font-weight: bold;
 padding: 2px 6px;
-font-size: 93%;
+text-align: left;
 }
 
 
@@ -410,7 +399,7 @@ font-size: 93%;
 
 .rg .pivot-table th.column.value
 {
-background-color:#F1F2F2;
+	background-color:#F1F2F2;
 }
 
 .rg .pivot-table thead th
@@ -443,6 +432,13 @@ background-color:#F1F2F2;
 {
 	shape-rendering: crispEdges;
 	stroke-width: 0;
+	opacity: .9;
+}
+
+.rg .bar-chart rect.bar:hover
+{
+	opacity:1;
+	stroke-width:0;
 }
 
 .rg .border
@@ -586,4 +582,41 @@ background-color:#F1F2F2;
 {
 	shape-rendering: crispEdges;
 	stroke-width: 0;
+}
+
+
+/* -------------------Geo (map ---------------------*/
+.rg .geo
+{
+	stroke-opacity:0.5;
+	opacity:1;
+}
+
+.rg .geo path:hover
+{
+	stroke-opacity:1;
+	opacity: 0.75;
+}
+
+.rg .geo .contour path
+{
+	stroke: #ccc;
+	stroke-width: 1;
+}
+
+.rg .geo .centroid circle
+{
+	stroke: none;
+	fill-opacity: 0.50;
+}
+
+.rg .geo .map .county path
+{
+	stroke: none;
+}
+
+.rg .geo .map text
+{	
+	font-weight:bold;
+	font-size: 10px;	
 }

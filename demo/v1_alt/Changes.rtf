@@ -1,0 +1,105 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1138\cocoasubrtf230
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;\red16\green73\blue188;\red217\green11\blue0;\red255\green39\blue18;
+}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}}
+{\info
+{\author Mike Wheeler}}\margl1440\margr1440\vieww28300\viewh17040\viewkind0
+\deftab720
+\pard\pardeftab720
+
+\f0\fs24 \cf0 \
+\pard\pardeftab720
+\cf2 Bar: Removing gradients from the stacked charts does make them look better. Also makes them look very plain. Perhaps if mouseover changed the intensity or something? For stacked bar, the use of blue and gray on the same bar seems disconcerting and arbitrary; some charts are entirely blue-toned while others have random gray thrown in there.\
+\pard\pardeftab720
+\cf0 I understand that the gray seems random but it is actually not ... it is really hard to provide a default color scheme that works well for an unknown number of values.\
+\cf3 \
+Changed the color pallet. I really don\'92t know if it's a good idea to use these \'93rainbow\'94 style color themes they will make every chart feel out of place in every website. How hard would it be to set up something like high charts where they show a bunch of different themes?\
+Would it be possible to do a global gradient setting i would think it would make it easier and more consistant throughout all of the graphs?\cf0 \
+\
+\pard\pardeftab720
+\cf2 Line: The line charts look good. Looking at this one makes me think using the same tone on a single chart for multiple lines may be difficult. I'd look around and see what everyone else does (and read Tufte's books!).\
+\pard\pardeftab720
+\cf0 I agree ... I also think that the colors tends to be too light (for sure the light-gray is).\
+\cf3 \
+same as above \
+Is there a setting for making dashed lines or any sort of line styling (other than gradients/shadows/etc.) \cf2 \
+\
+Pie: These have improved tremendously. Finally the text doesn't hurt my eyes.\
+\cf0 Honestly here I don't agree. The white text is really potentially dangerous if not "enhanced" somehow. There is the risk of it bleeding on the background of the pie (and being completely unreadable) or if the color palette is too light (again see the light-gray). \
+\
+\cf3 i definitely understand what your saying franco but i really don\'92t think that a drop shadow or outlines are the best options \cf0 \
+\
+\pard\pardeftab720
+\cf2 \
+Leaderboard: These need to be changed to "Legend", and they need to actually look like a legend (please work with Franco). Right now they're a liability. We also need a true leaderboard (it should just be a matter of inserting a styleable legend color bar next to the text -- talk to Franco).\
+\pard\pardeftab720
+\cf0 Mike, let me know how you want to do this.\
+\cf3 \
+I think that we need the ability to change this according to the style of charts (for example symbols within the line chart) or just a solid square, i don\'92t know what the best way to do this is.\
+this is why i asked for color to be added to the pallet.n (title color)\cf0 \
+\pard\pardeftab720
+\cf2 \
+Funnel: Massive improvements in readability. But there are some parts of the funnel chart that go to white. \'a0Looks really bad. Also, if possible I would experiment with moving the labels ("impression", "click", etc.) off the funnel and to the right of the chart.\
+\pard\pardeftab720
+\cf0 Right now the logic is to use the full width of the available space to render the funnel and the labels are positioned at a fixed ratio from the center axis. To allow more spacing options we can add 2 parameters for the mentioned variables.\
+\
+\cf3 Any progress on this?\
+once again the legend would probably be a good thing to do this\cf2 \
+\
+Stream: The chart name overlaps with the visualization, which makes it look poorly constructed.\
+\cf0 I will look into it.\
+\pard\pardeftab720
+\cf2 \
+\
+Heat: The first one is clear, you can tell areas of high intensity and low intensity. The others seemingly use random colors and don't make any sense. A single color gradient should be used for all heat maps so users can interpret the information properly. The random color heatmaps just don't make any sense.\
+\pard\pardeftab720
+\cf0 There is no such thing as random colors here; the data are random so the effect is not homogeneous as a heatmap usually is. The point here is that we wanted to customize colors in 3 ways: using the colors from the css (third example, values are binned proportionally), passing an array of colors and interpolating between those (example 2 has 3 colors, example 1 has 2). There is another option that still requires an array of colors and will snap to those colors exactly. What I notice here is that Mike's default palette has only 6 colors (3 blues and 3 grays) and that is risky since should be a lot more generic.\
+\cf3 \
+Is there a source of data that we could use to have more of a homogenous map. I think that this would really help with the overall look of the GEO VIZ\
+increased the number of colors but i think that there are to many, i think that we might\cf2 \
+\
+Pivot: Looks a million times better! Attractive & easy on the eyes. Probably Franco needs to created a nested example so you can make sure your styling makes sense for more complicated pivot tables.\
+\cf0 It is more readable but the font/font-size choice I think can be improved a lot. The 'Abel' font in boldface is really not much readable on webkit browsers and I also don't understand why the totals are that big but lacking contrast at the same time. I'd probably do those at the same size of the other headers and with no italic.\
+I will try to add a third dimension to see how nested headers work out.\
+\cf3 \
+Change some of the propertys, did you ever get around to this?\cf0 \
+\pard\pardeftab720
+\cf2 \
+\
+Scatter: Good, but with caveats about color (note that faded colors don't work well on this chart because in general, there are just points, not segments).\
+\pard\pardeftab720
+\cf0 Agreed.\
+\pard\pardeftab720
+\cf4 \
+i assume that this is fixed with the color change once again is there somewhere where we could get consistent data for this chart?\cf2 \
+\
+Geo: Looks good, but the map of the world has seemingly random color scheme, and the schemes don't seem to be consistent between the states and the counties.\
+\pard\pardeftab720
+\cf0 Same considerations done for the heatgrid applies here.\
+\pard\pardeftab720
+\cf4 \
+I think this will really change if we can get consistant data and it will really help make it feel consistent throughout the chart. i also think that it will really make it more consistent when the three charts are combined and have the ability to navigate around. \
+If you use color : \'93css-\{int\}\'94 it should automaticly interpolate the colors that are involved. I also think that the number of colors should be limited to two to three colors max. It will keep the overall feel of each map consistent.\
+also why do the circles on the state map not match the color that is specified in the color options?\cf2 \
+\
+\
+The names on the state chart are all smashed together and look really bad.\
+\pard\pardeftab720
+\cf0 True, the fact is that labels are centered on state centroids. To make it look good we need one of the two (or both):\
+\pard\tx220\tx720\pardeftab720\li720\fi-720
+\ls1\ilvl0\cf0 {\listtext	\'95	}a point geojson file created with the intent of having a better positioning of the labels\
+{\listtext	\'95	}adding an algorithm to avoid or limit label collisions. This is pretty common in the GEO area but it will require some time to be developed. Long term it will certainly be needed.\
+\pard\tx720\pardeftab720
+\cf0 \
+\pard\pardeftab720
+\cf0 \
+\
+\
+\
+\
+\
+\
+\
+}
