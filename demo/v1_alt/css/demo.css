@@ -153,3 +153,21 @@ ul, ul li
 {
 	color:#09F;
 }
+
+.chartOptionsMenu
+{
+	border-radius: 2px;
+	-moz-border-radius: 2px;
+	background-color:#fff;
+	border:1px solid #B3B3B3;
+	width:16px;
+	height:16px;
+	margin-bottom: 1em;
+float: right;“‘‘
+	background-repeat: no-repeat;
+	background-image:url(../images/exportSettings.png);
+}
+.chartOptionsMenu:hover
+{
+	background-color:#F9F9F9;
+}

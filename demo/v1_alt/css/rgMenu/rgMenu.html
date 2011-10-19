@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+
+body {
+    font: normal .8em/1.5em Arial, Helvetica, sans-serif;
+}
+
+a {
+    color:#888;
+    text-decoration: none;
+    padding: .3em;
+}
+
+#nav {
+	border:1px solid #CCC;
+    border-radius:2px;
+	-moz-border-radius: 2px;
+	border:1px solid #CCC;
+}
+.nav {
+	width:16px;
+	height:16px;
+}
+
+#nav ul {
+        border:1px solid #CCC;
+        border-radius:2px;
+		-moz-border-radius:2px;
+}
+#nav li {
+    float: left;
+    position: relative;
+    list-style: none;
+}
+
+
+/* main level link */
+#nav a {
+    display: block;
+
+}
+#nav a:hover {
+    background-color:#F2F2F2;
+}
+
+/* main level link hover */
+#nav .current a, #nav li:hover > a {
+	background-color: #F2F2F2;
+}
+
+/* sub levels link hover */
+#nav ul li:hover a, #nav li:hover li a {
+    border: none;
+}
+
+#nav ul a:hover {
+
+}
+
+/* dropdown */
+#nav li:hover > ul {
+    display: block;
+}
+
+/* level 2 list */
+#nav ul {
+    display: none;
+    margin: 0;
+    padding: 0;
+    width: 75px;
+    position: absolute;
+    left: 0;
+
+}
+#nav ul li {
+    float: none;
+    margin: 0;
+    padding: 0;
+}
+
+#nav ul a {
+    font-weight: normal;
+}
+
+/* level 3+ list */
+#nav ul ul {
+    left: 75px;
+    top:0;
+}
+
+/* rounded corners of first and last link */
+#nav ul li:first-child > a {
+
+}
+#nav ul li:last-child > a {
+
+}
+
+/* clearfix */
+#nav:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+#nav {
+    display: inline-block;
+} 
+ 
+ 
+
+</style>
+</head>
+<body>
+<div class="rgMenu">
+	<ul id="nav" style="width:16px; height:16px; padding:0; margin:0; " >
+		<li><a href="#"><img src="../../images/exportSettings.png"></a>
+		<ul>
+			<li><a href="#">Save</a>
+			<ul>
+				<li><a href="#">JPG</a></li>
+				<li><a href="#">PNG</a></li>
+				<li><a href="#">PDF</a></li>
+			</ul>
+			</li>
+			<li><a href="#">Share</a>
+			<ul>
+				<li><a href="#">JPG</a></li>
+				<li><a href="#">PNG</a></li>
+				<li><a href="#">PDF</a></li>
+			</ul>	
+			</li>
+			<li><a href="#">Export</a>
+			<ul>
+				<li><a href="#">JPG</a></li>
+				<li><a href="#">PNG</a></li>
+				<li><a href="#">PDF</a></li>
+			</ul>
+		</li>
+		</ul>
+	</ul>
+</div>
+</body>
+</html> 
