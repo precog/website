@@ -1,0 +1,611 @@
+<html>
+    <head>
+        <title>Sign Up</title>
+        <!--[if IE]>
+        <link rel="stylesheet" type="text/css" href="ie.css" />
+        <![endif]-->
+    <style type="text/css"> 
+
+* {
+  margin:           0px;
+  padding:          0px;
+  border:           0px;
+  list-style-type:  none;
+  text-decoration:  none;
+  position:         relative;
+  font-family: arial;
+}
+
+body {
+  background-color: 0E0F12;
+}
+
+@import url(http://fonts.googleapis.com/css?family=Abel);
+
+@import url(http://fonts.googleapis.com/css?family=Questrial);
+
+@import url(http://fonts.googleapis.com/css?family=Antic);
+
+@font-face {
+    font-family: 'Rexlia';
+    src: url('fonts/rexlia_free-webfont.eot');
+    src: url('fonts/rexlia_free-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/rexlia_free-webfont.woff') format('woff'),
+         url('fonts/rexlia_free-webfont.ttf') format('truetype'),
+         url('fonts/rexlia_free-webfont.svg#RexliaFree') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+A:link{color:A8AECC;text-decoration:none}
+
+A:visited{color:A8AECC;text-decoration:none}
+
+P {
+  font-size:11px;
+  font-family:Abel;
+  color:8A8FA8;
+}
+
+P2 {
+  font-size:11px;
+  font-family:Questrial;
+  color:8A8FA8;
+}
+
+P3 {
+  font-size:14pt;
+  font-family:abel;
+  color:8A8FA8;
+}
+
+P4 {
+  font-size:16px;
+  font-family:Abel;
+  color:8A8FA8;  
+}
+
+P5 {
+  font-size:8pt;
+  font-family:"Rexlia";
+  color:8A8FA8;  
+}
+
+#wrapper {
+  margin: 0 auto;
+  top margin: 0px;
+  width: 1070px;
+  background: 999999;
+  border: 0px;
+}
+
+#wrapper .header {
+  position: absolute;
+  top: 0px;
+  width: 1070px;
+  height: 110px;
+  background-color: #292930;    
+}
+
+#wrapper .middle {
+  position: absolute;
+  top: 110px;
+  width: 1070px;
+  height: 950px;
+  background-color: #1A1B20;   
+}
+
+#wrapper .footer { 
+  position: absolute;
+  top: 1040px;
+  width: 1070px;
+  height: 142px;
+  background-color: #141417;    
+}
+ 
+/*headernavmenubegin */ 
+    #navcontainer {
+        position: absolute;
+        top:50px;
+        left:328px;
+        font-size: 10pt;
+        font-family:Antic;
+        z-index: 100;
+    }
+    
+    ul#navlist {
+    font-family:Antic;
+    color: #ffffff;
+    padding: 10px;
+    }
+    
+    ul#navlist a
+    {
+    text-decoration: none;
+    font-family:Questrial;
+    }
+    
+    ul#navlist, ul#navlist ul, ul#navlist li
+    {
+    margin: 0px;
+    padding: 0px;
+    list-style-type: none;
+    }
+    
+    ul#navlist li { float: left; }
+    
+    ul#navlist li a
+    {
+    color: #ffffff;
+    padding: 10px;
+    }
+
+    ul#navlist li:hover a
+    {
+    color: #;
+    background-color: #3E3E47;
+    opacity: 0.9;
+    }
+    
+    ul#navlist li a:hover
+    {
+    color: #ffcc33;
+    background-color: #3E3E47;
+    opacity: 0.9;
+    }
+    
+    ul#navlist li a:active
+    {
+    color: #000000;
+    background-color: #3E3E47;
+    padding:10px;
+    }
+    
+    ul#subnavlist { display: none; }
+    ul#subnavlist li { float: none; }
+    
+    ul#subnavlist li a
+    {
+    padding: 0px;
+    margin: 0px;
+    color: ACB5D4;
+    background-color: #3E3E47;
+    }
+    
+    ul#navlist li:hover ul#subnavlist
+    {
+    display: block;
+    position: absolute;
+    font-size: 9pt;
+    padding-top: 10px;
+    }
+    
+    ul#navlist li:hover ul#subnavlist li a
+    {
+    display: block;
+    width: 10em;
+    border: none;
+    border-left: 2px;
+    padding: 10px;
+    opacity: 0.9;
+    }
+    
+    ul#navlist li:hover ul#subnavlist li a:before { content: ""; }
+/*headernavmenuend */    
+    
+#rightsidepanel {
+    background-image: url(images/rpagepannel.png);
+    position:absolute;
+    top: 74px;
+    right: 0px;
+    height: 299;
+    width: 202;
+    text-align: right;
+    }
+
+#rpaneltext {
+    position: relative;
+    top: 100;
+    left: 900px;
+    width: 160px;
+    }
+
+
+#rightlist li {
+    position: relative;
+    list-style-type: square;
+    color: 9FA5C2;
+    font-size: 8pt;
+    margin-bottom: 10px;
+    top: 110;
+    left: 920px;
+    }
+
+#signupform {
+    font-family:abel;
+    color: #8a8fa8;
+}
+
+#Planidstarter {
+    position: relative;
+    float:left;
+    top: -40px;
+    left: 68px;
+}
+
+#planidbronze {
+    position: relative;
+    float:left;
+    top: -40px;
+    left: 204px;
+}
+
+#Planidsilver {
+    position: relative;
+    float:left;
+    top: -40px;
+    left: 340px;
+}
+
+#Planidgold {
+    position: relative;
+    float:left;
+    top: -40px;
+    left: 476px;
+}
+
+.fieldgroup input{
+    width:40%;
+    height:20px;
+    color: #000000:
+}
+
+#submit {
+        background-image: url(images/submitbutton.png);
+        background-color: transparent;
+        top: 20px;
+        height: 28px;
+        width: 133px;
+        float:right;
+        right:64px;
+}
+
+#submit:hover {
+    opacity: 0.7;
+}
+
+/*middlenavmenubegin*/
+    #leftmenucontainer {
+    top: 74px;
+    position: absolute;
+    }
+    
+    #leftmenucontainer ul
+    {
+    list-style-type: none;
+    }
+    
+    #leftmenucontainer li {
+    margin: 0 0 1px 0;
+    }
+    
+    #leftmenucontainer a
+    {
+    background-image: url(images/lsnavbuttonlg.png);
+    width: 141px;
+    margin-top: 3px;
+    display: block;
+    padding: 13px 28px;
+    color: #C7CEF2;
+    text-decoration: none;
+    font-family:Abel;
+    }
+    
+    #leftmenucontainer a:hover
+    {
+    color: #ffcc33;
+    text-decoration: none;
+    opacity: 0.7;
+    }
+    
+    #leftmenucontainer ul ul li {
+    margin-top: 2px;
+    font-size: 10pt;
+    }
+    
+    #leftmenucontainer ul ul a
+    {
+    display: block;
+    padding: 2px 5px 2px 30px;
+    width: 162px;
+    background-image: url(images/lsnavbuttonsm.png);
+    }
+    
+    #leftmenucontainer ul ul a:hover
+    {
+    text-decoration: none;
+    opacity: 0.7;
+    }
+/*middlenavmenuend*/
+    
+/*footernavmenubegin */
+#sitecontainer {
+    position: absolute;
+    top:34px;
+    left:56px;
+    z-index: 100;
+    }
+    
+    ul#sitelist
+    {
+    list-style-type: none;
+    position: relative;
+    }
+    
+    ul#sitelist li {
+        float: left;
+        margin-left: 0px;
+        }
+    
+    ul#sitelist li a 
+    {
+    float: left;
+    text-align: left;
+    padding-right: 74px;
+    font-family:Questrial; font-size: 7pt;
+    color: #545766;
+    line-height: 18px;
+    margin: 0;
+    }
+    
+    ul#sitelist li a:hover
+    {       
+    color: #FFCD36;
+    }
+    
+    ul#sitelist li a#current
+    {
+    color: #707487;
+    font-size: 7.5pt;
+    }
+    
+    /*subsitelist */
+    ul#subsitelist li
+    {
+    line-height: 18px;
+    width: 15em;
+    }
+    
+    ul#sitelist ul
+    {
+    position: absolute;
+    top: 20px;
+    }
+    
+    ul#sitelist ul li a, ul#sitelist ul li a:hover, ul#sitelist ul li a#current { background-image: none; }
+/*footernavmenuend */
+
+#contactus {
+    position: absolute;
+    top: 86px;
+    left: 932px;
+}
+
+#contactus:hover {
+    opacity: 0.7;
+}
+
+#facebook {
+    position: absolute;
+    top: 86px;
+    left: 958px;
+}
+
+#facebook:hover {
+    opacity: 0.7;
+}
+
+#twitter {
+    position: absolute;
+    top: 86px;
+    left: 984px;
+}
+
+#twitter:hover {
+    opacity: 0.7;
+}
+    </style>
+    </head>
+    
+ <body>
+      <div id="wrapper">
+        <div class="header">
+            <div style="position:relative;top:40px;left:46px">
+                <img src="images/logo1.png" style="position:absolute";>
+            </div>      
+            <div id="navcontainer">
+                <ul id="navlist">
+                    <li><a href="index.html">home</a></li>
+                    </li>
+                    <li id="active"><a href="solutions.html" id="current">solutions</a>
+                    <ul id="subnavlist">
+                        <li id="subactive"><a href="underconstruction.html" id="subcurrent">analytics database</a></li>
+                        <li><a href="underconstruction.html">visualization engine</a></li>
+                        <li><a href="underconstruction.html">professional services</a></li>                        
+                    </ul>
+                    </li>
+                    <li id="active"><a href="usecases.html" id="current">use cases</a>
+                    <ul id="subnavlist">
+                        <li id="subactive"><a href="underconstruction.html" id="subcurrent">embeddable analytics</a></li>
+                        <li><a href="underconstruction.html">internal analytics</a></li>
+                        <li><a href="underconstruction.html">business intelligence</a></li>
+                    </ul>
+                    </li>
+                    <li id="active"><a href="pricing.html" id="current">pricing</a>
+                    <ul id="subnavlist">
+                        <li id="subactive"><a href="underconstruction.html" id="subcurrent">cost calculator</a></li>
+                        <li><a href="signup.html">signup</a></li>
+                    </ul>
+                    </li>
+                    <li id="active"><a href="developer.html" id="current">developer</a>
+                    <ul id="subnavlist">
+                        <li id="subactive"><a href="http://api.reportgrid.com/doc/rest-api.v1.rst.html" id="subcurrent">api documentation</a></li>
+                        <li><a href="underconstruction.html">console</a></li>
+                        <li><a href="underconstruction.html">client libraries</a></li>
+                    </ul>
+                    </li>
+                    <li id="active"><a href="support.html" id="current">support</a>
+                    <ul id="subnavlist">
+                        <li id="subactive"><a href="http://reportgrid.freshdesk.com/" id="subcurrent">help desk</a></li>
+                        <li><a href="underconstruction.html">white papers</a></li>
+                    </ul>
+                    </li>
+                    <li id="active"><a href="about.html" id="current">about</a>
+                    <ul id="subnavlist">
+                        <li id="subactive"><a href="underconstruction.html" id="subcurrent">news</a></li>
+                        <li><a href="underconstruction.html">team</a></li>
+                        <li><a href="contactus.html">contact</a></li>
+                    </ul>
+                    </li>
+                </ul>
+            </div>
+        <div class="middle">
+            <div style="top:30px;position: absolute;text-align:right;right: 876px;">
+                <p3>Sign Up</p3>
+            </div>
+            <div id="rightsidepanel">
+            </div>
+                <div id="rpaneltext">
+                <p4>ReportGrid dramatically cheaper than building your own analytics and visualization solution.</p4>
+                </div>
+                <div id="rightlist">
+                    <ul id="rightlist">
+                    <li>zero maintanence cost</a></li>
+                    <li>zero development cost</li>
+                    <li>rapid time to market</li>
+                    </ul>
+                </div>
+                <div id="leftmenucontainer">
+                     <ul id="leftmenulist">
+                     <li id="active"><a href="pricing.html" id="current">overview</a>
+                     <li><a href="underconstruction.html">costcalculator</a></li>
+                     <li><a href="signup.html">signup</a></li>
+                     </ul>
+                </div>
+                <div style="top:32px;position:absolute;left: 232px;width:604px;">
+                <P4>ReportGrids Pricing is the best on the planet.</P4>
+                <br>
+                <br />    
+                <p>We offer competative pricing plans that will suite any need. From our low cost Starter plan, to our custom pricing plans;ahf;wqhf;owqhfoq[ ihqw;eogihq ofih oqhf ow[eihfoihorehgoihg, ReportGrid has a solution to meet your needs. We also have customer plans that offer much more configuration. Contact us for details.</p>
+                <br>
+                <P4>Plan</P4>   
+                    
+<form id="signupForm" action="accounts" method="put">
+    <div><img style="position:relative;" src="images/pricingpageimage.png"</div><br><br>
+        <div id="planidstarter">
+        <input type="radio" name="signup[starter]" value="starter">
+        </div>
+        <div id="planidbronze">
+        <input type="radio" name="signup[bronze]" value="bronze">
+        </div>
+        <div id="planidsilver">
+        <input type="radio" name="signup[silver]" value="silver">
+        </div>
+        <div id="planidgold">
+        <input type="radio" name="signup[gold]" value="silver">
+        </div><br>
+    <P4>General Contact Information</P4><br><br>
+    <p style="margin-bottom:4px;">Email:</p><div class="fieldgroup"><input type="text" name="signup[email]" /><BR></div>
+    <p style="margin-bottom:4px;margin-top:8px;">Password:</p><div class="fieldgroup"><input type="password" name="signup[password]" /><BR></div>
+    <p style="position:absolute;top:274px;left:300px;">Password Confirm:</p><div class="fieldgroup" style="position:absolute;top:293px;left:300px;width:600px;"><input type="password" name="signup[passwordconfirm]" /><BR></div>
+    <br>
+    <p style="margin-bottom:4px;margin-top:8px;">First Name:</p><div class="fieldgroup"><input type="text" name="signup[firstname]" /><BR></div>
+    <p style="position:absolute;top:340px;left:300px;">Last Name:</p><div class="fieldgroup" style="position:absolute;top:359px;left:300px;width:600px;"><input type="text" name="signup[lastname]" /><BR></div>
+    <p style="margin-bottom:4px;margin-top:8px;">Company:</p><div class="fieldgroup"><input type="text" name="signup[company]" /><BR></div>
+    <p style="position:absolute;top:387px;left:300px;">Title:</p><div class="fieldgroup" style="position:absolute;top:406px;left:300px;width:600px;"><input type="text" name="signup[title]" /><BR></div>
+    <p style="margin-bottom:4px;margin-top:8px;">Address:</p><div class="fieldgroup"><input type="text" name="signup[address]" /><BR></div>
+    <p style="position:absolute;top:434px;left:300px;">City:</p><div class="fieldgroup" style="position:absolute;top:453px;left:300px;width:600px;"><input type="text" name="signup[city]" /><BR></div>
+    <p style="margin-bottom:4px;margin-top:8px;">State:</p><div class="fieldgroup"><input type="text" name="signup[state]" /><BR></div>
+    <p style="position:absolute;top:481px;left:300px;">ZipCode:</p><div class="fieldgroup" style="position:absolute;top:500px;left:300px;width:600px;"><input type="text" name=signup[billing][postalCode] /><BR></div>
+    <p style="margin-bottom:4px;margin-top:8px;">Phone Number:</p><div class="fieldgroup"><input type="text" name="signup[phonenumber]" /><BR></div>
+    <p style="position:absolute;top:528px;left:300px;">Website:</p><div class="fieldgroup" style="position:absolute;top:547;left:300px;width:600px;"><input type="text" name="signup[website]" /><BR></div>
+ 
+ <BR>Billing Information<BR>
+    <p style="margin-bottom:4px;margin-top:8px;">Name of Card Holder:</p><div class="fieldgroup"><input type="text" name=signup[billing][cardholder] /><BR></div>
+    <p style="position:absolute;top:614px;left:300px">Credit Card Number:</p><div class="fieldgroup"style="position:absolute;top:633;left:300px;width:600px;"><input type="text" name=signup[billing][number] /><BR></div>
+    <p style="margin-bottom:4px;margin-top:8px;">Expiration Month:</p><div class="fieldgroup" style="width:200px;"><input type="text" name=signup[billing][expMonth] /><BR></div>
+    <p style="position:absolute;top:661px;left:90px">Year:</p><div class="fieldgroup"style="position:absolute;top:680;left:90px;width:100px;"><input type="text" name=signup[billing][expYear] /><BR></div>
+    <p style="position:absolute;top:661px;left:300px">CVV Code:</p><div class="fieldgroup"style="position:absolute;top:680;left:300px;width:600px;"><input type="text" name=signup[billing][cvv] /><BR></div>
+    
+    <input type="submit" id="submit" value="" /><BR>
+</form>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div id="sitecontainer">
+                <ul id="sitelist">
+                    <li id="active"><a href="solutions.html" id="current">solutions</a>
+                    <ul id="subsitelist">
+                        <li id="subactive"><a href="underconstruction.html" id="subcurrent">analytics database</a></li>
+                        <li><a href="underconstruction.html">visualization engine</a></li>
+                        <li><a href="underconstruction.html">professional services</a></li>
+                    </ul>
+                    </li>
+                    <li id="active"><a href="usecases.html" id="current">use cases</a>
+                    <ul id="subsitelist">
+                        <li id="subactive"><a href="underconstruction.html" id="subcurrent">embeddable analytics</a></li>
+                        <li><a href="underconstruction.html">internal analytics</a></li>
+                        <li><a href="underconstruction.html">business intelligence</a></li>
+                    </ul>
+                    </li>
+                    <li id="active"><a href="pricing.html" id="current">pricing</a>
+                    <ul id="subsitelist">
+                        <li id="subactive"><a href="underconstruction.html" id="subcurrent">cost calculator</a></li>
+                        <li><a href="signup.html">signup</a></li>
+                    </ul>
+                    </li>
+                    <li id="active"><a href="developer.html" id="current">developer</a>
+                    <ul id="subsitelist">
+                        <li id="subactive"><a href="http://api.reportgrid.com/doc/rest-api.v1.rst.html" id="subcurrent">api documentation</a></li>
+                        <li><a href="underconstruction.html">console</a></li>
+                        <li><a href="underconstruction.html">client libraries</a></li>
+                    </ul>
+                    </li>
+                    <li id="active"><a href="support.html" id="current">support</a>
+                    <ul id="subsitelist">
+                        <li id="subactive"><a href="http://reportgrid.freshdesk.com/" id="subcurrent">help desk</a></li>
+                        <li><a href="underconstruction.html">white papers</a></li>
+                    </ul>
+                    </li>
+                    <li id="active"><a href="about.html" id="current">about</a>
+                    <ul id="subsitelist">
+                        <li id="subactive"><a href="underconstruction.html" id="subcurrent">news</a></li>
+                        <li><a href="underconstruction.html">team</a></li>
+                        <li><a href="contactus.html">contact</a></li>
+                    </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div style="position:absolute;top:28px;left:778px;letter-spacing:5px;">
+                <p style="font-size:26px;">(888) 673-9958</p>
+            </div>
+            <div style="position:absolute;top:90px;left:778px;length: 120;">
+                <p2 style="font-size:6pt;"><a href="privacy.html">privacy</a> : <a href="termsofuse.html">terms of use</a> <br>© 2010-2011 ReportGrid Inc. </p2> 
+            </div>
+            <div id=contactus>
+                <a href="contactus.html" target="_blank"> <img src="images/contactusicon.png"> </a>
+            </div>
+            <div id=facebook>
+                <a href="http://twitter.com/#!/ReportGrid" target="_blank"> <img src="images/facebookicon.png"> </a>
+            </div>
+            <div id=twitter>
+                <a href="http://www.facebook.com/ReportGrid?v=wall" target="_blank"> <img src="images/twittericon.png"> </a>
+            </div>
+        </div>
+
+      </div>
+
+    </body>
+</html>
