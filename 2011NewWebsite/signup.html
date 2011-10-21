@@ -91,13 +91,13 @@ P5 {
   position: absolute;
   top: 110px;
   width: 1070px;
-  height: 950px;
+  height: 1450px;
   background-color: #1A1B20;   
 }
 
 #wrapper .footer { 
   position: absolute;
-  top: 1040px;
+  top: 1540px;
   width: 1070px;
   height: 142px;
   background-color: #141417;    
@@ -254,11 +254,39 @@ P5 {
     left: 476px;
 }
 
+.leftfields {
+    position:relative;
+    width:300px;
+    height:318px;
+    display:block;
+    float:left;
+}
+
+.rightfields {
+    position:relative;
+    width:300px;
+    display:block;
+    float:left;
+    top:47px;
+}
+
+.rightfields2 {
+    position:relative;
+    width:300px;
+    display:block;
+    float:left;
+}
+
+.fieldgroup {
+}
+
 .fieldgroup input{
-    width:40%;
+    width:75%;
     height:20px;
     color: #000000:
 }
+
+
 
 #submit {
         background-image: url(images/submitbutton.png);
@@ -430,8 +458,8 @@ P5 {
                     <li id="active"><a href="solutions.html" id="current">solutions</a>
                     <ul id="subnavlist">
                         <li id="subactive"><a href="underconstruction.html" id="subcurrent">analytics database</a></li>
-                        <li><a href="underconstruction.html">visualization engine</a></li>
-                        <li><a href="underconstruction.html">professional services</a></li>                        
+                        <li><a href="visualizationengine.html">visualization engine</a></li>
+                        <li><a href="professionalservices.html">professional services</a></li>                        
                     </ul>
                     </li>
                     <li id="active"><a href="usecases.html" id="current">use cases</a>
@@ -457,7 +485,7 @@ P5 {
                     <li id="active"><a href="support.html" id="current">support</a>
                     <ul id="subnavlist">
                         <li id="subactive"><a href="http://reportgrid.freshdesk.com/" id="subcurrent">help desk</a></li>
-                        <li><a href="underconstruction.html">white papers</a></li>
+                        <li><a href="whitepapers.html">white papers</a></li>
                     </ul>
                     </li>
                     <li id="active"><a href="about.html" id="current">about</a>
@@ -488,8 +516,8 @@ P5 {
                 <div id="leftmenucontainer">
                      <ul id="leftmenulist">
                      <li id="active"><a href="pricing.html" id="current">overview</a>
-                     <li><a href="underconstruction.html">costcalculator</a></li>
-                     <li><a href="signup.html">signup</a></li>
+                     <li><a href="underconstruction.html">cost calculator</a></li>
+                     <li><a href="signup.html">sign up</a></li>
                      </ul>
                 </div>
                 <div style="top:32px;position:absolute;left: 232px;width:604px;">
@@ -497,46 +525,47 @@ P5 {
                 <br>
                 <br />    
                 <p>We offer competative pricing plans that will suite any need. From our low cost Starter plan, to our custom pricing plans;ahf;wqhf;owqhfoq[ ihqw;eogihq ofih oqhf ow[eihfoihorehgoihg, ReportGrid has a solution to meet your needs. We also have customer plans that offer much more configuration. Contact us for details.</p>
-                <br>
-                <P4>Plan</P4>   
                     
 <form id="signupForm" action="accounts" method="put">
-    <div><img style="position:relative;" src="images/pricingpageimage.png"</div><br><br>
+    <div><img style="position:relative;" src="images/signuppageimage.png"</div><br><br>
         <div id="planidstarter">
         <input type="radio" name="signup[starter]" value="starter">
-        </div>
-        <div id="planidbronze">
         <input type="radio" name="signup[bronze]" value="bronze">
-        </div>
-        <div id="planidsilver">
         <input type="radio" name="signup[silver]" value="silver">
-        </div>
-        <div id="planidgold">
         <input type="radio" name="signup[gold]" value="silver">
         </div><br>
     <P4>General Contact Information</P4><br><br>
-    <p style="margin-bottom:4px;">Email:</p><div class="fieldgroup"><input type="text" name="signup[email]" /><BR></div>
-    <p style="margin-bottom:4px;margin-top:8px;">Password:</p><div class="fieldgroup"><input type="password" name="signup[password]" /><BR></div>
-    <p style="position:absolute;top:274px;left:300px;">Password Confirm:</p><div class="fieldgroup" style="position:absolute;top:293px;left:300px;width:600px;"><input type="password" name="signup[passwordconfirm]" /><BR></div>
+    <p>This is a general paragraph for describing the section of inforamtion below. Blah, blah, blah.This is a general paragraph for describing the section of inforamtion below. Blah, blah, blah.This is a general paragraph for describing the section of inforamtion below. Blah, blah, blah.</p>
     <br>
+    <div class="leftfields">
+    <p style="margin-bottom:4px;margin-top:8px;">Email:</p><div class="fieldgroup"><input type="text" name="signup[email]" /><BR></div>
+    <p style="margin-bottom:4px;margin-top:8px;">Password:</p><div class="fieldgroup"><input type="password" name="signup[password]" /><BR></div>
     <p style="margin-bottom:4px;margin-top:8px;">First Name:</p><div class="fieldgroup"><input type="text" name="signup[firstname]" /><BR></div>
-    <p style="position:absolute;top:340px;left:300px;">Last Name:</p><div class="fieldgroup" style="position:absolute;top:359px;left:300px;width:600px;"><input type="text" name="signup[lastname]" /><BR></div>
     <p style="margin-bottom:4px;margin-top:8px;">Company:</p><div class="fieldgroup"><input type="text" name="signup[company]" /><BR></div>
-    <p style="position:absolute;top:387px;left:300px;">Title:</p><div class="fieldgroup" style="position:absolute;top:406px;left:300px;width:600px;"><input type="text" name="signup[title]" /><BR></div>
     <p style="margin-bottom:4px;margin-top:8px;">Address:</p><div class="fieldgroup"><input type="text" name="signup[address]" /><BR></div>
-    <p style="position:absolute;top:434px;left:300px;">City:</p><div class="fieldgroup" style="position:absolute;top:453px;left:300px;width:600px;"><input type="text" name="signup[city]" /><BR></div>
     <p style="margin-bottom:4px;margin-top:8px;">State:</p><div class="fieldgroup"><input type="text" name="signup[state]" /><BR></div>
-    <p style="position:absolute;top:481px;left:300px;">ZipCode:</p><div class="fieldgroup" style="position:absolute;top:500px;left:300px;width:600px;"><input type="text" name=signup[billing][postalCode] /><BR></div>
     <p style="margin-bottom:4px;margin-top:8px;">Phone Number:</p><div class="fieldgroup"><input type="text" name="signup[phonenumber]" /><BR></div>
-    <p style="position:absolute;top:528px;left:300px;">Website:</p><div class="fieldgroup" style="position:absolute;top:547;left:300px;width:600px;"><input type="text" name="signup[website]" /><BR></div>
- 
- <BR>Billing Information<BR>
+    </div>
+    <div class="rightfields">
+    <p style="margin-bottom:4px;margin-top:8px;">Password Confirm:</p><div class="fieldgroup"><input type="password" name="signup[passwordconfirm]" /><BR></div>
+    <p style="margin-bottom:4px;margin-top:8px;">Last Name:</p><div class="fieldgroup"><input type="text" name="signup[lastname]" /><BR></div>
+    <p style="margin-bottom:4px;margin-top:8px;">Title:</p><div class="fieldgroup"><input type="text" name="signup[title]" /><BR></div>
+    <p style="margin-bottom:4px;margin-top:8px;">City:</p><div class="fieldgroup"><input type="text" name="signup[city]" /><BR></div>
+    <p style="margin-bottom:4px;margin-top:8px;">ZipCode:</p><div class="fieldgroup"><input type="text" name=signup[billing][postalCode] /><BR></div>
+    <p style="margin-bottom:4px;margin-top:8px;">Website:</p><div class="fieldgroup"><input type="text" name="signup[website]" /><BR></div>
+    <br><br><br>
+    </div>
+    <P4>General Contact Information</P4><br><br>
+    <p>This is a general paragraph for describing the section of inforamtion below. Blah, blah, blah.This is a general paragraph for describing the section of inforamtion below. Blah, blah, blah.This is a general paragraph for describing the section of inforamtion below. Blah, blah, blah.</p>
+    <br>
+    <div class="leftfields">
     <p style="margin-bottom:4px;margin-top:8px;">Name of Card Holder:</p><div class="fieldgroup"><input type="text" name=signup[billing][cardholder] /><BR></div>
-    <p style="position:absolute;top:614px;left:300px">Credit Card Number:</p><div class="fieldgroup"style="position:absolute;top:633;left:300px;width:600px;"><input type="text" name=signup[billing][number] /><BR></div>
-    <p style="margin-bottom:4px;margin-top:8px;">Expiration Month:</p><div class="fieldgroup" style="width:200px;"><input type="text" name=signup[billing][expMonth] /><BR></div>
-    <p style="position:absolute;top:661px;left:90px">Year:</p><div class="fieldgroup"style="position:absolute;top:680;left:90px;width:100px;"><input type="text" name=signup[billing][expYear] /><BR></div>
-    <p style="position:absolute;top:661px;left:300px">CVV Code:</p><div class="fieldgroup"style="position:absolute;top:680;left:300px;width:600px;"><input type="text" name=signup[billing][cvv] /><BR></div>
-    
+    <p style="margin-bottom:4px;margin-top:8px;">Expiration Month/Year</p><div class="fieldgroup" style="width:40px;float:left;"><input type="text" name=signup[billing][expMonth] /></div><div class="fieldgroup" style="width:40px;float:left;"><input type="text" name=signup[billing][expYear] /></div>
+    </div>
+    <div class="rightfields2">
+    <p style="margin-bottom:4px;margin-top:8px;">Credit Card Number:</p><div class="fieldgroup"><input type="text" name=signup[billing][number] /><BR></div>
+    <p style="margin-bottom:4px;margin-top:8px;">CVV Code:</p><div class="fieldgroup"><input type="text" name=signup[billing][cvv] /><BR></div>
+    </div>
     <input type="submit" id="submit" value="" /><BR>
 </form>
                 </div>
@@ -548,8 +577,8 @@ P5 {
                     <li id="active"><a href="solutions.html" id="current">solutions</a>
                     <ul id="subsitelist">
                         <li id="subactive"><a href="underconstruction.html" id="subcurrent">analytics database</a></li>
-                        <li><a href="underconstruction.html">visualization engine</a></li>
-                        <li><a href="underconstruction.html">professional services</a></li>
+                        <li><a href="visualizationengine.html">visualization engine</a></li>
+                        <li><a href="professionalservices.html">professional services</a></li>
                     </ul>
                     </li>
                     <li id="active"><a href="usecases.html" id="current">use cases</a>
@@ -575,7 +604,7 @@ P5 {
                     <li id="active"><a href="support.html" id="current">support</a>
                     <ul id="subsitelist">
                         <li id="subactive"><a href="http://reportgrid.freshdesk.com/" id="subcurrent">help desk</a></li>
-                        <li><a href="underconstruction.html">white papers</a></li>
+                        <li><a href="whitepapers.html">white papers</a></li>
                     </ul>
                     </li>
                     <li id="active"><a href="about.html" id="current">about</a>
