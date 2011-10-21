@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Visualization Engine</title>
+        <title>Console</title>
         <!--[if IE]>
         <link rel="stylesheet" type="text/css" href="ie.css" />
         <![endif]-->
@@ -92,13 +92,13 @@ P5 {
   position: absolute;
   top: 110px;
   width: 1070px;
-  height: 540px;
+  height: 640px;
   background-color: #1A1B20;   
 }
 
 #wrapper .footer { 
   position: absolute;
-  top: 650px;
+  top: 750px;
   width: 1070px;
   height: 142px;
   background-color: #141417;    
@@ -218,45 +218,20 @@ P5 {
     color: 9FA5C2;
     font-size: 8pt;
     margin-bottom: 10px;
-    top: 110px;
+    top: 110;
     left: 920px;
     }
 
-#leftarrow {
-    position:relative;
-    background-image: url(images/visengleftarrow.png);
-    display: block;
-    float:left;
-    height:193px;
-    width:30px;
-    margin-top:73px;
-    margin-right:20px
+#console {
+    height:240px;
+    width:600px;
+    background-color: #141417;
 }
 
-#leftarrow:hover{
-    background-position: 0 -193px;
-}
-
-#gallerybackground {
-    height:340px;
-    width:488px;
-    float:left;
-    background-color: #000000;
-}
-
-#rightarrow {
-    position:relative;
-    background-image: url(images/visengrightarrow.png);
-    display: block;
-    float:left;
-    height:193px;
-    width:30px;
-    margin-top:73px;
-    margin-left:20px;
-}
-
-#rightarrow:hover{
-    background-position: 0 -193px;
+#output {
+    height:180px;
+    width:600px;
+    background-color: #141417;
 }
 
 /*middlenavmenubegin*/
@@ -415,8 +390,8 @@ P5 {
                     <li id="active"><a href="solutions.html" id="current">solutions</a>
                     <ul id="subnavlist">
                         <li id="subactive"><a href="underconstruction.html" id="subcurrent">analytics database</a></li>
-                        <li><a href="visualizationengine.html">visualization engine</a></li>
-                        <li><a href="professionalservices.html">professional services</a></li>                        
+                        <li><a href="underconstruction.html">visualization engine</a></li>
+                        <li><a href="underconstruction.html">professional services</a></li>                        
                     </ul>
                     </li>
                     <li id="active"><a href="usecases.html" id="current">use cases</a>
@@ -442,7 +417,7 @@ P5 {
                     <li id="active"><a href="support.html" id="current">support</a>
                     <ul id="subnavlist">
                         <li id="subactive"><a href="http://reportgrid.freshdesk.com/" id="subcurrent">help desk</a></li>
-                        <li><a href="whitepapers.html">white papers</a></li>
+                        <li><a href="underconstruction.html">white papers</a></li>
                     </ul>
                     </li>
                     <li id="active"><a href="about.html" id="current">about</a>
@@ -456,7 +431,7 @@ P5 {
             </div>
         <div class="middle">
             <div style="top:30px;position: absolute;text-align:right;right: 876px;">
-                <p3>VISUALIZATION ENGINE</p3>
+                <p3>CONSOLE</p3>
             </div>
             <div id="rightsidepanel">
             </div>
@@ -472,21 +447,28 @@ P5 {
                 </div>
                 <div id="leftmenucontainer">
                      <ul id="leftmenulist">
-                     <li id="active"><a href="solutions.html" id="current">overview</a>
-                     <li><a href="underconstruction.html">analytics database</a></li>
-                     <li><a href="visualizationengine.html">visualization engine</a></li>
-                     <li><a href="professionalservices.html">professional services</a></li>
+                     <li id="active"><a href="developer.html" id="current">overview</a>
+                     <li><a href="http://api.reportgrid.com/doc/rest-api.v1.rst.html">api documentation</a></li>
+                     <li><a href="underconstruction.html">console</a></li>
+                     <li><a href="underconstruction.html">client libraries</a></li>
                      </ul>
                 </div>
                 <div style="top:32px;position:absolute;left: 232px;width:604px;">
                 <P4>ReportGrids Pricing is the best on the planet.</P4>
                 <br>
                 <br />    
-                <p>We offer competative pricing plans that will suite any need. From our low cost Starter plan, to our custom pricing plans;ahf;wqhf;owqhfoq[ ihqw;eogihq ofih oqhf ow[eihfoihorehgoihg, ReportGrid has a solution to meet your needs. We also have customer plans that offer much more configuration. Contact us for details.</p>
+                <p>We offer competative pricing plans that will suite any need. From our low cost Starter plan, to our custom pricing plans, ReportGrid has a solution to meet your needs. We also have customer plans that offer much more configuration. Contact us for details.</p>
                 <br>
-                    <a id="leftarrow" href="www.reportgrid.com" title="how"></a>
-                    <div id="gallerybackground"></div>
-                    <a id="rightarrow" href="www.reportgrid.com" title="how"></a>
+                    <div id="console">
+                        <img style="float:left;"src="images/consolebar.png">
+                        <img style="float:left;"src="images/consoleexamples.png">
+                        <input style="background-color: transparent;margin-left:5px;margin-top:200px;font-family:courier;" type="text" name="console" value=">" />
+                    </div>
+                <br>
+                <p># OUTPUT</p>
+                <br>
+                    <div id="output">
+                    </div>
                 </div>
             </div>
         </div>
@@ -496,8 +478,8 @@ P5 {
                     <li id="active"><a href="solutions.html" id="current">solutions</a>
                     <ul id="subsitelist">
                         <li id="subactive"><a href="underconstruction.html" id="subcurrent">analytics database</a></li>
-                        <li><a href="visualizationengine.html">visualization engine</a></li>
-                        <li><a href="professionalservices.html">professional services</a></li>
+                        <li><a href="underconstruction.html">visualization engine</a></li>
+                        <li><a href="underconstruction.html">professional services</a></li>
                     </ul>
                     </li>
                     <li id="active"><a href="usecases.html" id="current">use cases</a>
@@ -535,7 +517,6 @@ P5 {
                     </li>
                 </ul>
             </div>
-
             <div style="position:absolute;top:28px;left:778px;letter-spacing:5px;">
                 <p style="font-size:26px;">(888) 673-9958</p>
             </div>
