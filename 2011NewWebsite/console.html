@@ -42,15 +42,25 @@ A:link{color:A8AECC;text-decoration:none}
 
 A:visited{color:A8AECC;text-decoration:none}
 
-A:hover {
-    opacity: 0.7;
-}
+A:hover {opacity: 0.7;}
 
 P {
   font-size:11px;
   font-family:Abel;
   color:8A8FA8;
   line-height: normal;
+  padding-bottom:12px;
+  }
+
+h1{
+    font-size:16px;
+    font-family:Abel;
+    font-size: 1em;
+    font-weight:normal;
+    color:8A8FA8;
+    list-style-type:  none;
+    text-decoration:  none;
+    padding-bottom: 20px;
 }
 
 P2 {
@@ -239,6 +249,44 @@ P5 {
     background-color: #141417;
 }
 
+/*consolemenubegin*/
+#conlist
+    {
+    color:white;
+    background-color: transparent;
+    width: 116px;
+    height: 23px;
+    background-image: url(images/consoleexamples.png);
+    }
+
+
+#conlist:hover {
+    opacity: 0.7;
+}
+
+#active1:hover li { display: block; }
+#active1 li { display: none; }
+
+#concontainer
+{
+    width: 100px;
+    background-color: transparent;
+    float:left;
+}
+
+#concontainer a
+{
+    color: ffcc33;
+    font-family:abel;
+    width: 120px;
+    display: block;
+    height:23px;
+    font-size:12px;
+    padding-left:8px;
+    padding-top:2px;
+}
+/*consolemenuend*/
+
 /*middlenavmenubegin*/
     #leftmenucontainer {
     top: 74px;
@@ -386,7 +434,10 @@ P5 {
       <div id="wrapper">
         <div class="header">
             <div style="position:relative;top:40px;left:46px">
-                <img src="images/logo1.png" style="position:absolute";>
+                <a href="http://www.reportgrid.com"><img src="images/logo1.png" style="position:absolute";></a>
+            </div>
+            <div style="position:absolute;top:48px;float:right;right:58px;">
+                <a href="#"><img src="images/loginbutton.png";></a>
             </div>
             <div id="navcontainer">
                 <ul id="navlist">
@@ -452,24 +503,27 @@ P5 {
                      </ul>
                 </div>
                 <div style="top:32px;position:absolute;left: 236px;width:604px;">
-                <P4>Discover the simplicity and elegance of the ReportGrid API</P4>
-                <br>
-                <br />
-                <p>The console below allows you to play with our JavaScript API. The JavaScript API includes both the analytics API (available in all
+                <h1>Discover the simplicity and elegance of the ReportGrid API</h1>
+                <p >The console below allows you to play with our JavaScript API. The JavaScript API includes both the analytics API (available in all
                 languages), and the visualization API (available only in JavaScript).</p>
-                <br>
                 <p>
                 Check out the documentation page for more information on how to use the API.
                 </p>
-                <br>
                     <div id="console">
                         <img style="float:left;"src="images/consolebar.png">
-                        <img style="float:left;"src="images/consoleexamples.png">
+                            <div id="concontainer">
+                                <ul id="conlist">
+                                <li id="active1"><a href="#" id="current" style="family-font:abel;font-size:13px;color: #348DCC;">code examples</a>
+                                <ul id="subconlist">
+                                <li id="subactive"><a href="#" id="subcurrent" style="family-font:abel;">heat map</a></li>
+                                <li><a href="#">bar chart</a></li>
+                                <li><a href="#">line chart</a></li>
+                                <li><a href="#">pie chart</a></li>
+                                </ul>
+                            </div>
                         <input style="background-color: transparent;margin-left:5px;margin-top:200px;font-family:courier;" type="text" name="console" value=">" />
                     </div>
-                <br>
                 <p>#output</p>
-                <br>
                     <div id="output">
                     </div>
                 </div>
@@ -481,8 +535,8 @@ P5 {
                     <li id="active"><a href="solutions.html" id="current">solutions</a>
                     <ul id="subsitelist">
                         <li id="subactive"><a href="underconstruction.html" id="subcurrent">analytics database</a></li>
-                        <li><a href="underconstruction.html">visualization engine</a></li>
-                        <li><a href="underconstruction.html">professional services</a></li>
+                        <li><a href="visualizationengine.html">visualization engine</a></li>
+                        <li><a href="professionalservices.html">professional services</a></li>
                     </ul>
                     </li>
                     <li id="active"><a href="usecases.html" id="current">use cases</a>
@@ -508,7 +562,7 @@ P5 {
                     <li id="active"><a href="support.html" id="current">support</a>
                     <ul id="subsitelist">
                         <li id="subactive"><a href="http://reportgrid.freshdesk.com/" id="subcurrent">help desk</a></li>
-                        <li><a href="underconstruction.html">white papers</a></li>
+                        <li><a href="whitepapers.html">white papers</a></li>
                     </ul>
                     </li>
                     <li id="active"><a href="about.html" id="current">about</a>
