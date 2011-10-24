@@ -27,6 +27,17 @@ body {
 
 @import url(http://fonts.googleapis.com/css?family=Antic);
 
+@font-face {
+    font-family: 'Rexlia';
+    src: url('fonts/rexlia_free-webfont.eot');
+    src: url('fonts/rexlia_free-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/rexlia_free-webfont.woff') format('woff'),
+         url('fonts/rexlia_free-webfont.ttf') format('truetype'),
+         url('fonts/rexlia_free-webfont.svg#RexliaFree') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
 A:link{color:A8AECC;text-decoration:none}
 
 A:visited{color:A8AECC;text-decoration:none}
@@ -210,6 +221,24 @@ P4 {
     left: 920px;
     }
 
+.cardfooter {
+    background-image: url(images/cardfooter.png);
+    height:69px;
+    width:170px;
+    }
+
+#packages {
+    background-image: url(images/packages.png);
+    height:255px;
+    width:600px;
+}
+
+.package {
+    height:255px;
+    float:left;
+    width:200px;
+}
+
 /*middlenavmenubegin*/
     #leftmenucontainer {
     top: 74px;
@@ -262,6 +291,7 @@ P4 {
     text-decoration: none;
     opacity: 0.7;
     }
+    
 /*middlenavmenuend*/
 
 /*footernavmenubegin */
@@ -443,19 +473,27 @@ P4 {
                                     <li style="left:40px;list-style-type: square;width:120px;padding-bottom:8px;"><a style="font-family:abel;font-size:11px;color: #ffffff;"href="http://www.reportgrid.com">knows how to optimally monetize the data you have</a></li>
                                 </ul>
                                 </div>
-                            <div><img src="images/confoot.png"></div>
-                            <div><p style="position:absolute;top:308;left:52px;font-size:26pt;color: #ffffff;">300</p></div>
+                                <div class ="cardfooter">
+                                    <p style="position:relative;top:16px;left:40px;font-size:11pt;color: #ffffff;float:left;">$</p>
+                                    <p style="position:relative;top:10px;left:44px;font-size:26pt;color: #ffffff;float:left;">300</p>
+                                    <p style="position:relative;top:16px;left:44px;font-size:11pt;color: #ffffff;float:left;">.00</p>
+                                    <p style="position:relative;top:40px;left:30px;font-size:7pt;color: #ffffff;float:left;">/HOUR</p>
+                                </div>
                         </div>
-                        <div style="float:left;margin-left:45px;background-color: #417894;width:170px;">
+                        <div style="position:relative;float:left;margin-left:45px;background-color: #417894;width:170px;">
                             <img src="images/devhead.png">
-                            <p style="color: #ffffff;left:20px;top:2px;">SKILLS</p>
+                                <p style="color: #ffffff;left:20px;top:2px;">SKILLS</p>
                                 <ul>
                                     <li style="left:40px;list-style-type: square;width:120px;"><a style="font-family:abel;font-size:11px;color: #ffffff;"href="http://www.reportgrid.com">can build any solution on top of the ReportGrid API/a></li>
                                     <li style="left:40px;list-style-type: square;width:120px;"><a style="font-family:abel;font-size:11px;color: #ffffff;"href="http://www.reportgrid.com">is master of all common programming languages</a></li>
                                     <li style="left:40px;list-style-type: square;width:120px;padding-bottom:8px;"><a style="font-family:abel;font-size:11px;color: #ffffff;"href="http://www.reportgrid.com">has prior experience at integrating ReportGrid into products</a></li>
                                 </ul>
-                            <img src="images/devfoot.png">
-                            <p style="position:absolute;top:308;left:52px;font-size:26pt;color: #ffffff;">300</p>
+                                <div class ="cardfooter">
+                                    <p style="position:relative;top:16px;left:40px;font-size:11pt;color: #ffffff;float:left;">$</p>
+                                    <p style="position:relative;top:10px;left:44px;font-size:26pt;color: #ffffff;float:left;">300</p>
+                                    <p style="position:relative;top:16px;left:44px;font-size:11pt;color: #ffffff;float:left;">.00</p>
+                                    <p style="position:relative;top:40px;left:30px;font-size:7pt;color: #ffffff;float:left;">/HOUR</p>
+                                </div>
                         </div>
                         <div style="float:left;margin-left:45px;background-color: #D48A0F;width:170px;">
                             <img src="images/deshead.png">
@@ -465,19 +503,66 @@ P4 {
                                     <li style="left:40px;list-style-type: square;width:120px;"><a style="font-family:abel;font-size:11px;color: #ffffff;"href="http://www.reportgrid.com">can skin any visualization to look however you want</a></li>
                                     <li style="left:40px;list-style-type: square;width:120px;padding-bottom:8px;"><a style="font-family:abel;font-size:11px;color: #ffffff;"href="http://www.reportgrid.com">can polish reporting dashboards to production quality</a></li>
                                 </ul>
-                            <img src="images/desfoot.png">
-                            <p style="position:absolute;top:308;left:52px;font-size:26pt;color: #ffffff;">300</p>
+                                <div class ="cardfooter">
+                                    <p style="position:relative;top:16px;left:40px;font-size:11pt;color: #ffffff;float:left;">$</p>
+                                    <p style="position:relative;top:10px;left:44px;font-size:26pt;color: #ffffff;float:left;">300</p>
+                                    <p style="position:relative;top:16px;left:44px;font-size:11pt;color: #ffffff;float:left;">.00</p>
+                                    <p style="position:relative;top:40px;left:30px;font-size:7pt;color: #ffffff;float:left;">/HOUR</p>
+                                </div>
                         </div>
                     </div>
-                        <div style="float:left;padding-top:10px;">
-                            <P4>A range of packages to take care of your needs</P4>
-                            <br><br>
-                            <p>We've put together a bundle of common plans that help you get started on the ReportGrid platform and get the most out of the platform, without tying up any resources on your end.</p>
+                    <div style="padding-top:10px;">
+                        <br>
+                        <P4>A range of packages to take care of your needs</P4>
+                        <br><br>
+                        <p>We've put together a bundle of common plans that help you get started on the ReportGrid platform and get the most out of the platform, without tying up any resources on your end.</p>
+                        <br>
+                    </div>
+                    <div id="packages" style="position:relative;">
+                        <div class="package">
+                            <p style="position:relative;top:38px;left:96px;font-size:11pt;color: #ffffff;float:left;">$</p>
+                            <p style="position:relative;top:32px;left:100px;font-size:26pt;color: #ffffff;float:left;">300</p>
+                            <p style="position:relative;top:38px;left:100px;font-size:11pt;color: #ffffff;float:left;">.00</p>
+                            <p style="position:relative;top:58px;left:82px;font-size:7pt;color: #ffffff;float:left;">/HOUR</p>
+                            <p style="position:absolute;top:96px;left:22px;font-size:7pt;color: #6B9E13;">USE AS NEEDED - NO EXPIRATION</p>
+                            <p style="position:absolute;top:126px;left:25px;font-size:14pt;color: #6B9E13;font-family:Rexlia;">2</p>
+                            <p style="position:absolute;top:146px;left:20px;font-size:7pt;color: #6B9E13;">HOURS</p>
+                            <p style="position:absolute;top:136px;left:58px;font-size:8pt;color: #ffffff;">ANALYTICS CONSULTATION</p>
+                            <p style="position:absolute;top:166px;left:21px;font-size:14pt;color: #6B9E13;font-family:Rexlia;">10</p>
+                            <p style="position:absolute;top:186px;left:20px;font-size:7pt;color: #6B9E13;">HOURS</p>
+                            <p style="position:absolute;top:176px;left:58px;font-size:8pt;color: #ffffff;">MAINTENANCE PACKAGE</p>
+                            <p style="position:absolute;top:206px;left:25px;font-size:14pt;color: #6B9E13;font-family:Rexlia;">2</p>
+                            <p style="position:absolute;top:226px;left:20px;font-size:7pt;color: #6B9E13;">HOURS</p>
+                            <p style="position:absolute;top:216px;left:58px;font-size:8pt;color: #ffffff;">VISUALIZATION BRANDING</p>
                         </div>
-                    <div>
-                        <img src="images/packages.png" style="margin-top:20px;">
-                        <p style="position:absolute;top:506;left:102px;font-size:20pt;color: #ffffff;">3000</p>
-                        <p style="position:absolute;top:506;left:302px;font-size:20pt;color: #ffffff;">3000</p>
+                        <div class="package">
+                            <p style="position:relative;top:38px;left:96px;font-size:11pt;color: #ffffff;float:left;">$</p>
+                            <p style="position:relative;top:32px;left:100px;font-size:26pt;color: #ffffff;float:left;">300</p>
+                            <p style="position:relative;top:38px;left:100px;font-size:11pt;color: #ffffff;float:left;">.00</p>
+                            <p style="position:relative;top:58px;left:82px;font-size:7pt;color: #ffffff;float:left;">/HOUR</p>
+                            <p style="position:absolute;top:96px;left:22px;font-size:7pt;color: #417894;">ALL HOURS PER MONTH - FOR ONE YEAR</p>
+                            <p style="position:absolute;top:126px;left:25px;font-size:14pt;color: #417894;font-family:Rexlia;">2</p>
+                            <p style="position:absolute;top:146px;left:20px;font-size:7pt;color: #417894;">HOURS</p>
+                            <p style="position:absolute;top:136px;left:58px;font-size:8pt;color: #ffffff;">ANALYTICS CONSULTATION</p>
+                            <p style="position:absolute;top:166px;left:21px;font-size:14pt;color: #417894;font-family:Rexlia;">10</p>
+                            <p style="position:absolute;top:186px;left:20px;font-size:7pt;color: #417894;">HOURS</p>
+                            <p style="position:absolute;top:176px;left:58px;font-size:8pt;color: #ffffff;">MAINTENANCE PACKAGE</p>
+                            <p style="position:absolute;top:206px;left:25px;font-size:14pt;color: #417894;font-family:Rexlia;">2</p>
+                            <p style="position:absolute;top:226px;left:20px;font-size:7pt;color: #417894;">HOURS</p>
+                            <p style="position:absolute;top:216px;left:58px;font-size:8pt;color: #ffffff;">VISUALIZATION BRANDING</p>
+                        </div>
+                        <div class="package">
+                            <p style="position:relative;top:38px;left:92px;font-size:11pt;color: #ffffff;float:left;">$</p>
+                            <p style="position:relative;top:38px;left:154px;font-size:11pt;color: #ffffff;float:left;">.00</p>
+                            <p style="position:relative;top:58px;left:136px;font-size:7pt;color: #ffffff;float:left;">/HOUR</p>
+                            <p style="position:absolute;top:96px;left:22px;font-size:7pt;color: #D48A0F;">ENTER HOURS - COST CALCULATED ABOVE</p>
+                            <p style="position:absolute;top:146px;left:20px;font-size:7pt;color: #D48A0F;">HOURS</p>
+                            <p style="position:absolute;top:136px;left:58px;font-size:8pt;color: #ffffff;">ANALYTICS CONSULTATION</p>
+                            <p style="position:absolute;top:186px;left:20px;font-size:7pt;color: #D48A0F;">HOURS</p>
+                            <p style="position:absolute;top:176px;left:58px;font-size:8pt;color: #ffffff;">MAINTENANCE PACKAGE</p>
+                            <p style="position:absolute;top:226px;left:20px;font-size:7pt;color: #D48A0F;">HOURS</p>
+                            <p style="position:absolute;top:216px;left:58px;font-size:8pt;color: #ffffff;">VISUALIZATION BRANDING</p>
+                        </div>
                     </div>
                     <br>
                     <div>
