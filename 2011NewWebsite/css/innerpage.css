@@ -60,7 +60,7 @@ p.rightpaneltext {
   font-family:Abel;
   color:8A8FA8;
   line-height: normal;
-  padding-bottom:6px;
+  padding-bottom:0px;
 }
 
 p.teamtext {
@@ -70,6 +70,22 @@ p.teamtext {
   padding-bottom:0px;
   padding-top:0px;
   }
+  
+p.phonelarge {
+  font-size:26px;
+  font-family:Abel;
+  color:8A8FA8;
+  line-height: normal;
+  padding-bottom:0px;
+}
+
+p.micro {
+  font-size:8px;
+  font-family:Abel;
+  color:8A8FA8;
+  line-height: normal;
+  padding-bottom:0px;
+}
 
 h1{
     font-size:16px;
@@ -165,6 +181,22 @@ h4 {
 
 .rgform {
   margin-bottom: 40px;float:left;
+}
+
+.imageleft {
+  position:relative;
+  float:left;
+  padding-right:10px;
+  padding-top:10px;
+  padding-bottom:10px;
+}
+
+.imageright {
+  position:relative; 
+  float:right;
+  padding-left:10px;
+  padding-top:10px;
+  padding-bottom:10px;
 }
 
 /*headernavmenubegin */
@@ -272,6 +304,10 @@ h4 {
     }
 
 
+#rightlist {
+  width:130px;
+}
+
 #rightlist li {
     position: relative;
     list-style-type: square;
@@ -288,6 +324,13 @@ h4 {
    float:left;
 }
 
+#pagetitle {
+  top:28px;
+  position: absolute;
+  text-align:right;
+  right: 39px;
+}
+
 #middlecontent {
    width:600px;
    padding-right:41px;
@@ -300,6 +343,16 @@ h4 {
   float:left;
   height:400px;
 }
+
+/*about*/
+.aboutlogo {
+  float:left;
+  top:20px;
+  padding-left:15px;
+  padding-right:15px;
+  padding-bottom:40px;
+}
+/*about*/
 
 /*solutions*/
 #solutionscards {
@@ -476,7 +529,7 @@ h4 {
 }
 /*signup*/
 
-/*admin*/
+/*controlpanel*/
 #update {
         background-image: url(../images/updateinfobutton.png);
         background-color: transparent;
@@ -491,7 +544,7 @@ h4 {
 #update:hover {
     opacity: 0.7;
 }
-/*admin*/
+/*controlpanel*/
 
 /*signup*/
 #submit {
