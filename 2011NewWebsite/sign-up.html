@@ -66,7 +66,7 @@
         </div>
         <div class="middle">
             <div id="leftpanel">
-                <div style="top:30px;position: absolute;text-align:right;right: 39px;">
+                <div style="top:28px;position: absolute;text-align:right;right: 39px;">
                     <p class="pageheader">SIGN UP</p>
                 </div>
                 <div id="leftmenucontainer">
@@ -80,7 +80,8 @@
             <div id="middlecontent">
                 <h1>Sign up now - be analyzing and visualizing data today</h1>
                 <p>To signup, simply select the option below and fill in your contact details. If you don't enter a credit card, we'll automatically apply the $250 developer credit to your account.<sup>1</sup></p>
-                <form id="signupForm" action="accounts" method="put">
+                <div class="rgform">
+                    <form id="signupForm" action="accounts" method="put">
                    <input type="hidden" name="signup[planCreditOption]" value="developer">
                    <div><img src="images/signuppageimage.png"</div>
                        <div id="planidstarter">
@@ -125,13 +126,14 @@
                    </div>
                    <div class="rightfields2">
                    <p style="margin-bottom:-7px;margin-top:8px;">Credit Card Number:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=15 type="text" name=signup[billing][number] /></div>
-                   <p style="margin-bottom:-7px;margin-top:8px;">CVV Code:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=18 type="text" name=signup[billing][cvv] /></div>
+                   <p style="margin-bottom:-7px;margin-top:8px;">CVV Code:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=17 type="text" name=signup[billing][cvv] /></div>
                    </div>
-                   <input type="submit" id="submit" value=""/>
-               </form>
+                    <input type="submit" id="submit" value=""/>
+                </form>
+                </div>
             </div>
         </div>
-            <div id="rightpanel"style="width:192px;float:left;height:400px;">
+            <div id="rightpanel">
                 <div id="rightsidepanel">
                     <div id="rpaneltext">
                         <p>If you're a developer, you automatically qualify for $250 credit on our platform. Just choose your plan and be up and running in minutes!</p>
