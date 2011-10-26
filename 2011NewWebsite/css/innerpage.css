@@ -31,9 +31,9 @@ body {
     font-style: normal;
 }
 
-A:link{color:A8AECC;text-decoration:none}
+A:link{color: #A8AECC;text-decoration:none}
 
-A:visited{color:A8AECC;text-decoration:none}
+A:visited{color: #A8AECC;text-decoration:none}
 
 A:hover {
     opacity: 0.7;
@@ -42,7 +42,7 @@ A:hover {
 p {
   font-size:11px;
   font-family:Abel;
-  color:8A8FA8;
+  color: #8A8FA8;
   line-height: normal;
   padding-bottom:12px;
   }
@@ -50,7 +50,7 @@ p {
 p.pageheader {
   font-size:20px;
   font-family:Abel;
-  color:8A8FA8;
+  color: #8A8FA8;
   line-height: normal;
   padding-bottom:12px;
 }
@@ -58,7 +58,7 @@ p.pageheader {
 p.rightpaneltext {
   font-size:16px;
   font-family:Abel;
-  color:8A8FA8;
+  color: #8A8FA8;
   line-height: normal;
   padding-bottom:0px;
 }
@@ -66,7 +66,7 @@ p.rightpaneltext {
 p.teamtext {
   font-size:12px;
   font-family:Abel;
-  color:8A8FA8;
+  color: #8A8FA8;
   padding-bottom:0px;
   padding-top:0px;
   }
@@ -74,7 +74,7 @@ p.teamtext {
 p.phonelarge {
   font-size:26px;
   font-family:Abel;
-  color:8A8FA8;
+  color: #8A8FA8;
   line-height: normal;
   padding-bottom:0px;
 }
@@ -82,7 +82,7 @@ p.phonelarge {
 p.micro {
   font-size:8px;
   font-family:Abel;
-  color:8A8FA8;
+  color: #8A8FA8;
   line-height: normal;
   padding-bottom:0px;
 }
@@ -91,7 +91,7 @@ h1{
     font-size:16px;
     font-family:Abel;
     font-weight:normal;
-    color:8A8FA8;
+    color: #8A8FA8;
     list-style-type:  none;
     text-decoration:  none;
     padding-top: 30px;
@@ -102,7 +102,7 @@ h2 {
     font-size:11px;
     font-family:Rexlia;
     font-weight:normal;
-    color:ffffff;
+    color: #ffffff;
     list-style-type:  none;
     text-decoration:  none;
     padding-bottom: 20px;
@@ -113,7 +113,7 @@ h2.analyticsdb {
     font-size:11px;
     font-family:Rexlia;
     font-weight:normal;
-    color:ffffff;
+    color: #ffffff;
     list-style-type:  none;
     text-decoration:  none;
     padding-bottom: 10px;
@@ -124,7 +124,7 @@ h3 {
     font-size:16px;
     font-family:Abel;
     font-weight:normal;
-    color:8A8FA8;
+    color: #8A8FA8;
     list-style-type:  none;
     text-decoration:  none;
     padding-top: 10px;
@@ -134,7 +134,7 @@ h3 {
 h4 {
   font-size:16px;
   font-family:Abel;
-  color:8A8FA8;
+  color: #8A8FA8;
   line-height: normal;
 }
 
@@ -197,6 +197,14 @@ h4 {
   padding-left:10px;
   padding-top:10px;
   padding-bottom:10px;
+}
+
+.floatleft {
+  float:left;
+}
+
+.floatright {
+  float:right;
 }
 
 /*headernavmenubegin */
@@ -311,7 +319,7 @@ h4 {
 #rightlist li {
     position: relative;
     list-style-type: square;
-    color: 9FA5C2;
+    color: #9FA5C2;
     font-size: 8pt;
     margin-bottom: 10px;
     top: 20px;
@@ -338,6 +346,13 @@ h4 {
    padding-bottom:20px;
 }
 
+.limiddle {
+  list-style-type: square;
+  color: #8A8FA8;
+  top:10px;
+  margin-left:20px;
+}
+
 #rightpanel {
   width:192px;
   float:left;
@@ -353,6 +368,19 @@ h4 {
   padding-bottom:40px;
 }
 /*about*/
+
+/*analyticsdatabase*/
+#adleftpanel {
+  width:280px;
+  padding-right:40px;
+  float:left;
+}
+
+#adrightpanel {
+  width:280px;
+  float:left;
+}
+/*analyticsdatabase*/
 
 /*solutions*/
 #solutionscards {
@@ -380,6 +408,14 @@ h4 {
     width:600px;
     background-color: #141417;
     margin-bottom:20px;
+}
+
+#inputconsole {
+  background-color: transparent;
+  margin-left:5px;
+  margin-top:200px;
+  font-family:courier;
+  width:595px;
 }
 /*console*/
 
