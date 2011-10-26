@@ -65,22 +65,50 @@ h2 {
     padding-top: 20px;
 }
 
-P2 {
-  font-size:11px;
-  font-family:Questrial;
-  color:8A8FA8;
+h3 {
+    font-size:16px;
+    font-family:Abel;
+    font-weight:normal;
+    color:8A8FA8;
+    list-style-type:  none;
+    text-decoration:  none;
+    padding-top: 10px;
+    padding-bottom: 24px;
 }
 
-P3 {
-  font-size:14pt;
-  font-family:abel;
-  color:8A8FA8;
-}
-
-P4 {
+h4 {
   font-size:16px;
   font-family:Abel;
   color:8A8FA8;
+  line-height: normal;
+}
+
+p.homepageslogan {
+  font-size:24pt;
+  font-family:Abel;
+  color:8A8FA8;
+  padding-bottom:0;
+}
+
+p.homepageslogan2 {
+  font-size:15pt;
+  font-family:Abel;
+  color:8A8FA8;
+  padding-bottom:0;
+}
+
+p.homepagetext {
+  font-size:12pt;
+  font-family:Abel;
+  color:8A8FA8;
+  padding-bottom:0;
+}
+
+p.homepagetext2 {
+  font-size:11pt;
+  font-family:Abel;
+  color:8A8FA8;
+  padding-bottom:0;
 }
 
 #wrapper {

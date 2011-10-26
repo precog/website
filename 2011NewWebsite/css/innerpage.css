@@ -80,28 +80,19 @@ h3 {
     padding-bottom: 24px;
 }
 
-P2 {
-  font-size:11px;
-  font-family:Questrial;
-  color:8A8FA8;
-}
-
-P3 {
-  font-size:14pt;
-  font-family:abel;
-  color:8A8FA8;
-}
-
-P4 {
+h4 {
   font-size:16px;
   font-family:Abel;
   color:8A8FA8;
+  line-height: normal;
 }
 
-P5 {
-  font-size:9px;
-  font-family:Questrial;
+p.pageheader {
+  font-size:20px;
+  font-family:Abel;
   color:8A8FA8;
+  line-height: normal;
+  padding-bottom:12px;
 }
 
 #wrapper {
@@ -122,7 +113,6 @@ P5 {
   width: 1070px;
   float:left;
   background-color: #1A1B20;
-  padding-bottom: 20px;
 }
 
 #wrapper .footer {
@@ -271,6 +261,7 @@ P5 {
    width:600px;
    padding-right:41px;
    float:left;
+   padding-bottom:20px;
 }
 
 #rightpanel {
@@ -370,17 +361,6 @@ P5 {
     .field-group {
         border-style: solid;
         margin: 3px 0 10px;
-}
-
-    #submit {
-        background-image: url(../images/submitbutton.png);
-        background-color: transparent;
-        top: 0px;
-        padding: 0px;
-        border: 0px;
-        height: 28px;
-        width: 133px;
-        font-size: 11px;
 }
 
 #map {
@@ -677,6 +657,7 @@ P5 {
   top:28px;
   left:778px;
   letter-spacing:5px;
+  font-size:26px;
 }
 
 #termsprivacy {
