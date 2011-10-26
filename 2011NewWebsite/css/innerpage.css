@@ -55,6 +55,22 @@ p.pageheader {
   padding-bottom:12px;
 }
 
+p.rightpaneltext {
+  font-size:16px;
+  font-family:Abel;
+  color:8A8FA8;
+  line-height: normal;
+  padding-bottom:6px;
+}
+
+p.teamtext {
+  font-size:12px;
+  font-family:Abel;
+  color:8A8FA8;
+  padding-bottom:0px;
+  padding-top:0px;
+  }
+
 h1{
     font-size:16px;
     font-family:Abel;
@@ -551,6 +567,11 @@ h4 {
 /*team*/
 .personhover:hover {
   opacity: 0.0;
+}
+
+#teambox {
+  position:relative;
+  height:620px;
 }
 /*team*/
 
