@@ -11,14 +11,14 @@
       <div id="wrapper">
         <div class="header">
             <div style="position:relative;top:40px;left:46px">
-                <a href="http://www.reportgrid.com"><img src="images/logo1.png" style="position:absolute";></a>
+                <a href="./"><img src="images/logo1.png" style="position:absolute";></a>
             </div>
             <div style="position:absolute;top:48px;float:right;right:58px;">
                 <a href="#"><img src="images/loginbutton.png";></a>
             </div>
             <div id="navcontainer">
                 <ul id="navlist">
-                    <li><a href="index.html">home</a></li>
+                    <li><a href="./">home</a></li>
                     </li>
                     <li id="active"><a href="solution.html" id="current">solutions</a>
                     <ul id="subnavlist">
@@ -29,7 +29,7 @@
                     </li>
                     <li id="active"><a href="use-cases.html" id="current">use cases</a>
                     <ul id="subnavlist">
-                        <li id="subactive"><a href="embeddable analytics.html" id="subcurrent">embeddableanalytics</a></li>
+                        <li id="subactive"><a href="embeddable analytics.html" id="subcurrent">embeddable analytics</a></li>
                         <li><a href="internal-analytics.html">internal analytics</a></li>
                         <li><a href="business-intelligence.html">business intelligence</a></li>
                     </ul>
@@ -64,47 +64,131 @@
             </div>
         </div>
         <div class="middle">
-            <div id="leftpanel" style="width:196px;padding-right:39;float:left;">
+            <div id="leftpanel" style="width:196px;padding-right:41;float:left;">
                 <div style="top:30px;position: absolute;text-align:right;right: 39px;">
                     <p3>TEAM</p3>
                 </div>
                 <div id="leftmenucontainer">
                      <ul id="leftmenulist">
-                     <li><a href="api-documentation.html">api documentation</a></li>
-                     <li><a href="console.html">console</a></li>
-                     <li><a href="http://github.com/reportgrid/client-libraries">client libraries</a></li>
+                     <li id="active"><a href="about.html" id="current">overview</a>
+                     <li><a href="news.html">news</a></li>
+                     <li><a href="team.html">team</a></li>
+                     <li><a href="contact-us.html">contact</a></li>
                      </ul>
                 </div>
             </div>
-            <div id="middlecontent" style="width:600px;padding-right:39;float:left;">
+            <div id="middlecontent" style="width:600px;padding-right:41;float:left;">
                 <h1>Meet the ReportGrid Team!</h1>
                 <p >ReportGrid was started in October of 2010, during Startup Weekend in Denver, Colorado. Our goal is to make it easy for companies large and small to bring sophisticated, real-time analytics and reporting to their customers. How is it going? Try us and find out.</p>
                 <div>
                     <div>
-                        <img style="position:absolute;left:0px;top:0px;" src="images/jdegoes.png">
-                        <img style="position:absolute;left:137px;top:0px;"src="images/krisn.png">
-                        <img style="position:absolute;left:337px;top:0px;"src="images/daniels.png">
-                        <img style="position:absolute;left:475px;top:64px;"src="images/matthewd.png">
-                        <img style="position:absolute;left:0px;top:191px;"src="images/derekc.png">
-                        <img style="position:absolute;left:202px;top:191px;"src="images/boulder.png">
-                        <img style="position:absolute;left:475px;top:202px;"src="images/francop.png">
-                        <img style="position:absolute;left:71px;top:326px;"src="images/nickm.png">
-                        <img style="position:absolute;left:0px;top:461px;"src="images/mikew.png">    
-                        <img style="position:absolute;left:335px;top:393px;"src="images/jasons.png">
-                        <div style="position:absolute;left:475px;top:0px;width:130px;height:58px;background-color: #292930"></div>
+                        <img class="personhover" style="position:absolute;left:0px;top:0px;z-index:100;" src="images/jdegoes.png">
+                            <div style="position:absolute;left:10px;top:10px;z-index:90;">
+                                <ul>
+                                    <li><p2>John De Goes</p2></li>
+                                    <li><p2>CTO/Founder</p2></li>
+                                    <li><p5>john@reportgrid.com</p5></li>
+                                    <li><p5>303.921.5784</p5></li>
+                                </ul>
+                            </div>
+                        <img class="personhover" style="position:absolute;left:137px;top:0px;z-index:100;"src="images/krisn.png">
+                            <div style="position:absolute;left:147px;top:10px;z-index:90;">
+                                <ul>
+                                    <li><p2>Kris Nuttycombe</p2></li>
+                                    <li><p2>Principal Engineer, Co-Founder</p2></li>
+                                    <li><p5>kris@reportgrid.com</p5></li>
+                                    <li><p5>303.884.9954</p5></li>
+                                </ul>
+                            </div>
+                        <img class="personhover" style="position:absolute;left:337px;top:0px;z-index:100;"src="images/daniels.png">
+                            <div style="position:absolute;left:347px;top:10px;z-index:90;">
+                                <ul>
+                                    <li><p2>Daniel Spiewak</p2></li>
+                                    <li><p2>Senior R&D Engineer</p2></li>
+                                    <li><p5>daniel@reportgrid.com</p5></li>
+                                    <li><p5>920.285.7403</p5></li>
+                                </ul>
+                            </div>                            
+                        <img class="personhover" style="position:absolute;left:475px;top:64px;z-index:100;"src="images/matthewd.png">
+                            <div style="position:absolute;left:485px;top:74px;z-index:90;">
+                                <ul>
+                                    <li><p2>Matthew De Goes</p2></li>
+                                    <li><p2>Graphcis Designer</p2></li>
+                                    <li><p2>Co-Founder</p2></li>
+                                    <li><p5>matthew@reportgrid.com</p5></li>
+                                    <li><p5>406.698.3304</p5></li>
+                                </ul>
+                            </div>                            
+                        <img class="personhover" style="position:absolute;left:0px;top:191px;z-index:100;"src="images/derekc.png">
+                            <div style="position:absolute;left:10px;top:201px;z-index:90;">
+                                <ul>
+                                    <li><p2>Derek Chen-Becker</p2></li>
+                                    <li><p2>Lead Infrastructure</p2></li>
+                                    <li><p2>Engineer</p2></li>
+                                    <li><p5>derek@reportgrid.com</p5></li>
+                                    <li><p5>303.752.1700</p5></li>
+                                </ul>
+                            </div>                            
+                        <img class="personhover" style="position:absolute;left:202px;top:191px;z-index:100;"src="images/boulder.png">
+                            <div style="position:absolute;left:212px;top:201px;z-index:90;">
+                                <ul>
+                                    <li><p2>Boulder, Colorado</p2></li>
+                                    <li><p2>Best City in the USA</p2></li>
+                                    <li><p2>Home of ReportGrid</p2></li>
+                                    <li><p2>And Coffee</p2></li>
+                                </ul>
+                            </div>                            
+                        <img class="personhover" style="position:absolute;left:475px;top:202px;z-index:100;"src="images/francop.png">
+                            <div style="position:absolute;left:485px;top:212px;z-index:90;">
+                                <ul>
+                                    <li><p2>Franco Ponticelli</p2></li>
+                                    <li><p2>Principal Engineer, Co-Founder</p2></li>
+                                    <li><p5>franco@reportgrid.com</p5></li>
+                                    <li><p5>..</p5></li>
+                                </ul>
+                            </div>                            
+                        <img class="personhover" style="position:absolute;left:71px;top:326px;z-index:100;"src="images/nickm.png">
+                            <div style="position:absolute;left:81px;top:336px;z-index:90;">
+                                <ul>
+                                    <li><p2>Nick Matheson</p2></li>
+                                    <li><p2>Senior R&D Engineer</p2></li>
+                                    <li><p5>nick@reportgrid.com</p5></li>
+                                    <li><p5>..</p5></li>
+                                </ul>
+                            </div>                            
+                        <img class="personhover" style="position:absolute;left:0px;top:460px;z-index:100;"src="images/mikew.png">
+                            <div style="position:absolute;left:10px;top:470px;z-index:90;">
+                                <ul>
+                                    <li><p2>Mike Wheeler</p2></li>
+                                    <li><p2>Interface Designer</p2></li>
+                                    <li><p5>mikew@reportgrid.com</p5></li>
+                                    <li><p5>970.379.9014</p5></li>
+                                </ul>
+                            </div>                            
+                        <img class="personhover" style="position:absolute;left:335px;top:393px;z-index:100;"src="images/jasons.png">
+                            <div style="position:absolute;left:345px;top:403px;z-index:90;">
+                                <ul>
+                                    <li><p2>Jason Spinelli</p2></li>
+                                    <li><p2>VP of Finance</p2></li>
+                                    <li><p2>Biz Dev, Co-Founder</p2></li>
+                                    <li><p5>jason@reportgrid.com</p5></li>
+                                    <li><p5>303.641.0494</p5></li>
+                                </ul>
+                            </div>                            
+                        <div style="position:absolute;left:475px;top:0px;width:130px;height:59px;background-color: #292930"></div>
                         <div style="position:absolute;left:137px;top:128px;width:197px;height:59px;background-color: #32343D"></div>
-                        <div style="position:absolute;left:337px;top:115px;width:62px;height:72px;background-color: #32343D"></div>
+                        <div style="position:absolute;left:338px;top:115px;width:61px;height:72px;background-color: #32343D"></div>
                         <div style="position:absolute;left:403px;top:115px;width:68px;height:206px;background-color: #32343D"></div>
                         <div style="position:absolute;left:137px;top:191px;width:61px;height:130px;background-color: #32343D"></div>
                         <div style="position:absolute;left:0px;top:326px;width:67px;height:130px;background-color: #292930"></div>
-                        <div style="position:absolute;left:233px;top:326px;width:238px;height:62px;background-color: #32343D"></div>
-                        <div style="position:absolute;left:233px;top:393px;width:97px;height:63px;background-color: #32343D"></div>                                                   
-                        <div style="position:absolute;left:197px;top:461px;width:134px;height:137px;background-color: #292930"></div>                            
+                        <div style="position:absolute;left:233px;top:325px;width:238px;height:64px;background-color: #32343D"></div>
+                        <div style="position:absolute;left:233px;top:393px;width:98px;height:63px;background-color: #32343D"></div>                                                   
+                        <div style="position:absolute;left:197px;top:460px;width:134px;height:137px;background-color: #292930"></div>                            
                         <div style="position:absolute;left:475px;top:418px;width:130px;height:180px;background-color: #292930"></div>     
                     </div>
                 </div>
             </div>
-            <div id="rightpanel"style="width:196px;float:left;height:760px;">
+            <div id="rightpanel"style="width:192px;float:left;height:760px;">
                 <div id="rightsidepanel">
                     <div id="rpaneltext">
                         <p4>Like what you see here? Then <a href="sign-up.html">signup for an account</a>. As a developer, you automatically qualify for a $250 credit on our platform!</p4>

@@ -7,6 +7,7 @@
   position:         relative;
   color: white;
   font-family: arial;
+  outline: none;
 }
 
 body {
@@ -86,6 +87,12 @@ P4 {
   color:8A8FA8;
 }
 
+P5 {
+  font-size:9px;
+  font-family:Questrial;
+  color:8A8FA8;
+}
+
 #wrapper {
   margin: 0 auto;
   width: 1070px;
@@ -104,6 +111,7 @@ P4 {
   width: 1070px;
   float:left;
   background-color: #1A1B20;
+  padding-bottom: 20px;
 }
 
 #wrapper .footer {
@@ -214,8 +222,8 @@ P4 {
 #rpaneltext {
     position: relative;
     top: 20px;
-    width: 150px;
-    left:20px;
+    width: 140px;
+    left:30px;
     }
 
 
@@ -340,9 +348,6 @@ P4 {
     right: 40px;
 }
 
-#submit:hover {
-    opacity: 0.7;
-}
 /*contactus*/
 
 /*pricing*/
@@ -382,14 +387,13 @@ P4 {
 #Planidstarter {
     position: relative;
     float:left;
-    top: -42px;
+    top: -24px;
     left: 70px;
 }
 
 .leftfields {
     position:relative;
     width:300px;
-    height:318px;
     display:block;
     float:left;
 }
@@ -420,6 +424,24 @@ P4 {
 
 
 
+/*admin*/
+#update {
+        background-image: url(../images/updateinfobutton.png);
+        background-color: transparent;
+        top: 20px;
+        height: 28px;
+        width: 133px;
+        float:right;
+        right:74px;
+        padding-bottom:20px;
+}
+
+#update:hover {
+    opacity: 0.7;
+}
+/*admin*/
+
+/*signup*/
 #submit {
         background-image: url(../images/submitbutton.png);
         background-color: transparent;
@@ -427,7 +449,7 @@ P4 {
         height: 28px;
         width: 133px;
         float:right;
-        right:64px;
+        right:74px;
 }
 
 #submit:hover {
@@ -490,6 +512,12 @@ P4 {
     background-position: 0 -193px;
 }
 /*visualizationengine*/
+
+/*team*/
+.personhover:hover {
+  opacity: 0.0;
+}
+/*team*/
 
 /*middlenavmenubegin*/
     #leftmenucontainer {

@@ -11,14 +11,14 @@
       <div id="wrapper">
         <div class="header">
             <div style="position:relative;top:40px;left:46px">
-                <a href="http://www.reportgrid.com"><img src="images/logo1.png" style="position:absolute";></a>
+                <a href="./"><img src="images/logo1.png" style="position:absolute";></a>
             </div>
             <div style="position:absolute;top:48px;float:right;right:58px;">
                 <a href="#"><img src="images/loginbutton.png";></a>
             </div>
             <div id="navcontainer">
                 <ul id="navlist">
-                    <li><a href="index.html">home</a></li>
+                    <li><a href="./">home</a></li>
                     </li>
                     <li id="active"><a href="solution.html" id="current">solutions</a>
                     <ul id="subnavlist">
@@ -64,7 +64,7 @@
             </div>
         </div>
         <div class="middle">
-            <div id="leftpanel" style="width:196px;padding-right:39;float:left;">
+            <div id="leftpanel" style="width:196px;padding-right:41;float:left;">
                 <div style="top:30px;position: absolute;text-align:right;right: 39px;">
                     <p3>SIGN UP</p3>
                 </div>
@@ -76,60 +76,60 @@
                      </ul>
                 </div>
             </div>
-            <div id="middlecontent" style="width:600px;padding-right:39;float:left;">
+            <div id="middlecontent" style="width:600px;padding-right:41;float:left;padding-bottom:20px;">
                 <h1>Sign up now - be analyzing and visualizing data today</h1>
                 <p>To signup, simply select the option below and fill in your contact details. If you don't enter a credit card, we'll automatically apply the $250 developer credit to your account.<sup>1</sup></p>
-
                 <form id="signupForm" action="accounts" method="put">
                    <input type="hidden" name="signup[planCreditOption]" value="developer">
-                   <div><img style="position:relative;" src="images/signuppageimage.png"</div><br><br>
+                   <div><img src="images/signuppageimage.png"</div>
                        <div id="planidstarter">
                        <input style="margin-right:66px;" type="radio" name="signup[planId]" value="starter" checked>
                        <input style="margin-left:66px;margin-right:66px;" type="radio" name="signup[planId]" value="bronze">
                        <input style="margin-left:66px;margin-right:66px;" type="radio" name="signup[planId]" value="silver">
                        <input style="margin-left:66px;" type="radio" name="signup[planId]" value="gold">
-                       </div><br>
+                       </div>
                         <ol>
-                            <li style="color:8A8FA8;left:20px;top:-20px;">
+                            <li style="color:8A8FA8;left:20px;top:-10px;float:left;">
                                 <p><sup>1</sup>If you don't enter a credit card, ReportGrid will refuse to store more data when your $250 credit is exhausted.</p>
                             </li>
                         </ol>
+                   <div style="float:left;width:500px;">
                    <p3>General Contact Information</p3>
                    <p>Please enter your contact details below.</p>
-                   <p>* Note that <strong>all</strong> fields are required.</p>
+                   <p>* Note that <strong>all</strong> fields are required.</p></div>
                    <div class="leftfields">
-                   <p style="margin-bottom:-7px;margin-top:8px;">Email:</p><div class="fieldgroup"><input tabIndex=1 type="text" name="signup[email]" /></div>
-                   <p style="margin-bottom:-7px;margin-top:8px;">Password:</p><div class="fieldgroup"><input tabIndex=2 type="password" name="signup[password]" /></div>
-                   <p style="margin-bottom:-7px;margin-top:8px;">First Name:</p><div class="fieldgroup"><input tabIndex=4 type="text" name="signup[contact][firstName]" /></div>
-                   <p style="margin-bottom:-7px;margin-top:8px;">Company:</p><div class="fieldgroup"><input tabIndex=6 type="text" name="signup[contact][company]" /></div>
-                   <p style="margin-bottom:-7px;margin-top:8px;">Address:</p><div class="fieldgroup"><input tabIndex=8 type="text" name="signup[contact][address][street]" /></div>
-                   <p style="margin-bottom:-7px;margin-top:8px;">State:</p><div class="fieldgroup"><input tabIndex=10 type="text" name="signup[contact][address][state]" /></div>
-                   <p style="margin-bottom:-7px;margin-top:8px;">Phone Number:</p><div class="fieldgroup"><input tabIndex=12 type="text" name="signup[[contact]phone]" /></div>
+                   <p style="margin-bottom:-7px;margin-top:8px;">Email:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=1 type="text" name="signup[email]" /></div>
+                   <p style="margin-bottom:-7px;margin-top:8px;">Password:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=2 type="password" name="signup[password]" /></div>
+                   <p style="margin-bottom:-7px;margin-top:8px;">First Name:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=4 type="text" name="signup[contact][firstName]" /></div>
+                   <p style="margin-bottom:-7px;margin-top:8px;">Company:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=6 type="text" name="signup[contact][company]" /></div>
+                   <p style="margin-bottom:-7px;margin-top:8px;">Address:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=8 type="text" name="signup[contact][address][street]" /></div>
+                   <p style="margin-bottom:-7px;margin-top:8px;">State:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=10 type="text" name="signup[contact][address][state]" /></div>
+                   <p style="margin-bottom:-7px;margin-top:8px;">Phone Number:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=12 type="text" name="signup[[contact]phone]" /></div>
                    </div>
                    <div class="rightfields">
-                   <p style="margin-bottom:-7px;margin-top:8px;">Password Confirm:</p><div class="fieldgroup"><input tabIndex=3 type="password" name="signup[confirmPassword]" /></div>
-                   <p style="margin-bottom:-7px;margin-top:8px;">Last Name:</p><div class="fieldgroup"><input tabIndex=5 type="text" name="signup[contact][lastName]" /></div>
-                   <p style="margin-bottom:-7px;margin-top:8px;">Title:</p><div class="fieldgroup"><input tabIndex=7 type="text" name="signup[contact][title]" /></div>
-                   <p style="margin-bottom:-7px;margin-top:8px;">City:</p><div class="fieldgroup"><input tabIndex=9 type="text" name="signup[contact][address][city]" /></div>
-                   <p style="margin-bottom:-7px;margin-top:8px;">ZipCode:</p><div class="fieldgroup"><input tabIndex=11 type="text" name=signup[contact][address][postalCode] /></div>
-                   <p style="margin-bottom:-7px;margin-top:8px;">Website:</p><div class="fieldgroup"><input tabIndex=13 type="text" name="signup[contact][website]" /></div>
-                   <br><br><br><br>
+                   <p style="margin-bottom:-7px;margin-top:8px;">Password Confirm:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=3 type="password" name="signup[confirmPassword]" /></div>
+                   <p style="margin-bottom:-7px;margin-top:8px;">Last Name:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=5 type="text" name="signup[contact][lastName]" /></div>
+                   <p style="margin-bottom:-7px;margin-top:8px;">Title:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=7 type="text" name="signup[contact][title]" /></div>
+                   <p style="margin-bottom:-7px;margin-top:8px;">City:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=9 type="text" name="signup[contact][address][city]" /></div>
+                   <p style="margin-bottom:-7px;margin-top:8px;">ZipCode:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=11 type="text" name=signup[contact][address][postalCode] /></div>
+                   <p style="margin-bottom:-7px;margin-top:8px;">Website:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=13 type="text" name="signup[contact][website]" /></div>
                    </div>
-                   <h1>Billing</h1>
+                   <div style="float:left;width:500px;"><h1>Billing</h1>
                    <p>If you like, you can enter your payment details below. If you don't enter payment details, you will not be able to store any more information in ReportGrid when your credit expires.</p>
+                   </div>
                    <div class="leftfields">
-                   <p style="margin-bottom:-7px;margin-top:8px;">Name of Card Holder:</p><div class="fieldgroup"><input tabIndex=14 type="text" name=signup[billing][cardholder] /></div>
-                   <p style="margin-bottom:-7px;margin-top:8px;">Expiration Month/Year</p><div class="fieldgroup" style="width:40px;float:left;"><input tabIndex=16 type="text" name=signup[billing][expMonth] /></div><div class="fieldgroup" style="width:40px;float:left;"><input tabIndex=17 type="text" name=signup[billing][expYear] /></div>
+                   <p style="margin-bottom:-7px;margin-top:8px;">Name of Card Holder:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=14 type="text" name=signup[billing][cardholder] /></div>
+                   <p style="margin-bottom:-7px;margin-top:8px;">Expiration Month/Year</p><div class="fieldgroup" style="width:40px;float:left;"><input style="color: #000000;" tabIndex=16 type="text" name=signup[billing][expMonth] /></div><div class="fieldgroup" style="width:40px;float:left;"><input style="color: #000000;" tabIndex=17 type="text" name=signup[billing][expYear] /></div>
                    </div>
                    <div class="rightfields2">
-                   <p style="margin-bottom:-7px;margin-top:8px;">Credit Card Number:</p><div class="fieldgroup"><input tabIndex=15 type="text" name=signup[billing][number] /></div>
-                   <p style="margin-bottom:-7px;margin-top:8px;">CVV Code:</p><div class="fieldgroup"><input tabIndex=18 type="text" name=signup[billing][cvv] /></div>
+                   <p style="margin-bottom:-7px;margin-top:8px;">Credit Card Number:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=15 type="text" name=signup[billing][number] /></div>
+                   <p style="margin-bottom:-7px;margin-top:8px;">CVV Code:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=18 type="text" name=signup[billing][cvv] /></div>
                    </div>
-                   <input type="submit" id="submit" value="" /><BR>
+                   <input type="submit" id="submit" value=""/>
                </form>
             </div>
         </div>
-            <div id="rightpanel"style="width:196px;float:left;height:400px;">
+            <div id="rightpanel"style="width:192px;float:left;height:400px;">
                 <div id="rightsidepanel">
                     <div id="rpaneltext">
                         <p4>If you're a developer, you automatically qualify for $250 credit on our platform. Just choose your plan and be up and running in minutes!</p4>

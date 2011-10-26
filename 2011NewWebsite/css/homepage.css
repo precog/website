@@ -7,6 +7,7 @@
   position:         relative;
   color: white;
   font-family: arial;
+  outline: none;
 }
 
 body {
@@ -306,11 +307,16 @@ P4 {
     height:42px;
     font-size:8pt;
     color: #9298B3;
-    overflow:hidden;
+    overflow: hidden;
+}
+
+#news ul {
+    width: 9999px;    
+    height:42px;
 }
 
 #news ul li {
-    display: inline;
+    display: block;
     height:42px;
     width:290px;
     float: left;
@@ -324,31 +330,48 @@ P4 {
     margin-right:26.75px;
     float:left;
     width:290px;
-    height:68px;
-    overflow: hidden;
+    height:60px;
     font-size:9pt;
     color: #9298B3;
+    overflow: hidden;
+}
+
+#quote ul {
+    width:9999px;
+    height:60px;
 }
 
 #quote ul li {
-    display: inline;
+    display: block;
     float: left;
     color: #9298B3;
+    width:290px;
+    height:60px;
     font-family:Antic;
 }
 
-#customers { 
+#customerlogo {
     margin-top:59px;
-    margin-left:26.75px;
-    margin-right:46px;
+    margin-left:30.75px;
     float:left;
-    width:290px;
+    width:288px;
     height:40px;
-    display: inline-block;
+    display: block;
     overflow: hidden;
-    font-family:abel;
-    font-size:8pt;
     color: #9298B3;
+}
+
+#customerlogo ul {
+    width:9999px;
+    height:60px;
+}
+
+#customerlogo ul li {
+    display: block;
+    float: left;
+    color: #9298B3;
+    padding-right: 20px;
+    height:60px;
 }
 
 #middle1contentarea {
@@ -385,36 +408,30 @@ P4 {
 #mc_embed_signup {
     position: absolute;
     top:354px;left:58px;
-    height:23px;
-    color: ffffff;
-    font-size:13pt;
 }
 
 #mce-EMAIL {
-    background-color: #ffffff;
     width: 142px;
     height: 23px;
     padding-left: 4px;
     margin-right: 2px;
+    margin-top: 0px;
     font-family: abel, arial, sans-serif;
-    font-size: 8pt;
+    font-size: 10pt;
     color: black;
-    
 }
     
 #mc-embedded-subscribe {
     background-image: url(../images/subscribebutton.png);
     background-color: transparent;
-    padding-top:0px;
     height: 23px;
     width: 14px;
     font-family: abel, arial, sans-serif;
-    font-size: 11pt;
+    font-size: 12pt;
 }
 
 #mc-embedded-subscribe:hover {
     background-image: url(../images/subscribebuttonrollover.png);
-    background-color: transparent;
     height: 23px;
     width: 14px;
 }

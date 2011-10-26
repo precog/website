@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Solutions</title>
+        <title>Admin</title>
         <!--[if IE]>
         <link rel="stylesheet" type="text/css" href="ie.css" />
         <![endif]-->
@@ -11,14 +11,14 @@
       <div id="wrapper">
         <div class="header">
             <div style="position:relative;top:40px;left:46px">
-                <a href="http://www.reportgrid.com"><img src="images/logo1.png" style="position:absolute";></a>
+                <a href="./"><img src="images/logo1.png" style="position:absolute";></a>
             </div>
             <div style="position:absolute;top:48px;float:right;right:58px;">
                 <a href="#"><img src="images/loginbutton.png";></a>
             </div>
             <div id="navcontainer">
                 <ul id="navlist">
-                    <li><a href="index.html">home</a></li>
+                    <li><a href="./">home</a></li>
                     </li>
                     <li id="active"><a href="solution.html" id="current">solutions</a>
                     <ul id="subnavlist">
@@ -42,7 +42,7 @@
                     </li>
                     <li id="active"><a href="developer.html" id="current">developer</a>
                     <ul id="subnavlist">
-                        <li id="subactive"><a href="http://api.reportgrid.com/doc/rest-api.v1.rst.html" id="subcurrent">api documentation</a></li>
+                        <li id="subactive"><a href="api-documentation.html" id="subcurrent">api documentation</a></li>
                         <li><a href="console.html">console</a></li>
                         <li><a href="http://github.com/reportgrid/client-libraries">client libraries</a></li>
                     </ul>
@@ -64,64 +64,61 @@
             </div>
         </div>
         <div class="middle">
-            <div id="leftpanel" style="width:196px;padding-right:39;float:left;">
+            <div id="leftpanel" style="width:196px;padding-right:41;float:left;">
                 <div style="top:30px;position: absolute;text-align:right;right: 39px;">
-                    <p3>SOLUTIONS</p3>
+                    <p3>ADMIN</p3>
                 </div>
                 <div id="leftmenucontainer">
                      <ul id="leftmenulist">
-                     <li id="active"><a href="solutions.html" id="current">overview</a>
-                     <li><a href="analytics-database.html">analytics database</a></li>
-                     <li><a href="visualization-engine.html">visualization engine</a></li>
-                     <li><a href="professional-services.html">professional services</a></li>
+                     <li id="active"><a href="pricing.html" id="current">overview</a>
+                     <li><a href="developer-credit.html">developer credit</a></li>
+                     <li><a href="sign-up.html">sign up</a></li>
                      </ul>
                 </div>
             </div>
-            <div id="middlecontent" style="width:600px;padding-right:39;float:left;">
-                <h1>ReportGrid makes it easy to do turn raw data into insight</h1>
-                <p>How do you make sense of terrabytes or petabytes of data? You need two things: a database that can deliver compelling analytics on even large amounts of data, and a visualization engine that can make insights pop out.</p>
-                <p>
-                At ReportGrid, we package up a proprietary analytics database and visualization engine into one shrink-wrapped box, hosted in the cloud and able to scale to meet your changing needs. We take the pain out of analytics and reporting, so you can focus on mining your data for insight rather than the merchanics of storage, sharding, indexes, aggregates, and report generation.
-                </p>
-                <p>
-                Explore our technology further by checking out the links below.
-                </p>
-                    <div id="solutionscards">
-                        <div class="cards">
-                            <p style="margin-top:14px;padding:2px;color: #000000;font-size:13px;text-shadow: 0 0 0.2em #ffffff";">Fast Processing</p>
-                            <p style="padding:2px;color: #000000;font-size:13px;text-shadow: 0 0 0.2em #ffffff">X-Ray Vision</p>
-                            <p style="padding:2px;color: #000000;font-size:13px;text-shadow: 0 0 0.2em #ffffff"">Free Superheroes</p>
-                            <p style="padding:2px;color: #000000;font-size:13px;text-shadow: 0 0 0.2em #ffffff"">Spiced Beer</p>
-                            <p style="padding:2px;color: #000000;font-size:13px;text-shadow: 0 0 0.2em #ffffff"">Vin Diesel</p>
-                        </div>
-                        <div class="cards">
-                            <p style="margin-left:16px;margin-top:14px;padding:2px;color: #000000;font-size:13px;text-shadow: 0 0 0.2em #ffffff"">Fast Processing</p>
-                            <p style="margin-left:16px;padding:2px;color: #000000;font-size:13px;text-shadow: 0 0 0.2em #ffffff"">X-Ray Vision</p>
-                            <p style="margin-left:16px;padding:2px;color: #000000;font-size:13px;text-shadow: 0 0 0.2em #ffffff"">Free Superheroes</p>
-                            <p style="margin-left:16px;padding:2px;color: #000000;font-size:13px;text-shadow: 0 0 0.2em #ffffff"">Spiced Beer</p>
-                            <p style="margin-left:16px;padding:2px;color: #000000;font-size:13px;text-shadow: 0 0 0.2em #ffffff"">Vin Diesel</p>
-                        </div>
+            <div id="middlecontent" style="width:600px;padding-right:41;float:left;padding-bottom:60px;">
+                <h1>Sign up now - be analyzing and visualizing data today</h1>
+                <p>To signup, simply select the option below and fill in your contact details. If you don't enter a credit card, we'll automatically apply the $250 developer credit to your account.<sup>1</sup></p>
+                <h1>CURRENT USAGE</h1>
+                <h1>PLAN</h1>
+                    <div class="field-group">
+                        <select style="color: #000000" id="plans" name="plans">
+                            <option style="color: #000000" value="starter">Starter Plan</option>
+                            <option style="color: #000000" value="bronze">Bronze Plan</option>
+                            <option style="color: #000000" value="silver">Silver Plan</option>
+                            <option style="color: #000000" value="gold">Gold Plan</option>
+                        </select>
                     </div>
-                    <div>
-                        <div style="float: left;left:152px;padding-top:20px;padding-bottom:20px;"><a href="analytics-database.html"><img src="images/learnmorebuttonsm.png"></a></div>
-                        <div style="float: right;padding-top:20px;padding-bottom:20px;"><a href="visualization-engine.html"><img src="images/learnmorebuttonsm.png"></a></div>
-                    </div>
+                <h1>YOUR INFORMATION</h1>
+                <form id="accountinformation" action="" method="">
+                   <div class="leftfields">
+                   <p style="margin-bottom:-7px;margin-top:8px;">Email:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=1 type="text" name="name" /></div>
+                   <p style="margin-bottom:-7px;margin-top:8px;">Password:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=2 type="password" name="password" /></div>
+                   <p style="margin-bottom:-7px;margin-top:8px;">First Name:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=4 type="text" name="firstname" /></div>
+                   <p style="margin-bottom:-7px;margin-top:8px;">Company:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=6 type="text" name="company" /></div>
+                   <p style="margin-bottom:-7px;margin-top:8px;">Address:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=8 type="text" name="address" /></div>
+                   <p style="margin-bottom:-7px;margin-top:8px;">State:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=10 type="text" name="state" /></div>
+                   <p style="margin-bottom:-7px;margin-top:8px;">Phone Number:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=12 type="text" name="phone number" /></div>
+                   </div>
+                   <div class="rightfields">
+                   <p style="margin-bottom:-7px;margin-top:8px;">Password Confirm:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=3 type="password" name="passwordconfirmation" /></div>
+                   <p style="margin-bottom:-7px;margin-top:8px;">Last Name:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=5 type="text" name="lastname" /></div>
+                   <p style="margin-bottom:-7px;margin-top:8px;">Title:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=7 type="text" name="title" /></div>
+                   <p style="margin-bottom:-7px;margin-top:8px;">City:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=9 type="text" name="city" /></div>
+                   <p style="margin-bottom:-7px;margin-top:8px;">ZipCode:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=11 type="text" name="zip code" /></div>
+                   <p style="margin-bottom:-7px;margin-top:8px;">Website:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=13 type="text" name="website" /></div>
+                   <input type="submit" id="update" value="">
+                   </div>
+               </form>
             </div>
-            <div id="rightpanel"style="width:196px;float:left;height:400px;">
+            <div id="rightpanel"style="width:192px;float:left;height:400px;">
                 <div id="rightsidepanel">
                     <div id="rpaneltext">
-                        <p4>ReportGrid is the Insight Engine&trade; &mdash; a full-stack solution for turning data into insight.</p4>
-                        <div id="rightlist">
-                            <ul id="rightlist">
-                            <li style="width:130px;">built for big data</a></li>
-                            <li style="width:130px;">many queries are real-time</li>
-                            <li style="width:130px;">time series and geo baked-in</li>
-                            <li style="width:130px;">growing library of visualizations</li>
-                            </ul>
-                        </div>
+                        <p4>If you're a developer, you automatically qualify for $250 credit on our platform. Just choose your plan and be up and running in minutes!</p4>
                     </div>
                 </div>
             </div>
+        </div>
         <div class="footer">
             <div id="sitecontainer">
                 <ul id="sitelist">
@@ -147,7 +144,7 @@
                     </li>
                     <li id="active"><a href="developer.html" id="current">developer</a>
                     <ul id="subsitelist">
-                        <li id="subactive"><a href="http://api.reportgrid.com/doc/rest-api.v1.rst.html" id="subcurrent">api documentation</a></li>
+                        <li id="subactive"><a href="api-documentation.html" id="subcurrent">api documentation</a></li>
                         <li><a href="console.html">console</a></li>
                         <li><a href="http://github.com/reportgrid/client-libraries">client libraries</a></li>
                     </ul>
@@ -167,22 +164,23 @@
                     </li>
                 </ul>
             </div>
-
             <div style="position:absolute;top:28px;left:778px;letter-spacing:5px;">
                 <p style="font-size:26px;">(888) 673-9958</p>
             </div>
-            <div style="position:absolute;top:90px;left:778px;length: 120;">
-                <p2 style="font-size:6pt;"><a href="privacy.html">privacy</a> : <a href="termsofuse.html">terms of use</a> <br>© 2010-2011 ReportGrid Inc. </p2>
+            <div style="position:relative;top:70px;left:778px;width: 120px;">
+                <p2 style="font-size:6pt;"><a href="privacy.html">privacy</a> : <a href="termsofuse.html">terms of use</a><br>© 2010-2011 ReportGrid Inc.</p2>
             </div>
             <div id=contactus>
                 <a href="contact-us.html" target="_blank"> <img src="images/contactusicon.png"> </a>
             </div>
+           
             <div id=facebook>
-                <a href="http://twitter.com/#!/ReportGrid" target="_blank"> <img src="images/facebookicon.png"> </a>
+                <a href="http://www.facebook.com/ReportGrid?v=wall" target="_blank"> <img src="images/facebookicon.png"> </a>
             </div>
             <div id=twitter>
-                <a href="http://www.facebook.com/ReportGrid?v=wall" target="_blank"> <img src="images/twittericon.png"> </a>
+                <a href="http://twitter.com/#!/ReportGrid" target="_blank"> <img src="images/twittericon.png"> </a>
             </div>
+
         </div>
 
       </div>
