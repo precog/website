@@ -1,13 +1,718 @@
+<!DOCTYPE html>
 <html>
     <head>
         <title>Visualization Engine</title>
         <!--[if IE]>
         <link rel="stylesheet" type="text/css" href="css/ieinterpage.css">
         <![endif]-->
+<<<<<<< HEAD
         <link rel="stylesheet" type="text/css" href="css/innerpage.css">
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
         <script type="text/javascript" src="js/default.js"></script>
     </head>
+=======
+        <link rel="stylesheet" type="text/css" href="css/innerpage.css" />   
+        <script type="text/javascript" src="http://include.reinvigorate.net/re_.js"></script>
+		<script type="text/javascript">
+		try {
+		reinvigorate.track("j780b-u1448cw0d9");
+		} catch(err) {}
+		</script>
+
+<link rel="stylesheet" type="text/css" href="css/rg.css"/>
+	<script src="js/reportgrid-core.js?tokenId=66178806-8389-42CA-9E6B-86B4285F487A"></script>
+	<script src="js/reportgrid-viz.js"></script>     
+        
+        <!-- barChart Start -->
+        <script type="text/javascript">
+document.addEventListener("DOMContentLoaded", function(){
+
+	var start = "10 days ago",
+		end = "now",
+		range = ReportGrid.date.range(start, end, "day"),
+		f = function(f,i,v) { return Math.abs(Math.round(f(i/ range.length * Math.PI * 4) * 100))},
+		data1 = range.map(function(d,i) {
+			var count = f(Math.tan, i, 100);
+			return {
+				".#time:day" : d,
+				event : "impression",
+				impression : count,
+				count : count
+			};
+		}),
+		data2 = range.map(function(d,i) {
+			var count = f(Math.sin, i, 100); //Math.round(Math.sin(i / range.length * Math.PI * 4) * 100);
+			return {
+				".#time:day" : d,
+				event : "click",
+				click : count,
+				count : count
+			};
+		}),
+		data3 = range.map(function(d,i) {
+			var count = f(Math.cos, i, 50); //Math.round(Math.cos(i / range.length * Math.PI * 4) * 50);
+			return {
+				".#time:day" : d,
+				event : "conversion",
+				conversion : count,
+				count : count
+			};
+		}),
+		data4 = range.map(function(d,i) {
+			var count = f(Math.atan, i, 100); //Math.round(Math.atan(i / range.length * Math.PI * 4) * 100);
+			return {
+				".#time:day" : d,
+				event : "other",
+				other : count,
+				count : count
+			};
+		}),
+		data5 = range.map(function(d,i) {
+			var count = f(Math.atan, i, 50); //Math.round(Math.atan(i / range.length * Math.PI * 4) * 50);
+			return {
+				".#time:day" : d,
+				event : "other2",
+				other : count,
+				count : count
+			};
+		})
+	;
+
+	var alt = 0,
+		mathData = [
+			{ src : { data : data1 } }, 
+			{ src : { data : data2 } },
+			{ src : { data : data3 } }, 
+			{ src : { data : data4 } },
+			{ src : { data : data5 } }
+		];
+
+	ReportGrid.barChart("#barChart1", {
+		axes : [{
+				type : ".#time:day",
+				variable : "independent",
+				scalemode : "fit"
+			},
+			{ type : "click" },
+			{ type : "conversion" },
+
+		],
+		data : mathData,
+		options : {
+			effect : "gradient-.75",
+			segmenton : "event",
+			label : { datapointover : function(dp) { return dp.event + ": " + ReportGrid.format(dp["count"]);  } },
+			click : function(dp) { alert(dp[".browser"]); },
+			height: 100
+		}
+	});
+	
+	ReportGrid.barChart("#barChart2", {
+		axes : [{
+				type : ".#time:day",
+				variable : "independent",
+				scalemode : "fit"
+			}, 
+			{ type : "conversion" },
+			{ type : "other" }
+		],
+		data : mathData,
+		options : {
+			effect : "gradient-.75",
+			segmenton : "event",
+			label : { datapointover : function(dp) {  return dp.event + ": " + ReportGrid.format(dp["count"]);  } },
+			click : function(dp) { alert(dp[".browser"]); },
+			height: 100,
+			stacked : false
+		}
+	});
+
+	var ageRanges = ["0-13", "14-15", "16-20", "21-35",  "91-100", "100+"];
+	var genders = ["male", "female", "undisclosed", "unknown"];
+
+	function ageGender(d,i) {
+		return {
+			count : ReportGrid.math.random() * 35 + 5,
+			age : d,
+			gender : genders[Math.floor(ReportGrid.math.random()*genders.length)]
+		};
+	}
+
+	var ageGenderData = [
+		{ src : { data : ageRanges.map(ageGender) }, },
+		{ src : { data : ageRanges.map(ageGender) }, },
+		{ src : { data : ageRanges.map(ageGender) }, },
+		{ src : { data : ageRanges.map(ageGender) }, },
+		{ src : { data : ageRanges.map(ageGender) }, },
+	];
+
+	ReportGrid.barChart("#barChart3", {
+		axes : [{
+			type : "age",
+			variable : "independent"
+		}, {
+			type : "count"
+		}],
+		data : ageGenderData,
+		options : {
+			effect : "gradient-0.85",
+			height : 100,
+			label : { datapointover : function(dp) {  return ReportGrid.format(dp["count"]);  }, axis : function(name) { return ReportGrid.humanize(name); } },
+			displayanchorlinetick : function(v) { return v == 'age' }
+		}
+	});
+
+
+/* barChart End */
+/*  funnelChart Start */ 
+	
+	ReportGrid.funnelChart("#fChart1", {
+		axes : [{
+			type : "event",
+			values : ['impression', 'click', 'conversion'],
+			variable : "independent"
+		}, { type : "count" }],
+		data : [{
+			src :  { 
+				data : [
+					{ event : 'impression', count : 4000000000 }, 
+					{ event : 'click',      count : 2000000000 },
+					{ event : 'conversion', count : 1000000000 }
+				]
+			}
+		}],
+		options : {
+			height : 300,
+			width : 400,
+			effect : "gradient-0.9",
+			flatness : .15,
+			segmentpadding : 5,
+			arrowsize : 40,
+			click : function(d,s) { alert(ReportGrid.format(d) + " " + ReportGrid.format(s)); }
+		}
+	});
+/* 	funnel chart end */
+/* 	geo chart start */	
+
+	var datapoints = ["AFG","AGO","ALB","ARE","ARG","ARM","ATA","ATF","AUS","AUT","AZE","BDI","BEL","BEN","BFA","BGD","BGR","BHS","BIH","BLR","BLZ","BOL","BRA","BRN","BTN","BWA","CAF","CAN","CHE","CHL","CHN","CIV","CMR","COD","COG","COL","CRI","CUB","CYP","CZE","DEU","DJI","DNK","DOM","DZA","ECU","EGY","ERI","ESP","EST","ETH","FIN","FJI","FLK","FRA","GAB","GBR","GEO","GHA","GIN","GMB","GNB","GNQ","GRC","GRL","GTM","GUY","HND","HRV","HTI","HUN","IDN","IND","IRL","IRN","IRQ","ISL","ISR","ITA","JAM","JOR","JPN","KAZ","KEN","KGZ","KHM","KOR","KWT","LAO","LBN","LBR","LBY","LKA","LSO","LTU","LUX","LVA","MAR","MDA","MDG","MEX","MKD","MLI","MMR","MNE","MNG","MOZ","MRT","MWI","MYS","NAM","NCL","NER","NGA","NIC","NLD","NOR","NPL","NZL","OMN","PAK","PAN","PER","PHL","PNG","POL","PRI","PRK","PRT","PRY","QAT","ROU","RUS","RWA","SAU","SDN","SDS","SEN","SLB","SLE","SLV","SOM","SRB","SUR","SVK","SVN","SWE","SWZ","SYR","TCD","TGO","THA","TJK","TKM","TLS","TTO","TUN","TUR","TWN","TZA","UGA","UKR","URY","USA","UZB","VEN","VNM","VUT","PSE","YEM","ZAF","ZMB","ZWE"].map(function(d, i) {
+			return {
+				'#location' : d,
+				count : Math.round(ReportGrid.math.random() * 100000)
+			}
+		});
+
+	ReportGrid.geo("#geoChart1", {
+		axes : [{ type : "#location", variable : "independent" }, { type : "count" }],
+		data : [{ src :  {  data : datapoints } }],
+		options : {	
+			
+			map : {
+				color : "i-lightblue,white",
+				template : "world",
+				click : function(d,s) {
+					console.log(ReportGrid.dump(d) + " " + ReportGrid.dump(s));
+				},
+				label : {
+					datapointover : function(dp, stats) {
+						return dp["#data"].name + ": " + ReportGrid.format(dp.count);
+					}
+				}
+			}
+		}
+	});
+
+/* 	geo Chart end */	
+/* Heat Grid start*/
+	var ageranges = ["0-13", "14-15", "16-20", "21-35",  "91-100", "100+"],
+		heights   = ["up to 1 foot", "2 feet", "3 feet", "4 feet", "5 feet", "6 feet", "over"],
+		data = [];
+	ageranges.forEach(function(age) {
+		data = data.concat(heights.map(function(height) {
+			return {
+				height : height,
+				age    : age,
+				value  : ReportGrid.math.random()
+			};
+		}));
+	});
+	
+	ReportGrid.heatGrid("#hGChart1", {
+		axes : [{
+			type : "age",
+			variable : "independent"
+		}, {
+			type : "height",
+			variable : "independent"
+		}, { type : "value" }],
+		data : [ { src : { data : data } } ],
+		options : {
+			label : { datapointover : function(dp) { return dp.height + ", " + dp.age + ": " + ReportGrid.format(dp.value); } },
+			click : function(dp) { alert(dp.height + ", " + dp.age + ": " + ReportGrid.format(dp.value)); },
+			height: 200,
+			color: "i-white,#f16667",
+			width: 240
+		}
+	});
+	
+	ReportGrid.heatGrid("#hGChart2", {
+		axes : [{
+			type : "age",
+			variable : "independent"
+		}, {
+			type : "height",
+			variable : "independent"
+		}, { type : "value" }],
+		data : [ { src : { data : data } } ],
+		options : {
+			label : { datapointover : function(dp) { return dp.height + ", " + dp.age + ": " + ReportGrid.format(dp.value); } },
+			click : function(dp) { alert(dp.height + ", " + dp.age + ": " + ReportGrid.format(dp.value)); },
+			color : "i-#71c8f1,white",
+			height: 200,
+			width: 240
+		}
+	});
+	
+	ReportGrid.heatGrid("#hGChart3", {
+		axes : [{
+			type : "age",
+			variable : "independent"
+		}, {
+			type : "height",
+			variable : "independent"
+		}, { type : "value" }],
+		data : [ { src : { data : data } } ],
+		options : {
+			label : { datapointover : function(dp) { return dp.height + ", " + dp.age + ": " + ReportGrid.format(dp.value); } },
+			click : function(dp) { alert(dp.height + ", " + dp.age + ": " + ReportGrid.format(dp.value)); },
+			height: 200,
+			width: 240,
+			color : "i-yellow,orange"
+		}
+	});
+/* 	HeatGrid End */
+/* Pivot Table Start */
+	ReportGrid.leaderBoard("#lBChart1", {
+		axes : [{
+			type : ".browser",
+			variable : "independent"
+		}, {
+			type : "count"
+		}],
+		data : {
+			src : { data : [
+				{ ".browser" : "PC", count : 100 },
+				{ ".browser" : "iOS", count : 80 },
+				{ ".browser" : "Mac", count : 60 },
+				{ ".browser" : "Android", count : 50 },
+				{ ".browser" : "linux", count : 30 },
+				{ ".browser" : "WebOS", count : 5 }
+			]}
+		},
+		options : {
+			animation : {
+				animated : true,
+				duration : 250,
+				delay : 250
+			},
+			label : { datapoint : function(dp) { return dp[".browser"] + ": " + ReportGrid.format(dp["count"]); } },
+			click : function(dp) { alert(dp[".browser"]); },
+//			sort : function(d1, d2) { return ReportGrid.compare(d2[".browser"], d1[".browser"]); },
+			effect : "gradient"
+		}
+	});
+	ReportGrid.leaderBoard("#lBChart2", {
+		axes : [{
+			type : ".browser",
+			variable : "independent"
+		}, {
+			type : "count"
+		}],
+		data : {
+			src : { data : [
+				{ ".browser" : "PC", count : 100 },
+				{ ".browser" : "iOS", count : 80 },
+				{ ".browser" : "Mac", count : 60 },
+				{ ".browser" : "Android", count : 50 },
+				{ ".browser" : "linux", count : 30 },
+				{ ".browser" : "WebOS", count : 5 }
+			]}
+		},
+		options : {
+			animation : {
+				animated : true,
+				duration : 250,
+				delay : 250
+			},
+			label : { datapoint : function(dp) { return dp[".browser"] + ": " + ReportGrid.format(dp["count"]); } },
+			click : function(dp) { alert(dp[".browser"]); },
+//			sort : function(d1, d2) { return ReportGrid.compare(d2[".browser"], d1[".browser"]); },
+			effect : "gradient-tot"
+		}
+	});
+/* PivotTable End */
+/* LineChart Start */
+
+	var start = "100 hours ago",
+		end = "now",
+		range = ReportGrid.date.range(start, end, "hour"),
+		data1 = range.map(function(d,i) {
+			var count = Math.round(Math.tan(i / range.length * Math.PI * 4) * 100);
+			return {
+				".#time:hour" : d,
+				event : "impression",
+				impression : count,
+				count : count
+			};
+		}),
+		data2 = range.map(function(d,i) {
+			var count = Math.round(Math.sin(i / range.length * Math.PI * 4) * 100);
+			return {
+				".#time:hour" : d,
+				event : "click",
+				click : count,
+				count : count
+			};
+		}),
+		data3 = range.map(function(d,i) {
+			var count = Math.round(Math.cos(i / range.length * Math.PI * 4) * 50);
+			return {
+				".#time:hour" : d,
+				event : "conversion",
+				conversion : count,
+				count : count
+			};
+		}),
+		data4 = range.map(function(d,i) {
+			var count = Math.round(Math.atan(i / range.length * Math.PI * 4) * 100);
+			return {
+				".#time:hour" : d,
+				event : "other",
+				other : count,
+				count : count
+			};
+		}),
+		data5 = range.map(function(d,i) {
+			var count = Math.round(Math.atan(i / range.length * Math.PI * 4) * 50);
+			return {
+				".#time:hour" : d,
+				event : "other2",
+				other : count,
+				count : count
+			};
+		})
+	;
+	
+	ReportGrid.lineChart("#lineChart1", {
+		axes : [
+			{
+				type : ".#time:hour",
+				variable : "independent"
+			},
+			{ type : "impression" },
+			{ type : "click" },
+			{ type : "conversion" },
+			{ type : "other" }
+		],
+		data : [
+			{ src : { data : data1 } }, 
+			{ src : { data : data2 } },
+			{ src : { data : data3 } }, 
+			{ src : { data : data4 } },
+			{ src : { data : data5 } }
+		],
+		options : {
+			segmenton : "event",
+			label : { datapointover : function(dp) {  return dp.event + ": " + ReportGrid.format(dp["count"]);  } },
+			click : function(dp) { alert(dp[".browser"]); },
+			height: 100,
+			symbol : function(ds, stats) { return ReportGrid.symbol("circle", 20); },
+		}
+	});
+
+	var ageRanges = ["0-13", "14-15", "16-20", "21-35",  "91-100", "100+"];
+	ReportGrid.lineChart("#lineChart2", {
+		axes : [{
+			type : "age",
+			variable : "independent"
+		}, {
+			type : "count",
+			variable : "dependent"
+		}],
+		data : [{
+			src : {
+				data : ageRanges.map(function(d,i) {
+					return {
+						count : ReportGrid.math.random() * 35 + 5,
+						age : d
+					};
+				})
+			}
+		}],
+		options : {
+			height : 100,
+			line : { interpolation : "linear" },
+			label : {
+				datapointover : function(dp) { return ReportGrid.format(dp["count"]); },
+				axis : function(name) { return ReportGrid.humanize(name); }
+			},
+			displayarea : true
+		}
+	});
+	
+
+/* 	LineChart End */
+/* PieChart Start */
+	ReportGrid.pieChart("#pieChart1", {
+		axes : [
+			{
+				type : ".browser",
+				variable : "independent"
+			},
+			{ type : "count" }],
+		data : {
+			src : { data : [
+				{ ".browser" : "PC", count : 100 },
+				{ ".browser" : "iOS", count : 80 },
+				{ ".browser" : "Mac", count : 60 },
+				{ ".browser" : "Android", count : 50 },
+				{ ".browser" : "linux", count : 30 },
+				{ ".browser" : "WebOS", count : 5 }
+			] }
+		},
+		options : {
+			height : 300,
+			effect : "gradient-0.8",
+			label : {
+				datapoint : function(dp) { return dp[".browser"] + ": " + ReportGrid.format(dp["count"]); },
+				datapointover : function(dp) { return dp[".browser"] + ": " + ReportGrid.format(dp["count"]); }
+			},
+			click : function(dp) { alert(dp[".browser"]); },
+			sort : function(d1, d2) { return ReportGrid.compare(d2[".browser"], d1[".browser"]); }
+		}
+		
+	});
+
+/* 	PieChart End */
+/* Pivot Table Start */
+	ReportGrid.pivotTable("#pTChart", {
+		axes : [
+			{ type: ".browser" },
+			{ type: ".os" },
+			{ type: "count" }
+		],
+		data : {
+			src: { path : "/snapEngage/11155847/bf7337a6-6c7f-4ff9-8e50-a7bb771c036a/", event : "case", query : ".browser * .os" /* * .#time:week */ }
+		},
+		options : { 
+		height : 100,
+		click : function(dp) { alert(ReportGrid.dump(dp)) } }
+	});
+/* 	PivotTable End */
+/* Scatter Plot Start */
+	var start = "100 hours ago",
+		end = "now",
+		range = ReportGrid.date.range(start, end, "hour"),
+		data1 = range.map(function(d,i) {
+			var count = Math.round(Math.tan(i / range.length * Math.PI * 4) * 100);
+			return {
+				".#time:hour" : d,
+				event : "impression",
+				impression : count,
+				count : count
+			};
+		}),
+		data2 = range.map(function(d,i) {
+			var count = Math.round(Math.sin(i / range.length * Math.PI * 4) * 100);
+			return {
+				".#time:hour" : d,
+				event : "click",
+				click : count,
+				count : count
+			};
+		}),
+		data3 = range.map(function(d,i) {
+			var count = Math.round(Math.cos(i / range.length * Math.PI * 4) * 50);
+			return {
+				".#time:hour" : d,
+				event : "conversion",
+				conversion : count,
+				count : count
+			};
+		}),
+		data4 = range.map(function(d,i) {
+			var count = Math.round(Math.atan(i / range.length * Math.PI * 4) * 100);
+			return {
+				".#time:hour" : d,
+				event : "other",
+				other : count,
+				count : count
+			};
+		}),
+		data5 = range.map(function(d,i) {
+			var count = Math.round(Math.atan(i / range.length * Math.PI * 4) * 50);
+			return {
+				".#time:hour" : d,
+				event : "other2",
+				other : count,
+				count : count
+			};
+		})
+	;
+//	console.log(ReportGrid.dump(data));
+	var alt = 0;
+	
+	ReportGrid.scatterGraph("#sPChart1", {
+		axes : [
+			{
+				type : ".#time:hour",
+//				view : [start, end],
+				variable : "independent"
+			},
+			{ type : "impression" },
+			{ type : "click" },
+			{ type : "conversion" },
+			{ type : "other" }
+		],
+		data : [
+			{ src : { data : data1 } }, 
+			{ src : { data : data2 } },
+			{ src : { data : data3 } }, 
+			{ src : { data : data4 } },
+			{ src : { data : data5 } }
+		],
+		options : {
+			label : {datapointover : function(dp) { return dp.event + ": " + ReportGrid.format(dp["count"]); } },
+			click : function(dp) { alert(ReportGrid.format(dp)); },
+			height: 200
+		}
+	});
+/* 	ScatterPlot End */
+/* Stream Graph Start */
+	var start = "100 hours ago",
+		end = "now",
+		range = ReportGrid.date.range(start, end, "hour"),
+		data1 = range.map(function(d,i) {
+			var count = ReportGrid.math.random() * 100 + 10;
+			return {
+				".#time:hour" : d,
+				event : "impression",
+				impression : count,
+				count : count
+			};
+		}),
+		data2 = range.map(function(d,i) {
+			var count = ReportGrid.math.random() * 40 + 10;
+			return {
+				".#time:hour" : d,
+				event : "click",
+				click : count,
+				count : count
+			};
+		}),
+		data3 = range.map(function(d,i) {
+			var count = ReportGrid.math.random() * 20 + 10;
+			return {
+				".#time:hour" : d,
+				event : "conversion",
+				conversion : count,
+				count : count
+			};
+		})
+	;
+
+	ReportGrid.streamGraph("#sGChart1", {
+		axes : [{
+			type : ".#time:hour",
+			view : [start, end],
+			variable : "independent"
+		}, {
+			type : "count"
+		}],
+		data : [
+			{ src : { data : data1 } }, 
+			{ src : { data : data2 } },
+			{ src : { data : data3 } }
+		],
+		options : {
+			effect : "gradient-0.85",
+			segmenton : "event",
+			label : { datapointover : function(dp) {  return dp.event + ": " + ReportGrid.format(dp["count"]);  } },
+			click : function(dp) { alert(dp.event + ": " + ReportGrid.format(dp.count)); },
+			height: 200
+		}
+	});
+
+	var ageRanges = ["0-13", "14-15", "16-20", "21-35",  "91-100", "100+"];
+
+	ReportGrid.streamGraph("#sGCchart2", {
+		axes : [{
+			type : "age",
+			values : ageRanges,
+			variable : "independent"
+		}, {
+			type : "count"
+		}],
+		data : [{
+			src : {
+				data : ageRanges.map(function(d,i) {
+					return {
+						count : ReportGrid.math.random() * 35 + 5,
+						age : d
+					};
+				})
+			}
+		}],
+		options : {
+			height : 120,
+			label : {
+				datapointover : function(dp) { 
+					return ReportGrid.format(dp["count"]); 
+				},
+				axis : function(name) { return ReportGrid.humanize(name); }
+			},
+			effect : "gradienth-0.85"
+		}
+	});
+	
+	var interests = ["sport", "tv", "internet", "art", "history", "diy"];
+	ReportGrid.streamGraph("#sGChart3", {
+		axes : [{
+			type : "age",
+			values : ageRanges,
+			view : ["0-13", "100+"],
+			variable : "independent"
+		}, {
+			type : "interest",
+			view : ["sport", "diy"],
+			values : interests
+		}],
+		data : [{
+			src : {
+				data : ageRanges.map(function(d,i) {
+					return {
+						interest : interests[Math.floor(ReportGrid.math.random()*interests.length)],
+						age : d
+					};
+				})
+			}
+		}],
+		options : {
+			height : 120,
+			label : {
+				title : "Interests by Age Groups",
+				datapointover : function(dp) {  return dp["age"] + ": " + dp["interest"];  },
+				axis : function(name) { return ReportGrid.humanize(name); }
+			},
+			effect : "gradientv-0.85"
+		}
+	});
+/* 	StreamGraph End */
+}, false)
+
+</script>
+
+</head>
+>>>>>>> Updated Visualization-library.html and css
 
  <body>
       <div id="wrapper">
@@ -21,7 +726,7 @@
             <div id="navcontainer">
                 <ul id="navlist">
                     <li><a href="./index.html">home</a></li>
-                    </li>
+                    
                     <li class="active"><a href="solution.html" class="current">solutions</a>
                     <ul id="subnavlist">
                         <li class="subactive"><a href="analytics-database.html" id="subcurrent">analytics database</a></li>
@@ -84,7 +789,52 @@
                 <h1>ReportGrid's visualizations make it easy to see what the data is telling you</h1>
                 <p>Below you'll find a sampling of the visualizations supported by the ReportGrid visualization engine. All these visualizations can be rendered with a single line of code, they can be skinned to look however you like, and they can be completely integrated into your website or product.</p>
                     <a id="leftarrow" href="./" title="how"></a>
-                    <div id="gallerybackground"></div>
+                    <div class="vizGallery" id="gallerybackground" style="overflow:hidden;">
+                  		
+						<ul id="barChart">
+                    		<li><div class="chart" id="barChart1"></div></li>
+                    		<li><div class="chart" id="barChart2"></div></li>
+                    		<li><div class="chart" id="barChart3"></div></li>
+                    	</ul>
+                  		<ul id="funnelChart" style="padding:40px 44px">
+                    		<li><div class="chart" id="fChart1"></div></li>
+                    		<li><div class="chart" id="fChart2"></div></li>
+                    		<li><div class="chart" id="fChart3"></div></li>
+                    	</ul>
+
+                    	<ul id="geoChart">
+                    		<li><div class="chart" id="geoChart1"></div></li>
+                    	</ul>
+                    	<ul id="hGChart" style="padding:40px 44px">
+                    		<li><div class="chart" id="hGChart1"></div></li>
+                    		<li><div class="chart" id="hGChart2"></div></li>
+                    		<li><div class="chart" id="hGChart3"></div></li>
+                    	</ul>
+                    	
+<ul id="lBChart" style="padding:40px 44px">
+                    		<li><div class="chart" id="lBChart1"></div></li>
+                    		<li><div class="chart" id="lBChart2"></div></li>
+                    	</ul>
+
+                    	<ul id="lineChart" style="padding:40px 44px">
+                    		<li><div class="chart" id="lineChart1"></div></li>
+                    		<li><div class="chart" id="lineChart2"></div></li>
+                    	</ul>
+                    	<ul id="pieChart" style="padding:40px 44px">
+                    		<li><div class="chart" id="pieChart1"></div></li>
+                    		<li><div class="chart" id="pieChart2"></div></li>
+                    	</ul>
+                    	<ul id="scatterPlot" style="padding:40px 44px">
+                    		<li><div class="chart" id="sPChart1"></div></li>
+                    		<li><div class="chart" id="sPChart2"></div></li>
+                    	</ul>
+
+						<ul id="sGChart">
+                    		<li><div class="chart" id="sGChart1"></div></li>
+                    		<li><div class="chart" id="sGChart2"></div></li>
+                    		<li><div class="chart" id="sGChart3"></div></li>
+                    	</ul>
+                    </div>
                     <a id="rightarrow" href="./" title="how"></a>
             </div>
             <div id="rightpanel">

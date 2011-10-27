@@ -808,3 +808,14 @@ h4 {
     top: 86px;
     left: 984px;
 }
+
+/*vizGallery */
+#gallerybackground .visGallery{
+	width:488px;
+	height:380px;
+	padding:.5em 1em;
+	overflow: hidden;
+}
+#gallerybackground .visGallery ul,{
+	float: left;
+}
