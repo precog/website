@@ -91,7 +91,30 @@ $(function() {
     })
   }
 
+  var setupQuoteSelectors = function() {
+    var p = $('#quote');
+    var c = p.find('ul');
+    var quotes = c.children();
+    var selectors = p.find('.quoteselector');
+
+    selectors.each(function(idx, e) {
+      $(e).click(function() {
+        var curMarginLeft = c.margin().left;
+
+        c.animate({
+          marginLeft: -p.width() * idx
+        });
+
+        quotes.removeClass('active');
+        quotes.eq(idx).addClass('active');
+
+        return false;
+      });
+    });
+  }
+
   setupHome();
   setupLogin();
   setupArrows();
+  setupQuoteSelectors();
 });
