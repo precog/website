@@ -116,6 +116,8 @@ p.homepagetext2 {
   width: 1070px;
   background: 999999;
   text-align: center;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 #wrapper .header {
