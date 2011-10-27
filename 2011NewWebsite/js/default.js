@@ -19,5 +19,20 @@ $(function() {
     });
   }
 
+  var setupLogin = function() {
+    $('#loginbutton').click(function() {
+      var maxWidth  = $(document).width();
+      var maxHeight = $(document).height();
+
+      $('#loginoverlay').show().css({opacity: 0}).animate({
+        opacity: 0.75
+      });
+
+      $('#loginmenu').show();
+    })
+
+  }
+
   setupHome();
+  setupLogin();
 });
