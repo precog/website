@@ -416,14 +416,18 @@ p.homepagetext2 {
 }
 
 #homepanel {
-    width: 100%;
+    width: 1070px;
     height: 402px;
+    display: block;
+    float:left;
     background-image: url("../images/main1.png");
 }
 
 #whatpanel{
-    width: 100%;
+    width: 1070px;
     height: 402px;
+    display: block;
+    float:left;
     background-image: url("../images/hwhat.png");
 }
 

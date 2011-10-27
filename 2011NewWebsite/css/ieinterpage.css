@@ -340,7 +340,7 @@ ul a {
 
 #leftpanel {
    width:196px;
-   padding-right:41px;
+   margin-right:41px;
    float:left;
 }
 
@@ -348,7 +348,7 @@ ul a {
   top:28px;
   position: absolute;
   text-align:right;
-  right: 39px;
+  right: 0px;
 }
 
 #middlecontent {
@@ -679,8 +679,10 @@ ul a {
 
 /*middlenavmenubegin*/
     #leftmenucontainer {
-    top: 74px;
+    position: absolute;
+    top: 23px;
     width:195px;
+    float:left;
     }
 
     #leftmenucontainer ul
@@ -702,6 +704,8 @@ ul a {
     color: #C7CEF2;
     text-decoration: none;
     font-family:Abel;
+    display:inline;
+
     }
 
     #leftmenucontainer a:hover

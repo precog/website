@@ -328,7 +328,7 @@ h4 {
 
 #leftpanel {
    width:196px;
-   padding-right:41px;
+   margin-right:41px;
    float:left;
 }
 
@@ -336,7 +336,7 @@ h4 {
   top:28px;
   position: absolute;
   text-align:right;
-  right: 39px;
+  right: 0px;
 }
 
 #middlecontent {
