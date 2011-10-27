@@ -8,6 +8,7 @@
   color: white;
   font-family: arial;
   outline: none;
+  text-align: left;
 }
 
 body {
@@ -679,7 +680,7 @@ ul a {
 /*middlenavmenubegin*/
     #leftmenucontainer {
     top: 74px;
-    width:196px;
+    width:195px;
     }
 
     #leftmenucontainer ul
@@ -694,7 +695,7 @@ ul a {
     #leftmenucontainer a
     {
     background-image: url(../images/lsnavbuttonlg.png);
-    width: 141px;
+    width: 196px;
     margin-top: 3px;
     display: block;
     padding: 13px 28px;
@@ -732,7 +733,7 @@ ul a {
 
 /*footernavmenubegin */
 #sitecontainer {
-    position:relative;
+    position:absolute;
     z-index: 100;
     left:47px;
     top:28px;
@@ -754,9 +755,10 @@ ul a {
     float: left;
     text-align: left;
     padding-right: 74px;
-    font-family:Questrial; font-size: 7pt;
+    font-family:Questrial;
+    font-size: 7pt;
     color: #545766;
-    line-height: 18px;
+    line-height: 8px;
     margin: 0;
     }
 
