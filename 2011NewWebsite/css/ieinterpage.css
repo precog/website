@@ -4,7 +4,7 @@
   border:           0px;
   list-style-type:  none;
   text-decoration:  none;
-  position:         relative;
+  position:         relative; 
   color: white;
   font-family: arial;
   outline: none;
@@ -139,8 +139,15 @@ h4 {
   line-height: normal;
 }
 
+ul a {
+  display:block;
+  float:left;
+  clear:left;
+}
+
 #wrapper {
   width: 1070px;
+  margin: 0 auto;
   background: 999999;
   text-align: left;
 }
@@ -672,7 +679,7 @@ h4 {
 /*middlenavmenubegin*/
     #leftmenucontainer {
     top: 74px;
-    position: relative;
+    width:196px;
     }
 
     #leftmenucontainer ul
