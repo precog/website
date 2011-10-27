@@ -40,6 +40,40 @@ $(function() {
 
   }
 
+  var setupArrows = function() {
+    var left  = $('.leftarrow');
+    var right = $('.rightarrow');
+
+    left.parent().find('ul').css('left', 0);
+
+    left.click(function() {
+      var leftUl = $(this).parent().find('ul');
+      var leftLi = leftUl.find('li');
+
+
+      alert(leftLi.width());
+      alert(leftUl.margin().left)
+
+      leftUl.animate({
+        marginLeft: leftUl.margin().left - leftLi.width()
+      });
+
+      return false;
+    });
+
+    right.click(function() {
+      var rightUl = $(this).parent().find('ul');
+      var rightLi = rightUl.find('li');
+
+      rightUl.animate({
+        marginLeft: leftUl.margin().left + leftLi.width()
+      });
+
+      return false;
+    })
+  }
+
   setupHome();
   setupLogin();
+  setupArrows();
 });
