@@ -338,7 +338,7 @@ ul#navlist li:hover ul#subnavlist li a:before
 	margin-right:26.75px;
 	float:left;
 	width:290px;
-	height:42px;
+	height:80px;
 	font-size:8pt;
 	color:#9298B3;
 	overflow:hidden;
@@ -367,7 +367,7 @@ ul#navlist li:hover ul#subnavlist li a:before
 	margin-right:26.75px;
 	float:left;
 	width:290px;
-	height:60px;
+	height:80px;
 	font-size:9pt;
 	color:#9298B3;
 	overflow:hidden;
@@ -389,7 +389,7 @@ ul#navlist li:hover ul#subnavlist li a:before
 	margin-left:30.75px;
 	float:left;
 	width:288px;
-	height:40px;
+	height:80px;
 	display:block;
 	overflow:hidden;
 	color:#9298B3;
