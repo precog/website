@@ -81,7 +81,7 @@ $(function() {
         return delta >= 0;
       });
 
-      if (li.length > 0 && ul.margin().left >= -ul.parent().width()) {
+      if (li.length > 0 && ul.margin().left > -ul.outerWidth()) {
         ul.animate({
           marginLeft: ul.margin().left - li.outerWidth()
         });
@@ -102,7 +102,7 @@ $(function() {
         var curMarginLeft = c.margin().left;
 
         c.animate({
-          marginLeft: -p.width() * idx
+          marginLeft: -p.outerWidth() * idx
         });
 
         quotes.removeClass('active');
@@ -113,8 +113,30 @@ $(function() {
     });
   }
 
+  var setupNewsFeed = function() {
+    $.getJSON("http://search.twitter.com/search.json?callback=?", {
+      q: "from:ReportGrid"
+    },
+    function(results) {
+      $('#news li').remove();
+
+      var tweets = results.results;
+
+      for (var i = 0; i < tweets.length; i++) {
+        var tweet = tweets[i];
+
+        console.log(tweet);
+
+        var url = 'http://twitter.com/#!/' + tweet.from_user + '/status/' + tweet.id_str;
+
+        $('#news ul').append('<li><a href="' + url + '">' + tweet.text + '</a></li>');
+      }
+    });
+  }
+
   setupHome();
   setupLogin();
   setupArrows();
   setupQuoteSelectors();
+  setupNewsFeed();
 });

@@ -8,6 +8,25 @@
   color: white;
   font-family: arial;
   outline: none;
+   -moz-user-select: -moz-none;
+   -khtml-user-select: none;
+   -webkit-user-select: none;
+   user-select: none;
+   -webkit-user-drag: none;
+   -khtml-user-drag: none;
+   -moz-user-drag: none;
+   user-drag: none;
+}
+
+p, h1, h2, h3, h4, h5, h6, li {
+   -moz-user-select: -moz-text;
+   -khtml-user-select: text;
+   -webkit-user-select: text;
+   user-select: text;
+   -webkit-user-drag: text;
+   -khtml-user-drag: text;
+   -moz-user-drag: text;
+   user-drag: text;
 }
 
 body {
@@ -100,7 +119,7 @@ p.teamtext {
   padding-bottom:0px;
   padding-top:0px;
   }
-  
+
 p.phonelarge {
   font-size:26px;
   font-family:Abel;
@@ -222,7 +241,7 @@ h4 {
 }
 
 .imageright {
-  position:relative; 
+  position:relative;
   float:right;
   padding-left:10px;
   padding-top:10px;
@@ -634,7 +653,7 @@ h4 {
         height: 29px;
         top:60px;
     }
-        
+
     #cb2 {
         background-image: url(../images/constructionbar.png);
         width:1070px;
