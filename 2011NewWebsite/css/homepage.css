@@ -529,7 +529,7 @@ float:left;
 margin:0;
 padding: 0px;
 margin-left:47px;
-padding-top:20px;
+padding-top:32px;
 color: #545766;
 }
 
@@ -543,8 +543,10 @@ margin-right: -20px;
 color: #545766;
 }
 
-.footerfont {
-  color: #545766;
+.headfooterlinks {
+  font-size: 7.5pt;
+  font-family:questrial;
+  padding-bottom:0px;
 }
 
 #contactus
