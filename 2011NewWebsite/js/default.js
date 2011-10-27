@@ -3,20 +3,22 @@
 $(function() {
   var setupHome = function() {
     var animateContentPane = function(panelIndex) {
-      $('#middle1contentarea').animate({
-        marginTop: -(panelIndex * 402)
-      }, 'fast');
+      return function() {
+        $('#middle1contentarea').animate({
+          marginTop: -(panelIndex * 402)
+        }, 'fast');
+
+        return false;
+      }
     }
 
-    $('#whatbutton').mouseover(function() {
-      animateContentPane(0);
-    });
-    $('#howbutton').mouseover(function() {
-      animateContentPane(1);
-    });
-    $('#whybutton').mouseover(function() {
-      animateContentPane(2);
-    });
+    var setupPane = function(paneSelector, paneIndex) {
+      $(paneSelector).mouseover(animateContentPane(paneIndex)).click(animateContentPane(paneIndex));
+    }
+
+    setupPane('#whatbutton', 0);
+    setupPane('#howbutton',  1);
+    setupPane('#whybutton',  2);
   }
 
   var setupLogin = function() {
