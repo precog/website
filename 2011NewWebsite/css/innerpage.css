@@ -11,7 +11,7 @@
 }
 
 body {
-  background-color: 0E0F12;
+  background-color: #0E0F12;
 }
 
 @font-face {
@@ -78,7 +78,7 @@ p {
   }
 
 p.pageheader {
-  font-size:20px;
+  font-size:18px;
   font-family:Abel;
   color: #8A8FA8;
   line-height: normal;
@@ -758,6 +758,7 @@ h4 {
 {
 float:left;
 margin:0;
+padding: 0px;
 margin-left:47px;
 padding-top:20px;
 color: #545766;
@@ -765,10 +766,11 @@ color: #545766;
 
 .table ul li
 {
-padding-bottom: 5px;
-width:76px;
+padding-bottom: 10px;
+width:94px;
 font-family:Questrial;
-font-size:6pt;
+font-size:7pt;
+margin-right: -20px;
 color: #545766;
 }
 
