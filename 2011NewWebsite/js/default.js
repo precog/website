@@ -22,21 +22,20 @@ $(function() {
   }
 
   var setupLogin = function() {
+    $('#loginoverlay').click(function() {
+      $(this).css({opacity: 0.75}).animate({opacity: 0}, function() { $(this).hide(); });
+
+      $('#loginmenu').hide();
+    });
+
     $('#loginbutton').click(function() {
       var maxWidth  = $(document).width();
       var maxHeight = $(document).height();
 
-      $('#loginoverlay').show().css({opacity: 0}).animate({
-        opacity: 0.75
-      })
+      $('#loginoverlay').clearQueue().show().css({opacity: 0}).animate({opacity: 0.75})
 
-      $('#loginoverlay').click(function() {
-        $(this).animate({opacity: 0}, function() { $(this).hide(); });
 
-        $('#loginmenu').hide();
-      });
-
-      $('#loginmenu').show();
+      $('#loginmenu').clearQueue().show();
     })
 
   }
