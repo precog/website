@@ -28,6 +28,12 @@ $(function() {
 
       $('#loginoverlay').show().css({opacity: 0}).animate({
         opacity: 0.75
+      })
+
+      $('#loginoverlay').click(function() {
+        $(this).animate({opacity: 0}, function() { $(this).hide(); });
+
+        $('#loginmenu').hide();
       });
 
       $('#loginmenu').show();
