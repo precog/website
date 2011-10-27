@@ -71,9 +71,11 @@ body {
     font-style: normal;
 }
 
-A:link{color: #A8AECC;text-decoration:none}
-
-A:visited{color: #A8AECC;text-decoration:none}
+A:link,A:visited
+{
+	color:#545766;
+	text-decoration:none;
+}
 
 A:hover {
     opacity: 0.7;
@@ -588,14 +590,14 @@ ul a {
 
 .leftfields {
     position:relative;
-    width:300px;
+    width:250px;
     display:block;
     float:left;
 }
 
 .rightfields {
     position:relative;
-    width:300px;
+    width:250px;
     display:block;
     float:left;
     top:47px;
@@ -785,19 +787,22 @@ ul a {
 {
 float:left;
 margin:0;
-padding-left:20px;
+margin-left:47px;
 padding-top:20px;
-list-style:none;
-text-decoration:none;
+color: #545766;
 }
 
 .table ul li
 {
-list-style: none;
-text-decoration: none;
-padding:5px 20px;
-width:200px;
-font-family:Abel;
+padding-bottom: 5px;
+width:76px;
+font-family:Questrial;
+font-size:6pt;
+color: #545766;
+}
+
+.footerfont {
+  color: #545766;
 }
 /*footernavmenuend */
 
