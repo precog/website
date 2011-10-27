@@ -140,7 +140,7 @@ p.homepagetext2 {
   background-image: url("../images/footer.png");
 }
 
-#wrapper .loginoverlay {
+#loginoverlay {
     position: absolute;
     height:838px;
     width: 1070px;
