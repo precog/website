@@ -59,9 +59,11 @@ body {
     font-style: normal;
 }
 
-A:link{color:A8AECC;text-decoration:none}
-
-A:visited{color:A8AECC;text-decoration:none}
+A:link,A:visited
+{
+	color:#545766;
+	text-decoration:none;
+}
 
 A:HOVER
 {
