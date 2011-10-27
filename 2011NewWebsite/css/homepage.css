@@ -16,12 +16,48 @@ body
 	background-color:#0E0F12;
 }
 
-@font-face
-{
-	font-family:'Rexlia';
-	src:url('fonts/rexlia_free-webfont.eot?#iefix') format('embedded-opentype'), url('fonts/rexlia_free-webfont.woff') format('woff'), url('fonts/rexlia_free-webfont.ttf') format('truetype'), url('fonts/rexlia_free-webfont.svg#RexliaFree') format('svg');
-	font-weight:400;
-	font-style:normal;
+@font-face {
+    font-family: 'Abel';
+    src: url('fonts/abel-regular-webfont.eot');
+    src: url('fonts/abel-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/abel-regular-webfont.woff') format('woff'),
+         url('fonts/abel-regular-webfont.ttf') format('truetype'),
+         url('fonts/abel-regular-webfont.svg#AbelRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Questrial';
+    src: url('fonts/questrial-regular-webfont.eot');
+    src: url('fonts/questrial-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/questrial-regular-webfont.woff') format('woff'),
+         url('fonts/questrial-regular-webfont.ttf') format('truetype'),
+         url('fonts/questrial-regular-webfont.svg#') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Antic';
+    src: url('fonts/antic-regular-webfont.eot');
+    src: url('fonts/antic-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/antic-regular-webfont.woff') format('woff'),
+         url('fonts/antic-regular-webfont.ttf') format('truetype'),
+         url('fonts/antic-regular-webfont.svg#AnticRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Rexlia';
+    src: url('fonts/rexlia_free-webfont.eot');
+    src: url('fonts/rexlia_free-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/rexlia_free-webfont.woff') format('woff'),
+         url('fonts/rexlia_free-webfont.ttf') format('truetype'),
+         url('fonts/rexlia_free-webfont.svg#RexliaFree') format('svg');
+    font-weight: normal;
+    font-style: normal;
 }
 
 P
@@ -483,64 +519,30 @@ ul#navlist li:hover ul#subnavlist li a:before
 	width:14px;
 }
 
-#sitecontainer
+.table
 {
-	position:relative;
-	z-index:100;
-	left:47px;
-	top:28px;
 }
 
-ul#sitelist
+.table ul
 {
-	list-style-type:none;
-	position:relative;
+float:left;
+margin:0;
+margin-left:47px;
+padding-top:20px;
+color: #545766;
 }
 
-ul#sitelist li
+.table ul li
 {
-	float:left;
-	margin-left:0;
+padding-bottom: 5px;
+width:76px;
+font-family:Questrial;
+font-size:6pt;
+color: #545766;
 }
 
-ul#sitelist li a
-{
-	float:left;
-	text-align:left;
-	padding-right:74px;
-	font-family:Questrial;
-	font-size:7pt;
-	color:#545766;
-	line-height:18px;
-	margin:0;
-}
-
-ul#sitelist li a:hover
-{
-	color:#FFCD36;
-}
-
-ul#sitelist li a#current
-{
-	color:#707487;
-	font-size:7.5pt;
-}
-
-ul#subsitelist li
-{
-	line-height:18px;
-	width:15em;
-}
-
-ul#sitelist ul
-{
-	position:absolute;
-	top:20px;
-}
-
-ul#sitelist ul li a,ul#sitelist ul li a:hover,ul#sitelist ul li a#current
-{
-	background-image:none;
+.footerfont {
+  color: #545766;
 }
 
 #contactus
@@ -566,8 +568,13 @@ ul#sitelist ul li a,ul#sitelist ul li a:hover,ul#sitelist ul li a#current
 
 A:link,A:visited
 {
-	color:A8AECC;
+	color:#545766;
 	text-decoration:none;
+}
+
+A:HOVER
+{
+        color:#FFCD36;
 }
 
 #whatbutton:hover,#howbutton:hover,#whybutton:hover

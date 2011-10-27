@@ -71,12 +71,15 @@ body {
     font-style: normal;
 }
 
-A:link{color: #A8AECC;text-decoration:none}
-
-A:visited{color: #A8AECC;text-decoration:none}
+A:link,A:visited
+{
+	color:#545766;
+	text-decoration:none;
+}
 
 A:hover {
     opacity: 0.7;
+    color:#FFCD36;
 }
 
 p {
@@ -538,8 +541,7 @@ ul a {
 #map {
     position:absolute;
     top: 76px;
-    float: right;
-    right: 40px;
+    left: 350px;
 }
 
 /*contactus*/
@@ -587,14 +589,14 @@ ul a {
 
 .leftfields {
     position:relative;
-    width:300px;
+    width:250px;
     display:block;
     float:left;
 }
 
 .rightfields {
     position:relative;
-    width:300px;
+    width:250px;
     display:block;
     float:left;
     top:47px;
@@ -776,65 +778,31 @@ ul a {
 /*middlenavmenuend*/
 
 /*footernavmenubegin */
-#sitecontainer {
-    position:absolute;
-    z-index: 100;
-    left:47px;
-    top:28px;
-    }
+.table
+{
+}
 
-    ul#sitelist
-    {
-    list-style-type: none;
-    position: relative;
-    }
+.table ul
+{
+float:left;
+margin:0;
+margin-left:47px;
+padding-top:20px;
+color: #545766;
+}
 
-    ul#sitelist li {
-        float: left;
-        margin-left: 0px;
-        }
+.table ul li
+{
+padding-bottom: 5px;
+width:76px;
+font-family:Questrial;
+font-size:6pt;
+color: #545766;
+}
 
-    ul#sitelist li a
-    {
-    float: left;
-    text-align: left;
-    padding-right: 74px;
-    font-family:Questrial;
-    font-size: 7pt;
-    color: #545766;
-    line-height: 8px;
-    margin: 0;
-    }
-
-    ul#sitelist li a:hover
-    {
-    color: #FFCD36;
-    }
-
-    ul#sitelist li a .current
-    {
-    color: #707487;
-    font-size: 7.5pt;
-    float:left;
-    dislay:block;
-    }
-
-    /*subsitelist */
-    ul#subsitelist li
-    {
-    line-height: 18px;
-    width: 15em;
-    float:left;
-    dislay:block;
-    }
-
-    ul#sitelist ul
-    {
-    position: absolute;
-    top: 20px;
-    }
-
-    ul#sitelist ul li a, ul#sitelist ul li a:hover, ul#sitelist ul li a.current { background-image: none; }
+.footerfont {
+  color: #545766;
+}
 /*footernavmenuend */
 
 #phonefooter {
