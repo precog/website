@@ -52,10 +52,10 @@ $(function() {
 
 
       alert(leftLi.width());
-      alert(leftUl.css('margin-left'))
+      alert(leftUl.margin().left)
 
       leftUl.animate({
-        marginLeft: leftUl.css('margin-left') - leftLi.width()
+        marginLeft: leftUl.margin().left - leftLi.width()
       });
 
       return false;
@@ -66,7 +66,7 @@ $(function() {
       var rightLi = rightUl.find('li');
 
       rightUl.animate({
-        marginLeft: leftUl.css('margin-left') + leftLi.width()
+        marginLeft: leftUl.margin().left + leftLi.width()
       });
 
       return false;
