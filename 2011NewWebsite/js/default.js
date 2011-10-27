@@ -44,30 +44,48 @@ $(function() {
     var left  = $('.leftarrow');
     var right = $('.rightarrow');
 
-    left.parent().find('ul').css('left', 0);
-
     left.click(function() {
-      var leftUl = $(this).parent().find('ul');
-      var leftLi = leftUl.find('li');
+      var c = $(this).parent();
+      var ul = c.find('ul');
 
+      var cOffset = c.offset();
 
-      alert(leftLi.width());
-      alert(leftUl.margin().left)
+      var li = ul.children('li').filter(function(idx) {
+        var curOffset = ul.children().eq(idx).offset();
 
-      leftUl.animate({
-        marginLeft: leftUl.margin().left - leftLi.width()
-      });
+        var delta = curOffset.left - cOffset.left;
+
+        return delta < 0;
+      }).last();
+
+      if (ul.margin().left < 0) {
+        ul.animate({
+          marginLeft: ul.margin().left + li.outerWidth()
+        });
+      }
 
       return false;
     });
 
     right.click(function() {
-      var rightUl = $(this).parent().find('ul');
-      var rightLi = rightUl.find('li');
+      var c = $(this).parent();
+      var ul = c.find('ul');
 
-      rightUl.animate({
-        marginLeft: leftUl.margin().left + leftLi.width()
+      var cOffset = c.offset();
+
+      var li = ul.children('li').filter(function(idx) {
+        var curOffset = ul.children().eq(idx).offset();
+
+        var delta = curOffset.left - cOffset.left;
+
+        return delta >= 0;
       });
+
+      if (li.length > 0 && ul.margin().left >= -ul.parent().width()) {
+        ul.animate({
+          marginLeft: ul.margin().left - li.outerWidth()
+        });
+      }
 
       return false;
     })
