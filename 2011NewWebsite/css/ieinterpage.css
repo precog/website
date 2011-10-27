@@ -309,11 +309,39 @@ ul a {
     ul#navlist li:hover ul#subnavlist li a:before { content: ""; }
 /*headernavmenuend */
 
+#leftpanel {
+   width:196px;
+   margin-right:40px;
+   float:left;
+}
+
+#pagetitle {
+  top:28px;
+  position: absolute;
+  text-align:right;
+  right: 0px;
+}
+
+#middlecontent {
+   width:600px;
+   float:left;
+   margin-bottom:20px;
+}
+
+#rightpanel {
+  width:192px;
+  margin-left:0px;
+  float:right;
+  height:400px;
+}
+
 #rightsidepanel {
     background-image: url(../images/rpagepannel.png);
     position:relative;
     top: 74px;
+    width:192px;
     height: 299px;
+    float:right;
     }
 
 #rpaneltext {
@@ -338,37 +366,11 @@ ul a {
     left:20px;
     }
 
-#leftpanel {
-   width:196px;
-   margin-right:41px;
-   float:left;
-}
-
-#pagetitle {
-  top:28px;
-  position: absolute;
-  text-align:right;
-  right: 0px;
-}
-
-#middlecontent {
-   width:600px;
-   padding-right:41px;
-   float:left;
-   padding-bottom:20px;
-}
-
 .limiddle {
   list-style-type: square;
   color: #8A8FA8;
   top:10px;
   margin-left:20px;
-}
-
-#rightpanel {
-  width:192px;
-  float:left;
-  height:400px;
 }
 
 /*about*/
