@@ -773,10 +773,12 @@ ul a {
     color: #FFCD36;
     }
 
-    ul#sitelist li a.current
+    ul#sitelist li a .current
     {
     color: #707487;
     font-size: 7.5pt;
+    float:left;
+    dislay:block;
     }
 
     /*subsitelist */
@@ -784,6 +786,8 @@ ul a {
     {
     line-height: 18px;
     width: 15em;
+    float:left;
+    dislay:block;
     }
 
     ul#sitelist ul
@@ -807,7 +811,7 @@ ul a {
   position:absolute;
   top:90px;
   left:778px;
-  length: 120;
+  length: 120px;
 }
 
 #contactus {
