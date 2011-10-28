@@ -1,3 +1,4 @@
+// JSON
 (function($){var escapeable=/["\\\x00-\x1f\x7f-\x9f]/g,meta={'\b':'\\b','\t':'\\t','\n':'\\n','\f':'\\f','\r':'\\r','"':'\\"','\\':'\\\\'};$.toJSON=typeof JSON==='object'&&JSON.stringify?JSON.stringify:function(o){if(o===null){return'null';}
 var type=typeof o;if(type==='undefined'){return undefined;}
 if(type==='number'||type==='boolean'){return''+o;}
@@ -20,6 +21,9 @@ val=$.toJSON(o[k]);pairs.push(name+':'+val);}
 return'{'+pairs.join(',')+'}';}};$.evalJSON=typeof JSON==='object'&&JSON.parse?JSON.parse:function(src){return eval('('+src+')');};$.secureEvalJSON=typeof JSON==='object'&&JSON.parse?JSON.parse:function(src){var filtered=src.replace(/\\["\\\/bfnrtu]/g,'@').replace(/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g,']').replace(/(?:^|:|,)(?:\s*\[)+/g,'');if(/^[\],:{}\s]*$/.test(filtered)){return eval('('+src+')');}else{throw new SyntaxError('Error parsing JSON, source is not valid.');}};$.quoteString=function(string){if(string.match(escapeable)){return'"'+string.replace(escapeable,function(a){var c=meta[a];if(typeof c==='string'){return c;}
 c=a.charCodeAt();return'\\u00'+Math.floor(c/16).toString(16)+(c%16).toString(16);})+'"';}
 return'"'+string+'"';};})(jQuery);
+
+// USTORE
+var USTORE=(function(){var e,a,c,f,b,k,i,j,d;var g={setValue:function(l,m,n){if(e){if(n&&a){sessionStorage.setItem(l,m)}else{localStorage.setItem(l,m)}}else{if(c){if(n){i.setAttribute(l,m);i.save(d)}else{f.setAttribute(l,m);f.save(ieDb)}}}},getValue:function(m,n){var l="";if(e){if(n&&a){l=sessionStorage.getItem(m)}else{l=localStorage.getItem(m)}}else{if(c){if(n){i.load(d);l=i.getAttribute(m)}else{f.load(ieDb);l=f.getAttribute(m)}}}return l},deleteValue:function(l,m){if(e){this.setValue(l,null,m)}else{if(c){if(m){i.removeAttribute(l);i.save(d)}else{f.removeAttribute(l);f.save(ieDb)}}}},clearDB:function(l){if(e){if(l){sessionStorage.clear()}else{localStorage.clear()}}else{if(c){h.clearDB(l)}}}};var h={detectIE:function(){if(/MSIE (\d+\.\d+);/.test(navigator.userAgent)){var l=new Number(RegExp.$1);if(l>=5.5&&l<=8){return true}}return false},init:function(){var n=document.createElement("meta");n.name="save";n.content="userdata";document.getElementsByTagName("head").item(0).appendChild(n);var m=new Date().getTime();var l=document.createElement("div");b="ie-db-"+m;ieDb="userStorage";l.setAttribute("id",b);body.appendChild(l);f=document.getElementById(b);f.style.behavior="url('#default#userData')";f.style.display="none";if(window.name===null||window.name===undefined||window.name===""){window.name="ie-sesh-db-"+m}j=window.name;d=j;l=document.createElement("div");l.setAttribute("id",j);f.appendChild(l);i=document.getElementById(j);i.style.behavior="url('#default#userData')";i.style.display="none"},clearDB:function(r){var m=new Date().getTime(),t=document.createElement("div"),l=r?i:f,p=r?d:ieDb,s=l.xmlDocument,n=s.firstChild.attributes,q,o=n.length;while(0<=--o){q=n[o];l.removeAttribute(q.nodeName)}l.save(p)}};return{init:function(){if(typeof(window.localStorage)==="object"){e=true;try{if(typeof(window.sessionStorage)==="object"){a=true}}catch(l){a=false}}else{if(h.detectIE()){c=true;h.init()}}},setValue:function(l,m){g.setValue(l,m,false)},setSessionValue:function(l,m){g.setValue(l,m,true)},getValue:function(l){return g.getValue(l,false)},getSessionValue:function(l){return g.getValue(l,true)},deleteValue:function(l){g.deleteValue(l,false)},deleteSessionValue:function(l){g.deleteValue(l,true)},clearLocalStorage:function(){g.clearDB(false)},clearSessionStorage:function(){g.clearDB(true)},clearDOMStorage:function(){g.clearDB(false);g.clearDB(true)}}})();
 
 var API = {};
 
@@ -441,6 +445,8 @@ var API = {};
 })();
 
 $(function() {
+  var RootAccountsAPI = 'https://api.reportgrid.com/services/billing/v1/accounts/';
+
   var setupHome = function() {
     var animateContentPane = function(panelIndex) {
       return function() {
@@ -477,6 +483,37 @@ $(function() {
       $('#loginmenu').clearQueue().show();
     })
 
+    $('#loginpopupbutton').click(function(e) {
+      e.preventDefault();
+
+      var email    = $('#loginform input[name="email"]');
+      var password = $('#loginform input[name="password"]');
+
+      alert('email = ' + email.val() + ', password = ' + password.val())
+
+      API.Http.post(RootAccountsAPI + "get", {
+        email:      email.val(),
+        password:   password.val()
+      }, {
+        success: function(response) {
+          var content = $('#middlecontent');
+
+          var tokenId = response.id.token;
+
+          USTORE.setSessionValue('email',    email.val());
+          USTORE.setSessionValue('password', password.val());
+          USTORE.setSessionValue('tokenId',  tokenId);
+
+          window.location = "./control-panel.html";
+        },
+
+        failure: function(code, text) {
+          alert(text);
+        }
+      });
+
+      return false;
+    });
   }
 
   var setupArrows = function() {
@@ -572,28 +609,106 @@ $(function() {
   }
 
   var setupAccountCreation = function() {
-    var RootAPI = 'https://api.reportgrid.com/services/billing/v1/accounts/';
+    try {
+      $("#signupForm").validate({
+        rules: {
+          firstName: "required",
+          lastName: "required",
+          email: {
+            required: true,
+            email: true
+          },
+          password: {
+            required: true,
+            minlength: 5
+          },
+          confirmPassword: {
+            required: true,
+            minlength: 5,
+            equalTo: "#signupForm input[name='password']"
+          },
+          company: {
+            required: true,
+            minlength: 2
+          },
+          title: {
+            required: true,
+            minlength: 3
+          },
+          street: {
+            required: true,
+            minlength: 5
+          },
+          city: {
+            required: true,
+            minlength: 2
+          },
+          state: {
+            required: true,
+            minlength: 2
+          },
+          postalCode: {
+            required: true,
+            digits: true
+          },
+          phone: {
+            required: true,
+            phoneUS: true
+          },
+          website: {
+            required: true,
+            url: true
+          } //, agree: "required"
+        },
+        messages: {
+          firstName:    "Please enter your firstname",
+          lastName:     "Please enter your lastname",
+          email:        "Please enter a valid email address",
+          password: {
+            required:   "Please provide a password",
+            minlength:  "Your password must be at least 5 characters long"
+          },
+          confirmPassword: {
+            required:   "Please provide a password",
+            minlength:  "Your password must be at least 5 characters long",
+            equalTo:    "Please enter the same password"
+          },
+          company:      "Please enter your company",
+          title:        "Please enter your title at the company you work for",
+          street:       "Please enter your street",
+          state:        "Please enter your state or province",
+          city:         "Please enter your city",
+          postalCode:   "Please enter your postal code",
+          phone:        "Please enter a valid US phone number",
+          state:        "Please enter your state",
+          website:      "Please enter your website",
+          email:        "Please enter a valid email address",
+          agree:        "Please accept our policy"
+        }
+      });
+    } catch(err) {}
 
-    var planId          = function() { return $('input[name="planId"]:checked'); }
-    var email           = function() { return $('input[name="email"]'); }
-    var password        = function() { return $('input[name="password"]'); }
-    var firstName       = function() { return $('input[name="firstName"]'); }
-    var company         = function() { return $('input[name="company"]'); }
-    var street          = function() { return $('input[name="street"]'); }
-    var state           = function() { return $('input[name="state"]'); }
-    var phone           = function() { return $('input[name="phone"]'); }
-    var password        = function() { return $('input[name="password"]'); }
-    var confirmPassword = function() { return $('input[name="confirmPassword"]'); }
-    var lastName        = function() { return $('input[name="lastName"]'); }
-    var title           = function() { return $('input[name="title"]'); }
-    var city            = function() { return $('input[name="city"]'); }
-    var postalCode      = function() { return $('input[name="postalCode"]'); }
-    var website         = function() { return $('input[name="website"]'); }
-    var cardHolder      = function() { return $('input[name="cardHolder"]'); }
-    var cardExpMonth    = function() { return $('input[name="cardExpMonth"]'); }
-    var cardExpYear     = function() { return $('input[name="cardExpYear"]'); }
-    var cardNumber      = function() { return $('input[name="cardNumber"]'); }
-    var cardCCV         = function() { return $('input[name="cardCCV"]'); }
+    var planId          = function() { return $('#signupForm input[name="planId"]:checked'); }
+    var discountCode    = function() { return $('#signupForm input[name="discountCode"]'); }
+    var email           = function() { return $('#signupForm input[name="email"]'); }
+    var password        = function() { return $('#signupForm input[name="password"]'); }
+    var firstName       = function() { return $('#signupForm input[name="firstName"]'); }
+    var company         = function() { return $('#signupForm input[name="company"]'); }
+    var street          = function() { return $('#signupForm input[name="street"]'); }
+    var state           = function() { return $('#signupForm input[name="state"]'); }
+    var phone           = function() { return $('#signupForm input[name="phone"]'); }
+    var password        = function() { return $('#signupForm input[name="password"]'); }
+    var confirmPassword = function() { return $('#signupForm input[name="confirmPassword"]'); }
+    var lastName        = function() { return $('#signupForm input[name="lastName"]'); }
+    var title           = function() { return $('#signupForm input[name="title"]'); }
+    var city            = function() { return $('#signupForm input[name="city"]'); }
+    var postalCode      = function() { return $('#signupForm input[name="postalCode"]'); }
+    var website         = function() { return $('#signupForm input[name="website"]'); }
+    var cardHolder      = function() { return $('#signupForm input[name="cardHolder"]'); }
+    var cardExpMonth    = function() { return $('#signupForm input[name="cardExpMonth"]'); }
+    var cardExpYear     = function() { return $('#signupForm input[name="cardExpYear"]'); }
+    var cardNumber      = function() { return $('#signupForm input[name="cardNumber"]'); }
+    var cardCCV         = function() { return $('#signupForm input[name="cardCCV"]'); }
 
     $('#submit').click(function(e) {
       e.preventDefault();
@@ -602,6 +717,8 @@ $(function() {
         "email":    email().val(),
         "password": password().val(),
         "planId":   planId().val(),
+        "planCreditOption": discountCode().val(),
+        "confirmPassword": confirmPassword().val(),
         "contact": {
           "firstName":  firstName().val(),
           "lastName":   lastName().val(),
@@ -627,7 +744,7 @@ $(function() {
 
       console.log(request);
 
-      API.Http.post(RootAPI, request, {
+      API.Http.post(RootAccountsAPI, request, {
         success: function(response) {
           var content = $('#middlecontent');
 
