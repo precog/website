@@ -234,8 +234,8 @@ h4 {
   padding-top: 10px;
   padding-bottom: 10px;
 }
-.floatleft {  float: left }
-.floatright {  float: right }
+.floatleft {  float: left; margin-right: 15px;}
+.floatright {  float: right; margin-left: 15px; }
 /*headernavmenubegin */
 #navcontainer {
   position: absolute;
