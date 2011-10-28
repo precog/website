@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>About</title>
+        <title>Admin</title>
         <link rel="stylesheet" type="text/css" href="css/innerpage.css">
         <!--[if IE]>
         <link rel="stylesheet" type="text/css" href="css/ieinterpage.css">
@@ -10,11 +10,15 @@
         <script type="text/javascript" src="js/default.js"></script>
     <script type="text/javascript" src="http://include.reinvigorate.net/re_.js"></script>
     <script type="text/javascript">
-    try {
-    reinvigorate.track("j780b-u1448cw0d9");
-    } catch(err) {}
+      try {
+      reinvigorate.track("j780b-u1448cw0d9");
+      } catch(err) {}
+
+      jQuery(function($) {
+      });
     </script>
     </head>
+
  <body>
       <div id="wrapper">
         <div class="header">
@@ -27,6 +31,7 @@
             <div id="navcontainer">
                 <ul id="navlist">
                     <li><a href="./index.html">home</a></li>
+                    </li>
                     <li class="active"><a href="solution.html" class="current">solutions</a>
                     <ul id="subnavlist">
                         <li class="subactive"><a href="analytics-database.html" class="subcurrent">analytics database</a></li>
@@ -36,7 +41,7 @@
                     </li>
                     <li class="active"><a href="use-cases.html" class="current">use cases</a>
                     <ul id="subnavlist">
-                        <li class="subactive"><a href="embeddable analytics.html" class="subcurrent">embeddable analytics</a></li>
+                        <li class="subactive"><a href="embeddable-analytics.html" class="subcurrent">embeddable analytics</a></li>
                         <li><a href="internal-analytics.html">internal analytics</a></li>
                         <li><a href="business-intelligence.html">business intelligence</a></li>
                     </ul>
@@ -72,7 +77,7 @@
             </div>
         </div>
         <div class="middle">
-                    <div id="loginoverlay">
+                     <div id="loginoverlay">
                         </div>
                         <div id="loginmenu">
                                 <div style="top:34px;left:48px">
@@ -87,60 +92,65 @@
                         </div>
             <div id="leftpanel">
                 <div id="pagetitle">
-                    <p class="pageheader">ABOUT</p>
+                    <p class="pageheader">ADMIN</p>
                 </div>
                 <div id="leftmenucontainer">
                      <ul id="leftmenulist">
-                     <li class="active"><a href="about.html" class="current">overview</a>
-                     <li><a href="news.html">news</a></li>
-                     <li><a href="team.html">team</a></li>
-                     <li><a href="contact-us.html">contact</a></li>
+                     <li class="active"><a href="pricing.html" class="current">overview</a>
+                     <li><a href="http://reportgrid.freshdesk.com/">help desk</a></li>
+                     <li><a href="white-papers.html">white papers</a></li>
+                     <li><a href="control-panel.html">control panel</a></li>
                      </ul>
                 </div>
             </div>
             <div id="middlecontent">
-                <h1>Once upon a time, in a faraway land...</h1>
-                <p>
-                  On October 15, John A. De Goes headed down from Boulder, Colorado to Denver, to participate in the Denver Startup Weekend. In the 54 hours that followed, John and his team managed to create an API that allowed developers to track and visualize simple metrics. On Sunday of the same weekend, on October 17, 2011, John introduced the world to ReportGrid &mdash; the first API for analytics and visualization.
-                </p>
-                <img class="imageleft" src="images/startupweekend.png">
-                <p>
-                  The journey to that fateful day began about a year prior, when John came on as VP of Engineering for a rich media ad vendor. In the next-generation platform he architected and oversaw, one of the key features was analytics and reporting, to help advertisers understand and optimize the performance of their advertising campaigns. John never wanted to build an analytics and data visualization engine, preferring to focus on core platform features like dynamic creative optimization, but the lack of any third-party solution gave him no choice. So reluctantly, he dedicated a third of his engineering team and nearly a year to the problem.
-                </p>
-                <p>
-                  After living through that experience, John became convinced that there had to be a better way. Every technology platform and nearly every SaaS application needs to give its users reporting. But historically, the only way to solve that problem has been to devote months or years of custom development, building on top of open source frameworks, deploying across numerous servers, and maintaining the whole stack indefinitely. Someone was going to build a solution, John figured &mdash; why not him? And the rest is history.
-                </p>
-                <img class="imageright" src="images/techstars.png">
-                <p>
-                  In May of 2011, ReportGrid was invited to participate in the TechStars 2011 summer class, in Boulder, Colorado. John left his full-time position as Senior Director of Engineering at LivingSocial to pursue the opportunity. Pulling together a full-time team, ReportGrid's technology went from prototype to market-ready during the course of TechStars, and by the time Demo Day rolled around, ReportGrid had a pipeline of 50 companies waiting in line for access to the technology, as well as 15 companies building solutions on the platform.
-                </p>
-                <p>
-                  Since graduation from TechStars, ReportGrid has filled out its engineering team, attracting top talent from as far away as Wisconson and Portugal, raised $750k in seed funding, onboarded numerous customers, and launched its self-service platform to the public.
-                </p>
-                <p>
-                  ReportGrid is currently focused on some next-generation features that will change how developers solve problems in analytics and data visualization.
-                </p>
-                    <div class="aboutlogo"><a href="http://www.bizodo.com"><img src="images/bizodologo.png"></a></div>
-                    <div class="aboutlogo"><a href="http://www.snapengage.com"><img src="images/snapengagelogo.png"></a></div>
-                    <div class="aboutlogo"><a href="http://www.scriptpad.com"><img src="images/scriptpadlogo.png"></a></div>
-                    <div class="aboutlogo"><a href="http://www.receept.com"><img src="images/receeptlogo.png"></a></div>
+                <h1>The control panel to your slice of the ReportGrid platform</h1>
+
+                <p>Change your plan details, update your personal information, track your usage &mdash; it's all here.</p>
+
+                <h1>CURRENT USAGE</h1>
+
+                <h1>PLAN</h1>
+                    <div class="field-group">
+                        <select style="color: #000000" id="plans" name="plans">
+                            <option style="color: #000000" value="starter">Starter Plan</option>
+                            <option style="color: #000000" value="bronze">Bronze Plan</option>
+                            <option style="color: #000000" value="silver">Silver Plan</option>
+                            <option style="color: #000000" value="gold">Gold Plan</option>
+                        </select>
+                    </div>
+                <h1>YOUR INFORMATION</h1>
+                <div class="rgform">
+                    <form id="accountinformation" action="" method="">
+                       <div class="leftfields">
+                       <p style="margin-bottom:-7px;margin-top:8px;">Email:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=1 type="text" name="name" /></div>
+                       <p style="margin-bottom:-7px;margin-top:8px;">Password:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=2 type="password" name="password" /></div>
+                       <p style="margin-bottom:-7px;margin-top:8px;">First Name:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=4 type="text" name="firstname" /></div>
+                       <p style="margin-bottom:-7px;margin-top:8px;">Company:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=6 type="text" name="company" /></div>
+                       <p style="margin-bottom:-7px;margin-top:8px;">Address:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=8 type="text" name="address" /></div>
+                       <p style="margin-bottom:-7px;margin-top:8px;">State:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=10 type="text" name="state" /></div>
+                       <p style="margin-bottom:-7px;margin-top:8px;">Phone Number:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=12 type="text" name="phone number" /></div>
+                       </div>
+                       <div class="rightfields">
+                       <p style="margin-bottom:-7px;margin-top:8px;">Password Confirm:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=3 type="password" name="passwordconfirmation" /></div>
+                       <p style="margin-bottom:-7px;margin-top:8px;">Last Name:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=5 type="text" name="lastname" /></div>
+                       <p style="margin-bottom:-7px;margin-top:8px;">Title:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=7 type="text" name="title" /></div>
+                       <p style="margin-bottom:-7px;margin-top:8px;">City:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=9 type="text" name="city" /></div>
+                       <p style="margin-bottom:-7px;margin-top:8px;">ZipCode:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=11 type="text" name="zip code" /></div>
+                       <p style="margin-bottom:-7px;margin-top:8px;">Website:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=13 type="text" name="website" /></div>
+                       <input type="submit" id="update" value="">
+                       </div>
+                   </form>
+                </div>
             </div>
             <div id="rightpanel">
                 <div id="rightsidepanel">
                     <div id="rpaneltext">
-                        <p class="rightpaneltext">ReportGrid fact sheet:</p>
-                        <div id="rightlist">
-                            <ul id="rightlist">
-                            <li>Launched at Denver Startup Weekend 2010</li>
-                            <li>TechStars 2011 Boulder Graduate</li>
-                            <li>6 full-time engineers</li>
-                            <li>9 full-time employees</li>
-                            <li>Raised $750k seed round</li>
-                            </ul>
-                        </div>
+                        <p class="rightpaneltext">Want to upgrade your plan to something completely off the chart? <a href="contact-us.html">Contact us</a> for more information on custom plans.</p>
                     </div>
                 </div>
             </div>
+        </div>
         <div class="footer">
             <div class="table">
                 <ul>
@@ -183,19 +193,18 @@
                 <p class="phonelarge">(888) 673-9958</p>
             </div>
             <div id="termsprivacy">
-                <p class="micro"><a href="privacy.html">privacy</a> : <a href="termsofuse.html">terms of use</a><br>� 2010-2011 ReportGrid Inc. <p>
+                <p class="micro"><a href="privacy.html">privacy</a> : <a href="termsofuse.html">terms of use</a> <br>� 2010-2011 ReportGrid Inc. <p>
             </div>
             <div id=contactus>
-                <a href="contact-us.html" target="_blank"><img src="images/contactusicon.png"> </a>
+                <a href="contact-us.html" target="_blank"> <img src="images/contactusicon.png"> </a>
             </div>
             <div id=facebook>
-                <a href="http://www.facebook.com/ReportGrid?v=wall" target="_blank"><img src="images/facebookicon.png"> </a>
+                <a href="http://www.facebook.com/ReportGrid?v=wall" target="_blank"> <img src="images/facebookicon.png"> </a>
             </div>
             <div id=twitter>
-                <a href="http://twitter.com/#!/ReportGrid" target="_blank"><img src="images/twittericon.png"> </a>
+                <a href="http://twitter.com/#!/ReportGrid" target="_blank"> <img src="images/twittericon.png"> </a>
             </div>
         </div>
-      </div>
       </div>
     </body>
 </html>
