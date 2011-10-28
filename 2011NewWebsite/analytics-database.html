@@ -8,6 +8,12 @@
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
         <script type="text/javascript" src="js/jquery.sizes.min.js"></script>
         <script type="text/javascript" src="js/default.js"></script>
+    <script type="text/javascript" src="pricing_files/re_.js"></script>
+    <script type="text/javascript">
+    try {
+    reinvigorate.track("j780b-u1448cw0d9");
+    } catch(err) {}
+    </script>
     </head>
 
  <body>
@@ -68,16 +74,18 @@
             </div>
         </div>
         <div class="middle">
-                        <div id="loginoverlay">
+                    <div id="loginoverlay">
                         </div>
                         <div id="loginmenu">
                                 <div style="top:34px;left:48px">
                                     <p class="normal">e-mail</p>
-                                    <div class="logingroup"><input type="email" name="EMAIL" placeholder="  your e-mail"></div>
-                                    <p class="normal">password</p>
-                                    <div class="logingroup"><input type="password" name="PASSWORD" placeholder="  your password"></div>
+                                    <form action="accounts" method="put">
+                                        <div class="logingroup"><input style="color: #000000;" type="text" name="email" placeholder="  your e-mail" /></div>
+                                        <p class="normal">password</p>
+                                        <div class="logingroup"><input style="color: #000000;" type="text" name="PASSWORD" placeholder="  your password"/></div>
+                                        <input type="submit" id="loginpopupbutton" value="">
+                                    </form>
                                 </div>
-                                <br><input type="submit" id="loginpopupbutton" value="">
                         </div>
             <div id="leftpanel">
                 <div id="pagetitle">

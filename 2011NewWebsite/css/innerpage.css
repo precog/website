@@ -238,11 +238,11 @@ h4 {
 #loginpopupbutton {
 	background-image:url(../images/loginbutton.png);
 	background-color:transparent;
-	top:20px;
+	position: absolute;
+        top:70px;
 	height:18px;
 	width:44px;
-	float:right;
-	right:64px;
+	right: 110px;
 }
 
 .logingroup input
