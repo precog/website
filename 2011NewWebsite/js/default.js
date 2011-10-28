@@ -415,6 +415,16 @@ var API = {};
     return v === true || v === 1 || (v = (""+v).toLowerCase()) == "true" || v == "on" || v == "1";
   }
 
+  var console = Util.getConsole(API.Bool(API.Config.enableLog));
+
+  API.Log = {
+    log:    function(text) { console.log(text);   },
+    debug:  function(text) { console.debug(text); },
+    info:   function(text) { console.info(text);  },
+    warn:   function(text) { console.warn(text);  },
+    error:  function(text) { console.error(text); }
+  }
+
   API.Extend(API.Config,
     {
       useJsonp : "true",
@@ -422,12 +432,12 @@ var API = {};
     }
   );
 
-  API.Http = function() {
-    return API.Bool(API.Config.useJsonp) ? API.Http.Jsonp : API.Http.Ajax;
-  }
+  API.Http = {};
 
   API.Http.Ajax  = Network.createHttpInterface(Network.doAjaxRequest);
   API.Http.Jsonp = Network.createHttpInterface(Network.doJsonpRequest);
+
+  API.Extend(API.Http, API.Bool(API.Config.useJsonp) ? API.Http.Jsonp : API.Http.Ajax);
 })();
 
 $(function() {
@@ -586,7 +596,9 @@ $(function() {
     var cardNumber      = function() { return $('input[name="cardNumber"]'); }
     var cardCCV         = function() { return $('input[name="cardCCV"]'); }
 
-    $('#submit').click(function() {
+    $('#submit').click(function(e) {
+      e.preventDefault();
+
       var request = {
         "email":    email().val(),
         "password": password().val(),
