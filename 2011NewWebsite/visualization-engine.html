@@ -7,7 +7,7 @@
         <!--[if IE]>
         <link rel="stylesheet" type="text/css" href="css/ieinterpage.css">
         <![endif]-->
-<<<<<<< HEAD
+        <link rel="stylesheet" type="text/css" href="css/innerpage.css">
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
         <script type="text/javascript" src="js/jquery.sizes.min.js"></script>
         <script type="text/javascript" src="js/default.js"></script>
@@ -24,25 +24,6 @@
 
         <!-- barChart Start -->
         <script type="text/javascript">
-=======
-
-        <link rel="stylesheet" type="text/css" href="css/innerpage.css" />
-        <link rel="stylesheet" type="text/css" href="css/rg.css"/>   
-        <script type="text/javascript" src="http://include.reinvigorate.net/re_.js"></script>
-        <script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
-        <script type="text/javascript" src="js/default.js"></script>
-       	<script src="js/reportgrid-core.js?tokenId=66178806-8389-42CA-9E6B-86B4285F487A"></script>
-		<script src="js/reportgrid-viz.js"></script> 
-		<script type="text/javascript" src="js/jquery.tinycarousel.min.js"></script>
-	
-		<script type="text/javascript">
-		
-		try {
-		reinvigorate.track("j780b-u1448cw0d9");
-		} catch(err) {}
-	
-		
->>>>>>> Updated visulisation-engine.html, added vis specific css
 document.addEventListener("DOMContentLoaded", function(){
 
 /* barChart Start */
@@ -125,7 +106,6 @@ document.addEventListener("DOMContentLoaded", function(){
 			height: 130
 		}
 	});
-<<<<<<< HEAD
 
 	ReportGrid.barChart("#barChart2", {
 		axes : [{
@@ -149,12 +129,6 @@ document.addEventListener("DOMContentLoaded", function(){
 
 	var ageRanges = ["0-13", "14-15", "16-20", "21-35",  "91-100", "100+"];
 	var genders = ["male", "female", "undisclosed", "unknown"];
-=======
-	
-	
-	var ageRanges = ["0-10", "10-15", "16-20", "21-30","30-50","51-80","81-100"];
-	var genders = ["male", "female", "undisclosed"];
->>>>>>> Updated visulisation-engine.html, added vis specific css
 
 	function ageGender(d,i) {
 		return {
@@ -230,13 +204,7 @@ document.addEventListener("DOMContentLoaded", function(){
 	ReportGrid.geo("#geoChart1", {
 		axes : [{ type : "#location", variable : "independent" }, { type : "count" }],
 		data : [{ src :  {  data : datapoints } }],
-<<<<<<< HEAD
 		options : {
-
-=======
-		options : {	
-			height: 300,
->>>>>>> Updated visulisation-engine.html, added vis specific css
 			map : {
 				color : "i-lightblue,white",
 				template : "world",
@@ -529,7 +497,6 @@ document.addEventListener("DOMContentLoaded", function(){
 
 /* 	PieChart End */
 /* Pivot Table Start */
-<<<<<<< HEAD
 	ReportGrid.pivotTable("#pTChart", {
 		axes : [
 			{ type: ".browser" },
@@ -543,9 +510,6 @@ document.addEventListener("DOMContentLoaded", function(){
 		height : 100,
 		click : function(dp) { alert(ReportGrid.dump(dp)) } }
 	});
-=======
-
->>>>>>> Updated visulisation-engine.html, added vis specific css
 /* 	PivotTable End */
 /* Scatter Plot Start */
 	var start = "100 hours ago",
@@ -712,8 +676,6 @@ document.addEventListener("DOMContentLoaded", function(){
 			effect : "gradienth-0.85"
 		}
 	});
-
-<<<<<<< HEAD
 	var interests = ["sport", "tv", "internet", "art", "history", "diy"];
 	ReportGrid.streamGraph("#sGChart3", {
 		axes : [{
@@ -746,8 +708,6 @@ document.addEventListener("DOMContentLoaded", function(){
 			effect : "gradientv-0.85"
 		}
 	});
-=======
->>>>>>> Updated visulisation-engine.html, added vis specific css
 /* 	StreamGraph End */
 }, false)
 
@@ -755,10 +715,6 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
 </head>
-<<<<<<< HEAD
-=======
-
->>>>>>> Updated visulisation-engine.html, added vis specific css
  <body>
       <div id="wrapper">
         <div class="header">
@@ -846,7 +802,6 @@ document.addEventListener("DOMContentLoaded", function(){
             <div id="middlecontent">
                 <h1>ReportGrid's visualizations make it easy to see what the data is telling you</h1>
                 <p>Below you'll find a sampling of the visualizations supported by the ReportGrid visualization engine. All these visualizations can be rendered with a single line of code, they can be skinned to look however you like, and they can be completely integrated into your website or product.</p>
-<<<<<<< HEAD
 
 
                 <div id="vizgallerycontainer">
@@ -922,49 +877,6 @@ document.addEventListener("DOMContentLoaded", function(){
 
                 	<a class="rightarrow" href="#"></a>
                 </div>
-=======
-                
-            <div id="leftarrow"></div>
-                <div class="viz">
-                	<div id="vizGallery">
-						<div id="chart">
-                    		<li class="chart" id="barChart1"></li>
-                    		<li class="chart" id="barChart2"></li>
-                    		<li class="chart" id="barChart3"></li>
-                    	</div>
-                  		<div id="chart">	
-                    		<li class="chart" id="fChart1"></li>
-                   	 	</div>
-                    	<div id="ceoChart">	
-                    		<li class="chart" id="geoChart1"></li>
-                    		<li class="chart" id="geoChart2"></li>
-                    		<li class="chart" id="geoChart3"></li>
-                    	</div>
-                    	<div id="cChart">
- 		                   	<li class="chart" id="hGChart1"></li>
-                    		<li class="chart" id="hGChart2"></li>
-                    		<li class="chart" id="hGChart3"></li>
-                    	</div>
-                    	<div id="chart">
-                    		<li class="chart" id="lineChart1"></li>
-                    		<li class="chart" id="lineChart2"></li>
-                    	</div>
-                    	<div id="chart">
-                    		<li class="chart" id="pieChart1"></li>
-                    		<li class="chart" id="pieChart2"></li>
-                    	</div>
-                    	<div id="chart">
-                    		<li class="chart" id="sPChart1"></li>
-                   		</div>
-						<div  id="chart">
-                    		<li class="chart" id="sGChart1"></li>
-                    		<li class="chart" id="sGChart2"></li>
-                    		<li class="chart" id="sGChart3"></li>
-                 		</div>
-                 	</div>
-                 </div>
-                 <div id="rightarrow"></div>
->>>>>>> Updated visulisation-engine.html, added vis specific css
             </div>
             <div id="rightpanel">
                 <div id="rightsidepanel">

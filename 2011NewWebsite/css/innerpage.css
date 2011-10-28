@@ -717,12 +717,7 @@ h4 {
 }
 #vizgallerycontainer .rightarrow {
     background-image: url(../images/visengrightarrow.png);
-<<<<<<< HEAD
     position: absolute;
-=======
-    display: block;
-    float:right;
->>>>>>> Updated visulisation-engine.html, added vis specific css
     height:193px;
     width:30px;
     top:73px;
@@ -876,28 +871,3 @@ color: #545766;
     top: 86px;
     left: 984px;
 }
-
-<<<<<<< HEAD
-=======
-/*vizGallery */
-
-
-.viz{
-padding:5px 50px;
-float: left;
-height: 300px;
-width: 440px;
-overflow:hidden;
-
-
-}
-.viz #vizGallery .chart{
-float:left;
-}	
-
-.viz #vizGallery #chart{
-width: 480px;
-height: 300px;
-padding: auto;
-}
->>>>>>> Updated visulisation-engine.html, added vis specific css
