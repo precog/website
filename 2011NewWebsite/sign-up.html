@@ -106,21 +106,21 @@
                 <h1>Sign up now - be analyzing and visualizing data today</h1>
                 <p>To signup, simply select the option below and fill in your contact details. If you don't enter a credit card, we'll automatically apply the $100 developer credit to your account.<sup>1</sup></p>
                 <div class="rgform">
-                    <form id="signupForm" action="accounts" method="put">
+                    <form id="signupForm">
                        <input type="hidden" name="discountCode" value="developer">
                        <div><img src="images/signuppricing.png"</div>
                            <div id="planidstarter">
-                           <input style="margin-right:66px;" type="radio" name="planId" value="starter" checked>
-                           <input style="margin-left:66px;margin-right:66px;" type="radio" name="planId" value="bronze">
-                           <input style="margin-left:66px;margin-right:66px;" type="radio" name="planId" value="silver">
-                           <input style="margin-left:66px;" type="radio" name="planId" value="gold">
+                               <input style="margin-right:66px;" type="radio" name="planId" value="starter" checked>
+                               <input style="margin-left:66px;margin-right:66px;" type="radio" name="planId" value="bronze">
+                               <input style="margin-left:66px;margin-right:66px;" type="radio" name="planId" value="silver">
+                               <input style="margin-left:66px;" type="radio" name="planId" value="gold">
                            </div>
                        <div style="float:left;width:500px;">
                             <div class="floatleft">
                                 <ol>
-                                <li>
-                                    <p><sup>1</sup>If you don't enter a credit card, ReportGrid will refuse to store more data when your $250 credit is exhausted.</p>
-                                </li>
+                                    <li>
+                                        <p><sup>1</sup>If you don't enter a credit card, ReportGrid will refuse to store more data when your $250 credit is exhausted.</p>
+                                    </li>
                                 </ol>
                             </div>
                        <p class="pageheader">General Contact Information</p>
@@ -140,7 +140,7 @@
                        <p style="margin-bottom:-7px;margin-top:8px;">Last Name:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=5 type="text" name="lastName" /></div>
                        <p style="margin-bottom:-7px;margin-top:8px;">Title:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=7 type="text" name="title" /></div>
                        <p style="margin-bottom:-7px;margin-top:8px;">City:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=9 type="text" name="city" /></div>
-                       <p style="margin-bottom:-7px;margin-top:8px;">ZipCode:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=11 type="text" name="postalCode" /></div>
+                       <p style="margin-bottom:-7px;margin-top:8px;">Zip Code:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=11 type="text" name="postalCode" /></div>
                        <p style="margin-bottom:-7px;margin-top:8px;">Website:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=13 type="text" name="website" /></div>
                        </div>
                        <div style="float:left;width:500px;">
@@ -153,7 +153,7 @@
                        </div>
                        <div class="rightfields2">
                        <p style="margin-bottom:-7px;margin-top:8px;">Credit Card Number:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=15 type="text" name="cardNumber" /></div>
-                       <p style="margin-bottom:-7px;margin-top:8px;">CVV Code:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=17 type="text" name="cardCCV" /></div>
+                       <p style="margin-bottom:-7px;margin-top:8px;">CCV Code:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=17 type="text" name="cardCCV" /></div>
                        </div>
                         <input type="submit" id="submit" value=""/>
                     </form>
