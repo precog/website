@@ -696,14 +696,12 @@ ul#navlist li:hover ul#subnavlist {
   left: 958px;
 }
 #twitter {
-<<<<<<< HEAD
     position: absolute;
     top: 86px;
     left: 984px;
 }
-=======
+
   position: absolute;
   top: 86px;
   left: 984px;
 }
->>>>>>> 5e3b3dd013f39b8ae14fc9d48db0e826af718ccb
