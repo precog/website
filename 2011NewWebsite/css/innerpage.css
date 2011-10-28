@@ -227,7 +227,7 @@ h4 {
   cursor: pointer;
 }
 
-.logingroup input
+#loginform .logingroup input
 {
 	width:200px;
 	height:20px;
