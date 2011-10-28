@@ -474,7 +474,6 @@ $(function() {
 
       $('#loginoverlay').clearQueue().show().css({opacity: 0}).animate({opacity: 0.75})
 
-
       $('#loginmenu').clearQueue().show();
     })
 
@@ -575,7 +574,87 @@ $(function() {
   var setupAccountCreation = function() {
     var RootAPI = 'https://api.reportgrid.com/services/billing/v1/accounts/';
 
+    try {
+      $("#signupForm").validate({
+        rules: {
+          firstName: "required",
+          lastName: "required",
+          email: {
+            required: true,
+            email: true
+          },
+          password: {
+            required: true,
+            minlength: 5
+          },
+          confirmPassword: {
+            required: true,
+            minlength: 5,
+            equalTo: "#signupForm input[name='password']"
+          },
+          company: {
+            required: true,
+            minlength: 2
+          },
+          title: {
+            required: true,
+            minlength: 3
+          },
+          street: {
+            required: true,
+            minlength: 5
+          },
+          city: {
+            required: true,
+            minlength: 2
+          },
+          state: {
+            required: true,
+            minlength: 2
+          },
+          postalCode: {
+            required: true,
+            digits: true
+          },
+          phone: {
+            required: true,
+            phoneUS: true
+          },
+          website: {
+            required: true,
+            url: true
+          } //, agree: "required"
+        },
+        messages: {
+          firstName:    "Please enter your firstname",
+          lastName:     "Please enter your lastname",
+          email:        "Please enter a valid email address",
+          password: {
+            required:   "Please provide a password",
+            minlength:  "Your password must be at least 5 characters long"
+          },
+          confirmPassword: {
+            required:   "Please provide a password",
+            minlength:  "Your password must be at least 5 characters long",
+            equalTo:    "Please enter the same password"
+          },
+          company:      "Please enter your company",
+          title:        "Please enter your title at the company you work for",
+          street:       "Please enter your street",
+          state:        "Please enter your state or province",
+          city:         "Please enter your city",
+          postalCode:   "Please enter your postal code",
+          phone:        "Please enter a valid US phone number",
+          state:        "Please enter your state",
+          website:      "Please enter your website",
+          email:        "Please enter a valid email address",
+          agree:        "Please accept our policy"
+        }
+      });
+    } catch(err) {}
+
     var planId          = function() { return $('input[name="planId"]:checked'); }
+    var discountCode    = function() { return $('input[name="discountCode"]'); }
     var email           = function() { return $('input[name="email"]'); }
     var password        = function() { return $('input[name="password"]'); }
     var firstName       = function() { return $('input[name="firstName"]'); }
@@ -603,6 +682,8 @@ $(function() {
         "email":    email().val(),
         "password": password().val(),
         "planId":   planId().val(),
+        "planCreditOption": discountCode().val(),
+        "confirmPassword": confirmPassword().val(),
         "contact": {
           "firstName":  firstName().val(),
           "lastName":   lastName().val(),
