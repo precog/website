@@ -1,6 +1,6 @@
 #creditcardform br{display: none;}
 #creditcardform{font: 18px "Helvetica Neue",abel,Arial,sans-serif; color: #1A1B20;}
-#creditcardform div.sidetip p{font-size:13px;line-height:16px;padding-left:18px;background-repeat:no-repeat;background-position:center left;color:gray;display:none;}
+#creditcardform div.sidetip p{position:absolute;top:26px;width:254px;font-size:10pt;line-height:8px;margin-left:14px;background-color: #000;background-repeat:no-repeat;background-position:center left;color:FFCD36;display:none;}
 #creditcardform div.sidetip p.error{background-image:url(../img/error.png);color:#C33;}
 #creditcardform div.sidetip p.isaok{background-image:url(../img/accept.png);color:#390;}
 .former form .holding{position:relative;overflow:visible;}
@@ -13,17 +13,23 @@ form#creditcardform{width:100%;position:relative;left:10%}
 #creditcardform .textbox input,#creditcardform .textbox .holder{font:20px "Helvetica Neue",Helvetica,Arial,sans-serif;}
 #creditcardform .textbox .holding input.focused{border-color:rgba(82,168,236,.75);box-shadow:0 0 8px rgba(82,168,236,.5);-moz-box-shadow:0 0 8px rgba(82,168,236,.5);-webkit-box-shadow:0 0 8px rgba(82,168,236,.5);}
 #creditcardform .textbox .holding input.focusederror{border-color:rgba(200,0,0,.75);box-shadow:0 0 8px rgba(200,0,0,.5);-moz-box-shadow:0 0 8px rgba(200,0,0,.5);-webkit-box-shadow:0 0 8px rgba(200,0,0,.5);}
-#creditcardform div.sidetip{position:absolute;left:-14px;top:26px;width:350px;z-index:10;}
+#creditcardform div.sidetip{display:none;position:relative;left:-14px;margin-right:70px;z-index:10;}
 #creditcardform .card img{opacity:0.8;margin:9px 3px 0 3px;}
 #creditcardform .imgnotoffer{border: 1px solid #D70000;opacity:1 !important;}
-#creditcardform .card{margin:-32px 0 0 271px;width: 187px;position: absolute;z-index: 0;}	
-#creditcardform .cardshow {opacity:1 !important;}
+#creditcardform .card{margin:-32px 0 0 -200px;width: 187px;position: absolute;z-index: 0;}	
+#creditcardform .cardshow {opacity:1;}
 #creditcardform .submit{height: 40px;margin: 0;width: 454px;border: 1px solid #FFAA22;border-radius: 5px 5px 5px 5px;cursor: pointer;display: block;padding: 4px 0px;}
-#creditcardform .creditcard{width: 253px !important;z-index:5;}
+#creditcardform .creditcard{width: 75% !important;z-index:5;}
 .error {
     font-family: abel;
     font-size: 10pt;
     color: #FFCD36;
     position: relative;
     margin-right: 70px;
+}
+.holder {
+    color: #1A1B20;
+    font-size: 10pt;
+    display: none;
+    position: absolute;
 }

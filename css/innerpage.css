@@ -552,6 +552,19 @@ ul#navlist li:hover ul#subnavlist {
   width: 133px;
   float: left;
 }
+
+#signups {
+  background-image: url(../images/signupsm.png);
+  background-color: transparent;
+  top: 20px;
+  height: 28px;
+  width: 133px;
+  float: right;
+  margin-right: 76px;
+}
+
+#signups:hover {  opacity: 0.7 }
+
 #submit:hover {  opacity: 0.7 }
 /*signup*/
 /*underconstruction*/

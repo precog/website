@@ -10,8 +10,9 @@
         <script type="text/javascript" src="js/jquery.sizes.min.js"></script>
         <script type="text/javascript" src="js/default.js"></script>
         <script type="text/javascript" src="js/jquery.validate.min.js"></script>
+        <script type="text/javascript" src="js/jquery.payments.js"></script>
+        <script type="text/javascript" src="js/jquery.payments.min.js"></script>
         <script type="text/javascript" src="js/additional-methods.min.js"></script>
-
         <script type="text/javascript" src="http://include.reinvigorate.net/re_.js"></script>
         <script type="text/javascript">
             try {
@@ -153,9 +154,9 @@
                        </div>
                        <div id="creditcardform">
                             <div class="leftfields">
-                                <p style="margin-bottom:-7px;margin-top:8px;">Name of Card Holder:</p>
+                                <p style="margin-bottom:-7px;margin-top:8px;">Credit Card Number:</p>
                                 <div class="fieldgroup">
-                                    <input id="cardnameon" style="color: #000000;" tabIndex=14 type="text" name="cardHolder" />
+                                    <input id="creditcard" style="color: #000000;" tabIndex=15 type="text" name="cardNumber" />
                                 </div>
 
                                 <p style="margin-bottom:-7px;margin-top:8px;">Expiration Month/Year</p>
@@ -169,20 +170,18 @@
                             </div>
 
                             <div class="rightfields2">
-                                <p style="margin-bottom:-7px;margin-top:8px;">Credit Card Number:</p>
-
-                                <div class="fieldgroup">
-                                    <input id="creditcard" style="color: #000000;" tabIndex=15 type="text" name="cardNumber" />
-                                </div>
-
                                 <p style="margin-bottom:-7px;margin-top:8px;">CCV Code:</p>
-
                                 <div class="fieldgroup">
                                     <input id="cardsecurecode" style="color: #000000;" tabIndex=17 type="text" name="cardCCV" />
                                 </div>
+                                
+                                <p style="margin-bottom:-7px;margin-top:8px;">Name of Card Holder:</p>
+                                <div class="fieldgroup">
+                                    <input id="cardnameon" style="color: #000000;" tabIndex=14 type="text" name="cardHolder" />
+                                </div>    
                             </div>
                         </div>
-                        <input type="submit" id="submit" value=""/>
+                        <input type="submit" id="signups" value=""/>
                     </form>
                 </div>
             </div>
