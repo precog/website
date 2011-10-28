@@ -491,7 +491,7 @@ $(function() {
 
       alert('email = ' + email.val() + ', password = ' + password.val())
 
-      API.Http.post(RootAccountsAPI + "get", {
+      API.Http.put(RootAccountsAPI + "get", {
         email:      email.val(),
         password:   password.val()
       }, {
