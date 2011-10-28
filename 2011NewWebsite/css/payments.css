@@ -1,5 +1,5 @@
 #creditcardform br{display: none;}
-#creditcardform{font: 18px "Helvetica Neue",Helvetica,Arial,sans-serif; color:#BBBBBB;}
+#creditcardform{font: 18px "Helvetica Neue",abel,Arial,sans-serif; color: #1A1B20;}
 #creditcardform div.sidetip p{font-size:13px;line-height:16px;padding-left:18px;background-repeat:no-repeat;background-position:center left;color:gray;display:none;}
 #creditcardform div.sidetip p.error{background-image:url(../img/error.png);color:#C33;}
 #creditcardform div.sidetip p.isaok{background-image:url(../img/accept.png);color:#390;}
@@ -13,10 +13,11 @@ form#creditcardform{width:100%;position:relative;left:10%}
 #creditcardform .textbox input,#creditcardform .textbox .holder{font:20px "Helvetica Neue",Helvetica,Arial,sans-serif;}
 #creditcardform .textbox .holding input.focused{border-color:rgba(82,168,236,.75);box-shadow:0 0 8px rgba(82,168,236,.5);-moz-box-shadow:0 0 8px rgba(82,168,236,.5);-webkit-box-shadow:0 0 8px rgba(82,168,236,.5);}
 #creditcardform .textbox .holding input.focusederror{border-color:rgba(200,0,0,.75);box-shadow:0 0 8px rgba(200,0,0,.5);-moz-box-shadow:0 0 8px rgba(200,0,0,.5);-webkit-box-shadow:0 0 8px rgba(200,0,0,.5);}
-#creditcardform div.sidetip{position:absolute;left:458px;width:350px;}
-#creditcardform .card img{opacity:0.2;margin:-4px 3px 0 3px;}
+#creditcardform div.sidetip{position:absolute;left:-14px;top:26px;width:350px;z-index:10;}
+#creditcardform .card img{opacity:0.8;margin:9px 3px 0 3px;}
 #creditcardform .imgnotoffer{border: 1px solid #D70000;opacity:1 !important;}
 #creditcardform .card{margin:-32px 0 0 271px;width: 187px;position: absolute;z-index: 0;}	
 #creditcardform .cardshow {opacity:1 !important;}
 #creditcardform .submit{height: 40px;margin: 0;width: 454px;border: 1px solid #FFAA22;border-radius: 5px 5px 5px 5px;cursor: pointer;display: block;padding: 4px 0px;}
 #creditcardform .creditcard{width: 253px !important;z-index:5;}
+.holder {color: #1A1B20;}
