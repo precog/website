@@ -9,6 +9,9 @@
   font-family: arial;
   outline: none;
 }
+input, select {
+  color: black;
+}
 address {  color: #8A8FA8 }
 body {  background-color: #0E0F12 }
 @font-face {
@@ -219,6 +222,7 @@ h4 {
 .rgform {
   margin-bottom: 40px;
   float: left;
+  color: #000000;
 }
 .imageleft {
   position: relative;
@@ -466,6 +470,7 @@ ul#navlist li:hover ul#subnavlist {
   width: 600px;
   font-family: abel;
   font-size: 11px;
+  color: #000000;
 }
 .field-group input {
   border: 0 none;
