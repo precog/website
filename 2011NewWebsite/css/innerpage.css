@@ -96,6 +96,13 @@ p {
   padding-bottom:12px;
   }
 
+p.normal {
+  font-size:14px;
+  font-family:Abel;
+  color: #8A8FA8;
+  line-height: normal;
+}
+
 p.pageheader {
   font-size:18px;
   font-family:Abel;
@@ -242,7 +249,7 @@ h4 {
 {
 	width:200px;
 	height:20px;
-	margin-top:2px;
+        margin-top: -8px;
 	margin-bottom:2px;
 	color:#000000:;
 }

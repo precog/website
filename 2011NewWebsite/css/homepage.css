@@ -30,6 +30,12 @@ p, h1, h2, h3, h4, h5, h6, li {
    user-drag: text;
 }
 
+p.normal {
+  font-size:14px;
+  font-family:Abel;
+  color: #8A8FA8;
+}
+
 body
 {
 	background-color:#0E0F12;
@@ -227,7 +233,6 @@ p.homepagetext2
 {
 	width:200px;
 	height:20px;
-	margin-top:2px;
 	margin-bottom:2px;
 	color:#000000:;
 }
