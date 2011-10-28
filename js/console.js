@@ -1,19 +1,35 @@
 $(function() {
-  var tracking_sample = "ReportGrid.track(\n"+
-  " '/callcenter/217',\n"+
-  " {\n"+
-  "   customer_support : {\n"+
-  "     type: 'call',\n"+
-  "     duration: 147,\n"+
-  "     representative: 'Alice Brewer',\n"+
-  "     resolution: {\n"+
-  "       type: 'escalated',\n"+
-  "       to:   'Candice Deming'\n"+
-  "     },\n"+
-  "     '#timestamp': (new Date()).getTime(),\n"+
-  "   }\n"+
-  " }\n"+
-  ");";
+  var r = function(x) { return Math.floor(Math.random() * x); };
+
+  var rdist = function(values) {
+    var id = Math.floor((r(values.length) + r(values.length)) / 2)
+    return values[id];
+  };
+
+  var randomTime = function() { 
+    var date = new Date();
+    date.setHours(Math.floor(Math.random() * date.getHours()) + 1); 
+    date.setMinutes(Math.floor(Math.random() * 60) + 1); 
+    return Math.random() < 0.90 ? date.getTime() : true;
+  };
+
+  var tracking_sample = function() {
+    return  "ReportGrid.track(\n"+
+            " '/callcenter/217',\n"+
+            " {\n"+
+            "   customer_support : {\n"+
+            "     type: '"+ rdist(['call', 'email']) +"',\n"+
+            "     duration: "+ Math.floor(Math.random() * 180) +",\n"+
+            "     representative: '"+ rdist(['Alice Brewer', 'Charles Davis', 'Ed Frink', 'George Harrison']) +"',\n"+
+            "     resolution: {\n"+
+            "       type: '"+ rdist(['resolved', 'escalated', 'deferred'])+"',\n"+
+            "       to:   '"+ rdist(['Candice Deming', 'Emily Fair', 'Gene Hunter']) +"'\n"+
+            "     },\n"+
+            "     '#timestamp': (new Date()).getTime(),\n"+
+            "   }\n"+
+            " }\n"+
+            ");";
+  };
 
   var pie_sample = "ReportGrid.pieChart('#output', {\n"+
   "  path: '/callcenter/217',\n"+
@@ -55,7 +71,7 @@ $(function() {
     };
 
     $('#track_sample').click(function(ev) {
-      $('#inputconsole').val(tracking_sample);
+      $('#inputconsole').val(tracking_sample());
       draw();
     });
 
