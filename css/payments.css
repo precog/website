@@ -20,4 +20,10 @@ form#creditcardform{width:100%;position:relative;left:10%}
 #creditcardform .cardshow {opacity:1 !important;}
 #creditcardform .submit{height: 40px;margin: 0;width: 454px;border: 1px solid #FFAA22;border-radius: 5px 5px 5px 5px;cursor: pointer;display: block;padding: 4px 0px;}
 #creditcardform .creditcard{width: 253px !important;z-index:5;}
-.holder {color: #1A1B20;}
+.error {
+    font-family: abel;
+    font-size: 10pt;
+    color: #FFCD36;
+    position: relative;
+    margin-right: 70px;
+}
