@@ -715,23 +715,13 @@ h4 {
 /*underconstruction*/
 
 /*visualizationengine*/
-#vizgallery {
+#vizgallerycontainer {
     height:340px;
-    width:488px;
+    width:548px;
     float:left;
-    margin-left:25px;
-    margin-right:25px;
-    margin-bottom: 20px;
-    padding:.5em 1em;
-    background-color: #000000;
     overflow: hidden;
 }
-/*vizGallery */
-#vizgallery ul {
-  float: left;
-}
-#vizgallery .leftarrow {
-    position:relative;
+#vizgallerycontainer .leftarrow {
     background-image: url(../images/visengleftarrow.png);
     display: block;
     float:left;
@@ -740,12 +730,15 @@ h4 {
     margin-top:73px;
 }
 
-#vizgallery .leftarrow:hover{
+#vizgallerycontainer .leftarrow:hover{
     background-position: 0 -193px;
 }
-
-#vizgallery .rightarrow {
-    position:relative;
+#vizgallerycontainer li.galleryslide {
+  width: 488px;
+  height: 340px;
+  float: left;
+}
+#vizgallerycontainer .rightarrow {
     background-image: url(../images/visengrightarrow.png);
     display: block;
     float:left;
@@ -754,9 +747,14 @@ h4 {
     margin-top:73px;
 }
 
-#vizgallery .rightarrow:hover{
+#vizgallerycontainer .rightarrow:hover{
     background-position: 0 -193px;
 }
+#vizgallery {
+  float: left;
+  background-color: #000000;
+}
+
 /*visualizationengine*/
 
 /*team*/

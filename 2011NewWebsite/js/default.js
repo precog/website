@@ -96,7 +96,7 @@ $(function() {
 
     left.click(function() {
       var c = $(this).parent();
-      var ul = c.find('ul');
+      var ul = c.children('ul');
 
       var cOffset = c.offset();
 
@@ -119,7 +119,7 @@ $(function() {
 
     right.click(function() {
       var c = $(this).parent();
-      var ul = c.find('ul');
+      var ul = c.children('ul');
 
       var cOffset = c.offset();
 
