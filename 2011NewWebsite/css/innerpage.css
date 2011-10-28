@@ -403,9 +403,10 @@ ul#navlist li:hover ul#subnavlist {
   background-color: transparent;
   margin-left:5px;
   margin-top:5px;
-  height:200px;
+  height:217px;
   font-family:courier;
   width:595px;
+  resize: none;
 }
 /*console*/
 /*consolemenubegin*/
