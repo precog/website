@@ -594,23 +594,23 @@ $(function() {
           },
           company: {
             required: true,
-            minLength: 2
+            minlength: 2
           },
           title: {
             required: true,
-            minLength: 3
+            minlength: 3
           },
           street: {
             required: true,
-            minLength: 5
+            minlength: 5
           },
           city: {
             required: true,
-            minLength: 2
+            minlength: 2
           },
           state: {
             required: true,
-            minLength: 2
+            minlength: 2
           },
           postalCode: {
             required: true,
@@ -636,7 +636,7 @@ $(function() {
           confirmPassword: {
             required:   "Please provide a password",
             minlength:  "Your password must be at least 5 characters long",
-            equalTo:    "Please enter the same password as above"
+            equalTo:    "Please enter the same password"
           },
           company:      "Please enter your company",
           title:        "Please enter your title at the company you work for",
