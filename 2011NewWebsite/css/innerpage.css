@@ -715,7 +715,22 @@ h4 {
 /*underconstruction*/
 
 /*visualizationengine*/
-#leftarrow {
+#vizgallery {
+    height:340px;
+    width:488px;
+    float:left;
+    margin-left:25px;
+    margin-right:25px;
+    margin-bottom: 20px;
+    padding:.5em 1em;
+    background-color: #000000;
+    overflow: hidden;
+}
+/*vizGallery */
+#vizgallery ul {
+  float: left;
+}
+#vizgallery .leftarrow {
     position:relative;
     background-image: url(../images/visengleftarrow.png);
     display: block;
@@ -725,21 +740,11 @@ h4 {
     margin-top:73px;
 }
 
-#leftarrow:hover{
+#vizgallery .leftarrow:hover{
     background-position: 0 -193px;
 }
 
-#gallerybackground {
-    height:340px;
-    width:488px;
-    float:left;
-    margin-left:25px;
-    margin-right:25px;
-    margin-bottom: 20px;
-    background-color: #000000;
-}
-
-#rightarrow {
+#vizgallery .rightarrow {
     position:relative;
     background-image: url(../images/visengrightarrow.png);
     display: block;
@@ -749,7 +754,7 @@ h4 {
     margin-top:73px;
 }
 
-#rightarrow:hover{
+#vizgallery .rightarrow:hover{
     background-position: 0 -193px;
 }
 /*visualizationengine*/
@@ -883,13 +888,3 @@ color: #545766;
     left: 984px;
 }
 
-/*vizGallery */
-#gallerybackground .visGallery{
-	width:488px;
-	height:380px;
-	padding:.5em 1em;
-	overflow: hidden;
-}
-#gallerybackground .visGallery ul,{
-	float: left;
-}
