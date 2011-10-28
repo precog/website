@@ -462,9 +462,9 @@ $(function() {
       $(paneSelector).mouseover(animateContentPane(paneIndex)).click(animateContentPane(paneIndex));
     }
 
-    setupPane('#whatbutton', 0);
-    setupPane('#howbutton',  1);
-    setupPane('#whybutton',  2);
+    setupPane('#whatbutton', 1);
+    setupPane('#howbutton',  2);
+    setupPane('#whybutton',  3);
   }
 
   var setupLogin = function() {
