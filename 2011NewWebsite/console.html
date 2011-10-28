@@ -2,12 +2,16 @@
     <head>
         <title>Console</title>
         <link rel="stylesheet" type="text/css" href="css/innerpage.css">
+        <link rel="stylesheet" type="text/css" href="http://api.reportgrid.com/css/rg.css"/>
         <!--[if IE]>
         <link rel="stylesheet" type="text/css" href="css/ieinterpage.css">
         <![endif]-->
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
         <script type="text/javascript" src="js/jquery.sizes.min.js"></script>
         <script type="text/javascript" src="js/default.js"></script>
+        <script type="text/javascript" src="js/console.js"></script>
+        <script type="text/javascript" src="http://api.reportgrid.com/js/reportgrid-core.js?tokenId=A3BC1539-E8A9-4207-BB41-3036EC2C6E6D"></script>
+        <script type="text/javascript" src="http://api.reportgrid.com/js/reportgrid-viz.js"></script>
     <script type="text/javascript" src="http://include.reinvigorate.net/re_.js"></script>
     <script type="text/javascript">
     try {
@@ -113,13 +117,14 @@
                                 <ul id="conlist">
                                 <li id="active1"><a href="#" class="current" class="micro">code examples</a>
                                 <ul id="subconlist">
-                                <li class="subactive"><a href="#" class="subcurrent">heat map</a></li>
-                                <li><a href="#" id="bar_sample">bar chart</a></li>
-                                <li><a href="#" id="line_sample">line chart</a></li>
-                                <li><a href="#" id="pie_sample">pie chart</a></li>
+                                <li class="subactive"><a href="#" class="subcurrent code_sample" id="track_sample">event tracking</a></li>
+                                <li><a href="#" class="code_sample" id="pie_sample">pie chart</a></li>
+                                <!--<li><a href="#" id="bar_sample">bar chart</a></li>-->
+                                <li><a href="#" class="code_sample" id="line_sample">line chart</a></li>
+                                <li><a href="#" class="code_sample" id="heat_sample">heat map</a></li>
                                 </ul>
                             </div>
-                        <input id="inputconsole" type="text" name="console" placeholder=">" />
+                        <textarea id="inputconsole" name="console" placeholder=">"></textarea>
                     </div>
                     <p>#output</p>
                 <div id="output">

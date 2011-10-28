@@ -495,7 +495,8 @@ h4 {
 #inputconsole {
   background-color: transparent;
   margin-left:5px;
-  margin-top:200px;
+  margin-top:5px;
+  height:200px;
   font-family:courier;
   width:595px;
 }
