@@ -187,6 +187,16 @@ ul a {
   clear:left;
 }
 
+#loginpopupbutton {
+	background-image:url(../images/loginbutton.png);
+	background-color:transparent;
+	position: absolute;
+        top:90px;
+	height:18px;
+	width:44px;
+	right: 110px;
+}
+
 #wrapper {
   width: 1070px;
   margin: 0 auto;
