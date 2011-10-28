@@ -748,7 +748,7 @@ $(function() {
         success: function(response) {
           var content = $('#middlecontent');
 
-          content.clear().append('<h1>Welcome to the ReportGrid family &mdash; you\'re in good hands now</h1>');
+          content.empty().append('<h1>Welcome to the ReportGrid family &mdash; you\'re in good hands now</h1>');
           content.append('<p>Your token id is <strong>' + response.id.token + '</strong>. You will need this token to access any API.</p>');
           content.append('<p>A welcome email has been sent to ' + response.id.email + '. If you have any questions, please visit the <a href="support.html">support page</a> where you can learn about all the different ways we support our customers.</p>');
           content.append('<p>Have fun, and good luck!</p>');
