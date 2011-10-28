@@ -75,7 +75,7 @@ $(function() {
     });
 
     $('#inputconsole').keypress(function(ev) {
-      if ( ev.which == 13 ) {
+      if ( ev.which == 13 && !ev.shiftKey ) {
         ev.preventDefault();
         draw();
       }
