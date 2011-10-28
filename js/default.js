@@ -710,7 +710,7 @@ $(function() {
     var cardNumber      = function() { return $('#signupForm input[name="cardNumber"]'); }
     var cardCCV         = function() { return $('#signupForm input[name="cardCCV"]'); }
 
-    $('#submit').click(function(e) {
+    $('#signup').click(function(e) {
       e.preventDefault();
 
       var request = {
