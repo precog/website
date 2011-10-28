@@ -432,7 +432,7 @@ var API = {};
   API.Extend(API.Config,
     {
       useJsonp : "true",
-      enableLog : "false"
+      enableLog : "true"
     }
   );
 
@@ -741,6 +741,8 @@ $(function() {
           "cvv":        cardCCV().val()
         }
       }
+
+      if (cardHolder().val() == "") delete request.billing;
 
       console.log(request);
 
