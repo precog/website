@@ -82,7 +82,7 @@
                                     <form action="accounts" method="put">
                                         <div class="logingroup"><input style="color: #000000;" type="text" name="email" placeholder="  your e-mail" /></div>
                                         <p class="normal">password</p>
-                                        <div class="logingroup"><input style="color: #000000;" type="text" name="PASSWORD" placeholder="  your password"/></div>
+                                        <div class="logingroup"><input style="color: #000000;" type="text" name="password" placeholder="  your password"/></div>
                                         <input type="submit" id="loginpopupbutton" value="">
                                     </form>
                                 </div>
@@ -107,56 +107,56 @@
                 <p>To signup, simply select the option below and fill in your contact details. If you don't enter a credit card, we'll automatically apply the $250 developer credit to your account.<sup>1</sup></p>
                 <div class="rgform">
                     <form id="signupForm" action="accounts" method="put">
-                   <input type="hidden" name="signup[planCreditOption]" value="developer">
-                   <div><img src="images/signuppricing.png"</div>
-                       <div id="planidstarter">
-                       <input style="margin-right:66px;" type="radio" name="signup[planId]" value="starter" checked>
-                       <input style="margin-left:66px;margin-right:66px;" type="radio" name="signup[planId]" value="bronze">
-                       <input style="margin-left:66px;margin-right:66px;" type="radio" name="signup[planId]" value="silver">
-                       <input style="margin-left:66px;" type="radio" name="signup[planId]" value="gold">
+                       <input type="hidden" name="discountCode" value="developer">
+                       <div><img src="images/signuppricing.png"</div>
+                           <div id="planidstarter">
+                           <input style="margin-right:66px;" type="radio" name="planId" value="starter" checked>
+                           <input style="margin-left:66px;margin-right:66px;" type="radio" name="planId" value="bronze">
+                           <input style="margin-left:66px;margin-right:66px;" type="radio" name="planId" value="silver">
+                           <input style="margin-left:66px;" type="radio" name="planId" value="gold">
+                           </div>
+                       <div style="float:left;width:500px;">
+                            <div class="floatleft">
+                                <ol>
+                                <li>
+                                    <p><sup>1</sup>If you don't enter a credit card, ReportGrid will refuse to store more data when your $250 credit is exhausted.</p>
+                                </li>
+                                </ol>
+                            </div>
+                       <p class="pageheader">General Contact Information</p>
+                       <p>Please enter your contact details below.</p>
+                       <p>* Note that <strong>all</strong> fields are required.</p></div>
+                       <div class="leftfields">
+                       <p style="margin-bottom:-7px;margin-top:8px;">Email:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=1 type="text" name="email" /></div>
+                       <p style="margin-bottom:-7px;margin-top:8px;">Password:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=2 type="password" name="password" /></div>
+                       <p style="margin-bottom:-7px;margin-top:8px;">First Name:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=4 type="text" name="firstName" /></div>
+                       <p style="margin-bottom:-7px;margin-top:8px;">Company:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=6 type="text" name="company" /></div>
+                       <p style="margin-bottom:-7px;margin-top:8px;">Address:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=8 type="text" name="street" /></div>
+                       <p style="margin-bottom:-7px;margin-top:8px;">State:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=10 type="text" name="state" /></div>
+                       <p style="margin-bottom:-7px;margin-top:8px;">Phone Number:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=12 type="text" name="phone" /></div>
                        </div>
-                   <div style="float:left;width:500px;">
-                        <div class="floatleft">
-                            <ol>
-                            <li>
-                                <p><sup>1</sup>If you don't enter a credit card, ReportGrid will refuse to store more data when your $250 credit is exhausted.</p>
-                            </li>
-                            </ol>
-                        </div>
-                   <p class="pageheader">General Contact Information</p>
-                   <p>Please enter your contact details below.</p>
-                   <p>* Note that <strong>all</strong> fields are required.</p></div>
-                   <div class="leftfields">
-                   <p style="margin-bottom:-7px;margin-top:8px;">Email:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=1 type="text" name="signup[email]" /></div>
-                   <p style="margin-bottom:-7px;margin-top:8px;">Password:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=2 type="password" name="signup[password]" /></div>
-                   <p style="margin-bottom:-7px;margin-top:8px;">First Name:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=4 type="text" name="signup[contact][firstName]" /></div>
-                   <p style="margin-bottom:-7px;margin-top:8px;">Company:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=6 type="text" name="signup[contact][company]" /></div>
-                   <p style="margin-bottom:-7px;margin-top:8px;">Address:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=8 type="text" name="signup[contact][address][street]" /></div>
-                   <p style="margin-bottom:-7px;margin-top:8px;">State:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=10 type="text" name="signup[contact][address][state]" /></div>
-                   <p style="margin-bottom:-7px;margin-top:8px;">Phone Number:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=12 type="text" name="signup[[contact]phone]" /></div>
-                   </div>
-                   <div class="rightfields">
-                   <p style="margin-bottom:-7px;margin-top:8px;">Password Confirm:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=3 type="password" name="signup[confirmPassword]" /></div>
-                   <p style="margin-bottom:-7px;margin-top:8px;">Last Name:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=5 type="text" name="signup[contact][lastName]" /></div>
-                   <p style="margin-bottom:-7px;margin-top:8px;">Title:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=7 type="text" name="signup[contact][title]" /></div>
-                   <p style="margin-bottom:-7px;margin-top:8px;">City:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=9 type="text" name="signup[contact][address][city]" /></div>
-                   <p style="margin-bottom:-7px;margin-top:8px;">ZipCode:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=11 type="text" name=signup[contact][address][postalCode] /></div>
-                   <p style="margin-bottom:-7px;margin-top:8px;">Website:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=13 type="text" name="signup[contact][website]" /></div>
-                   </div>
-                   <div style="float:left;width:500px;">
-                   <h3>Billing</h3>
-                   <p>If you like, you can enter your payment details below. If you don't enter payment details, you will not be able to store any more information in ReportGrid when your credit expires.</p>
-                   </div>
-                   <div class="leftfields">
-                   <p style="margin-bottom:-7px;margin-top:8px;">Name of Card Holder:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=14 type="text" name=signup[billing][cardholder] /></div>
-                   <p style="margin-bottom:-7px;margin-top:8px;">Expiration Month/Year</p><div class="fieldgroup" style="width:40px;float:left;"><input style="color: #000000;" tabIndex=16 type="text" name=signup[billing][expMonth] /></div><div class="fieldgroup" style="width:40px;float:left;"><input style="color: #000000;" tabIndex=17 type="text" name=signup[billing][expYear] /></div>
-                   </div>
-                   <div class="rightfields2">
-                   <p style="margin-bottom:-7px;margin-top:8px;">Credit Card Number:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=15 type="text" name=signup[billing][number] /></div>
-                   <p style="margin-bottom:-7px;margin-top:8px;">CVV Code:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=17 type="text" name=signup[billing][cvv] /></div>
-                   </div>
-                    <input type="submit" id="submit" value=""/>
-                </form>
+                       <div class="rightfields">
+                       <p style="margin-bottom:-7px;margin-top:8px;">Password Confirm:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=3 type="password" name="confirmPassword" /></div>
+                       <p style="margin-bottom:-7px;margin-top:8px;">Last Name:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=5 type="text" name="lastName" /></div>
+                       <p style="margin-bottom:-7px;margin-top:8px;">Title:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=7 type="text" name="title" /></div>
+                       <p style="margin-bottom:-7px;margin-top:8px;">City:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=9 type="text" name="city" /></div>
+                       <p style="margin-bottom:-7px;margin-top:8px;">ZipCode:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=11 type="text" name="postalCode" /></div>
+                       <p style="margin-bottom:-7px;margin-top:8px;">Website:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=13 type="text" name="website" /></div>
+                       </div>
+                       <div style="float:left;width:500px;">
+                       <h3>Billing</h3>
+                       <p>If you like, you can enter your payment details below. If you don't enter payment details, you will not be able to store any more information in ReportGrid when your credit expires.</p>
+                       </div>
+                       <div class="leftfields">
+                       <p style="margin-bottom:-7px;margin-top:8px;">Name of Card Holder:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=14 type="text" name="cardHolder" /></div>
+                       <p style="margin-bottom:-7px;margin-top:8px;">Expiration Month/Year</p><div class="fieldgroup" style="width:40px;float:left;"><input style="color: #000000;" tabIndex=16 type="text" name="cardExpMonth" /></div><div class="fieldgroup" style="width:40px;float:left;"><input style="color: #000000;" tabIndex=17 type="text" name="cardExpYear" /></div>
+                       </div>
+                       <div class="rightfields2">
+                       <p style="margin-bottom:-7px;margin-top:8px;">Credit Card Number:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=15 type="text" name="cardNumber" /></div>
+                       <p style="margin-bottom:-7px;margin-top:8px;">CVV Code:</p><div class="fieldgroup"><input style="color: #000000;" tabIndex=17 type="text" name="cardCCV" /></div>
+                       </div>
+                        <input type="submit" id="submit" value=""/>
+                    </form>
                 </div>
             </div>
         </div>

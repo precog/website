@@ -21,34 +21,414 @@ return'{'+pairs.join(',')+'}';}};$.evalJSON=typeof JSON==='object'&&JSON.parse?J
 c=a.charCodeAt();return'\\u00'+Math.floor(c/16).toString(16)+(c%16).toString(16);})+'"';}
 return'"'+string+'"';};})(jQuery);
 
-var API = {
-  $ : {
-    ajax: function(path, method, content, headers, cb) {
-      var postfix;
+var API = {};
 
-      if (method == null) method = "GET";
-      if (content == null) content = {};
-      if (headers == null) headers = {};
-      if (cb == null) cb = function(results) {
-        if (typeof console != 'undefined') {
-          window['console'].log(results);
+(function() {
+  var Util = {
+    getConfiguration: function() {
+      var findThisScript = function() {
+        var scripts = document.getElementsByTagName('SCRIPT');
+
+        for (var i = 0; i < scripts.length; i++) {
+          var script = scripts[i];
+          var src = script.getAttribute('src');
+
+          if (src && src.indexOf('default.js') != -1) {
+            return script;
+          }
+        }
+
+        return undefined;
+      };
+
+      return Util.parseQueryParameters(findThisScript().getAttribute('src'));
+    },
+
+    parseQueryParameters: function(url) {
+      var index = url.indexOf('?');
+
+      if (index < 0) return {};
+
+      var query = url.substr(index + 1);
+
+      var keyValuePairs = query.split('&');
+
+      var parameters = {};
+
+      for (var i = 0; i < keyValuePairs.length; i++) {
+        var keyValuePair = keyValuePairs[i];
+
+        var split = keyValuePair.split('=');
+
+        var key = split[0];
+        var value = '';
+
+        if (split.length >= 2) {
+          value = decodeURIComponent(split[1]);
+        }
+
+        parameters[key] = value;
+      }
+
+      return parameters;
+    },
+
+    addQueryParameters: function(url, query) {
+      var suffix = url.indexOf('?') == -1 ? '?' : '&';
+
+      var queries = [];
+
+      for (var name in query) {
+        var value = (query[name] || '').toString();
+
+        queries.push(name + '=' + encodeURIComponent(value));
+      }
+
+      if (queries.length == 0) return url;
+      else return url + suffix + queries.join('&');
+    },
+
+    getConsole: function(enabled) {
+      var console = enabled ? window.console : undefined;
+      if (!console) {
+        console = {};
+
+        console.log   = function() {}
+        console.debug = function() {}
+        console.info  = function() {}
+        console.warn  = function() {}
+        console.error = function() {}
+      }
+
+      return console;
+    },
+
+    createCallbacks: function(success, failure, msg) {
+      var successFn = function(fn, msg) {
+        if (fn) return fn;
+        else return function(result) {
+          if (result !== undefined) {
+            API.Log.debug('Success: ' + msg + ': ' + JSON.stringify(result));
+          }
+          else {
+            API.Log.debug('Success: ' + msg);
+          }
         }
       }
 
-      if (path.indexOf('?') == -1) {
-        postfix = '?';
+      var failureFn = function(fn, msg) {
+        if (fn) return fn;
+        else return function(code, reason) {
+          API.Log.error('Failure: ' + msg + ': code = ' + code + ', reason = ' + reason);
+        }
+      }
+
+      return {
+        success: successFn(success, msg),
+        failure: failureFn(failure, msg)
+      };
+    },
+
+    removeLeadingSlash: function(path) {
+      if (path.length == 0) return path;
+      else if (path.substr(0, 1) == '/') return path.substr(1);
+      else return path;
+    },
+
+    removeTrailingSlash: function(path) {
+      if (path.length == 0) return path;
+      else if (path.substr(path.length - 1) == "/") return path.substr(0, path.length - 1);
+      else return path;
+    },
+
+    removeDuplicateSlashes: function(path) {
+      return path.replace(/[/]+/g, "/");
+    },
+
+    sanitizePath: function(path) {
+      if (path === undefined) throw Error("path cannot be undefined");
+      else return Util.removeDuplicateSlashes("/" + path + "/");
+    },
+
+    sanitizeProperty: function(property) {
+      if (property === undefined) throw Error("Property cannot be undefined");
+      else if (property.length == 0) return property;
+      else if (property.substr(0, 1) == ".") return property;
+      else return "." + property;
+    },
+
+    splitPathVar: function(pathVar) {
+      if (pathVar.length == 0) return ["/", ""];
+      if (pathVar.substr(0, 1) == ".") return ["/", pathVar]
+
+      var index = pathVar.indexOf('/.');
+
+      if (index <  0) return [Util.sanitizePath(pathVar), ""];
+
+      return [Util.sanitizePath(pathVar.substr(0, index + 1)), pathVar.substr(index + 1)];
+    },
+
+    filter: function(c, f) {
+      var result = c;
+
+      if (c instanceof Array) {
+        result = [];
+
+        for (var i = 0; i < c.length; i++) {
+          var e = c[i];
+
+          if (f(e)) result.push(e);
+        }
+      }
+      else if (c instanceof Object) {
+        result = {};
+
+        for (var key in c) {
+          var value = c[key];
+
+          if (f(key, value)) result[key] = value;
+        }
+      }
+
+      return result;
+    },
+
+    normalizeTime: function(o, name) {
+      if (name === undefined) {
+        if (o instanceof Date) {
+           return o.getUTCMilliseconds();
+        }
+
+        return o;
       }
       else {
-        postfix = '&';
+        var time = o[name];
+
+        if (time != null) {
+          if (time instanceof Date) {
+            o[name] = time.getUTCMilliseconds();
+          }
+          else if (time instanceof String) {
+            o[name] = 0 + time
+          }
+        }
+
+        return o[name];
+      }
+    },
+
+    rangeHeaderFromStartEnd: function(options) {
+      var headers = {};
+
+      if (options.start !== undefined || options.end !== undefined) {
+        var start = Util.normalizeTime(options.start) || ReportGrid.Time.Zero;
+        var end   = Util.normalizeTime(options.end)   || ReportGrid.Time.Inf;
+
+        headers.Range = 'time=' + start + '-' + end;
       }
 
-      $.getJSON(path + postfix + 'callback=?&content=' + escape($.toJSON(content)) + '&headers=' + escape($.toJSON(headers)) + '&method=' + method,
-        cb
-      );
+      return headers;
     }
   }
-}
 
+  var Network = {
+    doAjaxRequest: function(options) {
+      var method   = options.method || 'GET';
+      var query    = options.query || {};
+      var path     = Util.addQueryParameters(options.path, query);
+      var content  = options.content;
+      var headers  = options.headers || {};
+      var success  = options.success;
+      var failure  = options.failure || function() {};
+
+      API.Log.info('HTTP ' + method + ' ' + path + ': headers(' + JSON.stringify(headers) + '), content('+ JSON.stringify(content) + ')');
+
+      var createNewXmlHttpRequest = function() {
+        if (window.XMLHttpRequest) {
+          return new XMLHttpRequest();
+        }
+        else {
+          return new ActiveXObject("Microsoft.XMLHTTP");
+        }
+      }
+
+      var request = createNewXmlHttpRequest();
+
+      request.open(method, path);
+
+      request.onreadystatechange = function() {
+        if (request.readyState == 4) {
+          if (request.status == 200) {
+            if (request.responseText !== null && request.responseText.length > 0) {
+              success(JSON.parse(this.responseText));
+            }
+            else {
+              success(undefined);
+            }
+          }
+          else {
+            failure(request.status, request.statusText);
+          }
+        }
+      }
+
+      for (var name in headers) {
+        var value = headers[name];
+
+        request.setRequestHeader(name, value);
+      }
+
+      if (content !== undefined) {
+        request.setRequestHeader('Content-Type', 'application/json');
+
+        request.send(JSON.stringify(content));
+      }
+      else {
+        request.send(null);
+      }
+    },
+
+    doJsonpRequest: function(options) {
+      var method   = options.method || 'GET';
+      var query    = options.query || {};
+      var path     = Util.addQueryParameters(options.path, query);
+      var content  = options.content;
+      var headers  = options.headers || {};
+      var success  = options.success;
+      var failure  = options.failure || function() {};
+
+      API.Log.info('HTTP ' + method + ' ' + path + ': headers(' + JSON.stringify(headers) + '), content('+ JSON.stringify(content) + ')');
+
+      var random   = Math.floor(Math.random() * 214748363);
+      var funcName = 'ReportGridJsonpCallback' + random.toString();
+
+      window[funcName] = function(content, meta) {
+        if (meta.status.code === 200) {
+          success(content);
+        }
+        else {
+          failure(meta.status.code, meta.status.reason);
+        }
+
+        document.head.removeChild(document.getElementById(funcName));
+
+        delete window[funcName];
+      }
+
+      var extraQuery = {};
+
+      extraQuery.method   = method;
+
+      for (_ in headers) { extraQuery.headers = JSON.stringify(headers); break; }
+
+      extraQuery.callback = funcName;
+
+      if (content !== undefined) {
+        extraQuery.content = JSON.stringify(content);
+      }
+
+      var fullUrl = Util.addQueryParameters(path, extraQuery);
+
+      var script = document.createElement('SCRIPT');
+
+      script.setAttribute('type', 'text/javascript');
+      script.setAttribute('src',  fullUrl);
+      script.setAttribute('id',   funcName);
+
+      // Workaround for document.head being undefined.
+      if (! document.head)
+        document.head = document.getElementsByTagName('head')[0];
+
+      document.head.appendChild(script);
+    },
+
+    createHttpInterface: function(doRequest) {
+      return {
+        get: function(path, callbacks, query, headers) {
+          doRequest(
+            {
+              method:   'GET',
+              path:     path,
+              headers:  headers,
+              success:  callbacks.success,
+              failure:  callbacks.failure,
+              query:    query
+            }
+          );
+        },
+
+        put: function(path, content, callbacks, query, headers) {
+          doRequest(
+            {
+              method:   'PUT',
+              path:     path,
+              content:  content,
+              headers:  headers,
+              success:  callbacks.success,
+              failure:  callbacks.failure,
+              query:    query
+            }
+          );
+        },
+
+        post: function(path, content, callbacks, query, headers) {
+          doRequest(
+            {
+              method:   'POST',
+              path:     path,
+              content:  content,
+              headers:  headers,
+              success:  callbacks.success,
+              failure:  callbacks.failure,
+              query:    query
+            }
+          );
+        },
+
+        remove: function(path, callbacks, query, headers) {
+          doRequest(
+            {
+              method:   'DELETE',
+              path:     path,
+              headers:  headers,
+              success:  callbacks.success,
+              failure:  callbacks.failure,
+              query:    query
+            }
+          );
+        }
+      }
+    }
+  }
+
+  API.Config = Util.getConfiguration();
+
+  API.Extend = function(object, extensions) {
+    for (var name in extensions) {
+      if (object[name] === undefined) {
+        object[name] = extensions[name];
+      }
+    }
+  }
+
+  API.Bool = function(v) {
+    return v === true || v === 1 || (v = (""+v).toLowerCase()) == "true" || v == "on" || v == "1";
+  }
+
+  API.Extend(API.Config,
+    {
+      useJsonp : "true",
+      enableLog : "false"
+    }
+  );
+
+  API.Http = function() {
+    return API.Bool(API.Config.useJsonp) ? API.Http.Jsonp : API.Http.Ajax;
+  }
+
+  API.Http.Ajax  = Network.createHttpInterface(Network.doAjaxRequest);
+  API.Http.Jsonp = Network.createHttpInterface(Network.doJsonpRequest);
+})();
 
 $(function() {
   var setupHome = function() {
@@ -175,8 +555,6 @@ $(function() {
       for (var i = 0; i < tweets.length; i++) {
         var tweet = tweets[i];
 
-        console.log(tweet);
-
         var url = 'http://twitter.com/#!/' + tweet.from_user + '/status/' + tweet.id_str;
 
         $('#news ul').append('<li><a href="' + url + '">' + tweet.text + '</a></li>');
@@ -184,10 +562,33 @@ $(function() {
     });
   }
 
+  var setupAccountCreation = function() {
+    var RootAPI = 'https://api.reportgrid.com/services/billing/v1/accounts/';
+
+    $('#submit').click(function() {
+      var checkedPlan = $('#planidstarter input:checked');
+
+      alert(checkedPlan.attr('value'));
+
+      return false;
+    });
+
+
+    /*API.Http.post(path, content, {
+      success: function(response) {
+
+      },
+
+      failure: function(code, text) {
+
+      }
+    });*/
+  }
+
   setupHome();
   setupLogin();
   setupArrows();
   setupQuoteSelectors();
   setupNewsFeed();
-  setupVizGallery();
+  setupAccountCreation();
 });
