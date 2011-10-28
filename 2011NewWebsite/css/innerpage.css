@@ -228,6 +228,51 @@ h4 {
   right:58px;
 }
 
+#loginpopupbutton {
+	background-image:url(../images/loginbutton.png);
+	background-color:transparent;
+	top:20px;
+	height:18px;
+	width:44px;
+	float:right;
+	right:64px;
+}
+
+.logingroup input
+{
+	width:200px;
+	height:20px;
+	margin-top:2px;
+	margin-bottom:2px;
+	color:#000000:;
+}
+
+#loginoverlay
+{
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	position:fixed;
+	background-color:#000;
+	z-index:95;
+	display:none;
+}
+
+#loginmenu
+{
+	position:fixed;
+	background-image:url(../images/loginpanel.png);
+	z-index:100;
+	height:187px;
+	width:307px;
+	left:50%;
+	top:50%;
+	margin-left:-153px;
+	margin-top:-93px;
+	display:none;
+}
+
 .rgform {
   margin-bottom: 40px;float:left;
 }
