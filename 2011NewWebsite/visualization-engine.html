@@ -557,7 +557,7 @@ document.addEventListener("DOMContentLoaded", function(){
 			type : "count"
 		}],
 		data : [
-			{ src : { data : data1 } }, 
+			{ src : { data : data1 } },
 			{ src : { data : data2 } },
 			{ src : { data : data3 } }
 		],
@@ -593,15 +593,15 @@ document.addEventListener("DOMContentLoaded", function(){
 		options : {
 			height : 120,
 			label : {
-				datapointover : function(dp) { 
-					return ReportGrid.format(dp["count"]); 
+				datapointover : function(dp) {
+					return ReportGrid.format(dp["count"]);
 				},
 				axis : function(name) { return ReportGrid.humanize(name); }
 			},
 			effect : "gradienth-0.85"
 		}
 	});
-	
+
 	var interests = ["sport", "tv", "internet", "art", "history", "diy"];
 	ReportGrid.streamGraph("#sGChart3", {
 		axes : [{
@@ -702,12 +702,12 @@ document.addEventListener("DOMContentLoaded", function(){
                         </div>
                         <div id="loginmenu">
                                 <div style="top:34px;left:48px">
-                                    <p class="normal">e-mail</p>
-                                    <form action="accounts" method="put">
+                                    <form id="loginform">
+                                        <p class="normal">e-mail</p>
                                         <div class="logingroup"><input style="color: #000000;" type="text" name="email" placeholder="  your e-mail" /></div>
                                         <p class="normal">password</p>
-                                        <div class="logingroup"><input style="color: #000000;" type="text" name="PASSWORD" placeholder="  your password"/></div>
-                                        <input type="submit" id="loginpopupbutton" value="">
+                                        <div class="logingroup"><input style="color: #000000;" type="password" name="password" placeholder="  your password"/></div>
+                                        <input id="loginpopupbutton" type="submit" value="">
                                     </form>
                                 </div>
                         </div>
