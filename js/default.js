@@ -744,7 +744,7 @@ $(function() {
 
       console.log(request);
 
-      API.Http.put(RootAccountsAPI, request, {
+      API.Http.post(RootAccountsAPI, request, {
         success: function(response) {
           var content = $('#middlecontent');
 
