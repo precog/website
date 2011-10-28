@@ -474,7 +474,6 @@ $(function() {
 
       $('#loginoverlay').clearQueue().show().css({opacity: 0}).animate({opacity: 0.75})
 
-
       $('#loginmenu').clearQueue().show();
     })
 
