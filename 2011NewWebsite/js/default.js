@@ -477,6 +477,13 @@ $(function() {
       $('#loginmenu').clearQueue().show();
     })
 
+    $('#loginpopupbutton').click(function(e) {
+      e.preventDefault();
+
+
+
+      return false;
+    });
   }
 
   var setupArrows = function() {
