@@ -565,24 +565,74 @@ $(function() {
   var setupAccountCreation = function() {
     var RootAPI = 'https://api.reportgrid.com/services/billing/v1/accounts/';
 
-    $('#submit').click(function() {
-      var checkedPlan = $('#planidstarter input:checked');
+    var planId          = function() { return $('input[name="planId"]:checked'); }
+    var email           = function() { return $('input[name="email"]'); }
+    var password        = function() { return $('input[name="password"]'); }
+    var firstName       = function() { return $('input[name="firstName"]'); }
+    var company         = function() { return $('input[name="company"]'); }
+    var street          = function() { return $('input[name="street"]'); }
+    var state           = function() { return $('input[name="state"]'); }
+    var phone           = function() { return $('input[name="phone"]'); }
+    var password        = function() { return $('input[name="password"]'); }
+    var confirmPassword = function() { return $('input[name="confirmPassword"]'); }
+    var lastName        = function() { return $('input[name="lastName"]'); }
+    var title           = function() { return $('input[name="title"]'); }
+    var city            = function() { return $('input[name="city"]'); }
+    var postalCode      = function() { return $('input[name="postalCode"]'); }
+    var website         = function() { return $('input[name="website"]'); }
+    var cardHolder      = function() { return $('input[name="cardHolder"]'); }
+    var cardExpMonth    = function() { return $('input[name="cardExpMonth"]'); }
+    var cardExpYear     = function() { return $('input[name="cardExpYear"]'); }
+    var cardNumber      = function() { return $('input[name="cardNumber"]'); }
+    var cardCCV         = function() { return $('input[name="cardCCV"]'); }
 
-      alert(checkedPlan.attr('value'));
+    $('#submit').click(function() {
+      var request = {
+        "email":    email().val(),
+        "password": password().val(),
+        "planId":   planId().val(),
+        "contact": {
+          "firstName":  firstName().val(),
+          "lastName":   lastName().val(),
+          "company":    company().val(),
+          "title":      title().val(),
+          "phone":      phone().val(),
+          "website":    website().val(),
+          "address":{
+            "street":   street().val(),
+            "city":     city().val(),
+            "state":    state().val(),
+            "postalCode": postalCode().val()
+          }
+        },
+        "billing": {
+          "cardholder": cardHolder().val(),
+          "number":     cardNumber().val(),
+          "expMonth":   cardExpMonth().val(),
+          "expYear":    cardExpYear().val(),
+          "cvv":        cardCCV().val()
+        }
+      }
+
+      console.log(request);
+
+      API.Http.post(RootAPI, request, {
+        success: function(response) {
+          var content = $('#middlecontent');
+
+          content.clear().append('<h1>Welcome to the ReportGrid family &mdash; you\'re in good hands now</h1>');
+          content.append('<p>Your token id is <strong>' + response.id.token + '</strong>. You will need this token to access any API.</p>');
+          content.append('<p>A welcome email has been sent to ' + response.id.email + '. If you have any questions, please visit the <a href="support.html">support page</a> where you can learn about all the different ways we support our customers.</p>');
+          content.append('<p>Have fun, and good luck!</p>');
+        },
+
+        failure: function(code, text) {
+          alert(text);
+        }
+      });
 
       return false;
     });
-
-
-    /*API.Http.post(path, content, {
-      success: function(response) {
-
-      },
-
-      failure: function(code, text) {
-
-      }
-    });*/
   }
 
   setupHome();
