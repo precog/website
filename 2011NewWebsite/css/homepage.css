@@ -234,7 +234,7 @@ p.homepagetext2
 	width:200px;
 	height:20px;
 	margin-bottom:2px;
-	color:#000000:;
+	color:#000000;
 }
 
 #submit
@@ -251,6 +251,25 @@ p.homepagetext2
 #submit:hover
 {
 	opacity:0.7px;
+}
+
+#loginpopupbutton {
+	background-image:url(../images/loginbutton.png);
+	background-color:transparent;
+	position: absolute;
+        top:70px;
+	height:18px;
+	width:44px;
+	right: 110px;
+}
+
+.logingroup input
+{
+	width:200px;
+	height:20px;
+        margin-top: -8px;
+	margin-bottom:2px;
+	color:#000000:;
 }
 
 #navcontainer
