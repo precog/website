@@ -718,41 +718,46 @@ h4 {
 #vizgallerycontainer {
     height:340px;
     width:548px;
-    float:left;
+    position: relative;
     overflow: hidden;
 }
 #vizgallerycontainer .leftarrow {
     background-image: url(../images/visengleftarrow.png);
-    display: block;
-    float:left;
+    position: absolute;
     height:193px;
     width:30px;
-    margin-top:73px;
+    top:73px;
+    left:0px;
+    z-index: 100;
 }
 
 #vizgallerycontainer .leftarrow:hover{
     background-position: 0 -193px;
 }
-#vizgallerycontainer li.galleryslide {
-  width: 488px;
-  height: 340px;
-  float: left;
-}
 #vizgallerycontainer .rightarrow {
     background-image: url(../images/visengrightarrow.png);
-    display: block;
-    float:left;
+    position: absolute;
     height:193px;
     width:30px;
-    margin-top:73px;
+    top:73px;
+    right:0px;
+    z-index: 100;
 }
 
 #vizgallerycontainer .rightarrow:hover{
     background-position: 0 -193px;
 }
 #vizgallery {
+  height: 340px;
   float: left;
-  background-color: #000000;
+}
+#vizgallery li.galleryslide {
+  display: block;
+  width: 488px;
+  height: 340px;
+  padding-left:30px;
+  padding-right:30px;
+  float: left;
 }
 
 /*visualizationengine*/
