@@ -717,21 +717,11 @@ h4 {
 /*visualizationengine*/
 #vizgallery {
     height:340px;
-    width:488px;
+    width:548px;
     float:left;
-    margin-left:25px;
-    margin-right:25px;
-    margin-bottom: 20px;
-    padding:.5em 1em;
-    background-color: #000000;
     overflow: hidden;
 }
-/*vizGallery */
-#vizgallery ul {
-  float: left;
-}
 #vizgallery .leftarrow {
-    position:relative;
     background-image: url(../images/visengleftarrow.png);
     display: block;
     float:left;
@@ -743,9 +733,11 @@ h4 {
 #vizgallery .leftarrow:hover{
     background-position: 0 -193px;
 }
-
+#vizgallery .galleryslide {
+  width: 488px;
+  height: 340px;
+}
 #vizgallery .rightarrow {
-    position:relative;
     background-image: url(../images/visengrightarrow.png);
     display: block;
     float:left;
@@ -757,6 +749,14 @@ h4 {
 #vizgallery .rightarrow:hover{
     background-position: 0 -193px;
 }
+#vizgallery-charts {
+  float: left;
+  background-color: #000000;
+}
+#vizgallery-charts ul {
+  float: left;
+}
+
 /*visualizationengine*/
 
 /*team*/

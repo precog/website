@@ -712,8 +712,6 @@ document.addEventListener("DOMContentLoaded", function(){
 </script>
 
 </head>
->>>>>>> Updated Visualization-library.html and css
-
  <body>
       <div id="wrapper">
         <div class="header">
@@ -802,8 +800,10 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
                 <div id="vizgallery">
-                	<ul>
-                		<li>
+                	<a class="leftarrow" href="#" ></a>
+
+                	<ul id="vizgallery-charts">
+                		<li class="galleryslide">
 											<ul id="barChart">
                     		<li><div class="chart" id="barChart1"></div></li>
                     		<li><div class="chart" id="barChart2"></div></li>
@@ -811,7 +811,7 @@ document.addEventListener("DOMContentLoaded", function(){
                     	</ul>
                     </li>
 
-                    <li>
+                    <li class="galleryslide">
                   		<ul id="funnelChart" style="padding:40px 44px">
                     		<li><div class="chart" id="fChart1"></div></li>
                     		<li><div class="chart" id="fChart2"></div></li>
@@ -819,13 +819,13 @@ document.addEventListener("DOMContentLoaded", function(){
                     	</ul>
                     </li>
 
-                    <li>
+                    <li class="galleryslide">
                     	<ul id="geoChart">
                     		<li><div class="chart" id="geoChart1"></div></li>
                     	</ul>
                     </li>
 
-                    <li>
+                    <li class="galleryslide">
                     	<ul id="hGChart" style="padding:40px 44px">
                     		<li><div class="chart" id="hGChart1"></div></li>
                     		<li><div class="chart" id="hGChart2"></div></li>
@@ -833,35 +833,35 @@ document.addEventListener("DOMContentLoaded", function(){
                     	</ul>
                     </li>
 
-                    <li>
+                    <li class="galleryslide">
 											<ul id="lBChart" style="padding:40px 44px">
                     		<li><div class="chart" id="lBChart1"></div></li>
                     		<li><div class="chart" id="lBChart2"></div></li>
                     	</ul>
                     </li>
 
-                    <li>
+                    <li class="galleryslide">
                     	<ul id="lineChart" style="padding:40px 44px">
                     		<li><div class="chart" id="lineChart1"></div></li>
                     		<li><div class="chart" id="lineChart2"></div></li>
                     	</ul>
                     </li>
 
-                    <li>
+                    <li class="galleryslide">
                     	<ul id="pieChart" style="padding:40px 44px">
                     		<li><div class="chart" id="pieChart1"></div></li>
                     		<li><div class="chart" id="pieChart2"></div></li>
                     	</ul>
                     </li>
 
-                    <li>
+                    <li class="galleryslide">
                     	<ul id="scatterPlot" style="padding:40px 44px">
                     		<li><div class="chart" id="sPChart1"></div></li>
                     		<li><div class="chart" id="sPChart2"></div></li>
                     	</ul>
                     </li>
 
-                    <li>
+                    <li class="galleryslide">
 											<ul id="sGChart">
                     		<li><div class="chart" id="sGChart1"></div></li>
                     		<li><div class="chart" id="sGChart2"></div></li>
@@ -869,9 +869,9 @@ document.addEventListener("DOMContentLoaded", function(){
                     	</ul>
                     </li>
                   </ul>
+
+                	<a class="rightarrow" href="#"></a>
                 </div>
-                <a class="leftarrow" href="#" ></a>
-                <a class="rightarrow" href="#"></a>
             </div>
             <div id="rightpanel">
                 <div id="rightsidepanel">
