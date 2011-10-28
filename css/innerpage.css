@@ -335,6 +335,21 @@ ul#navlist li:hover ul#subnavlist {
   margin-right: 41px;
   float: left;
 }
+
+#leftpanellegal {
+  width: 510px;
+  float: left;
+  padding: 10px;
+  padding-top: 0px;
+}
+
+#rightpanellegal {
+  width: 510px;
+  float: left;
+  padding: 10px;
+  padding-top: 0px;
+}
+
 #pagetitle {
   top: 28px;
   position: absolute;
