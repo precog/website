@@ -189,4 +189,5 @@ $(function() {
   setupArrows();
   setupQuoteSelectors();
   setupNewsFeed();
+  setupVizGallery();
 });
