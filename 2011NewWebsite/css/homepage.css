@@ -238,10 +238,11 @@ p.homepagetext2
 	background-image:url(../images/loginbutton.png);
 	background-color:transparent;
 	position: absolute;
-        top:90px;
+    top:90px;
 	height:18px;
 	width:44px;
 	right: 110px;
+    cursor: pointer;
 }
 
 .logingroup input
