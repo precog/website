@@ -9,6 +9,9 @@
     margin: 0;
     padding: 0;
 }
+address {
+    color: #8A8FA8;
+}
 p.normal {
     font-size: 14px;
     font-family: Abel;
@@ -437,12 +440,12 @@ ul#navlist li:hover ul#subnavlist {
     top: 86px;
     left: 984px;
 }
-A:link,
-A:visited {
+a:link,
+a:visited {
     color: #545766;
     text-decoration: none;
 }
-A:HOVER { color: #FFCD36 }
+a:hover { color: #FFCD36 }
 #whatbutton:hover,
 #howbutton:hover,
 #whybutton:hover { background-position: 0 -85px }
