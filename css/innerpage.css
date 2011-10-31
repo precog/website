@@ -396,6 +396,26 @@ ul#navlist li:hover ul#subnavlist {
   float: left;
   height: 400px;
 }
+
+.center1panel {
+  float: left;
+  margin-right:22px;
+  width:185px;
+}
+
+.center2panel {
+  float: left;
+  margin-right:22px;
+  width:185px;
+}
+
+.center3panel {
+  float: left;
+  width:185px;
+}
+
+
+
 /*about*/
 .aboutlogo {
   float: left;
@@ -428,6 +448,17 @@ ul#navlist li:hover ul#subnavlist {
   padding-left: 160px;
 }
 /*solutions*/
+
+/*support*/
+.supportbuttons {
+  margin:10px;
+  float:left;
+  left:20px;
+  height:46px;
+  width:258;
+}
+/*support*/
+
 /*console*/
 #console {
   height: 240px;
@@ -543,6 +574,15 @@ ul#navlist li:hover ul#subnavlist {
   top: -24px;
   left: 70px;
 }
+.signupfields {
+  margin-bottom:-7px;
+  margin-top:8px;
+}
+.signupfieldspecial {
+  color: #000000;
+  width:40px;
+  float:left;
+}
 .leftfields {
   position: relative;
   width: 300px;
@@ -562,7 +602,7 @@ ul#navlist li:hover ul#subnavlist {
   float: left;
 }
 .fieldgroup { }
- .fieldgroup input {
+.fieldgroup input {
    width: 75%;
    height: 20px;
    color: #000000:;
