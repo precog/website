@@ -99,6 +99,13 @@ p.micro {
   line-height: normal;
   padding-bottom: 0px;
 }
+p.news {
+  font-size: 13px;
+  font-family: Abel;
+  color: #fff;
+  line-height: normal;
+  padding-bottom: 12px;
+}
 h1 {
   font-size: 16px;
   font-family: Abel;
@@ -119,6 +126,7 @@ h2 {
   padding-bottom: 20px;
   padding-top: 20px;
 }
+
 h2.analyticsdb {
   font-size: 11px;
   font-family: Rexlia;
@@ -145,6 +153,11 @@ h4 {
   color: #8A8FA8;
   line-height: normal;
 }
+
+.blacktext {
+  color: #000000;
+}
+
 #wrapper {
   margin: 0 auto;
   width: 1070px;
@@ -219,6 +232,12 @@ h4 {
   margin-top: -93px;
   display: none;
 }
+
+#logininner {
+  top:34px;
+  left:48px;
+}
+
 .rgform {
   margin-bottom: 40px;
   float: left;
