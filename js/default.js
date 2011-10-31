@@ -489,8 +489,6 @@ $(function() {
       var email    = $('#loginform input[name="email"]');
       var password = $('#loginform input[name="password"]');
 
-      alert('email = ' + email.val() + ', password = ' + password.val())
-
       API.Http.post(RootAccountsAPI + "get", {
         email:      email.val(),
         password:   password.val()
