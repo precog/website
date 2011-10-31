@@ -12,12 +12,24 @@
         <script type="text/javascript" src="js/jquery.validate.min.js"></script>
         <script type="text/javascript" src="js/jquery.payments.js"></script>
         <script type="text/javascript" src="js/additional-methods.min.js"></script>
-        <script type="text/javascript" src="http://include.reinvigorate.net/re_.js"></script>
+        <!-- Start of Woopra Code -->
         <script type="text/javascript">
-            try {
-            reinvigorate.track("j780b-u1448cw0d9");
-            } catch(err) {}
+        function woopraReady(tracker) {
+           tracker.setDomain('reportgrid.com');
+           tracker.setIdleTimeout(300000);
+           tracker.track();
+           return false;
+        }
+        (function() {
+           var wsc = document.createElement('script');
+           wsc.src = document.location.protocol+'//static.woopra.com/js/woopra.js';
+           wsc.type = 'text/javascript';
+           wsc.async = true;
+           var ssc = document.getElementsByTagName('script')[0];
+           ssc.parentNode.insertBefore(wsc, ssc);
+        })();
         </script>
+        <!-- End of Woopra Code -->
     </head>
 
  <body>
