@@ -407,6 +407,16 @@ var API = {};
 
   API.Config = Util.getConfiguration();
 
+  var onceMap = {};
+
+  API.alertSafe = function(msg) {
+    if (onceMap[msg] === undefined) {
+      onceMap[msg] = true;
+
+      alert(msg);
+    }
+  }
+
   API.Extend = function(object, extensions) {
     for (var name in extensions) {
       if (object[name] === undefined) {
@@ -514,6 +524,8 @@ $(function() {
     });
   }
 
+
+
   var setupArrows = function() {
     var left  = $('.leftarrow');
     var right = $('.rightarrow');
@@ -521,6 +533,11 @@ $(function() {
     left.click(function() {
       var c = $(this).parent();
       var ul = c.children('ul');
+
+      var last = ul.children().last();
+      ul.prepend(last);
+
+      ul.css('margin-left', ul.margin().left - last.outerWidth());
 
       var cOffset = c.offset();
 
@@ -532,7 +549,7 @@ $(function() {
         return delta < 0;
       }).last();
 
-      if (ul.margin().left < 0) {
+      if (li.size() > 0) {
         ul.animate({
           marginLeft: ul.margin().left + li.outerWidth()
         });
@@ -555,9 +572,17 @@ $(function() {
         return delta >= 0;
       });
 
-      if (li.length > 0 && ul.margin().left > -ul.outerWidth()) {
+      if (li.size() > 0) {
         ul.animate({
           marginLeft: ul.margin().left - li.outerWidth()
+        }, function() {
+          var first = ul.children().first();
+
+          if (first.size() > 0) {
+            ul.append(first);
+
+            ul.css('margin-left', ul.margin().left + first.outerWidth());
+          }
         });
       }
 
@@ -741,8 +766,6 @@ $(function() {
       }
 
       if (cardHolder().val() == "") delete request.billing;
-
-      console.log(request);
 
       API.Http.post(RootAccountsAPI, request, {
         success: function(response) {
