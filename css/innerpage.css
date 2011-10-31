@@ -663,7 +663,7 @@ ul#navlist li:hover ul#subnavlist {
 .personhover:hover {  opacity: 0.0 }
 #teambox {
   position: relative;
-  height: 620px;
+  height: 400px;
 }
 /*team*/
 /*middlenavmenubegin*/
