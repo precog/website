@@ -15,7 +15,7 @@ form#creditcardform{width:100%;position:relative;left:10%}
 #creditcardform .textbox .holding input.focusederror{border-color:rgba(200,0,0,.75);box-shadow:0 0 8px rgba(200,0,0,.5);-moz-box-shadow:0 0 8px rgba(200,0,0,.5);-webkit-box-shadow:0 0 8px rgba(200,0,0,.5);}
 #creditcardform div.sidetip{display:none;position:relative;left:-14px;margin-right:70px;z-index:10;}
 #creditcardform .card img{opacity:0.8;margin:9px 3px 0 3px;}
-#creditcardform .imgnotoffer{border: 1px solid #D70000;opacity:1 !important;}
+#creditcardform .imgnotoffer{border: 1px solid #D70000;opacity:1;}
 #creditcardform .card{margin:-32px 0 0 -200px;width: 187px;position: absolute;z-index: 0;}	
 #creditcardform .cardshow {opacity:1;}
 #creditcardform .submit{height: 40px;margin: 0;width: 454px;border: 1px solid #FFAA22;border-radius: 5px 5px 5px 5px;cursor: pointer;display: block;padding: 4px 0px;}

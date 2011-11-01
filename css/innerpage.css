@@ -578,10 +578,12 @@ ul#navlist li:hover ul#subnavlist {
   margin-bottom:-7px;
   margin-top:8px;
 }
-.signupfieldspecial {
+.signupfieldspecial input{
   color: #000000;
-  width:40px;
-  float:left;
+  width: 40px;
+  float: left;
+  margin-right: 20px;
+  height: 20px;
 }
 .leftfields {
   position: relative;
