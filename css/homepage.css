@@ -93,28 +93,66 @@ h4 {
     line-height: normal;
 }
 p.homepageslogan {
-    font-size: 24pt;
-    font-family: Abel;
-    color: #8A8FA8;
-    padding-bottom: 0;
+    top:50px;
+    left:168;
+    font-size:24pt;
+    letter-spacing:1px;
 }
 p.homepageslogan2 {
-    font-size: 15pt;
-    font-family: Abel;
-    color: #8A8FA8;
-    padding-bottom: 0;
+    top:24px;
+    left:57;
+    font-size:14pt;
+    letter-spacing:1px;
+}
+.colorred {
+    color: #FF1D25;    
+}
+.colorblue {
+    color: #6FCEFF;    
+}
+.colorgreen {
+    color: #9BFF55;
 }
 p.homepagetext {
-    font-size: 12pt;
-    font-family: Abel;
-    color: #8A8FA8;
-    padding-bottom: 0;
+    top:50px;
+    left:168;
+    width:480;
+    height:54px;
+    color:#ffffff;
+    font-size: 11pt;
 }
 p.homepagetext2 {
-    font-size: 11pt;
-    font-family: Abel;
-    color: #8A8FA8;
-    padding-bottom: 0;
+    top:26px;
+    left:57;
+    width:616;
+    font-size:11pt;
+    color: #ffffff;
+}
+p.homepagetext3 {
+    font-size:11pt;
+    top:26px;
+    left:57;
+    width:285;
+    color: #ffffff;
+}
+p.phonelarge {
+  font-size: 26px;
+  font-family: Abel;
+  color: #8A8FA8;
+  line-height: normal;
+  padding-bottom: 0px;
+}
+p.micro {
+  font-size: 8px;
+  font-family: Abel;
+  color: #8A8FA8;
+  line-height: normal;
+  padding-bottom: 0px;
+}
+p.newsletter {
+    top:218px;
+    left:58;
+    color:#ffffff;
 }
 #wrapper {
     width: 1070px;
@@ -141,6 +179,23 @@ p.homepagetext2 {
      height: 142px;
      background-image: url("../images/footer.png");
  }
+#headerlogo {
+    position:relative;
+    top:90px;
+    left:46px
+}
+#headerloginbutton {
+    position:relative;
+    top:34px;
+    float:right;
+    right:58px;
+}
+#headerphone {
+    position:relative;
+    top:10px;
+    left:890px;
+    letter-spacing:1px;
+}
 #loginoverlay {
     top: 0;
     left: 0;
@@ -355,6 +410,11 @@ ul#navlist li:hover ul#subnavlist {
      padding-right: 20px;
      height: 60px;
  }
+.customerinfo {
+    color: #ACB5D4;
+    font-size:8pt;
+    float:right;
+}
 #middle1 {
     overflow: hidden;
     display: block;
@@ -363,6 +423,19 @@ ul#navlist li:hover ul#subnavlist {
     position: absolute;
     top: 166px;
 }
+.leftarrow {
+    position:absolute;
+    left:264px;
+    top:50px;
+}
+.rightarrow {
+    position:absolute;
+    left:278px;
+    top:50px;
+}
+.leftdot {position:absolute;left:117px;top:70;}
+.middledot {position:absolute;left:137px;top:70;}
+.rightdot {position:absolute;left:157px;top:70;}
 #middle1contentarea { width: 1070px }
 #homepanel {
     width: 100%;
@@ -377,7 +450,7 @@ ul#navlist li:hover ul#subnavlist {
 
 #dlwhitesheets {
     position:relative;
-    top: 54px;
+    top: 34px;
     left: 540px;
 }
 
@@ -440,6 +513,19 @@ ul#navlist li:hover ul#subnavlist {
     font-size: 7.5pt;
     font-family: questrial;
     padding-bottom: 0px;
+}
+#phonefooter {
+  position: absolute;
+  top: 28px;
+  left: 778px;
+  letter-spacing: 5px;
+  font-size: 26px;
+}
+#termsprivacy {
+  position: absolute;
+  top: 90px;
+  left: 778px;
+  length: 120;
 }
 #contactus {
     position: absolute;

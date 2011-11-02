@@ -121,11 +121,67 @@
             <div id="middlecontent">
                 <h1>Sign up now - be analyzing and visualizing data today</h1>
                 <p>To signup, simply select the option below and fill in your contact details. If you don't enter a credit card, we'll automatically apply the $100 developer credit to your account.<sup>1</sup></p>
-                <div class="rgform">
+                <div id="signuptable">
+                    <div class="signupplan">
+                        <p class="pricingdollar">$</p>
+                        <p class="pricingprice">50</p>
+                        <p class="pricingcents">.00</p>
+                        <p class="pricingmonth">/month</p>
+                        <div class="pricingdetails">
+                            <p class="pricing"><img class="pricingcheckpad" src="images/pricingcheckmark.png">100,000 DATA POINTS</p>
+                            <p class="pricing"><img class="pricingcheckpad" src="images/pricingcheckmark.png">TIME SERIES</p>
+                            <p class="pricing"><img class="pricingcheckpad" src="images/pricingcheckmark.png">DRILLDOWN</p>
+                            <p class="pricing"><img class="pricingcheckpad" src="images/pricingxmark.png">GEO</p>
+                            <p class="pricing"><img class="pricingcheckpad" src="images/pricingxmark.png">TAGS</p>
+                            <p class="pricing"><img class="pricingcheckpad" src="images/pricingxmark.png">DEDICATED CLUSTERS</p>
+                        </div>
+                    </div>
+                    <div class="signupplan">
+                        <p class="pricingdollar">$</p>
+                        <p class="pricingprice">250</p>
+                        <p class="pricingcents">.00</p>
+                        <p class="pricingmonth">/month</p>
+                        <div class="pricingdetails">
+                            <p class="pricing"><img class="pricingcheckpad" src="images/pricingcheckmark.png">100,000 DATA POINTS</p>
+                            <p class="pricing"><img class="pricingcheckpad" src="images/pricingcheckmark.png">TIME SERIES</p>
+                            <p class="pricing"><img class="pricingcheckpad" src="images/pricingcheckmark.png">DRILLDOWN</p>
+                            <p class="pricing"><img class="pricingcheckpad" src="images/pricingcheckmark.png">GEO</p>
+                            <p class="pricing"><img class="pricingcheckpad" src="images/pricingxmark.png">TAGS</p>
+                            <p class="pricing"><img class="pricingcheckpad" src="images/pricingxmark.png">DEDICATED CLUSTERS</p>
+                        </div>
+                    </div>
+                    <div class="signupplan">
+                        <p class="pricingdollar">$</p>
+                        <p class="pricingprice">500</p>
+                        <p class="pricingcents">.00</p>
+                        <p class="pricingmonth">/month</p>
+                        <div class="pricingdetails">
+                            <p class="pricing"><img class="pricingcheckpad" src="images/pricingcheckmark.png">100,000 DATA POINTS</p>
+                            <p class="pricing"><img class="pricingcheckpad" src="images/pricingcheckmark.png">TIME SERIES</p>
+                            <p class="pricing"><img class="pricingcheckpad" src="images/pricingcheckmark.png">DRILLDOWN</p>
+                            <p class="pricing"><img class="pricingcheckpad" src="images/pricingcheckmark.png">GEO</p>
+                            <p class="pricing"><img class="pricingcheckpad" src="images/pricingcheckmark.png">TAGS</p>
+                            <p class="pricing"><img class="pricingcheckpad" src="images/pricingxmark.png">DEDICATED CLUSTERS</p>
+                        </div>
+                    </div>
+                    <div class="signupplan">
+                        <p class="pricingdollar">$</p>
+                        <p class="pricingprice">1000</p>
+                        <p class="pricingcents">.00</p>
+                        <p class="pricingmonth">/month</p>
+                        <div class="pricingdetails">
+                            <p class="pricing"><img class="pricingcheckpad" src="images/pricingcheckmark.png">100,000 DATA POINTS</p>
+                            <p class="pricing"><img class="pricingcheckpad" src="images/pricingcheckmark.png">TIME SERIES</p>
+                            <p class="pricing"><img class="pricingcheckpad" src="images/pricingcheckmark.png">DRILLDOWN</p>
+                            <p class="pricing"><img class="pricingcheckpad" src="images/pricingcheckmark.png">GEO</p>
+                            <p class="pricing"><img class="pricingcheckpad" src="images/pricingcheckmark.png">TAGS</p>
+                            <p class="pricing"><img class="pricingcheckpad" src="images/pricingcheckmark.png">DEDICATED CLUSTERS</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="rgform">    
                     <form id="signupForm">
-
-                       <div><img src="images/signuppricing.png"</div>
-                           <div id="planidstarter">
+                           <div id="planidradios">
                                <input class="planradio1" type="radio" name="planId" value="starter" checked>
                                <input class="planradio2" type="radio" name="planId" value="bronze">
                                <input class="planradio2" type="radio" name="planId" value="silver">
@@ -139,9 +195,10 @@
                                     </li>
                                 </ol>
                             </div>
-                       <p class="pageheader">General Contact Information</p>
+                       <h1>General Contact Information</h1>
                        <p>Please enter your contact details below.</p>
-                       <p>* Note that <strong>all</strong> fields are required.</p></div>
+                       <p>* Note that <strong>all</strong> fields are required.</p>
+                       </div>
                        <div class="leftfields">
                        <p class="signupfields">Email:</p><div class="fieldgroup"><input class="blacktext" tabIndex=1 type="text" name="email" /></div>
                        <p class="signupfields">Password:</p><div class="fieldgroup"><input class="blacktext" tabIndex=2 type="password" name="password" /></div>
@@ -201,7 +258,6 @@
                     </form>
                 </div>
             </div>
-        </div>
             <div id="rightpanel">
                 <div id="rightsidepanel">
                     <div id="rpaneltext">
