@@ -159,10 +159,16 @@ p.homepagetext2 {
     width: 307px;
     left: 50%;
     top: 50%;
-    margin-left: px;
-    margin-top: px;
+    margin-left: -187px;
+    margin-top: -40px;
     display: none;
 }
+
+#logininner {
+    padding-top: 30px;
+    padding-left: 50px;
+}
+
 .fieldgroup input {
     width: 200px;
     height: 20px;
@@ -183,10 +189,10 @@ p.homepagetext2 {
     background-image: url(../images/loginbutton.png);
     background-color: transparent;
     position: absolute;
-    top: 90px;
+    top: 100px;
     height: 18px;
     width: 44px;
-    right: 110px;
+    right: 60px;
     cursor: pointer;
 }
 #loginform .logingroup input {
