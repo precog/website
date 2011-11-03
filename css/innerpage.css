@@ -340,9 +340,12 @@ ul#navlist {
    background-color: #3E3E47;
    padding: 10px;
  }
+
+
+
 ul.subnavlist {  display: none }
- ul.subnavlist li {  float: none }
- ul.subnavlist li a {
+ul.subnavlist li {  float: none }
+ul.subnavlist li a {
    padding: 0px;
    margin: 0px;
    color: ACB5D4;
@@ -610,10 +613,10 @@ ul#navlist li:hover ul.subnavlist {
   padding-right: 8px;
 }
 
-#pricingpagetable p.pricingdollar {position:relative;top:62px;left:24px;font-size:11pt;color: #ffffff;float:left;}
-#pricingpagetable p.pricingprice {position:relative;top:58px;left:26px;font-size:24pt;color: #ffffff;float:left;}
-#pricingpagetable p.pricingcents {position:relative;top:62px;left:26px;font-size:15pt;color: #ffffff;float:left;}
-#pricingpagetable p.pricingmonth {position:relative;top:86px;left:4px;font-size:11pt;color: #ffffff;float:left;}
+.pricingdollar {position:relative;top:62px;left:24px;font-size:11pt;color: #ffffff;float:left;}
+.pricingprice {position:relative;top:58px;left:26px;font-size:24pt;color: #ffffff;float:left;}
+.pricingcents {position:relative;top:62px;left:26px;font-size:15pt;color: #ffffff;float:left;}
+.pricingmonth {position:relative;top:86px;left:4px;font-size:11pt;color: #ffffff;float:left;}
 
 .planhas {
   float:left;
