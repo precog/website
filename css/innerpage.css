@@ -603,10 +603,6 @@ ul#navlist li:hover ul#subnavlist {
   width: 150px;
 }
 
-.pricingdetails {
-  position:absolute;top:130px;left:10px;
-}
-
 .pricingcheckpad {
   padding-right: 8px;
 }
@@ -615,6 +611,35 @@ ul#navlist li:hover ul#subnavlist {
 .pricingprice {position:relative;top:58px;left:26px;font-size:24pt;color: #ffffff;float:left;}
 .pricingcents {position:relative;top:62px;left:26px;font-size:15pt;color: #ffffff;float:left;}
 .pricingmonth {position:relative;top:86px;left:4px;font-size:11pt;color: #ffffff;float:left;}
+
+.planhas {
+  float:left;
+  top: 80px;
+  left: 10px;
+}
+
+.planhas ul li {
+	background: url(../images/checkmark.png)  left no-repeat;
+        background-position: 0px -2px;
+	padding-left: 20px;
+        margin-bottom: 3px;
+        overflow: visible;
+}
+
+.planhasnot {
+  float:left;
+  top: 80px;
+  left: 10px;
+}
+
+.planhasnot ul li {
+	background: url(../images/pricingxmark.png)  left no-repeat;
+        background-position: 0px -2px;
+	padding-left: 20px;
+        margin-bottom: 3px;
+        overflow: visible;
+}
+
 
 /*pricing*/
 /*professionalservices*/
