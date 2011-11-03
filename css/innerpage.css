@@ -428,7 +428,6 @@ ul#navlist li:hover ul.subnavlist {
 .limiddle {
   list-style-type: square;
   color: #8A8FA8;
-  top: 10px;
   margin-left: 20px;
 }
 #rightpanel {
@@ -820,11 +819,14 @@ ul#navlist li:hover ul.subnavlist {
  }
 .planradio1 {
   float:left;
+  margin-left: 73px;
+  top: -20px;
 }
 
 .planradio2 {
   float:left;
-  margin-left: 136px;
+  top: -20px;
+  margin-left: 135px;
 }
 
 /*signup*/
