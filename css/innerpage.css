@@ -71,7 +71,7 @@ p.pageheader {
   line-height: normal;
   padding-bottom: 12px;
 }
-p.rightpaneltext {
+p.hilighttext {
   font-size: 16px;
   font-family: Abel;
   color: #8A8FA8;
@@ -346,21 +346,21 @@ ul#navlist {
    background-color: #3E3E47;
    padding: 10px;
  }
-ul#subnavlist {  display: none }
- ul#subnavlist li {  float: none }
- ul#subnavlist li a {
+ul.subnavlist {  display: none }
+ ul.subnavlist li {  float: none }
+ ul.subnavlist li a {
    padding: 0px;
    margin: 0px;
    color: ACB5D4;
    background-color: #3E3E47;
  }
-ul#navlist li:hover ul#subnavlist {
+ul#navlist li:hover ul.subnavlist {
   display: block;
   position: absolute;
   font-size: 9pt;
   padding-top: 10px;
 }
- ul#navlist li:hover ul#subnavlist li a {
+ ul#navlist li:hover ul.subnavlist li a {
    display: block;
    width: 10em;
    border: none;
@@ -368,22 +368,22 @@ ul#navlist li:hover ul#subnavlist {
    padding: 10px;
    opacity: 0.9;
  }
- ul#navlist li:hover ul#subnavlist li a:before {  content: "" }
+ ul#navlist li:hover ul.subnavlist li a:before {  content: "" }
 /*headernavmenuend */
-#rightsidepanel {
+#pagehilight {
   background-image: url(../images/rpagepannel.png);
   position: relative;
   top: 74px;
   height: 299px;
 }
-#rpaneltext {
+#hilightpaneltext {
   position: relative;
   top: 20px;
   width: 140px;
   left: 30px;
 }
-#rightlist {  width: 130px }
- #rightlist li {
+#hilightlist {  width: 120px }
+#hilightlist li {
    position: relative;
    list-style-type: square;
    color: #9FA5C2;
@@ -418,7 +418,7 @@ ul#navlist li:hover ul#subnavlist {
   text-align: right;
   right: 0px;
 }
-#middlecontent {
+#middlepanel {
   width: 600px;
   padding-right: 41px;
   float: left;
@@ -1017,8 +1017,8 @@ ul#navlist li:hover ul#subnavlist {
  }
 /*middlenavmenuend*/
 /*footernavmenubegin */
-.table { }
- .table ul {
+.footernavmenu { }
+ .footernavmenu ul {
    float: left;
    margin: 0;
    padding: 0px;
@@ -1026,7 +1026,7 @@ ul#navlist li:hover ul#subnavlist {
    padding-top: 32px;
    color: #545766;
  }
- .table ul li {
+ .footernavmenu ul li {
    padding-bottom: 10px;
    width: 94px;
    font-family: Questrial;

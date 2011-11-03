@@ -301,21 +301,21 @@ ul#navlist {
      background-color: #3E3E47;
      padding: 10px;
  }
-ul#subnavlist { display: none }
- ul#subnavlist li { float: none }
- ul#subnavlist li a {
+ul.subnavlist { display: none }
+ ul.subnavlist li { float: none }
+ ul.subnavlist li a {
      color: ACB5D4;
      background-color: #3E3E47;
      margin: 0;
      padding: 0;
  }
-ul#navlist li:hover ul#subnavlist {
+ul#navlist li:hover ul.subnavlist {
     display: block;
     position: absolute;
     font-size: 9pt;
     padding-top: 10px;
 }
- ul#navlist li:hover ul#subnavlist li a {
+ ul#navlist li:hover ul.subnavlist li a {
      display: block;
      width: 10em;
      border: none;
@@ -323,7 +323,7 @@ ul#navlist li:hover ul#subnavlist {
      opacity: 0.9px;
      padding: 10px;
  }
- ul#navlist li:hover ul#subnavlist li a:before { content: "" }
+ ul#navlist li:hover ul.subnavlist li a:before { content: "" }
 #middle1navcontainer {
     position: absolute;
     height: 262px;
