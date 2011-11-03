@@ -58,7 +58,7 @@ p {
   line-height: normal;
   padding-bottom: 12px;
 }
-p.normal {
+p.normal, div.condensed {
   font-size: 14px;
   font-family: Abel;
   color: #8A8FA8;
@@ -70,13 +70,6 @@ p.pageheader {
   color: #8A8FA8;
   line-height: normal;
   padding-bottom: 12px;
-}
-p.hilighttext {
-  font-size: 16px;
-  font-family: Abel;
-  color: #8A8FA8;
-  line-height: normal;
-  padding-bottom: 0px;
 }
 p.teamtext {
   font-size: 12px;
@@ -383,8 +376,10 @@ ul#navlist li:hover ul.subnavlist {
   width: 140px;
   left: 30px;
 }
-#hilightlist {  width: 120px }
-#hilightlist li {
+#pagehilight ul {
+  width: 120px
+}
+#pagehilight ul li {
    position: relative;
    list-style-type: square;
    color: #9FA5C2;
@@ -393,10 +388,12 @@ ul#navlist li:hover ul.subnavlist {
    top: 20px;
    left: 20px;
  }
-#leftpanel {
-  width: 196px;
-  margin-right: 41px;
-  float: left;
+#pagehilight p {
+  font-size: 16px;
+  font-family: Abel;
+  color: #8A8FA8;
+  line-height: normal;
+  padding-bottom: 0px;
 }
 
 #leftpanellegal {
@@ -418,6 +415,12 @@ ul#navlist li:hover ul.subnavlist {
   position: absolute;
   text-align: right;
   right: 0px;
+}
+#leftpanel {
+  width: 196px;
+  margin-right: 41px;
+  float: left;
+  padding-bottom: 20px;
 }
 #middlepanel {
   width: 600px;
@@ -607,10 +610,10 @@ ul#navlist li:hover ul.subnavlist {
   padding-right: 8px;
 }
 
-.pricingdollar {position:relative;top:62px;left:24px;font-size:11pt;color: #ffffff;float:left;}
-.pricingprice {position:relative;top:58px;left:26px;font-size:24pt;color: #ffffff;float:left;}
-.pricingcents {position:relative;top:62px;left:26px;font-size:15pt;color: #ffffff;float:left;}
-.pricingmonth {position:relative;top:86px;left:4px;font-size:11pt;color: #ffffff;float:left;}
+#pricingpagetable p.pricingdollar {position:relative;top:62px;left:24px;font-size:11pt;color: #ffffff;float:left;}
+#pricingpagetable p.pricingprice {position:relative;top:58px;left:26px;font-size:24pt;color: #ffffff;float:left;}
+#pricingpagetable p.pricingcents {position:relative;top:62px;left:26px;font-size:15pt;color: #ffffff;float:left;}
+#pricingpagetable p.pricingmonth {position:relative;top:86px;left:4px;font-size:11pt;color: #ffffff;float:left;}
 
 .planhas {
   float:left;
@@ -983,8 +986,13 @@ ul#navlist li:hover ul.subnavlist {
 }
 /*team*/
 /*middlenavmenubegin*/
+#leftmenucontainer #leftmenulist {
+  padding-bottom: 80px;
+}
+
 #leftmenucontainer {
   top: 74px;
+  float:left;
   position: relative;
 }
  #leftmenucontainer ul {  list-style-type: none }
