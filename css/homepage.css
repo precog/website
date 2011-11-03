@@ -255,7 +255,8 @@ p.newsletter {
     height: 20px;
     margin-top: -8px;
     margin-bottom: 2px;
-    color: #000000:;
+    color: #000000;
+    padding-left: 6px;
 }
 #navcontainer {
     position: absolute;
