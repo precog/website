@@ -770,8 +770,6 @@ ul#navlist li:hover ul.subnavlist {
 #Planidradios {
   position: relative;
   float: left;
-  top: -20px;
-  left: 70px;
 }
 #cardmonth {
   color: #000000;
