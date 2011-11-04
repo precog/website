@@ -504,7 +504,7 @@ $(function() {
         password:   password.val()
       }, {
         success: function(response) {
-          var content = $('#middlecontent');
+          var content = $('#middlepanel');
 
           var tokenId = response.id.token;
 
@@ -734,7 +734,9 @@ $(function() {
     var cardCCV         = function() { return $('#signupForm input[name="cardCCV"]'); }
 
     $('#signup').click(function(e) {
+      $('#signup').attr("disabled", "disabled");
       e.preventDefault();
+
 
       var request = {
         "email":    email().val(),
@@ -767,9 +769,11 @@ $(function() {
 
       if (cardHolder().val() == "") delete request.billing;
 
+
       API.Http.post(RootAccountsAPI, request, {
         success: function(response) {
-          var content = $('#middlecontent');
+          $('#signup').removeAttr("disabled");
+          var content = $('#middlepanel');
 
           content.empty().append('<h1>Welcome to the ReportGrid family &mdash; you\'re in good hands now</h1>');
           content.append('<p>Your token id is <strong>' + response.id.token + '</strong>. You will need this token to access any API.</p>');
@@ -778,6 +782,7 @@ $(function() {
         },
 
         failure: function(code, text) {
+          $('#signup').removeAttr("disabled");
           alert(text);
         }
       });
