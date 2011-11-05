@@ -13,7 +13,9 @@ input, select {
   color: black;
 }
 address {  color: #8A8FA8 }
-body {  background-color: #0E0F12 }
+body {  background-color: #0E0F12;
+text-align: center;
+}
 @font-face {
   font-family: 'Abel';
   src: url('fonts/abel-regular-webfont.eot');
@@ -58,67 +60,10 @@ p {
   line-height: normal;
   padding-bottom: 12px;
 }
-p.normal, div.condensed {
+p.condensed {
   font-size: 14px;
   font-family: Abel;
-  color: #8A8FA8;
   line-height: normal;
-}
-p.pageheader {
-  font-size: 18px;
-  font-family: Abel;
-  color: #8A8FA8;
-  line-height: normal;
-  padding-bottom: 12px;
-}
-p.teamtext {
-  font-size: 12px;
-  font-family: Abel;
-  color: #8A8FA8;
-  padding-bottom: 0px;
-  padding-top: 0px;
-}
-p.phonelarge {
-  font-size: 26px;
-  font-family: Abel;
-  color: #8A8FA8;
-  line-height: normal;
-  padding-bottom: 0px;
-}
-p.micro {
-  font-size: 8px;
-  font-family: Abel;
-  color: #8A8FA8;
-  line-height: normal;
-  padding-bottom: 0px;
-}
-p.news {
-  font-size: 13px;
-  font-family: Abel;
-  color: #fff;
-  line-height: normal;
-  padding-bottom: 12px;
-}
-p.services {
-  color: #ffffff;
-  left:20px;
-  top:2px;
-}
-p.pricing {
-  font-size: 11px;
-  font-family: Abel;
-  color: #ffffff;
-  padding-bottom: 3px;
-}
-p.solutions {
-  padding:2px;
-  color: #000000;
-  font-size:13px;
-}
-.servicesmicro {
-  font-family:abel;
-  font-size:11px;
-  color: #ffffff;
 }
 h1 {
   font-size: 16px;
@@ -140,17 +85,6 @@ h2 {
   padding-bottom: 20px;
   padding-top: 20px;
 }
-
-h2.analyticsdb {
-  font-size: 11px;
-  font-family: Rexlia;
-  font-weight: normal;
-  color: #ffffff;
-  list-style-type: none;
-  text-decoration: none;
-  padding-bottom: 10px;
-  padding-top: 10px;
-}
 h3 {
   font-size: 16px;
   font-family: Abel;
@@ -161,12 +95,6 @@ h3 {
   padding-top: 10px;
   padding-bottom: 24px;
 }
-h4 {
-  font-size: 16px;
-  font-family: Abel;
-  color: #8A8FA8;
-  line-height: normal;
-}
 
 .blacktext {
   color: #000000;
@@ -176,6 +104,7 @@ h4 {
   margin: 0 auto;
   width: 1070px;
   background: 999999;
+  text-align: left;
 }
  #wrapper .header {
    position: relative;
@@ -285,10 +214,7 @@ h4 {
 }
 .floatrightsol {
   float:right;
-}
-.floatrightsol2 {
-  padding-left:182px;
-  float:left;
+  margin-top: 40px;
 }
 .vizenginegraph {
   padding:40px 44px;
@@ -341,8 +267,6 @@ ul#navlist {
    padding: 10px;
  }
 
-
-
 ul.subnavlist {  display: none }
 ul.subnavlist li {  float: none }
 ul.subnavlist li a {
@@ -367,38 +291,6 @@ ul#navlist li:hover ul.subnavlist {
  }
  ul#navlist li:hover ul.subnavlist li a:before {  content: "" }
 /*headernavmenuend */
-#pagehilight {
-  background-image: url(../images/rpagepannel.png);
-  position: relative;
-  top: 74px;
-  height: 299px;
-}
-#hilightpaneltext {
-  position: relative;
-  top: 20px;
-  width: 140px;
-  left: 30px;
-}
-#pagehilight ul {
-  width: 120px
-}
-#pagehilight ul li {
-   position: relative;
-   list-style-type: square;
-   color: #9FA5C2;
-   font-size: 8pt;
-   margin-bottom: 10px;
-   top: 20px;
-   left: 20px;
- }
-#pagehilight p {
-  font-size: 16px;
-  font-family: Abel;
-  color: #8A8FA8;
-  line-height: normal;
-  padding-bottom: 0px;
-}
-
 #leftpanellegal {
   width: 510px;
   float: left;
@@ -417,9 +309,22 @@ ul#navlist li:hover ul.subnavlist {
   top: 28px;
   position: absolute;
   text-align: right;
-  right: 0px;
 }
+#pagetitle p {
+  font-size: 18px;
+  font-family: Abel;
+  color: #8A8FA8;
+  line-height: normal;
+  padding-bottom: 12px;
+}
+
 #leftpanel {
+  width: 196px;
+  margin-right: 41px;
+  float: left;
+  padding-bottom: 20px;
+}
+#leftpanel p{
   width: 196px;
   margin-right: 41px;
   float: left;
@@ -434,13 +339,45 @@ ul#navlist li:hover ul.subnavlist {
 .limiddle {
   list-style-type: square;
   color: #8A8FA8;
-  margin-left: 20px;
+  margin-left: 10px;
+}
+.whitepaperslist {
+  list-style-type: square;
+  color: #8A8FA8;
+  font-size: 8pt;
+  margin-left: 10px;
+  margin-bottom: -10px;
+}
+.limiddlepanel {
+  list-style-type: square;
+  color: #8A8FA8;
+  margin-left: 10px;
+  margin-bottom: -10px;
 }
 #rightpanel {
+  background-image: url(../images/rpagepannel.png);
+  margin-top: 74px;
   width: 192px;
   float: left;
   height: 400px;
+  background-repeat: no-repeat;
 }
+#hilightpaneltext {
+  position: relative;
+  top: 20px;
+  width: 140px;
+  left: 30px;
+}
+#hilightpaneltext ul li {
+   position: relative;
+   list-style-type: square;
+   color: #9FA5C2;
+   font-size: 8pt;
+   margin-bottom: 10px;
+   top: 20px;
+   left: 20px;
+   width: 120px;
+ }
 
 .center1panel {
   float: left;
@@ -469,13 +406,24 @@ ul#navlist li:hover ul.subnavlist {
 }
 /*about*/
 /*analyticsdatabase*/
-#adleftpanel {
-  width: 284px;
-  float: left;
-}
-#adrightpanel {
+#adpanel {
   width: 283px;
   float: left;
+}
+#adpanel ul li {
+  list-style-type: square;
+  color: #8A8FA8;
+  margin-left: 20px;
+}
+#adrightpanel h2 {
+  font-size: 11px;
+  font-family: Rexlia;
+  font-weight: normal;
+  color: #ffffff;
+  list-style-type: none;
+  text-decoration: none;
+  padding-bottom: 4px;
+  padding-top: 4px;
 }
 /*analyticsdatabase*/
 /*solutions*/
@@ -497,6 +445,11 @@ ul#navlist li:hover ul.subnavlist {
   float: left;
   padding-left: 154px;
   padding-top: 16px;
+}
+.cards p {
+  padding:2px;
+  color: #000000;
+  font-size:13px;
 }
 /*solutions*/
 
@@ -613,41 +566,63 @@ ul#navlist li:hover ul.subnavlist {
   padding-right: 8px;
 }
 
-.pricingdollar {position:relative;top:62px;left:24px;font-size:11pt;color: #ffffff;float:left;}
-.pricingprice {position:relative;top:58px;left:26px;font-size:24pt;color: #ffffff;float:left;}
-.pricingcents {position:relative;top:62px;left:26px;font-size:15pt;color: #ffffff;float:left;}
-.pricingmonth {position:relative;top:86px;left:4px;font-size:11pt;color: #ffffff;float:left;}
+.pricingplan .pricingdollar {top:64px;left:20px;font-size:11pt;color: #ffffff;float:left}
+.pricingplan .pricingprice {top:60px;left:22px;font-size:24pt;color: #ffffff;float:left}
+.pricingplan .pricingcents {top:64px;left:22px;font-size:13pt;color: #ffffff;float:left}
+.pricingplan .pricingmonth {top:88px;left:0px;font-size:9pt;color: #ffffff;float:left}
+
+.signupplan p {
+  font-size: 11px;
+  font-family: Abel;
+  color: #ffffff;
+  padding-bottom: 3px;
+}
+
+.pricingplan ul li {
+  font-size: 11px;
+  font-family: Abel;
+  color: #ffffff;
+  padding-bottom: 3px;
+}
 
 .planhas {
   float:left;
-  top: 80px;
+  top: 94px;
   left: 10px;
 }
 
 .planhas ul li {
-	background: url(../images/checkmark.png)  left no-repeat;
-        background-position: 0px -2px;
-	padding-left: 20px;
-        margin-bottom: 3px;
-        overflow: visible;
+  background: url(../images/checkmark.png)  left no-repeat;
+  background-position: 0px -2px;
+  padding-left: 20px;
+  margin-bottom: 3px;
+  overflow: visible;
 }
 
 .planhasnot {
   float:left;
-  top: 80px;
+  top: 94px;
   left: 10px;
 }
 
 .planhasnot ul li {
-	background: url(../images/pricingxmark.png)  left no-repeat;
-        background-position: 0px -2px;
-	padding-left: 20px;
-        margin-bottom: 3px;
-        overflow: visible;
+  background: url(../images/pricingxmark.png)  left no-repeat;
+  background-position: 0px -2px;
+  padding-left: 20px;
+  margin-bottom: 3px;
+  overflow: visible;
 }
 
-
+.pricingfloatleft {
+  float: left;
+  margin-right: 15px;
+}
+.pricingfloatright {
+  float: right;
+  margin-left: 15px;
+}
 /*pricing*/
+
 /*professionalservices*/
 .cardfooter {
   background-image: url(../images/cardfooter.png);
@@ -672,6 +647,22 @@ ul#navlist li:hover ul.subnavlist {
   background-color: #6B9E13;
   width:170px;
 }
+#consultant p{
+  color: #ffffff;
+  left:10px;
+  top:2px;
+}
+#consultant ul li {
+  color: #ffffff;
+  left:30px;
+  list-style-type: square;
+  width:120px;
+}
+#consultant ul li a {
+  font-family:abel;
+  font-size:11px;
+  color: #ffffff;
+}
 
 #developer {
   position:relative;
@@ -680,25 +671,48 @@ ul#navlist li:hover ul.subnavlist {
   background-color: #417894;
   width:170px;
 }
-
+#developer p{
+  color: #ffffff;
+  left:10px;
+  top:2px;
+}
+#developer ul li {
+  color: #ffffff;
+  left:30px;
+  list-style-type: square;
+  width:120px;
+}
+#developer ul li a {
+  font-family:abel;
+  font-size:11px;
+  color: #ffffff;
+}
 #designer {
   float:left;
   margin-left:45px;
   background-color: #D48A0F;
   width:170px;
 }
-
-.carddetails {
+#designer p{
   color: #ffffff;
-  left:40px;
+  left:10px;
+  top:2px;
+}
+#designer ul li {
+  color: #ffffff;
+  left:30px;
   list-style-type: square;
   width:120px;
 }
-
+#designer ul li a {
+  font-family:abel;
+  font-size:11px;
+  color: #ffffff;
+}
 .carddollar {
   position:relative;
   top:16px;
-  left:40px;
+  left:32px;
   font-size:11pt;
   color: #ffffff;
   float:left;
@@ -706,7 +720,7 @@ ul#navlist li:hover ul.subnavlist {
 .cardprice {
   position:relative;
   top:10px;
-  left:44px;
+  left:34px;
   font-size:26pt;
   color: #ffffff;
   float:left;
@@ -714,23 +728,24 @@ ul#navlist li:hover ul.subnavlist {
 .cardcents {
   position:relative;
   top:16px;
-  left:44px;
+  left:34px;
   font-size:11pt;
   color: #ffffff;
   float:left;
 }
 .cardhour {
   position:relative;
-  top:40px;
-  left:30px;
+  top:36px;
+  left:14px;
   font-size:7pt;
   color: #ffffff;
   float:left;
 }
-.packagedollar {position:absolute;top:38px;left:96px;font-size:11pt;color: #ffffff;}
-.packageprice {position:absolute;top:35px;left:104px;font-size:18pt;color: #ffffff;}
-.packagecents {position:absolute;top:38px;left:154px;font-size:11pt;color: #ffffff;}
-.packagehour {position:absolute;top:58px;left:154px;font-size:7pt;color: #ffffff;}
+
+.packagedollar {position:absolute;top:38px;left:92px;font-size:11pt;color: #ffffff;}
+.packageprice {position:absolute;top:37px;left:102px;font-size:18pt;color: #ffffff;}
+.packagecents {position:absolute;top:38px;left:158px;font-size:11pt;color: #ffffff;}
+.packagehour {position:absolute;top:58px;left:156px;font-size:7pt;color: #ffffff;}
 .packageterms {position:absolute;top:96px;left:22px;font-size:7pt;}
 .packagehnum1 {position:absolute;top:126px;left:25px;font-size:14pt;font-family:Rexlia;}
 .packagehour1 {position:absolute;top:146px;left:20px;font-size:7pt;}
@@ -744,7 +759,7 @@ ul#navlist li:hover ul.subnavlist {
 .packagehtext1 {position:absolute;top:129px;left:15px;width:34px;font-size:10pt;color: #000000;}
 .packagehtext2 {position:absolute;top:169px;left:15px;width:34px;font-size:10pt;color: #000000;}
 .packagehtext3 {position:absolute;top:209px;left:15px;width:34px;font-size:10pt;color: #000000;}
-.packagecosttext1 {position:absolute;top:40px;left:106px;width:44px;height:30px;font-size:10pt;color: #000000;background-color: #1A1B20;}
+.packagecosttext1 {position:absolute;top:39px;left:103px;width:48px;height:32px;font-size:10pt;color: #000000;background-color: #1A1B20;}
 .packagesgreen {color: #6B9E13;}
 .packagesblue {color: #417894;}
 .packagesorange {color: #D48A0F;}
@@ -763,6 +778,12 @@ ul#navlist li:hover ul.subnavlist {
   width: 150px;
   top:-26px;
 }
+
+.signupplan .pricingdollar {top:64px;left:20px;font-size:11pt;color: #ffffff;float:left}
+.signupplan .pricingprice {top:60px;left:22px;font-size:24pt;color: #ffffff;float:left}
+.signupplan .pricingcents {top:64px;left:22px;font-size:13pt;color: #ffffff;float:left}
+.signupplan .pricingmonth {top:88px;left:0px;font-size:9pt;color: #ffffff;float:left}
+
 #signupform {
   font-family: abel;
   color: #8a8fa8;
@@ -835,6 +856,14 @@ ul#navlist li:hover ul.subnavlist {
 
 /*signup*/
 /*controlpanel*/
+#accountinformation .leftfields p {
+  margin-bottom:-7px;
+  margin-top:8px;
+}
+#accountinformation .rightfields p {
+  margin-bottom:-7px;
+  margin-top:8px;
+}
 #update {
   background-image: url(../images/updateinfobutton.png);
   background-color: transparent;
@@ -845,7 +874,14 @@ ul#navlist li:hover ul.subnavlist {
   right: 74px;
   padding-bottom: 20px;
 }
-#update:hover {  opacity: 0.7 }
+#update:hover{
+  opacity: 0.7
+}
+.option {
+  color: #000;
+}
+
+
 /*controlpanel*/
 /*signup*/
 #submit {
@@ -931,6 +967,14 @@ ul#navlist li:hover ul.subnavlist {
   position: relative;
   height: 400px;
 }
+#teambox p {
+  font-size: 12px;
+  font-family: Abel;
+  color: #8A8FA8;
+  padding-bottom: 0px;
+  padding-top: 0px;
+}
+
 .johnd {
   position:absolute;left:0px;top:0px;z-index:100;
 }
@@ -987,16 +1031,12 @@ ul#navlist li:hover ul.subnavlist {
 }
 /*team*/
 /*middlenavmenubegin*/
-#leftmenucontainer #leftmenulist {
-  padding-bottom: 80px;
-}
-
 #leftmenucontainer {
   top: 74px;
   float:left;
   position: relative;
 }
- #leftmenucontainer ul {  list-style-type: none }
+ #leftmenucontainer ul {  list-style-type: none;}
  #leftmenucontainer li {  margin: 0 0 1px 0 }
  #leftmenucontainer a {
    background-image: url(../images/lsnavbuttonlg.png);
@@ -1017,7 +1057,7 @@ ul#navlist li:hover ul.subnavlist {
    margin-top: 2px;
    font-size: 10pt;
  }
- #leftmenucontainer ul ul a {
+ #leftmenucontainer ul ul li a {
    display: block;
    padding: 2px 5px 2px 30px;
    width: 162px;
@@ -1055,11 +1095,25 @@ ul#navlist li:hover ul.subnavlist {
   letter-spacing: 5px;
   font-size: 26px;
 }
+#phonefooter p {
+  font-size: 26px;
+  font-family: Abel;
+  color: #8A8FA8;
+  line-height: normal;
+  padding-bottom: 0px;
+}
 #termsprivacy {
   position: absolute;
   top: 90px;
   left: 778px;
   length: 120;
+}
+#termsprivacy p {
+  font-size: 8px;
+  font-family: Abel;
+  color: #8A8FA8;
+  line-height: normal;
+  padding-bottom: 0px;
 }
 #contactus {
   position: absolute;
@@ -1076,7 +1130,6 @@ ul#navlist li:hover ul.subnavlist {
     top: 86px;
     left: 984px;
 }
-
   position: absolute;
   top: 86px;
   left: 984px;
