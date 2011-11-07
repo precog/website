@@ -792,7 +792,7 @@ $(function() {
   }
   
   var setupSyntaxHighlighting = function() {
-    $("pre.literal-block").snippet("css",{style:"darkness"});
+    $("pre.literal-block").snippet("css",{style:".sh_darkness"});
    $("pre.literal-block").snippet("javascript",{style:"random",transparent:true,showNum:false});
   }
 
