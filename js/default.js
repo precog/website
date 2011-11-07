@@ -793,9 +793,7 @@ $(function() {
   
   
   var setupSyntaxHighlighting = function() {
-    $("pre.htmlCode").snippet("html");
-    $(".apidoc pre.literal-block").snippet("css",{style:"darkness"});
-    $("pre.js").snippet("javascript",{style:"random",transparent:true,showNum:false});
+    $("pre.literal-block").snippet("javascript",{style:"random",transparent:true,showNum:false});
   }
 
   setupHome();
