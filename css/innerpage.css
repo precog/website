@@ -1030,6 +1030,17 @@ ul#navlist li:hover ul.subnavlist {
   position:absolute;left:485px;top:226px;z-index:90;
 }
 /*team*/
+/*learnmore*/
+#learnmore {
+  background-image: url(../images/learnmorebuttonsm.png);
+  background-color: transparent;
+  top: 20px;
+  height: 28px;
+  width: 133px;
+  float: left;
+}
+/*learnmore*/
+
 /*middlenavmenubegin*/
 #leftmenucontainer {
   top: 74px;
