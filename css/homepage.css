@@ -106,9 +106,6 @@ p.homepageslogan2 {
     font-size:14pt;
     letter-spacing:1px;
 }
-.colorred {
-    color: #FF1D25;    
-}
 .colorblue {
     color: #6FCEFF;    
 }
@@ -437,6 +434,25 @@ ul#navlist li:hover ul.subnavlist {
     height: 402px;
     background-image: url("../images/hwhat.png");
 }
+#whatpanel h1{
+    color: #6FCEFF;  
+    top:24px;
+    left:392;
+    font-size:14pt;
+    letter-spacing:1px;
+    padding-top: 0px;
+    padding-bottom: 12px;
+}
+#whatpanel p{
+    top:26px;
+    left:392;
+    width:286;
+    font-size:11pt;
+    color: #ffffff;
+    padding-top: 0px;
+    padding-bottom: 12px;
+}
+
 
 #dlwhitesheets {
     position:relative;
