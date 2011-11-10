@@ -453,18 +453,30 @@ ul#navlist li:hover ul.subnavlist {
     padding-bottom: 12px;
 }
 
-
-#dlwhitesheets {
-    position:relative;
-    top: 34px;
-    left: 540px;
-}
-
 #howpanel {
     width: 100%;
     height: 402px;
     background-image: url("../images/hhow.png");
 }
+#howpanel h1{
+    color: #6FCEFF;  
+    top:24px;
+    left:57px;
+    font-size:14pt;
+    letter-spacing:1px;
+    padding-top: 0px;
+    padding-bottom: 12px;
+}
+#howpanel p{
+    top:26px;
+    left:57px;
+    width:616px;
+    font-size:11pt;
+    color: #ffffff;
+    padding-top: 0px;
+    padding-bottom: 12px;
+}
+
 #whypanel {
     width: 100%;
     height: 402px;
