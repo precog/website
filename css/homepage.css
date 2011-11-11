@@ -433,6 +433,18 @@ ul#navlist li:hover ul.subnavlist {
 .middledot {position:absolute;left:137px;top:70;}
 .rightdot {position:absolute;left:157px;top:70;}
 #middle1contentarea { width: 1070px }
+#signupsticker {
+    background-image: url(../images/homepagesignupnowsticker.png);
+    display: block;
+    position: absolute;
+    left: -50px;
+    width: 107px;
+    height: 100px;
+    top: 170px;
+    z-index:102;
+}
+#signupsticker:hover { background-position: 0 114px }
+
 #homepanel {
     width: 100%;
     height: 402px;
