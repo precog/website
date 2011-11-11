@@ -320,6 +320,17 @@ ul#navlist li:hover ul.subnavlist {
     right: 0;
     display: block;
 }
+#signupsticker {
+    background-image: url(../images/homepagesignupnowsticker.png);
+    display: block;
+    position: absolute;
+    left: -50px;
+    width: 107px;
+    height: 100px;
+    top: 170px;
+    z-index:102;
+}
+#signupsticker:hover { background-position: 0 114px }
 #whatbutton {
     background-image: url(../images/whatbuttonrollover.png);
     display: block;
