@@ -107,16 +107,12 @@ p.homepageslogan2 {
     font-size:14pt;
     letter-spacing:1px;
 }
-.colorred {
-    color: #FF1D25;    
-}
 .colorblue {
     color: #6FCEFF;    
-}
-.colorgreen {
-    color: #9BFF55;
-}
-p.homepagetext {
+}.colororange {
+    color: #FFCC33;
+    font-family: abel;
+}p.homepagetext {
     top:50px;
     left:168;
     width:480;
@@ -479,6 +475,16 @@ ul#navlist li:hover ul.subnavlist {
     color: #ffffff;
     padding-top: 0px;
     padding-bottom: 12px;
+}
+#howpanelteaser {
+    position: absolute;
+    top:130px;
+    left:190px;
+    width:215px;
+    font-size:11pt;
+    color: #ffffff;
+    padding-top: 0px;
+    padding-bottom: 11px;
 }
 #whypanel {
     width: 100%;

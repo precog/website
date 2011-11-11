@@ -107,10 +107,19 @@ p.homepageslogan2 {
     letter-spacing:1px;
 }
 .colorblue {
+    color: #6FCEFF;
+    font-family: abel;
+}
+.colororange {
+    color: #FFCC33;
+    font-family: abel;
+}
+p.colorblue {
     color: #6FCEFF;    
 }
-.colorgreen {
-    color: #9BFF55;
+p.colororange {
+    color: #FFCC33;
+    font-family: abel;
 }
 p.homepagetext {
     top:50px;
@@ -443,7 +452,7 @@ ul#navlist li:hover ul.subnavlist {
     padding-top: 0px;
     padding-bottom: 12px;
 }
-#whatpanel p{
+.whatpar{
     top:26px;
     left:392;
     width:286;
@@ -452,7 +461,55 @@ ul#navlist li:hover ul.subnavlist {
     padding-top: 0px;
     padding-bottom: 12px;
 }
-
+#whatpanel .yourproducttext {
+    position: absolute;
+    font-size: 10pt;
+    color: #fff;
+    left:134px;
+    top:94px;
+}
+#whatpanel .fontendtext {
+    font-size: 10pt;
+    color: #fff;
+    position: absolute;
+    left:28px;
+    top:116px;
+}
+#whatpanel .backendtext {
+    font-size: 10pt;
+    color: #fff;
+    position: absolute;
+    left:28px;
+    top:226px;
+}
+#whatpanel .thirdpartydatatext {
+    font-size: 10pt;
+    color: #6FCEFF;
+    position: absolute;
+    left:126px;
+    top:357px;
+}
+#whatpanel .anvtext {
+    font-size: 10pt;
+    color: #fff;
+    position: absolute;
+    left:306px;
+    top:142px;
+}
+#whatpanel .dataingesttext {
+    font-size: 10pt;
+    color: #fff;
+    position: absolute;
+    left:358px;
+    top:286px;
+}
+#whatpanel .rgtext {
+    font-size: 13pt;
+    color: #ffcc33;
+    position: absolute;
+    left:474px;
+    top:210px;
+}
 #howpanel {
     width: 100%;
     height: 402px;
@@ -476,7 +533,16 @@ ul#navlist li:hover ul.subnavlist {
     padding-top: 0px;
     padding-bottom: 12px;
 }
-
+#howpanelteaser {
+    position: absolute;
+    top:130px;
+    left:190px;
+    width:215px;
+    font-size:11pt;
+    color: #ffffff;
+    padding-top: 0px;
+    padding-bottom: 11px;
+}
 #whypanel {
     width: 100%;
     height: 402px;
