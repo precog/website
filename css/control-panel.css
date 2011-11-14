@@ -1,0 +1,38 @@
+.pagination span, .pagination a
+{
+	border: 1px solid #999;
+	padding 2px;
+	margin-right: 4px;
+	background-color: #aaa;
+	min-width: 24px;
+	display: block;
+	float: left;
+	text-align: center;
+}
+
+#tokenslist
+{
+	clear: left;
+}
+
+#tokenslist > li
+{
+	margin-bottom: 20px;
+}
+
+#tokenslist .limits ul, #tokenslist .permissions ul
+{
+	display: block;
+	float: right;	
+}
+
+#tokenslist .limits ul li, #tokenslist .permissions ul li
+{
+	display: block;
+	float: left;
+}
+
+#tokenslist .permissions
+{
+	clear: left;
+}

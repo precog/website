@@ -792,6 +792,7 @@ $(function() {
   }
   
   var setupSyntaxHighlighting = function() {
+   if(!$.isFunction($.snippet)) return;
    $("pre.literal-block").snippet("css",{style:"darkness"});
    $("pre.literal-block").snippet("javascript",{style:"darkness"});
   }
