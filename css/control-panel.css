@@ -51,16 +51,16 @@
   position: absolute;
   top: 48px;
   float: right;
-  right: 58px;
+  right: 20px;
 }
 #tokenpopupbutton {
   background-image: url(../images/createsubtokenbutton.png);
   background-color: transparent;
   position: absolute;
-  top: 540px;
+  top: 554px;
   height: 18px;
   width: 158px;
-  right: 110px;
+  right: 60px;
   cursor: pointer;
 }
 #tokenform .tokengroup input {
@@ -86,6 +86,7 @@
   background-color: #2D2727;
   z-index: 100;
   width: 306px;
+  padding-bottom: 80px;
   left: 50%;
   top: 50%;
   margin-left: -153px;
@@ -96,4 +97,18 @@
 #tokeninner {
   top:34px;
   left:48px;
+}
+
+#createtokenpanel {
+  background-image: url(../images/createsubtokenbuttongl.png);
+  height: 28px;
+  margin-top: 12px;
+  width: 133px;
+}
+#createtokenpanel a {
+  font-family: abel;
+  font-size: 11pt;
+  padding-left: 18px;
+  padding-top: 4px;
+  color: #C7CEF2;
 }
