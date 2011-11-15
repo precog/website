@@ -25,6 +25,10 @@
 	font-color: #8A8FA8;
 }
 
+#tokeninfo .expiration, #tokeninfo .limits, #tokeninfo .permissions{
+	font-size: 10pt;
+}
+
 #tokeninfo .limits ul,#tokeninfo .permissions ul, #tokenslist .limits ul, #tokenslist .permissions ul
 {
 	display: block;
@@ -46,7 +50,21 @@
 	clear: left;
 }
 
-
+a.delete {
+  font-size: 8pt;
+  color: #FF5125;
+}
+.token {
+  background-color: #000;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+.info {
+  padding-bottom: 10px;
+}
+a.next {
+  margin-bottom: 8px;
+}
 #tokenbutton {
   position: absolute;
   top: 48px;
@@ -98,17 +116,14 @@
   top:34px;
   left:48px;
 }
-
 #createtokenpanel {
-  background-image: url(../images/createsubtokenbuttongl.png);
-  height: 28px;
-  margin-top: 12px;
-  width: 133px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  width: 150px;
 }
 #createtokenpanel a {
   font-family: abel;
   font-size: 11pt;
-  padding-left: 18px;
   padding-top: 4px;
-  color: #C7CEF2;
+  color: #ffcc33;
 }
