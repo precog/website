@@ -120,12 +120,20 @@ a.next {
   top:34px;
   left:48px;
 }
+
+option {
+  color: #666;
+}
+
+#currentpath a {
+  padding: 4px;
+  border: 1px solid #aaa;
+  margin-right: 4px;
+
 #createtokenpanel {
   padding-top: 4px;
   padding-bottom: 4px;
   width: 150px;
-}
-#createtokenpanel a {
   font-family: abel;
   font-size: 11pt;
   padding-top: 4px;
