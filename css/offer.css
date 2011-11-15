@@ -156,6 +156,29 @@ h1 {
   padding-top: 3px;
   padding-left: 12px;
  }
+  .mpquote {
+  width: 322px;
+  background-color: #131317;
+  margin-top: 0px;
+ }
+  .mpquote p {
+  font-size: 8pt;
+  font-family: abel;
+  font-weight: normal;
+  padding-top: 8px;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 0px;
+ }
+  .mpquote h2 {
+  font-size: 7pt;
+  font-family: abel;
+  font-weight: normal;
+  color: #FBB03B;
+  text-align: right;
+  padding-right: 40px;
+  padding-bottom: 8px;
+ }
  #mpcompchart {
   background-image: url(../images/offers/mpcompchart.png);
   width: 322px;
