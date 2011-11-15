@@ -181,6 +181,12 @@ h1 {
   font-size: 9pt;
   color: #FFCC33;
  }
+ #expirationsticker {
+  position: absolute;
+  top: -34px;
+  left: 20px;
+  z-index: 2;
+ }
  #mppricingheader {
   background-color: #292930;
   height: 20px;
