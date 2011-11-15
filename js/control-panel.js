@@ -18,17 +18,36 @@
 		return this;
 	})();
 
-	function bindToken()
+	var tokeninfo = (function() {
+		var map = {};
+		
+		this.load = function(t, callback)
+		{
+			if(map[t])
+			{
+				callback(map[t]);
+				return;
+			}
+			rg.token(t, function(r) {
+				if(r)
+					map[t] = r;
+				callback(r);
+			});
+		}
+		return this;
+	})();
+
+	var bindToken = function()
 	{
 		token.setCurrent($(this).text());
 		return false;
 	}
 
-	function fillTokenInfo(el, t, displayPath)
+	var fillTokenInfo = function(el, t, displayPath)
 	{
 		var el = $(el);
 		el.html("loading ...");
-		rg.token(t, function(info) {
+		tokeninfo.load(t, function(info) {
 			if(!info)
 			{
 				el.html("NO DATA LOADED");
@@ -37,7 +56,7 @@
 
 			function renderValue(key, value)
 			{
-				if((['tags', 'lossless', 'rollup', 'explore', 'read', 'share', 'write']).indexOf(key) >= 0)
+				if((['tags', 'lossless', 'rollup' /*, 'explore', 'read', 'share', 'write'*/]).indexOf(key) >= 0)
 					return value ? true : false;
 				else
 					return value;
@@ -66,7 +85,7 @@
 			var permissions = [];
 			for(var key in info.permissions)
 			{
-				permissions.push(key+': <span class="value">'+renderValue(key, info.limits[key])+'</span>');
+				permissions.push(key+': <span class="value">'+renderValue(key, info.permissions[key])+'</span>');
 			}
 			html += '<li>' + permissions.join(', </li><li> ') + '</li>';
 			html += '</ul></div>';
@@ -76,40 +95,118 @@
 		});
 	}
 
-	$(document).ready(function(){
-		// wire the list of tokens
-		$(token).bind('changed', function() {
-			var list = $('#tokenslist').html("");
+	var displayTokenList = function(index)
+	{
+		function clear()
+		{
 			$("#tokenspagination").html("");
-			rg.tokens(function(it) {
-				function display(index)
+			$('#tokenslist').html("");
+
+		}
+		var index = index || 0,
+			list = $('#tokenslist');
+		clear();
+		rg.tokens(function(it) {
+			function display(index)
+			{
+				list.html("");
+				var max = Math.min((index + 1) * ENTRIES_PER_PAGE, it.length);
+				for(var i = index * ENTRIES_PER_PAGE; i < max; i++)
 				{
-					list.html("");
-					var max = Math.min((index + 1) * ENTRIES_PER_PAGE, it.length);
-					for(var i = index * ENTRIES_PER_PAGE; i < max; i++)
-					{
-						var t = it[i],
-							li = $('<li><div class="token">'+(i+1)+': <a href="#">'+t+'</a></div><div class="info"></div></li>');
-						list.append(li);
-						li.find('.token a').bind('click', bindToken);
-						fillTokenInfo(li.find('.info'), t, true);
-					}
-				}
+					var t = it[i],
+						li = $('<li><div class="token">'+(i+1)+': <a href="#" class="token">'+t+'</a> <a href="#" class="delete">delete</a></div><div class="info"></div></li>');
+					list.append(li);
+					li.find('.token a.token').bind('click', bindToken);
+					li.find('.token a.delete').bind('click', { token : t, page : index }, function(e){
+						var t = e.data.token;
+						if(!confirm("Are you sure you want to delete the token " + t + "?"))
+							return;
 
-				if(it.length > ENTRIES_PER_PAGE)
-					$("#tokenspagination").pagination(it.length, {
-						callback : display,
-						items_per_page : ENTRIES_PER_PAGE,
-						load_first_page:true
+						clear();
+						rg.deleteToken(t, function() { displayTokenList(e.data.page); })
 					});
+					fillTokenInfo(li.find('.info'), t, true);
+				}
+			}
 
-//				display(0);
-			});
+			var page_index = Math.max(0, Math.min(index, Math.floor((it.length-1) / ENTRIES_PER_PAGE)));
+			if(it.length > ENTRIES_PER_PAGE)
+			{
+				$("#tokenspagination").pagination(it.length, {
+					callback : display,
+					items_per_page : ENTRIES_PER_PAGE,
+					current_page : page_index
+				});
+			}
+			display(page_index);
+		});
+	}
+
+	var initTokenCreation = function(t)
+	{
+		$('#createtokenpanel').html("");
+		tokeninfo.load(t, function(info)
+		{
+			if(!info || !info.permissions.share)
+				return;
+			var el = $('#createtokenpanel').append('<a href="#">create sub-token</a>');
+			console.log("ADDED CREATE TOKEN BUTTON");
+			el.click(function() {
+				var maxWidth  = $(document).width();
+				var maxHeight = $(document).height();
+
+				$('#tokenoverlay').clearQueue().show().css({opacity: 0}).animate({opacity: 0.75})
+
+				$('#tokenmenu').clearQueue().show();
+			})
+		});
+	}
+
+	var setupTokenCreation = function() {
+		$('#tokenoverlay').click(function() {
+			$(this).css({opacity: 0.75}).animate({opacity: 0}, function() { $(this).hide(); });
+
+			$('#tokenmenu').hide();
 		});
 
-		$(token).bind('changed', function() {
-			fillTokenInfo('#tokeninfo', token.getCurrent());
-		})
+		$('#tokenpopupbutton').click(function(e) {
+			e.preventDefault();
+
+			var email    = $('#tokenform input[name="email"]');
+			var password = $('#tokenform input[name="password"]');
+
+			API.Http.post(RootAccountsAPI + "get", {
+			email:      email.val(),
+			password:   password.val()
+			}, {
+			success: function(response) {
+				var content = $('#middlepanel');
+
+				var tokenId = response.id.token;
+
+				USTORE.setSessionValue('email',    email.val());
+				USTORE.setSessionValue('password', password.val());
+				USTORE.setSessionValue('tokenId',  tokenId);
+
+				window.location = "./control-panel.html";
+			},
+
+			failure: function(code, text) {
+				alert(text);
+			}
+		});
+
+		return false;
+		});
+	}
+
+	$(document).ready(function()
+	{
+		setupTokenCreation();
+		// wire the list of tokens
+		$(token).bind('changed', function() { displayTokenList(0); });
+		$(token).bind('changed', function() { fillTokenInfo('#tokeninfo', token.getCurrent()); })
+		$(token).bind('changed', function() { initTokenCreation(token.getCurrent()); })
 
 		// setup base ui
 		token.setCurrent($('#prodtoken').text(prodToken).click(bindToken).text(), true);

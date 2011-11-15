@@ -20,13 +20,13 @@
 	margin-bottom: 20px;
 }
 
-#tokenslist .limits ul, #tokenslist .permissions ul
+#tokeninfo .limits ul,#tokeninfo .permissions ul, #tokenslist .limits ul, #tokenslist .permissions ul
 {
 	display: block;
 	float: right;	
 }
 
-#tokenslist .limits ul li, #tokenslist .permissions ul li
+#tokeninfo .limits ul li, #tokeninfo .permissions ul li, #tokenslist .limits ul li, #tokenslist .permissions ul li
 {
 	display: block;
 	float: left;
@@ -35,4 +35,57 @@
 #tokenslist .permissions
 {
 	clear: left;
+}
+
+
+#tokenbutton {
+  position: absolute;
+  top: 48px;
+  float: right;
+  right: 58px;
+}
+#tokenpopupbutton {
+  background-image: url(../images/loginbutton.png);
+  background-color: transparent;
+  position: absolute;
+  top: 540px;
+  height: 18px;
+  width: 44px;
+  right: 110px;
+  cursor: pointer;
+}
+#tokenform .tokengroup input {
+  width: 200px;
+  height: 20px;
+  margin-top: -8px;
+  margin-bottom: 2px;
+  color: #000000;
+  padding-left: 6px;
+}
+#tokenoverlay {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: #000;
+  z-index: 95;
+  display: none;
+}
+#tokenmenu {
+  position: fixed;
+  background-image: url(../images/loginpanel.png);
+  z-index: 100;
+  height: 187px;
+  width: 307px;
+  left: 50%;
+  top: 50%;
+  margin-left: -153px;
+  margin-top: -93px;
+  display: none;
+}
+
+#tokeninner {
+  top:34px;
+  left:48px;
 }

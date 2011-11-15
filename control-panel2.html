@@ -109,6 +109,64 @@
                     </form>
                 </div>
             </div>
+            <div id="tokenoverlay">
+            </div>
+            <div id="tokenmenu">
+                <div id="tokeninner">
+                    <form id="tokenform">
+                        <p class="normal">path</p>
+                        <div class="tokengroup">
+                            <input type="text" name="path" placeholder="/mypath/">
+                        </div>
+                        <p class="normal">expires on</p>
+                        <div class="tokengroup">
+                            <input type="date" name="expires" placeholder="2011-12-31">
+                        </div>
+                        <p class="normal">order</p>
+                        <div class="tokengroup">
+                            <input type="number" step="1" min="0" name="order">
+                        </div>
+                        <p class="normal">limit</p>
+                        <div class="tokengroup">
+                            <input type="number" step="1" min="0" name="limit">
+                        </div>
+                        <p class="normal">depth</p>
+                        <div class="tokengroup">
+                            <input type="number" step="1" min="0" name="depth">
+                        </div>
+                        <p class="normal">tags</p>
+                        <div class="tokengroup">
+                            <input type="checkbox" name="tags">
+                        </div>
+                        <p class="normal">lossless</p>
+                        <div class="tokengroup">
+                            <input type="checkbox" name="lossless">
+                        </div>
+                        <p class="normal">rollup</p>
+                        <div class="tokengroup">
+                            <input type="checkbox" name="rollup">
+                        </div>
+                        <p class="normal">read</p>
+                        <div class="tokengroup">
+                            <input type="checkbox" name="read">
+                        </div>
+                        <p class="normal">write</p>
+                        <div class="tokengroup">
+                            <input type="checkbox" name="write">
+                        </div>
+                        <p class="normal">share</p>
+                        <div class="tokengroup">
+                            <input type="checkbox" name="share">
+                        </div>
+                        <p class="normal">explore</p>
+                        <div class="tokengroup">
+                            <input type="checkbox" name="explore">
+                        </div>
+
+                        <input id="tokenpopupbutton" type="submit" value="">
+                    </form>
+                </div>
+            </div>
             <div id="leftpanel">
                 <div id="pagetitle">
                     <p>CONTROL PANEL</p>
@@ -137,6 +195,7 @@
                         <p>Development Token: <a href="#" id="devtoken"></a></p>
                         <p>Current Token: <span id="curtoken"></span></p>
                         <div id="tokeninfo"></div>
+                        <div id="createtokenpanel"></div>
                     </div>
                     <div>
                         <div id="tokenspagination"></div>
