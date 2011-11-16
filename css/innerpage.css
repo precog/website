@@ -439,6 +439,7 @@ ul#navlist li:hover ul.subnavlist {
   height: 136px;
   width: 284px;
   float: left;
+  margin-bottom: 46px;
 }
 .cards {
   width: 160px;
