@@ -139,7 +139,7 @@ a.next {
   color: #666;
 }
 
-#currentpath a {
+#currentpath a ,.path .value {
   padding: 4px;
   margin-right: 4px;
   font-family: questrial;
