@@ -724,7 +724,7 @@
 		$('#billingexpiration').html(info.expMonth + "/" + info.expYear);
 		$('#billingpostalcode').html(info.billingPostalCode);
 
-		console.log(r);
+		console.log(info);
 
 		$('#billingpanel').css("display", "block");
 	}
@@ -794,6 +794,30 @@
 		});
 	}
 
+	var deleteBillingInfo = function() {
+		API.Http.post(API.Config.RootAccountsAPI + "billing/delete", {
+			email : email,
+			password : password
+		}, {
+			success : function(info) {
+				updateBillingInfo(null);
+				alert("Your billing information have been succesfully removed");
+				console.log(info);
+			},
+			failure : function(code, text) {
+				alert(text)
+			}
+		});
+		return false;
+	}
+
+	var setupDeleteBillingInfo = function() {
+		$('#removebillinginfo').click(function() {
+			console.log("DELETING");
+			deleteBillingInfo();
+		});
+	}
+
 	var init = function(userinfo) {
 		fillUserInfo(userinfo);
 		setupChangePlan(userinfo.service.planId);
@@ -801,6 +825,7 @@
 		setupChangePassword();
 		setupChangeAccount();
 		setupBillingInfo();
+		setupDeleteBillingInfo();
 
 		setupTokenCreation();
 		setupChildrenPathSelection();
