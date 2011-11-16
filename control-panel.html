@@ -2,12 +2,17 @@
     <head>
         <title>Control Panel</title>
         <link rel="stylesheet" type="text/css" href="css/innerpage.css">
+        <link rel="stylesheet" type="text/css" href="css/control-panel.css">
         <!--[if IE]>
         <link rel="stylesheet" type="text/css" href="css/ieinnerpage.css">
         <![endif]-->
             <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
             <script type="text/javascript" src="js/jquery.sizes.min.js"></script>
+            <script type="text/javascript" src="js/jquery.pagination.js"></script>
+            <script type="text/javascript" src="js/jquery.validate.min.js"></script>
             <script type="text/javascript" src="js/default.js"></script>
+            <script type="text/javascript" src="http://api.reportgrid.com/js/reportgrid-core.js?tokenId=A3BC1539-E8A9-4207-BB41-3036EC2C6E6D"></script>
+            <script type="text/javascript" src="js/control-panel.js"></script>
             <!--[if (gte IE 6)&(lte IE 8)]>
                 <script type="text/javascript" src="js/selectivizr.js"></script>
                 <noscript><link rel="stylesheet" href="[fallback css]" /></noscript>
@@ -105,6 +110,64 @@
                     </form>
                 </div>
             </div>
+            <div id="tokenoverlay">
+            </div>
+            <div id="tokenmenu">
+                <div id="tokeninner">
+                    <form id="tokenform">
+                        <p class="normal">path</p>
+                        <div class="tokengroup">
+                            <input type="text" name="path" placeholder="path">
+                        </div>
+                        <p class="normal">expires on</p>
+                        <div class="tokengroup">
+                            <input type="date" name="expires" placeholder="expiration date or empty for unlimited">
+                        </div>
+                        <p class="normal">order</p>
+                        <div class="tokengroup">
+                            <input type="number" step="1" min="1" name="order">
+                        </div>
+                        <p class="normal">limit</p>
+                        <div class="tokengroup">
+                            <input type="number" step="1" min="1" name="limit">
+                        </div>
+                        <p class="normal">depth</p>
+                        <div class="tokengroup">
+                            <input type="number" step="1" min="0" name="depth">
+                        </div>
+                        <p class="normal">tags</p>
+                        <div class="tokengroup">
+                            <input type="number" step="1" min="0" name="tags">
+                        </div>
+                        <p class="normal">lossless</p>
+                        <div class="tokengroup">
+                            <input type="checkbox" name="lossless">
+                        </div>
+                        <p class="normal">rollup</p>
+                        <div class="tokengroup">
+                            <input type="number" step="1" min="0" name="rollup">
+                        </div>
+                        <p class="normal">read</p>
+                        <div class="tokengroup">
+                            <input type="checkbox" name="read">
+                        </div>
+                        <p class="normal">write</p>
+                        <div class="tokengroup">
+                            <input type="checkbox" name="write">
+                        </div>
+                        <p class="normal">share</p>
+                        <div class="tokengroup">
+                            <input type="checkbox" name="share">
+                        </div>
+                        <p class="normal">explore</p>
+                        <div class="tokengroup">
+                            <input type="checkbox" name="explore">
+                        </div>
+
+                        <input id="tokenpopupbutton" type="submit" value="">
+                    </form>
+                </div>
+            </div>
             <div id="leftpanel">
                 <div id="pagetitle">
                     <p>CONTROL PANEL</p>
@@ -119,21 +182,49 @@
                 </div>
             </div>
             <div id="middlepanel">
+
                 <h1>The control panel to your slice of the ReportGrid platform</h1>
 
                 <p>Change your plan details, update your personal information, track your usage &mdash; it's all here.</p>
 
+
+
+                <h1>TOKENS</h1>
+                <div id="tokenpanel">
+                    <div>
+                        <p>Production Token: <a href="#tokenpanel" id="prodtoken"></a></p>
+                        <p>Development Token: <a href="#tokenpanel" id="devtoken"></a></p>
+                        <p>Current Token: <span id="curtoken"></span> <a href="#tokenpanel" id="parenttoken">parent</a></p>
+                        <div id="tokeninfo"></div>
+                        <div id="createtokenpanel"></div>
+                    </div>
+                    <div>
+                        <div id="tokenspagination"></div>
+                        <ul id="tokenslist"></ul>
+                    </div>
+                </div>
+
+                <div id="explorepanel">
+                    <h1>EXPLORE</h1>
+                    <div>
+                        <p>Current Path: <span id="currentpath"></span> <select id="childpath"></select>
+                        <p id="eventpanel">Events: <span id="events"></span>
+                        <p id="propertypanel">Properties: <span id="properties"></span>
+                        <p id="valuepanel">Values: <span id="values"></span>
+                    </div>
+                </div>
+
                 <h1>CURRENT USAGE</h1>
 
                 <h1>PLAN</h1>
-                    <div class="field-group">
-                        <select id="plans" name="plans">
-                            <option value="starter">Starter Plan</option>
-                            <option value="bronze">Bronze Plan</option>
-                            <option value="silver">Silver Plan</option>
-                            <option value="gold">Gold Plan</option>
-                        </select>
-                    </div>
+                <div class="field-group">
+                    <select id="plans" name="plans">
+                        <option value="starter">Starter Plan</option>
+                        <option value="bronze">Bronze Plan</option>
+                        <option value="silver">Silver Plan</option>
+                        <option value="gold">Gold Plan</option>
+                    </select>
+                </div>
                 <h1>YOUR INFORMATION</h1>
                 <div class="rgform">
                     <form id="accountinformation" action="" method="">

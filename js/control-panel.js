@@ -446,8 +446,25 @@
 		})
 	}
 
-	$(document).ready(function()
-	{
+	var fillUserInfo = function(info) {
+		console.log(info);
+		$('#accountinformation input[name="name"]').val(info.id.email);
+
+		$('#accountinformation input[name="firstname"]').val(info.contact.firstName);
+		$('#accountinformation input[name="lastname"]').val(info.contact.lastName);
+		$('#accountinformation input[name="title"]').val(info.contact.title);
+		$('#accountinformation input[name="phone number"]').val(info.contact.phone);
+		$('#accountinformation input[name="website"]').val(info.contact.website);
+		$('#accountinformation input[name="company"]').val(info.contact.company);
+
+		$('#accountinformation input[name="city"]').val(info.contact.address.city);
+		$('#accountinformation input[name="zip code"]').val(info.contact.address.postalCode);
+		$('#accountinformation input[name="state"]').val(info.contact.address.state);
+		$('#accountinformation input[name="address"]').val(info.contact.address.street);
+	}
+
+	var init = function(userinfo) {
+		fillUserInfo(userinfo);
 		setupTokenCreation();
 		setupChildrenPathSelection();
 		// wire the list of tokens
@@ -479,5 +496,20 @@
 		tokenmanager.setCurrent($('#prodtoken').text(prodToken).click(bindToken).text());
 
 		$('#devtoken').text(devToken).click(bindToken);
+	}
+
+	$(document).ready(function()
+	{
+		var email = "franco.ponticelli@gmail.com",
+			password = "rg";
+		API.Http.post(API.Config.RootAccountsAPI + "get", {
+			email : email,
+			password : password
+		}, {
+			success : init,
+			failure : function(code, text) {
+				console.log(code + ": " + text)
+			}
+		});
 	})
 })()

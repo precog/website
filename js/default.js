@@ -455,8 +455,7 @@ var API = {};
 })();
 
 $(function() {
-  var RootAccountsAPI = 'https://api.reportgrid.com/services/billing/v1/accounts/';
-
+  API.Config.RootAccountsAPI = API.Config.RootAccountsAPI || 'https://api.reportgrid.com/services/billing/v1/accounts/';
   var setupHome = function() {
     var animateContentPane = function(panelIndex) {
       return function() {
@@ -499,7 +498,7 @@ $(function() {
       var email    = $('#loginform input[name="email"]');
       var password = $('#loginform input[name="password"]');
 
-      API.Http.post(RootAccountsAPI + "get", {
+      API.Http.post(API.Config.RootAccountsAPI + "get", {
         email:      email.val(),
         password:   password.val()
       }, {
@@ -507,11 +506,9 @@ $(function() {
           var content = $('#middlepanel');
 
           var tokenId = response.id.token;
-
           USTORE.setSessionValue('email',    email.val());
           USTORE.setSessionValue('password', password.val());
           USTORE.setSessionValue('tokenId',  tokenId);
-
           window.location = "./control-panel.html";
         },
 
@@ -770,7 +767,7 @@ $(function() {
       if (cardHolder().val() == "") delete request.billing;
 
 
-      API.Http.post(RootAccountsAPI, request, {
+      API.Http.post(API.Config.RootAccountsAPI, request, {
         success: function(response) {
           $('#signup').removeAttr("disabled");
           var content = $('#middlepanel');
