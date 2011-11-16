@@ -49,12 +49,20 @@
 	top: -17px;
 }
 
+#tokeninfo {
+	padding-bottom: 10px;
+}
+
 #tokenslist .permissions
 {
 	clear: left;
 }
 
 a.delete {
+  background-image: url(../images/controlpaneldeleteicon.png);
+  background-repeat: no-repeat;
+  padding-left: 14px;
+  font-family: questrial;
   font-size: 8pt;
   color: #FF5125;
 }
@@ -120,22 +128,32 @@ a.next {
   top:34px;
   left:48px;
 }
-
-option {
+#parenttoken {
+  background-image: url(../images/controlpanelparenticon.png);
+  background-repeat: no-repeat;
+  padding-left: 14px;
+  font-family: questrial;
+  color: #61B1DC;
+}
+.option {
   color: #666;
 }
 
 #currentpath a {
   padding: 4px;
-  border: 1px solid #aaa;
   margin-right: 4px;
+  font-family: questrial;
+  font-size: 10pt;
+  color: #61B1DC;
+}
 
-#createtokenpanel {
-  padding-top: 4px;
+#createtokenpanel a {
+  background-image: url(../images/controlpanelnewicon.png);
+  background-repeat: no-repeat;
+  padding-left: 16px;
+  margin-top: 4px;
   padding-bottom: 4px;
-  width: 150px;
-  font-family: abel;
-  font-size: 11pt;
-  padding-top: 4px;
+  font-family: questrial;
+  font-size: 10pt;
   color: #ffcc33;
 }

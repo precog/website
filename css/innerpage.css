@@ -864,17 +864,17 @@ ul#navlist li:hover ul.subnavlist {
   margin-bottom:-7px;
   margin-top:8px;
 }
-#update {
+#updateinfo {
   background-image: url(../images/updateinfobutton.png);
   background-color: transparent;
-  top: 20px;
+  top: 70px;
   height: 28px;
   width: 133px;
   float: right;
   right: 74px;
   padding-bottom: 20px;
 }
-#update:hover{
+#updateinfo:hover{
   opacity: 0.7
 }
 .option {
