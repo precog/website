@@ -1,6 +1,17 @@
 (function(){
+	var email     = USTORE.getSessionValue("email"),
+		password  = USTORE.getSessionValue("password"),
+		prodToken = USTORE.getSessionValue("tokenId");
+
+
+	if(!email || !password || !prodToken) {
+		window.location = "./";
+		return;
+	}
+	
+
 	var ENTRIES_PER_PAGE = 10,
-		prodToken = "A3BC1539-E8A9-4207-BB41-3036EC2C6E6D",
+//		prodToken = "A3BC1539-E8A9-4207-BB41-3036EC2C6E6D",
 		devToken  = "A3BC1539-E8A9-4207-BB41-3036EC2C6E6D",
 		rg = ReportGrid;
 	
@@ -448,23 +459,349 @@
 
 	var fillUserInfo = function(info) {
 		console.log(info);
-		$('#accountinformation input[name="name"]').val(info.id.email);
+		$('#changeaccount input[name="name"]').val(info.id.email);
 
-		$('#accountinformation input[name="firstname"]').val(info.contact.firstName);
-		$('#accountinformation input[name="lastname"]').val(info.contact.lastName);
-		$('#accountinformation input[name="title"]').val(info.contact.title);
-		$('#accountinformation input[name="phone number"]').val(info.contact.phone);
-		$('#accountinformation input[name="website"]').val(info.contact.website);
-		$('#accountinformation input[name="company"]').val(info.contact.company);
+		$('#changeaccount input[name="firstName"]').val(info.contact.firstName);
+		$('#changeaccount input[name="lastName"]').val(info.contact.lastName);
+		$('#changeaccount input[name="title"]').val(info.contact.title);
+		$('#changeaccount input[name="phone"]').val(info.contact.phone);
+		$('#changeaccount input[name="website"]').val(info.contact.website);
+		$('#changeaccount input[name="company"]').val(info.contact.company);
 
-		$('#accountinformation input[name="city"]').val(info.contact.address.city);
-		$('#accountinformation input[name="zip code"]').val(info.contact.address.postalCode);
-		$('#accountinformation input[name="state"]').val(info.contact.address.state);
-		$('#accountinformation input[name="address"]').val(info.contact.address.street);
+		$('#changeaccount input[name="city"]').val(info.contact.address.city);
+		$('#changeaccount input[name="postalCode"]').val(info.contact.address.postalCode);
+		$('#changeaccount input[name="state"]').val(info.contact.address.state);
+		$('#changeaccount input[name="street"]').val(info.contact.address.street);
+
+		$('#serviceaccountcreated').html(new Date(info.service.accountCreated).toDateString());
+		$('#servicecredit').html((info.service.credit/100) + "$");
+		$('#servicelastcreditassessment').html(new Date(info.service.lastCreditAssessment).toDateString());
+		$('#serviceusage').html(info.service.usage);
+		$('#servicestatus').html(info.service.status);
+
+		$('#serviceplan').html(info.service.planId);
+
+		$('#contactemail').html(info.id.email);
+	}
+
+	var updateChangePlan = function(current) {
+		var plans = [{ value : 'starter', label : 'Starter Plan'}, { value : 'bronze', label : 'Bronze Plan'}, { value : 'silver', label : 'Silver Plan'}, { value : 'gold', label : 'Gold Plan'}];
+		$('select#plans').html(plans.filter(function(plan) {
+			return plan.value != current;
+		}).map(function(plan) {
+			return '<option value="'+plan.value+'">'+plan.label+'</option>';
+		}).join(""))
+	}
+
+	var setupChangePlan = function(current)	{
+		updateChangePlan(current);
+		$('input#submitplan').click(function(e){
+			e.preventDefault();
+			var newplan = $('select#plans').val();
+			if(!newplan || !confirm("Are you sure you want to change your plan from '"+current+"' to '"+newplan+"'?"))
+				return false;
+
+			API.Http.put(API.Config.RootAccountsAPI + "info", {
+				authentication : {
+					email : email,
+					password : password
+				},
+				planId : newplan
+			}, {
+				success : function(info) {
+					fillUserInfo(info);
+					updateChangePlan(info.service.planId);
+					alert("Your plan has been succesfully changed to: " + info.service.planId);
+					console.log(rinfo);
+				},
+				failure : function(code, text) {
+					console.log(code + ": " + text)
+				}
+			});
+			return false;
+		})
+	}
+
+	var setupChangeEmail = function() {
+		var validator = $('#changeemail').validate({
+			rules : {
+				email: {
+		            required: true,
+		            email: true,
+		            minlength : 2
+		        },
+			},
+			messages : {
+				email: "Please enter a valid email address"
+			}
+		});
+
+		$('input#submitemail').click(function(e){
+			e.preventDefault();
+			var el = $('#changeemail input[name=email]'),
+				email = el.val();
+			console.log(email);
+			if(!validator.element(el) || !confirm("Are you sure you want to change your email to '"+email+"'?"))
+				return false;
+
+			API.Http.put(API.Config.RootAccountsAPI + "info", {
+				authentication : {
+					email : email,
+					password : password
+				},
+				newEmail : email
+			}, {
+				success : function(info) {
+					USTORE.setSessionVariable("password", email = info.id.email);
+					validator.resetForm();
+					fillUserInfo(info);
+					alert("Your email has been succesfully changed to: " + email);
+					console.log(info);
+				},
+				failure : function(code, text) {
+					console.log(code + ": " + text)
+				}
+			});
+			return false;
+		})
+	}
+
+	var setupChangePassword = function() {
+		var validator = $('#changepassword').validate({
+			rules : {
+				oldpassword: {
+		            required : true,
+		            checkOldPassowrd : true
+		        },
+		        password: {
+		            required: true,
+		            minlength : 5
+		        },
+		        confirmpassword: {
+		            equalTo : '#changepassword input[name="password"]'
+		        },
+			},
+			messages : {
+				oldpassword : "The current password is not correct",
+				password : "The new password must be at least 5 characters long",
+				confirmpassword : "The confirmation field doesn't match the new password"
+			}
+		});
+		$.validator.addMethod('checkOldPassowrd', function(p) { return p == password; });
+
+		$('input#submitpassword').click(function(e){
+			e.preventDefault();
+			var pwd = $('#changepassword input[name=password]').val();
+			console.log(pwd);
+			if(!validator.form() || !confirm("Are you sure you want to change your password?"))
+				return false;
+
+			API.Http.put(API.Config.RootAccountsAPI + "info", {
+				authentication : {
+					email : email,
+					password : password
+				},
+				newPassword : {
+					password : pwd,
+					confirmPassword :$('#changepassword input[name="confirmpassword"]').val()
+				},
+			}, {
+				success : function(info) {
+					validator.resetForm();
+					fillUserInfo(info);
+					USTORE.setSessionVariable("password", password = pwd);
+					alert("Your password has been succesfully changed");
+					console.log(info);
+				},
+				failure : function(code, text) {
+					console.log(code + ": " + text)
+				}
+			});
+			return false;
+		})
+	}
+
+	var setupChangeAccount = function() {
+		var validator = $("#changeaccount").validate({
+			rules: {
+				firstName: "required",
+				lastName: "required",
+				company: {
+					required: true,
+					minlength: 2
+				},
+				title: {
+					required: true,
+					minlength: 3
+				},
+				street: {
+					required: true,
+					minlength: 5
+				},
+				city: {
+					required: true,
+					minlength: 2
+				},
+				state: {
+					required: true,
+					minlength: 2
+				},
+				postalCode: {
+					required: true,
+					digits: true
+				},
+				phone: {
+					required: true
+				},
+				website: {
+					required: true,
+					url: true
+				} //, agree: "required"
+			},
+			messages: {
+				firstName:    "Please enter your firstname",
+				lastName:     "Please enter your lastname",
+				company:      "Please enter your company",
+				title:        "Please enter your title at the company you work for",
+				street:       "Please enter your street",
+				state:        "Please enter your state or province",
+				city:         "Please enter your city",
+				postalCode:   "Please enter your postal code",
+				phone:        "Please enter a valid US phone number",
+				website:      "Please enter your website"
+			}
+		});
+
+		$('input#submitaccount').click(function(e){
+			e.preventDefault();
+			if(!validator.form() || !confirm("Are you sure you want to change your acccount information?"))
+				return false;
+
+			var ob = {
+				firstName:  $('#changeaccount input[name="firstName"]').val(),
+				lastName:   $('#changeaccount input[name="lastName"]').val(),
+				company:    $('#changeaccount input[name="company"]').val(),
+				title:      $('#changeaccount input[name="title"]').val(),
+				phone:      $('#changeaccount input[name="phone"]').val(),
+				website:    $('#changeaccount input[name="website"]').val(),
+				address:{
+					street:     $('#changeaccount input[name="street"]').val(),
+					city:       $('#changeaccount input[name="city"]').val(),
+					state:      $('#changeaccount input[name="state"]').val(),
+					postalCode: $('#changeaccount input[name="postalCode"]').val()
+				}
+			};
+
+			API.Http.put(API.Config.RootAccountsAPI + "info", {
+				authentication : {
+					email : email,
+					password : password
+				},
+				contact : ob
+			}, {
+				success : function(info) {
+					validator.resetForm();
+					fillUserInfo(info);
+					alert("Your contact information have been succesfully changed");
+					console.log(info);
+				},
+				failure : function(code, text) {
+					console.log(code + ": " + text)
+				}
+			});
+			return false;
+		})
+	}
+
+	var updateBillingInfo = function(info) {
+		if(!info)
+		{
+			$('#nobillingpanel').css("display", "block");
+			return;
+		}
+		$('#billingcardholder').html(info.cardholder);
+		$('#billingnumber').html(info.number);
+		$('#billingexpiration').html(info.expMonth + "/" + info.expYear);
+		$('#billingpostalcode').html(info.billingPostalCode);
+
+		console.log(r);
+
+		$('#billingpanel').css("display", "block");
+	}
+
+	var setupBillingInfo = function() {
+		$('#billingpanel').css("display", "none");
+		$('#nobillingpanel').css("display", "none");
+		API.Http.post(API.Config.RootAccountsAPI + "billing/get", {
+			email : email,
+			password : password
+		}, {
+			success : updateBillingInfo,
+			failure : function(code, text) {
+				console.log(code + ": " + text)
+			}
+		});
+
+		var validator = $("#changecreditcard").validate({
+			rules: {
+				cardNumber:   "required",
+				cardCCV:      "required",
+				cardExpMonth: "required",
+				cardExpYear:  "required",
+				cardHolder:   "required",
+				postalCode:   "required"
+			},
+			messages: {
+				cardNumber:   "Required Field",
+				cardCCV:      "Required Field",
+				cardExpMonth: "Required Field",
+				cardExpYear:  "Required Field",
+				cardHolder:   "Required Field",
+				postalCode:   "Required Field"
+			}
+		});
+
+		$('#submitcreditcard').click(function(e) {
+			e.preventDefault();
+			if(!validator.form() || !confirm("Are you sure you want to update your credit card information?"))
+				return;
+			
+			var ob = {
+				email : email,
+				password : password,
+				billing : {
+					cardholder:        $('#changecreditcard input[name="cardHolder"]').val(),
+					number:            $('#changecreditcard input[name="cardNumber"]').val(),
+					expMonth:          $('#changecreditcard input[name="cardExpMonth"]').val(),
+					expYear:           $('#changecreditcard input[name="cardExpYear"]').val(),
+					cvv:               $('#changecreditcard input[name="cardCCV"]').val(),
+					billingPostalCode: $('#changecreditcard input[name="postalCode"]').val()
+				}
+			};
+
+			API.Http.put(API.Config.RootAccountsAPI + "billing/", ob, {
+				success : function(info) {
+					validator.resetForm();
+					updateBillingInfo(info);
+					alert("Your billing information have been succesfully changed");
+					console.log(info);
+				},
+				failure : function(code, text) {
+					alert(text)
+				}
+			});
+			return false;
+		});
 	}
 
 	var init = function(userinfo) {
 		fillUserInfo(userinfo);
+		setupChangePlan(userinfo.service.planId);
+		setupChangeEmail();
+		setupChangePassword();
+		setupChangeAccount();
+		setupBillingInfo();
+
 		setupTokenCreation();
 		setupChildrenPathSelection();
 		// wire the list of tokens
@@ -500,8 +837,6 @@
 
 	$(document).ready(function()
 	{
-		var email = "franco.ponticelli@gmail.com",
-			password = "rg";
 		API.Http.post(API.Config.RootAccountsAPI + "get", {
 			email : email,
 			password : password

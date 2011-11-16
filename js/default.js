@@ -25,6 +25,8 @@ return'"'+string+'"';};})(jQuery);
 // USTORE
 var USTORE=(function(){var e,a,c,f,b,k,i,j,d;var g={setValue:function(l,m,n){if(e){if(n&&a){sessionStorage.setItem(l,m)}else{localStorage.setItem(l,m)}}else{if(c){if(n){i.setAttribute(l,m);i.save(d)}else{f.setAttribute(l,m);f.save(ieDb)}}}},getValue:function(m,n){var l="";if(e){if(n&&a){l=sessionStorage.getItem(m)}else{l=localStorage.getItem(m)}}else{if(c){if(n){i.load(d);l=i.getAttribute(m)}else{f.load(ieDb);l=f.getAttribute(m)}}}return l},deleteValue:function(l,m){if(e){this.setValue(l,null,m)}else{if(c){if(m){i.removeAttribute(l);i.save(d)}else{f.removeAttribute(l);f.save(ieDb)}}}},clearDB:function(l){if(e){if(l){sessionStorage.clear()}else{localStorage.clear()}}else{if(c){h.clearDB(l)}}}};var h={detectIE:function(){if(/MSIE (\d+\.\d+);/.test(navigator.userAgent)){var l=new Number(RegExp.$1);if(l>=5.5&&l<=8){return true}}return false},init:function(){var n=document.createElement("meta");n.name="save";n.content="userdata";document.getElementsByTagName("head").item(0).appendChild(n);var m=new Date().getTime();var l=document.createElement("div");b="ie-db-"+m;ieDb="userStorage";l.setAttribute("id",b);body.appendChild(l);f=document.getElementById(b);f.style.behavior="url('#default#userData')";f.style.display="none";if(window.name===null||window.name===undefined||window.name===""){window.name="ie-sesh-db-"+m}j=window.name;d=j;l=document.createElement("div");l.setAttribute("id",j);f.appendChild(l);i=document.getElementById(j);i.style.behavior="url('#default#userData')";i.style.display="none"},clearDB:function(r){var m=new Date().getTime(),t=document.createElement("div"),l=r?i:f,p=r?d:ieDb,s=l.xmlDocument,n=s.firstChild.attributes,q,o=n.length;while(0<=--o){q=n[o];l.removeAttribute(q.nodeName)}l.save(p)}};return{init:function(){if(typeof(window.localStorage)==="object"){e=true;try{if(typeof(window.sessionStorage)==="object"){a=true}}catch(l){a=false}}else{if(h.detectIE()){c=true;h.init()}}},setValue:function(l,m){g.setValue(l,m,false)},setSessionValue:function(l,m){g.setValue(l,m,true)},getValue:function(l){return g.getValue(l,false)},getSessionValue:function(l){return g.getValue(l,true)},deleteValue:function(l){g.deleteValue(l,false)},deleteSessionValue:function(l){g.deleteValue(l,true)},clearLocalStorage:function(){g.clearDB(false)},clearSessionStorage:function(){g.clearDB(true)},clearDOMStorage:function(){g.clearDB(false);g.clearDB(true)}}})();
 
+USTORE.init();
+
 var API = {};
 
 (function() {
@@ -672,8 +674,7 @@ $(function() {
             digits: true
           },
           phone: {
-            required: true,
-            phoneUS: true
+            required: true
           },
           website: {
             required: true,
@@ -700,9 +701,7 @@ $(function() {
           city:         "Please enter your city",
           postalCode:   "Please enter your postal code",
           phone:        "Please enter a valid US phone number",
-          state:        "Please enter your state",
           website:      "Please enter your website",
-          email:        "Please enter a valid email address",
           agree:        "Please accept our policy"
         }
       });
@@ -729,6 +728,7 @@ $(function() {
     var cardExpYear     = function() { return $('#signupForm input[name="cardExpYear"]'); }
     var cardNumber      = function() { return $('#signupForm input[name="cardNumber"]'); }
     var cardCCV         = function() { return $('#signupForm input[name="cardCCV"]'); }
+    var cardPostalCode         = function() { return $('#signupForm input[name="postalCode"]'); }
 
     $('#signup').click(function(e) {
       $('#signup').attr("disabled", "disabled");
@@ -760,7 +760,8 @@ $(function() {
           "number":     cardNumber().val(),
           "expMonth":   cardExpMonth().val(),
           "expYear":    cardExpYear().val(),
-          "cvv":        cardCCV().val()
+          "cvv":        cardCCV().val(),
+          "postalCode": cardPostalCode().val()
         }
       }
 

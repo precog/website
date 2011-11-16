@@ -209,38 +209,126 @@
                     </div>
                 </div>
 
-                <h1>CURRENT USAGE</h1>
+                <h1>STATUS</h1>
+                <div class="field-group">
+                    <p>Account Created: <span id="serviceaccountcreated" class="value"></span></p>
+                    <p>Service Credit: <span id="servicecredit" class="value"></span></p>
+                    <p>Last Credit Assessment: <span id="servicelastcreditassessment" class="value"></span></p>
+                    <p>Usage: <span id="serviceusage" class="value"></span></p>
+                    <p>Status: <span id="servicestatus" class="value"></span></p>
+                </div>
 
                 <h1>PLAN</h1>
                 <div class="field-group">
-                    <select id="plans" name="plans">
-                        <option value="starter">Starter Plan</option>
-                        <option value="bronze">Bronze Plan</option>
-                        <option value="silver">Silver Plan</option>
-                        <option value="gold">Gold Plan</option>
-                    </select>
+                    <p>Your current plan is <span id="serviceplan" class="value"></span>.</p>
+                    <form id="changeplan" action="" method="">
+                        <p>Change Plan to:
+                            <select id="plans" name="plans">
+                                <option value="starter">Starter Plan</option>
+                                <option value="bronze">Bronze Plan</option>
+                                <option value="silver">Silver Plan</option>
+                                <option value="gold">Gold Plan</option>
+                            </select>
+                        </p>
+                        <p><input type="submit" id="submitplan" value=""></p>
+                    </form>
                 </div>
+
                 <h1>YOUR INFORMATION</h1>
+                <h2>EMAIL ADDRESS</h2>
+                <div class="field-group">
+                    <p>Your account is associated to this email address: <span id="contactemail" class="value"></span>.</p>
+                    <form id="changeemail" action="" method="">
+                       <p>Change Email to:
+                          <input type="email" name="email" />
+                       </p>
+                       <p><input type="submit" id="submitemail" value=""></p>
+                   </form>
+                </div>
+
+                <h2>PASSWORD</h2>
+                <div class="field-group">
+                    <p>To change your current password provide the following information.</p>
+                    <form id="changepassword" action="" method="">
+                       <p>Current Password:</p><div class="fieldgroup"><input type="password" name="oldpassword" autocomplete="off" /></div>
+                       <p>New Password:</p><div class="fieldgroup"><input type="password" name="password" autocomplete="off" /></div>
+                       <p>Password Confirm:</p><div class="fieldgroup"><input type="password" name="confirmpassword" autocomplete="off" /></div>
+                       <input type="submit" id="submitpassword" value="">
+                   </form>
+                </div>
+
+                <h2>CONTACT</h2>
                 <div class="rgform">
-                    <form id="accountinformation" action="" method="">
+                    <form id="changeaccount" action="" method="">
                        <div class="leftfields">
-                       <p>Email:</p><div class="fieldgroup"><input tabIndex=1 type="text" name="name" /></div>
-                       <p>Password:</p><div class="fieldgroup"><input tabIndex=2 type="password" name="password" /></div>
-                       <p>First Name:</p><div class="fieldgroup"><input tabIndex=4 type="text" name="firstname" /></div>
-                       <p>Company:</p><div class="fieldgroup"><input tabIndex=6 type="text" name="company" /></div>
-                       <p>Address:</p><div class="fieldgroup"><input tabIndex=8 type="text" name="address" /></div>
-                       <p>State:</p><div class="fieldgroup"><input tabIndex=10 type="text" name="state" /></div>
-                       <p>Phone Number:</p><div class="fieldgroup"><input tabIndex=12 type="text" name="phone number" /></div>
+                       <p>First Name:</p><div class="fieldgroup"><input type="text" name="firstName" /></div>
+                       <p>Company:</p><div class="fieldgroup"><input type="text" name="company" /></div>
+                       <p>Address:</p><div class="fieldgroup"><input type="text" name="street" /></div>
+                       <p>State:</p><div class="fieldgroup"><input type="text" name="state" /></div>
+                       <p>Phone Number:</p><div class="fieldgroup"><input type="text" name="phone" /></div>
                        </div>
                        <div class="rightfields">
-                       <p>Password Confirm:</p><div class="fieldgroup"><input tabIndex=3 type="password" name="passwordconfirmation" /></div>
-                       <p>Last Name:</p><div class="fieldgroup"><input tabIndex=5 type="text" name="lastname" /></div>
-                       <p>Title:</p><div class="fieldgroup"><input tabIndex=7 type="text" name="title" /></div>
-                       <p>City:</p><div class="fieldgroup"><input tabIndex=9 type="text" name="city" /></div>
-                       <p>ZipCode:</p><div class="fieldgroup"><input tabIndex=11 type="text" name="zip code" /></div>
-                       <p>Website:</p><div class="fieldgroup"><input tabIndex=13 type="text" name="website" /></div>
-                       <input type="submit" id="updateinfo" value="">
-                       </div>
+                       <p>Last Name:</p><div class="fieldgroup"><input type="text" name="lastName" /></div>
+                       <p>Title:</p><div class="fieldgroup"><input type="text" name="title" /></div>
+                       <p>City:</p><div class="fieldgroup"><input type="text" name="city" /></div>
+                       <p>ZipCode:</p><div class="fieldgroup"><input type="text" name="postalCode" /></div>
+                       <p>Website:</p><div class="fieldgroup"><input type="text" name="website" /></div>
+                       <input type="submit" id="submitaccount" value="">
+s                       </div>
+                   </form>
+                </div>
+
+                <h2>BILLING</h2>
+                <div class="field-group" id="billingpanel">
+                    <p>Payments are done using the following information:</p>
+                    <div>
+                        <p>Card Holder: <span id="billingcardholder" class="value"></span></p>
+                        <p>Card Number: <span id="billingnumber" class="value"></span></p>
+                        <p>Expiration: <span id="billingexpiration" class="value"></span></p>
+                        <p>Billing Postal Code: <span id="billingpostalcode" class="value"></span></p>
+                    </div>
+                </div>
+                <div class="field-group" id="nobillingpanel">
+                    <p>You have not yet provided information for billing. Please use the form below to set your payment options.</p>
+                </div>
+
+                <div class="rgform">
+                    <form id="changecreditcard" action="" method="">
+                        <div id="creditcardform">
+                            <div class="leftfields">
+                                <p class="signupfields">Credit Card Number:</p>
+                                <div class="fieldgroup">
+                                    <input class="blacktext" type="text" name="cardNumber" autocomplete="off" />
+                                </div>
+
+                                <p class="signupfields">Expiration Month/Year</p>
+                                <div class="signupfieldspecial">
+                                    <input type="text" name="cardExpMonth" placeholder="mm" autocomplete="off" />
+                                </div>
+
+                                <div class="signupfieldspecial">
+                                    <input type="text" name="cardExpYear" placeholder="yy" autocomplete="off" />
+                                </div>
+
+                                <p class="signupfields">Zip Code</p>
+                                <div class="signupfieldspecial">
+                                    <input type="text" name="postalCode" autocomplete="off" />
+                                </div>
+                            </div>
+
+                            <div class="rightfields2">
+                                <p class="signupfields">CCV Code:</p>
+                                <div class="fieldgroup">
+                                    <input id="cardsecurecode" class="blacktext" type="text" name="cardCCV" autocomplete="off" />
+                                </div>
+
+                                <p class="signupfields">Name of Card Holder:</p>
+                                <div class="fieldgroup">
+                                    <input id="cardnameon" class="blacktext" type="text" name="cardHolder" autocomplete="off" />
+                                </div>
+                            </div>
+                        </div>
+                        <input type="submit" id="submitcreditcard" value=""/>
                    </form>
                 </div>
             </div>
