@@ -2,6 +2,12 @@
 	var email     = USTORE.getSessionValue("email"),
 		password  = USTORE.getSessionValue("password"),
 		prodToken = USTORE.getSessionValue("tokenId");
+
+
+	if(!email || !password || !prodToken) {
+		window.location = "./";
+		return;
+	}
 	
 
 	var ENTRIES_PER_PAGE = 10,
