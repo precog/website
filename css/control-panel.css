@@ -58,7 +58,12 @@
 	clear: left;
 }
 
-a.delete {
+#changepassword p, #changeemail p {
+  padding-top: 6px;
+  padding-bottom: 3px;
+}
+
+a.delete, #removebillinginfo {
   background-image: url(../images/controlpaneldeleteicon.png);
   background-repeat: no-repeat;
   padding-left: 14px;
@@ -76,6 +81,16 @@ a.delete {
 }
 a.next {
   margin-bottom: 8px;
+}
+#submitplan, #submitemail, #submitpassword, #submitcreditcard, #submitaccount {
+  background-image: url(../images/changebuttonsm.png);
+  width: 133px;
+  height: 28px;
+  margin-top: 20px;
+  background-color: #000;
+}
+#submitplan:hover, #submitemail:hover, #submitpassword:hover, #submitcreditcard:hover, #submitaccount:hover {
+  opacity: 0.7;
 }
 #tokenbutton {
   position: absolute;
