@@ -2,7 +2,13 @@
 	var email     = USTORE.getSessionValue("email"),
 		password  = USTORE.getSessionValue("password"),
 		prodToken = USTORE.getSessionValue("tokenId");
+	
 
+	var ENTRIES_PER_PAGE = 10,
+//		prodToken = "A3BC1539-E8A9-4207-BB41-3036EC2C6E6D",
+		devToken  = "A3BC1539-E8A9-4207-BB41-3036EC2C6E6D",
+		rg = ReportGrid;
+	
 	var tokenmanager = (function() {
 		var map = {};
 		return {
