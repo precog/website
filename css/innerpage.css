@@ -886,7 +886,7 @@ ul#navlist li:hover ul.subnavlist {
 /*controlpanel*/
 /*signup*/
 #submit {
-  background-image: url(../images/submitbutton.png);
+  background-image: url(../images/signupsm.png);
   background-color: transparent;
   top: 20px;
   height: 28px;
