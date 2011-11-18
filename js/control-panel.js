@@ -1,17 +1,8 @@
 (function(){
 	var email     = USTORE.getSessionValue("email"),
-		password  = USTORE.getSessionValue("password");
+		password  = USTORE.getSessionValue("password"),
+		prodToken = USTORE.getSessionValue("tokenId");
 
-
-	if(!email || !password) {
-		window.location = "./";
-		return;
-	}
-	
-
-	var ENTRIES_PER_PAGE = 10,
-		rg = ReportGrid;
-	
 	var tokenmanager = (function() {
 		var map = {};
 		return {
@@ -162,7 +153,6 @@
 		var list = $('#tokenslist');
 		clear();
 		rg.tokens(function(it) {
-			if(!it) return;
 			function display(index)
 			{
 				list.html("");
@@ -455,13 +445,8 @@
 		})
 	}
 
-	var setupTokens = function(info) {
-		$('#devtoken').text(info.id.tokens.development).click(bindToken);
-		var prod = $('#prodtoken').text(info.id.tokens.production).click(bindToken).text();
-		tokenmanager.setCurrent(prod);
-	}
-
 	var fillUserInfo = function(info) {
+		console.log(info);
 		$('#changeaccount input[name="name"]').val(info.id.email);
 
 		$('#changeaccount input[name="firstName"]').val(info.contact.firstName);
@@ -478,6 +463,7 @@
 
 		$('#serviceaccountcreated').html(new Date(info.service.accountCreated).toDateString());
 		$('#servicecredit').html((info.service.credit/100) + "$");
+		$('#servicelastcreditassessment').html(new Date(info.service.lastCreditAssessment).toDateString());
 		$('#serviceusage').html(info.service.usage);
 		$('#servicestatus').html(info.service.status);
 
@@ -503,20 +489,21 @@
 			if(!newplan || !confirm("Are you sure you want to change your plan from '"+current+"' to '"+newplan+"'?"))
 				return false;
 
-			API.Http.put(API.Config.RootAccountsAPI + "info/", {
+			API.Http.put(API.Config.RootAccountsAPI + "info", {
 				authentication : {
 					email : email,
 					password : password
 				},
-				newPlanId : newplan
+				planId : newplan
 			}, {
 				success : function(info) {
 					fillUserInfo(info);
 					updateChangePlan(info.service.planId);
 					alert("Your plan has been succesfully changed to: " + info.service.planId);
+					console.log(rinfo);
 				},
 				failure : function(code, text) {
-					alert(text);
+					console.log(code + ": " + text)
 				}
 			});
 			return false;
@@ -540,25 +527,27 @@
 		$('input#submitemail').click(function(e){
 			e.preventDefault();
 			var el = $('#changeemail input[name=email]'),
-				newemail = el.val();
-			if(!validator.element(el) || !confirm("Are you sure you want to change your email to '"+newemail+"'?"))
+				email = el.val();
+			console.log(email);
+			if(!validator.element(el) || !confirm("Are you sure you want to change your email to '"+email+"'?"))
 				return false;
 
-			API.Http.put(API.Config.RootAccountsAPI + "info/", {
+			API.Http.put(API.Config.RootAccountsAPI + "info", {
 				authentication : {
 					email : email,
 					password : password
 				},
-				newEmail : newemail
+				newEmail : email
 			}, {
 				success : function(info) {
-					USTORE.setSessionValue("email", email = info.id.email);
-					$('#changeemail input[name=email]').val("");
+					USTORE.setSessionVariable("password", email = info.id.email);
+					validator.resetForm();
 					fillUserInfo(info);
 					alert("Your email has been succesfully changed to: " + email);
+					console.log(info);
 				},
 				failure : function(code, text) {
-					alert(text);
+					console.log(code + ": " + text)
 				}
 			});
 			return false;
@@ -591,10 +580,11 @@
 		$('input#submitpassword').click(function(e){
 			e.preventDefault();
 			var pwd = $('#changepassword input[name=password]').val();
+			console.log(pwd);
 			if(!validator.form() || !confirm("Are you sure you want to change your password?"))
 				return false;
 
-			API.Http.put(API.Config.RootAccountsAPI + "info/", {
+			API.Http.put(API.Config.RootAccountsAPI + "info", {
 				authentication : {
 					email : email,
 					password : password
@@ -605,13 +595,14 @@
 				},
 			}, {
 				success : function(info) {
-					$('#changepassword input').val("");
+					validator.resetForm();
 					fillUserInfo(info);
-					USTORE.setSessionValue("password", password = pwd);
+					USTORE.setSessionVariable("password", password = pwd);
 					alert("Your password has been succesfully changed");
+					console.log(info);
 				},
 				failure : function(code, text) {
-					alert(text);
+					console.log(code + ": " + text)
 				}
 			});
 			return false;
@@ -689,20 +680,21 @@
 				}
 			};
 
-			API.Http.put(API.Config.RootAccountsAPI + "info/", {
+			API.Http.put(API.Config.RootAccountsAPI + "info", {
 				authentication : {
 					email : email,
 					password : password
 				},
-				newContact : ob
+				contact : ob
 			}, {
 				success : function(info) {
 					validator.resetForm();
 					fillUserInfo(info);
 					alert("Your contact information have been succesfully changed");
+					console.log(info);
 				},
 				failure : function(code, text) {
-					alert(text);
+					console.log(code + ": " + text)
 				}
 			});
 			return false;
@@ -720,6 +712,8 @@
 		$('#billingexpiration').html(info.expMonth + "/" + info.expYear);
 		$('#billingpostalcode').html(info.billingPostalCode);
 
+		console.log(info);
+
 		$('#billingpanel').css("display", "block");
 	}
 
@@ -732,7 +726,7 @@
 		}, {
 			success : updateBillingInfo,
 			failure : function(code, text) {
-				alert(text);
+				console.log(code + ": " + text)
 			}
 		});
 
@@ -761,10 +755,8 @@
 				return;
 			
 			var ob = {
-				authentication : {
-					email : email,
-					password : password
-				},
+				email : email,
+				password : password,
 				billing : {
 					cardholder:        $('#changecreditcard input[name="cardHolder"]').val(),
 					number:            $('#changecreditcard input[name="cardNumber"]').val(),
@@ -780,9 +772,10 @@
 					validator.resetForm();
 					updateBillingInfo(info);
 					alert("Your billing information have been succesfully changed");
+					console.log(info);
 				},
 				failure : function(code, text) {
-					alert(text);
+					alert(text)
 				}
 			});
 			return false;
@@ -797,9 +790,10 @@
 			success : function(info) {
 				updateBillingInfo(null);
 				alert("Your billing information have been succesfully removed");
+				console.log(info);
 			},
 			failure : function(code, text) {
-				alert(text);
+				alert(text)
 			}
 		});
 		return false;
@@ -807,6 +801,7 @@
 
 	var setupDeleteBillingInfo = function() {
 		$('#removebillinginfo').click(function() {
+			console.log("DELETING");
 			deleteBillingInfo();
 		});
 	}
@@ -847,7 +842,10 @@
 		$(pathmanager).bind('changed', displayChildrenPath);
 		$(pathmanager).bind('changed', displayEvents);
 
-		setupTokens(userinfo);
+		// setup base ui
+		tokenmanager.setCurrent($('#prodtoken').text(prodToken).click(bindToken).text());
+
+		$('#devtoken').text(devToken).click(bindToken);
 	}
 
 	$(document).ready(function()
@@ -858,7 +856,7 @@
 		}, {
 			success : init,
 			failure : function(code, text) {
-				alert(text);
+				console.log(code + ": " + text)
 			}
 		});
 	})

@@ -183,8 +183,7 @@ h3 {
 }
 
 .rgform {
-  margin-bottom: 40px;
-  float: left;
+  margin-bottom: 310px;
   color: #000000;
 }
 .imageleft {
@@ -534,7 +533,6 @@ ul#navlist li:hover ul.subnavlist {
   width: 40%;
 }
 .field-group {
-  border-style: solid;
   margin: 3px 0 10px;
 }
 #map {
@@ -837,7 +835,6 @@ ul#navlist li:hover ul.subnavlist {
   display: block;
   float: left;
 }
-.fieldgroup { }
 .fieldgroup input {
    width: 75%;
    height: 20px;
