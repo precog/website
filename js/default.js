@@ -454,6 +454,70 @@ var API = {};
   API.Http.Jsonp = Network.createHttpInterface(Network.doJsonpRequest);
 
   API.Extend(API.Http, API.Bool(API.Config.useJsonp) ? API.Http.Jsonp : API.Http.Ajax);
+
+  API.woopra = (function() {
+    var _tracker;
+    function customValues() {
+      var ob = {}, value;
+      if(value = USTORE.getValue("st-email"))
+          ob["email"] = value;
+      if(value = USTORE.getValue("st-name"))
+          ob["name"] = value;
+      if(value = USTORE.getValue("st-title"))
+          ob["title"] = value;
+      if(value = USTORE.getValue("st-company"))
+          ob["company"] = value;
+      return ob;
+    }
+
+    function prepareTracker() {
+      var extra = customValues();
+      for(key in extra) {
+        _tracker.addVisitorProperty(key, extra[key]);
+      }
+    }
+
+    return {
+      track : function(tracker) {
+        _tracker = tracker;
+        _tracker.setDomain('reportgrid.com');
+        _tracker.setIdleTimeout(300000);
+        prepareTracker();
+        _tracker.track();
+        return false;
+      },
+      custom : function(event, params) {
+        params = params || {};
+        params.name = event;
+        console.log(params);
+        _tracker.pushEvent(params);
+      },
+      setEmail : function(email) {
+        if(!email) return;
+        _tracker.addVisitorProperty('email', email);
+        USTORE.setValue('st-email', email);
+      },
+      setCompany : function(company) {
+        if(!company) return;
+        _tracker.addVisitorProperty('company', company);
+        USTORE.setValue('st-company', company);
+      },
+      setName : function(first, last) {
+        var parts = [];
+        if(first = first.trim()) parths.push(first);
+        if(last = last.trim()) parths.push(last);
+        if(parts.length == 0) return;
+        var name = parts.join(' ');
+        _tracker.addVisitorProperty('name', name);
+        USTORE.setValue('st-name', name);
+      },
+      setTitle : function(title) {
+        if(!title) return;
+        _tracker.addVisitorProperty('title', title);
+        USTORE.setValue('st-title', title);
+      }
+    };
+  })();
 })();
 
 $(function() {
@@ -500,6 +564,9 @@ $(function() {
       var email    = $('#loginform input[name="email"]');
       var password = $('#loginform input[name="password"]');
 
+      API.woopra.setEmail(email);
+      API.woopra.custom("Log-In Attempt", { source : $("html head title").text() });
+
       API.Http.post(API.Config.RootAccountsAPI + "get", {
         email:      email.val(),
         password:   password.val()
@@ -511,7 +578,8 @@ $(function() {
           USTORE.setSessionValue('email',    email.val());
           USTORE.setSessionValue('password', password.val());
           USTORE.setSessionValue('tokenId',  tokenId);
-          window.location = "./control-panel.html";
+          API.woopra.custom("Log-In");
+          setTimeout(function() { window.location = "./control-panel.html"; }, 100);
         },
 
         failure: function(code, text) {
@@ -767,6 +835,12 @@ $(function() {
 
       if (cardHolder().val() == "") delete request.billing;
 
+      API.woopra.setEmail(email().val());
+      API.woopra.setName(firstName().val(), lastName().val());
+      API.woopra.setTitle(title().val());
+      API.woopra.setCompany(company().val());
+
+      API.woopra.custom("Sign-Up Attempt");
 
       API.Http.post(API.Config.RootAccountsAPI, request, {
         success: function(response) {
@@ -777,6 +851,8 @@ $(function() {
           content.append('<p>Your token id is <strong>' + response.id.token + '</strong>. You will need this token to access any API.</p>');
           content.append('<p>A welcome email has been sent to ' + response.id.email + '. If you have any questions, please visit the <a href="support.html">support page</a> where you can learn about all the different ways we support our customers.</p>');
           content.append('<p>Have fun, and good luck!</p>');
+
+          API.woopra.custom("Sign-Up");
         },
 
         failure: function(code, text) {
@@ -795,6 +871,23 @@ $(function() {
    $("pre.literal-block").snippet("javascript",{style:"darkness"});
   }
 
+  var setupWoopraExtraInfo = function() {
+    $("#mc-embedded-subscribe-form input[name='subscribe']").click(function(f) {
+      API.woopra.setEmail($('#mce-EMAIL').val());
+      API.woopra.custom("Subscribe Newsletter", { source : "Homepage" });
+      return true;
+    });
+
+    $("#mc-subscribe-form input[name='subscribe']").click(function(f) {
+      API.woopra.setEmail($('#MERGE0').val());
+      API.woopra.setName($('#MERGE1').val(), $('#MERGE2').val());
+      API.woopra.setTitle($('#MERGE6').val());
+      API.woopra.setCompany($('#MERGE3').val());
+      API.woopra.custom("Subscribe Newsletter", { source : $("html head title").text() });
+      return true;
+    });
+  }
+
   setupHome();
   setupLogin();
   setupArrows();
@@ -802,4 +895,5 @@ $(function() {
   setupNewsFeed();
   setupAccountCreation();
   setupSyntaxHighlighting();
+  setupWoopraExtraInfo();
 });

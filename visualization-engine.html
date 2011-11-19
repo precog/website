@@ -15,12 +15,7 @@
         <![endif]-->
         <!-- Start of Woopra Code -->
         <script type="text/javascript">
-        function woopraReady(tracker) {
-           tracker.setDomain('reportgrid.com');
-           tracker.setIdleTimeout(300000);
-           tracker.track();
-           return false;
-        }
+        function woopraReady(tracker) { return API.woopra.track(tracker); }
         (function() {
            var wsc = document.createElement('script');
            wsc.src = document.location.protocol+'//static.woopra.com/js/woopra.js';

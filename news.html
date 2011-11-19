@@ -14,12 +14,7 @@
             <![endif]-->            
             <!-- Start of Woopra Code -->
             <script type="text/javascript">
-            function woopraReady(tracker) {
-               tracker.setDomain('reportgrid.com');
-               tracker.setIdleTimeout(300000);
-               tracker.track();
-               return false;
-            }
+            function woopraReady(tracker) { return API.woopra.track(tracker); }
             (function() {
                var wsc = document.createElement('script');
                wsc.src = document.location.protocol+'//static.woopra.com/js/woopra.js';
@@ -129,7 +124,7 @@
                     <h3>Sign up for our newsletter and be the first to know what's going on</h3>
                     <div class="rgform">
                         <div class="indicates-required"><span class="asterisk">*</span>required</div>
-                        <form action="http://reportgrid.us2.list-manage.com/subscribe/post" method="POST">
+                        <form action="http://reportgrid.us2.list-manage.com/subscribe/post" method="POST" id="mc-subscribe-form">
                         <input type="hidden" name="u" value="e40fc014d1fba80ca1ff06902">
                         <input type="hidden" name="id" value="e5f34c05e6">
                         <div id="mergeTable" class="mergeTable">  
