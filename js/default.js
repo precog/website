@@ -504,8 +504,8 @@ var API = {};
       },
       setName : function(first, last) {
         var parts = [];
-        if(first = first.trim()) parths.push(first);
-        if(last = last.trim()) parths.push(last);
+        if(first = first.trim()) parts.push(first);
+        if(last = last.trim()) parts.push(last);
         if(parts.length == 0) return;
         var name = parts.join(' ');
         _tracker.addVisitorProperty('name', name);
