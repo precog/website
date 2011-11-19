@@ -564,7 +564,7 @@ $(function() {
       var email    = $('#loginform input[name="email"]');
       var password = $('#loginform input[name="password"]');
 
-      API.woopra.setEmail(email);
+      API.woopra.setEmail(email.val());
       API.woopra.custom("Log-In Attempt", { source : $("html head title").text() });
 
       API.Http.post(API.Config.RootAccountsAPI + "get", {
