@@ -490,7 +490,7 @@ var API = {};
         params = params || {};
         params.name = event;
         console.log(params);
-        _tracker.pushEvent(params);
+//        _tracker.pushEvent(params);
       },
       setEmail : function(email) {
         if(!email) return;
