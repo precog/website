@@ -12,18 +12,14 @@
             <script type="text/javascript" src="js/jquery.validate.min.js"></script>
             <script type="text/javascript" src="js/default.js"></script>
             <script type="text/javascript" src="http://api.reportgrid.com/js/reportgrid-core.js?tokenId=A3BC1539-E8A9-4207-BB41-3036EC2C6E6D"></script>
+            <script type="text/javascript" src="js/control-panel.js"></script>
             <!--[if (gte IE 6)&(lte IE 8)]>
                 <script type="text/javascript" src="js/selectivizr.js"></script>
                 <noscript><link rel="stylesheet" href="[fallback css]" /></noscript>
             <![endif]-->            
             <!-- Start of Woopra Code -->
             <script type="text/javascript">
-            function woopraReady(tracker) {
-               tracker.setDomain('reportgrid.com');
-               tracker.setIdleTimeout(300000);
-               tracker.track();
-               return false;
-            }
+            function woopraReady(tracker) { return API.woopra.track(tracker); }
             (function() {
                var wsc = document.createElement('script');
                wsc.src = document.location.protocol+'//static.woopra.com/js/woopra.js';
@@ -181,7 +177,153 @@
                 </div>
             </div>
             <div id="middlepanel">
-                <h1 style='margin-left: 50px'>Our billing system is currently down for maintenance, check back again soon.</h1>
+                <h1>The control panel to your slice of the ReportGrid platform</h1>
+                <p>Change your plan details, update your personal information, track your usage &mdash; it's all here.</p>
+                <h1>TOKENS</h1>
+                <div id="tokenpanel">
+                    <div>
+                        <p>Production Token: <a href="#tokenpanel" id="prodtoken"></a></p>
+                        <p>Development Token: <a href="#tokenpanel" id="devtoken"></a></p>
+                        <p>Current Token: <span id="curtoken"></span> <a href="#tokenpanel" id="parenttoken">parent</a></p>
+                        <div id="tokeninfo"></div>
+                        <div id="createtokenpanel"></div>
+                    </div>
+                    <div>
+                        <div id="tokenspagination"></div>
+                        <ul id="tokenslist"></ul>
+                    </div>
+                </div>
+
+                <div id="explorepanel">
+                    <h1>EXPLORE</h1>
+                    <div>
+                        <p>Current Path: <span id="currentpath"></span> <select id="childpath"></select>
+                        <p id="eventpanel">Events: <span id="events"></span>
+                        <p id="propertypanel">Properties: <span id="properties"></span>
+                        <p id="valuepanel">Values: <span id="values"></span>
+                    </div>
+                </div>
+
+                <h1>STATUS</h1>
+                <div class="field-group">
+                    <p>Account Created: <span id="serviceaccountcreated" class="value"></span></p>
+                    <p>Service Credit: <span id="servicecredit" class="value"></span></p>
+                    <p>Usage: <span id="serviceusage" class="value"></span></p>
+                    <p>Status: <span id="servicestatus" class="value"></span></p>
+                </div>
+
+                <h1>PLAN</h1>
+                <div class="field-group">
+                    <p>Your current plan is <span id="serviceplan" class="value"></span>.</p>
+                    <form id="changeplan" action="" method="">
+                        <p>Change Plan to:
+                            <select id="plans" name="plans">
+                                <option value="starter">Starter Plan</option>
+                                <option value="bronze">Bronze Plan</option>
+                                <option value="silver">Silver Plan</option>
+                                <option value="gold">Gold Plan</option>
+                            </select>
+                        </p>
+                        <p><input type="submit" id="submitplan" value=""></p>
+                    </form>
+                </div>
+
+                <h1>YOUR INFORMATION</h1>
+                <h2>EMAIL ADDRESS</h2>
+                <div class="field-group">
+                    <p>Your account is associated to this email address: <span id="contactemail" class="value"></span>.</p>
+                    <form id="changeemail" action="" method="">
+                       <p>Change Email to:
+                          <input type="email" name="email" />
+                       </p>
+                       <p><input type="submit" id="submitemail" value=""></p>
+                   </form>
+                </div>
+
+                <h2>PASSWORD</h2>
+                <div class="field-group">
+                    <p>To change your current password provide the following information.</p>
+                    <form id="changepassword" action="" method="">
+                       <p>Current Password:</p><div class="fieldgroup"><input type="password" name="oldpassword" autocomplete="off" /></div>
+                       <p>New Password:</p><div class="fieldgroup"><input type="password" name="password" autocomplete="off" /></div>
+                       <p>Password Confirm:</p><div class="fieldgroup"><input type="password" name="confirmpassword" autocomplete="off" /></div>
+                       <input type="submit" id="submitpassword" value="">
+                   </form>
+                </div>
+
+                <h2>CONTACT</h2>
+                    <form id="changeaccount" class="rgform" action="" method="">
+                       <div class="leftfields">
+                       <p>First Name:</p><div class="fieldgroup"><input type="text" name="firstName" /></div>
+                       <p>Company:</p><div class="fieldgroup"><input type="text" name="company" /></div>
+                       <p>Address:</p><div class="fieldgroup"><input type="text" name="street" /></div>
+                       <p>State:</p><div class="fieldgroup"><input type="text" name="state" /></div>
+                       <p>Phone Number:</p><div class="fieldgroup"><input type="text" name="phone" /></div>
+                       </div>
+                       <div class="rightfields">
+                       <p>Last Name:</p><div class="fieldgroup"><input type="text" name="lastName" /></div>
+                       <p>Title:</p><div class="fieldgroup"><input type="text" name="title" /></div>
+                       <p>City:</p><div class="fieldgroup"><input type="text" name="city" /></div>
+                       <p>ZipCode:</p><div class="fieldgroup"><input type="text" name="postalCode" /></div>
+                       <p>Website:</p><div class="fieldgroup"><input type="text" name="website" /></div>
+                       <input type="submit" id="submitaccount" value="">
+                       </div>
+                   </form>
+
+                <h2>BILLING</h2>
+                <div class="field-group" id="billingpanel">
+                    <p>Payments are done using the following information:</p>
+                    <div>
+                        <p>Card Holder: <span id="billingcardholder" class="value"></span></p>
+                        <p>Card Number: <span id="billingnumber" class="value"></span></p>
+                        <p>Expiration: <span id="billingexpiration" class="value"></span></p>
+                        <p>Billing Postal Code: <span id="billingpostalcode" class="value"></span></p>
+                    </div>
+                    <a href="#billingpanel" id="removebillinginfo">remove billing info</a>
+                </div>
+                <div class="field-group" id="nobillingpanel">
+                    <p>You have not yet provided information for billing. Please use the form below to set your payment options.</p>
+                </div>
+
+                <div class="rgform">
+                    <form id="changecreditcard" action="" method="">
+                        <div id="creditcardform">
+                            <div class="leftfields">
+                                <p class="signupfields">Credit Card Number:</p>
+                                <div class="fieldgroup">
+                                    <input class="blacktext" type="text" name="cardNumber" autocomplete="off" />
+                                </div>
+
+                                <p class="signupfields">Expiration Month/Year</p>
+                                <div class="signupfieldspecial">
+                                    <input type="text" name="cardExpMonth" placeholder="mm" autocomplete="off" />
+                                </div>
+
+                                <div class="signupfieldspecial">
+                                    <input type="text" name="cardExpYear" placeholder="yyyy" autocomplete="off" />
+                                </div>
+                            </div>
+
+                            <div class="rightfields2">
+                                <p class="signupfields">CCV Code:</p>
+                                <div class="fieldgroup">
+                                    <input id="cardsecurecode" class="blacktext" type="text" name="cardCCV" autocomplete="off" />
+                                </div>
+
+                                <p class="signupfields">Name of Card Holder:</p>
+                                <div class="fieldgroup">
+                                    <input id="cardnameon" class="blacktext" type="text" name="cardHolder" autocomplete="off" />
+                                </div>
+                                
+                                <p class="signupfields">Zip Code</p>
+                                <div class="fieldgroup">
+                                    <input type="text" name="postalCode" autocomplete="off" />
+                                </div>
+                            </div>
+                        </div>
+                        <input type="submit" id="submitcreditcard" value=""/>
+                   </form>
+                </div>
             </div>
             <div id="rightpanel">
                 <div id="hilightpaneltext">
