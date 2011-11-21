@@ -897,3 +897,13 @@ $(function() {
   setupSyntaxHighlighting();
   setupWoopraExtraInfo();
 });
+
+function calcTotal(){
+currtotal=0
+for(i=0; i<document.forms['pscalform'].length; i++){
+if ((document.forms['pscalform'].elements[i].type=="text") && (document.forms['pscalform'].elements[i].name.substring(0,3)=="qty")) {
+currtotal = currtotal + Number((document.forms['pscalform'].elements[i].value*document.forms['pscalform'].elements[++i].value));
+}
+}
+document.forms['pscalform'].elements['total'].value=currtotal;
+}

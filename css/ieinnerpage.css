@@ -752,13 +752,21 @@ ul#navlist li:hover ul.subnavlist {
 .packagehnum3 {position:absolute;top:206px;left:25px;font-size:14pt;font-family:Rexlia;}
 .packagehour3 {position:absolute;top:226px;left:20px;font-size:7pt;}
 .packagedetail3 {position:absolute;top:216px;left:58px;font-size:8pt;color: #ffffff;}
-.packagehtext1 {position:absolute;top:129px;left:15px;width:34px;font-size:10pt;color: #000000;}
-.packagehtext2 {position:absolute;top:169px;left:15px;width:34px;font-size:10pt;color: #000000;}
-.packagehtext3 {position:absolute;top:209px;left:15px;width:34px;font-size:10pt;color: #000000;}
-.packagecosttext1 {position:absolute;top:39px;left:103px;width:48px;height:32px;font-size:10pt;color: #000000;background-color: #1A1B20;}
+.packagecosttext1 {position:absolute;top:39px;left:103px;width:48px;height:32px;background-color: #1A1B20;text-align:center;}
+input.packagecosttext1 {color: #fff;font-family: abel;font-size: 100%;}
+.packagehtext1 {position:absolute;top:129px;left:15px;width:34px;font-size:10pt;color: #000000;text-align:center;}
+.packagehtext2 {position:absolute;top:169px;left:15px;width:34px;font-size:10pt;color: #000000;text-align:center;}
+.packagehtext3 {position:absolute;top:209px;left:15px;width:34px;font-size:10pt;color: #000000;text-align:center;}
 .packagesgreen {color: #6B9E13;}
 .packagesblue {color: #417894;}
 .packagesorange {color: #D48A0F;}
+
+.professionalservicescalculator {
+  background-image: url(../images/checkmark.png);
+  background-color: transparent;
+  width: 15px;
+}
+
 /*professionalservices*/
 /*signup*/
 #signuptable {

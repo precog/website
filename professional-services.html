@@ -4,7 +4,7 @@
         <link rel="stylesheet" type="text/css" href="css/innerpage.css">
         <!--[if IE]>
         <link rel="stylesheet" type="text/css" href="css/ieinnerpage.css">
-        <![endif]-->
+        <![endif]-->    
             <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
             <script type="text/javascript" src="js/jquery.sizes.min.js"></script>
             <script type="text/javascript" src="js/default.js"></script>
@@ -205,19 +205,21 @@
                         </div>
                         <div class="package">
                             <span class="packagedollar">$</span>
-                            <input class="packagecosttext1" type="text" name="ACHOURS" />
                             <span class="packagecents">.00</span>
                             <span class="packagehour">/HOUR</span>
                             <p class="packageterms packagesorange">ENTER HOURS - COST CALCULATED ABOVE</p>
-                            <input class="packagehtext1" type="text" name="ACHOURS" />
+                            <form name="pscalform">
+                            <input class="packagecosttext1" type="text" name="total">
+                            <input class="packagehtext1" onchange="calcTotal();" type="text" name="qty0"><input type="hidden" name="price0" value="350.00">
                             <p class="packagehour1 packagesorange">HOURS</p>
                             <p class="packagedetail1">ANALYTICS CONSULTATION</p>
-                            <input class="packagehtext2" type="text" name="ACHOURS" />
+                            <input class="packagehtext2" onchange="calcTotal();" type="text" name="qty1"><input type="hidden" name="price1" value="300.00"><br>
                             <p class="packagehour2 packagesorange">HOURS</p>
                             <p class="packagedetail2">MAINTENANCE PACKAGE</p>
-                            <input class="packagehtext3" type="text" name="ACHOURS" />
+                            <input class="packagehtext3" onchange="calcTotal();" type="text" name="qty2"><input type="hidden" name="price1" value="200.00"><br>
                             <p class="packagehour3 packagesorange">HOURS</p>
                             <p class="packagedetail3">VISUALIZATION BRANDING</p>
+                        </form>
                         </div>
                     </div>
                     <div>
