@@ -45,6 +45,12 @@
 	padding-right: 10px;
 }
 
+.value {
+	font-family: abel;
+	font-size: 10pt;
+	color: #61B1DC;
+}
+
 #tokenslist .permissions ul li, #tokeninfo .permissions ul li {
 	top: -17px;
 }
