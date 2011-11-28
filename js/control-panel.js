@@ -51,26 +51,27 @@
 			});
 			if(sub.length > 0)
 			{
-				var cum = "";
-				sub.split("/").map(function(part) {
-					var segment = $('<a href="#explorepanel">'+part+'/</a> ');
+				var cum = "",
+					parts = sub.split("/");
+				for(var i = 0; i < parts.length; i++) {
+					var segment = $('<a href="#explorepanel">'+parts[i]+'/</a> ');
 					el.append(segment);
-					segment.bind("click", cum + part, function(e) {
+					segment.bind("click", cum + parts[i], function(e) {
 						pathmanager.setCurrent(e.data);
 					});
-					cum += part + "/";
-				});
+					cum += parts[i] + "/";
+				}
 			}
 		}
 
 		var normPath = function(r) {
 			r = (r = r.substr(0, 1) == '/' ? r.substr(1) : r).substr(-1) == '/' ? r.substr(0, r.length -1) : r;
-			return "/" + r; 
+			return "/" + r;
 		}
 
 		var hide = function() { $('#explorepanel').css("display", "none") };
 		var show = function() { $('#explorepanel').css("display", "block") };
-	
+
 		return {
 			setPath : function(p) {
 				if(null == p) {
@@ -129,7 +130,7 @@
 
 			var expiration = new Date(info.expires);
 			html += '<div class="expiration">expires: ' + (isNaN(expiration.getTime()) ? 'never' : expiration.toDateString()) + '</div>';
-			
+
 			html += '<div class="limits">limits:<ul>';
 			var limits = [];
 			for(var key in info.limits) {
@@ -389,16 +390,15 @@
 			var rest = values.length > top;
 			if(rest)
 				values.pop();
-			values
-				.map(function(value, i) {
-					if(i != 0)
-						container.append(", ");
-					var el = $('<span>'+value+'</span>');
-					container.append(el);
-					rg.propertyValueCount(pathmanager.getCurrent(), { property : event+"."+property, value : value }, function(count) {
-						el.append(" ("+count+")");
-					});
-				})
+			for(var i = 0; i < values.length; i++) {
+				if(i != 0)
+					container.append(", ");
+				var el = $('<span>'+values[i]+'</span>');
+				container.append(el);
+				rg.propertyValueCount(pathmanager.getCurrent(), { property : event+"."+property, values[i] : values[i] }, function(count) {
+					el.append(" ("+count+")");
+				});
+			}
 			if(rest)
 				container.append("<span> ...</span>");
 		})
@@ -413,21 +413,20 @@
 				return;
 			$('#propertypanel').css("display", "block");
 			var container = $('#properties').html("");
-			properties
-				.map(function(property) { return property.substr(0, 1) == '.' ? property.substr(1) : property})
-				.map(function(property, i) {
-					if(i != 0)
-						container.append(", ");
-					var el, c;
-					if((c = property.substr(0,1)) != '~' && c != '#') {
-						el = $('<a href="#explorepanel">'+property+'</a>');
-						el.bind("click", function() { displayValues(event, property); })
-					} else {
-						el = $('<span>'+property+'</span>');
-					}
-					container.append(el);
-					
-				})
+			for(var i = 0; i < properties.length; i++) {
+				var property = properties[i].substr(0, 1) == '.' ? properties[i].substr(1) : properties[i];
+
+				if(i != 0)
+					container.append(", ");
+				var el, c;
+				if((c = property.substr(0,1)) != '~' && c != '#') {
+					el = $('<a href="#explorepanel">'+property+'</a>');
+					el.bind("click", function() { displayValues(event, property); })
+				} else {
+					el = $('<span>'+property+'</span>');
+				}
+				container.append(el);
+			}
 		})
 	};
 
@@ -440,18 +439,17 @@
 				return;
 			$('#eventpanel').css("display", "block");
 			var container = $('#events').html("");
-			events
-				.map(function(event) { return event.substr(0, 1) == '.' ? event.substr(1) : event})
-				.map(function(event, i) {
-					if(i != 0)
-						container.append(", ");
-					var el = $('<a href="#explorepanel">'+event+'</a>');
-					container.append(el);
-					rg.propertyCount(pathmanager.getCurrent(), { property : event }, function(count) {
-						el.append(" ("+count+")");
-					});
-					el.bind("click", function() { displayProperties(event); })
-				})
+			for(var i = 0; i < events.length; i++) {
+				var event = events[i].substr(0, 1) == '.' ? events[i].substr(1) : events[i];
+				if(i != 0)
+					container.append(", ");
+				var el = $('<a href="#explorepanel">'+event+'</a>');
+				container.append(el);
+				rg.propertyCount(pathmanager.getCurrent(), { property : event }, function(count) {
+					el.append(" ("+count+")");
+				});
+				el.bind("click", function() { displayProperties(event); })
+			}
 		})
 	}
 
@@ -487,12 +485,14 @@
 	}
 
 	var updateChangePlan = function(current) {
-		var plans = [{ value : 'starter', label : 'Starter Plan'}, { value : 'bronze', label : 'Bronze Plan'}, { value : 'silver', label : 'Silver Plan'}, { value : 'gold', label : 'Gold Plan'}];
-		$('select#plans').html(plans.filter(function(plan) {
-			return plan.value != current;
-		}).map(function(plan) {
-			return '<option value="'+plan.value+'">'+plan.label+'</option>';
-		}).join(""))
+		var allplans = [{ value : 'starter', label : 'Starter Plan'}, { value : 'bronze', label : 'Bronze Plan'}, { value : 'silver', label : 'Silver Plan'}, { value : 'gold', label : 'Gold Plan'}],
+			options = [];
+		for(var i = 0; i < allplans.length; i++) {
+			if(allplans[i].value != current)
+				options.push('<option value="'+allplans[i].value+'">'+allplans[i].label+'</option>');
+		}
+
+		$('select#plans').html(plans.join(""))
 	}
 
 	var setupChangePlan = function(current)	{
