@@ -492,7 +492,7 @@
 				options.push('<option value="'+allplans[i].value+'">'+allplans[i].label+'</option>');
 		}
 
-		$('select#plans').html(plans.join(""))
+		$('select#plans').html(options.join(""))
 	}
 
 	var setupChangePlan = function(current)	{
