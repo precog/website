@@ -461,7 +461,7 @@ var JSON = JSON || { stringify : jQuery.toJSON, parse : jQuery.evalJSON },
       setDomain : function(_) {},
       track : function(_) {},
       setIdleTimeout : function(_) {},
-      addVisitorProperty : function(_, _) {},
+      addVisitorProperty : function(_, _) {}
     }; // prevents error when used locally
     function customValues() {
       var ob = {}, value;
