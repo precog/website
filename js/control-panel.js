@@ -7,11 +7,11 @@
 		window.location = "./";
 		return;
 	}
-	
+
 
 	var ENTRIES_PER_PAGE = 10,
 		rg = ReportGrid;
-	
+
 	var tokenmanager = (function() {
 		var map = {};
 		return {
@@ -314,7 +314,7 @@
 
 		$('#tokenpopupbutton').click(function(e) {
 			e.preventDefault();
-			
+
 			var info = {
 				path    : 	$('#tokenform input[name="path"]').val().trim(),
 				expires : 	$('#tokenform input[name="expires"]').val().trim(),
@@ -530,7 +530,7 @@
 		            required: true,
 		            email: true,
 		            minlength : 2
-		        },
+		        }
 			},
 			messages : {
 				email: "Please enter a valid email address"
@@ -578,7 +578,7 @@
 		        },
 		        confirmpassword: {
 		            equalTo : '#changepassword input[name="password"]'
-		        },
+		        }
 			},
 			messages : {
 				oldpassword : "The current password is not correct",
@@ -602,7 +602,7 @@
 				newPassword : {
 					password : pwd,
 					confirmPassword :$('#changepassword input[name="confirmpassword"]').val()
-				},
+				}
 			}, {
 				success : function(info) {
 					$('#changepassword input').val("");
@@ -759,7 +759,7 @@
 			e.preventDefault();
 			if(!validator.form() || !confirm("Are you sure you want to update your credit card information?"))
 				return;
-			
+
 			var ob = {
 				authentication : {
 					email : email,
