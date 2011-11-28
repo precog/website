@@ -20,6 +20,13 @@ p.normal {
     font-family: Abel;
     color: #8A8FA8;
 }
+p.loginnormal {
+    font-size: 14px;
+    font-family: Abel;
+    color: #8A8FA8;
+    text-align: left;
+    left: 52px;
+}
 body { background-color: #0E0F12;
     text-align: center;
 }
@@ -216,7 +223,6 @@ p.newsletter {
 
 #logininner {
     padding-top: 30px;
-    padding-left: 50px;
 }
 
 .fieldgroup input {

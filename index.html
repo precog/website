@@ -2,6 +2,9 @@
     <head>
         <title>Welcome to ReportGrid</title>
         <link rel="stylesheet" type="text/css" href="css/homepage.css">
+        <!--[if IE]>
+        <link rel="stylesheet" type="text/css" href="css/iehomepage.css">
+        <![endif]-->
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
         <script type="text/javascript" src="js/jquery.sizes.min.js"></script>
         <script type="text/javascript" src="js/default.js"></script>
@@ -24,6 +27,19 @@
         <!-- End of Woopra Code -->
         </head>
  <body>
+    <div id="loginoverlay">
+    </div>
+    <div id="loginmenu">
+            <div id="logininner">
+                <form id="loginform">
+                    <p class="loginnormal">e-mail</p>
+                    <div class="logingroup"><input type="text" name="email" placeholder="your e-mail"></div>
+                    <p class="loginnormal">password</p>
+                    <div class="logingroup"><input type="password" name="password" placeholder="your password"></div>
+                    <input id="loginpopupbutton" type="submit" value="">
+                </form>
+            </div>
+    </div>
       <div id="wrapper">
         <div class="header">
             <div id="headerlogo">
@@ -84,19 +100,6 @@
         <a id="signupsticker" href="https://secure.reportgrid.com/sign-up.html" title="Sign Up Now"></a>
     <div id="middle1">
             <div id="middle1contentarea">
-                    <div id="loginoverlay">
-                    </div>
-                    <div id="loginmenu">
-                            <div id="logininner">
-                                <form id="loginform">
-                                    <p class="normal">e-mail</p>
-                                    <div class="logingroup"><input type="text" name="email" placeholder="your e-mail"></div>
-                                    <p class="normal">password</p>
-                                    <div class="logingroup"><input type="password" name="password" placeholder="your password"></div>
-                                    <input id="loginpopupbutton" type="submit" value="">
-                                </form>
-                            </div>
-                    </div>
                 <div id="homepanel">
                     <p class="homepageslogan">API FOR ANALYTICS AND REPORTING</p>
                     <p class="homepagetext">ReportGrid provides an API for analytics and visualization that's powered by our powerful, cloud-scalable analytics database and visualization engine.</p>

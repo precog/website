@@ -60,6 +60,13 @@ p {
   line-height: normal;
   padding-bottom: 12px;
 }
+p.loginnormal {
+    font-size: 14px;
+    font-family: Abel;
+    color: #8A8FA8;
+    text-align: left;
+    left: 52px;
+}
 p.condensed {
   font-size: 14px;
   font-family: Abel;
@@ -140,10 +147,10 @@ h3 {
   background-image: url(../images/loginbutton.png);
   background-color: transparent;
   position: absolute;
-  top: 90px;
+  top: 100px;
   height: 18px;
   width: 44px;
-  right: 110px;
+  right: 56px;
   cursor: pointer;
 }
 #loginform .logingroup input {
@@ -179,8 +186,8 @@ h3 {
 
 #logininner {
   top:34px;
-  left:48px;
 }
+
 
 .rgform {
   margin-bottom: 310px;
