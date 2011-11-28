@@ -27,7 +27,8 @@ var USTORE=(function(){var e,a,c,f,b,k,i,j,d;var g={setValue:function(l,m,n){if(
 
 USTORE.init();
 
-var API = {};
+var JSON = JSON || { stringify : jQuery.toJSON, parse : jQuery.evalJSON },
+    API = {};
 
 (function() {
   var Util = {
@@ -456,7 +457,12 @@ var API = {};
   API.Extend(API.Http, API.Bool(API.Config.useJsonp) ? API.Http.Jsonp : API.Http.Ajax);
 
   API.woopra = (function() {
-    var _tracker;
+    var _tracker = {
+      setDomain : function(_) {},
+      track : function(_) {},
+      setIdleTimeout : function(_) {},
+      addVisitorProperty : function(_, _) {},
+    }; // prevents error when used locally
     function customValues() {
       var ob = {}, value;
       if(value = USTORE.getValue("st-email"))
@@ -479,7 +485,7 @@ var API = {};
 
     return {
       track : function(tracker) {
-        _tracker = tracker;
+        _tracker = tracker || _tracker;
         _tracker.setDomain('reportgrid.com');
         _tracker.setIdleTimeout(300000);
         prepareTracker();
