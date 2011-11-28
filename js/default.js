@@ -319,7 +319,10 @@ var JSON = JSON || { stringify : jQuery.toJSON, parse : jQuery.evalJSON },
 
         document.head.removeChild(document.getElementById(funcName));
 
-        delete window[funcName];
+        window[funcName] = undefined;
+        try{
+          delete window[funcName];
+        }catch(e){}
       }
 
       var extraQuery = {};
