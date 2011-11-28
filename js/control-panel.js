@@ -395,7 +395,10 @@
 					container.append(", ");
 				var el = $('<span>'+values[i]+'</span>');
 				container.append(el);
-				rg.propertyValueCount(pathmanager.getCurrent(), { property : event+"."+property, values[i] : values[i] }, function(count) {
+				rg.propertyValueCount(pathmanager.getCurrent(), {
+					property : event+"."+property,
+					value : values[i]
+				}, function(count) {
 					el.append(" ("+count+")");
 				});
 			}
