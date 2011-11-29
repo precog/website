@@ -95,13 +95,15 @@ ReportGrid.barChart("#modulesovertime", {
 	event : 'module_impression',
 	property : 'current_module',
 	values : ['lobby', 'forms', 'messages', 'feed'],
-	start : "2011-11-11 13:10:00",
-	end   : "2011-11-29 13:22:00"
+	start : "2011-11-29 10:50:00",
+	end   : "2011-11-29 11:00:00"
 });
 
 ReportGrid.lineChart("#lobbyformsovertime", {
 	path : path,
-	events : ['lobby_form_view_pipeline', 'lobby_form_preview', 'lobby_form_export', 'lobby_form_edit']
+	events : ['lobby_form_view_pipeline', 'lobby_form_preview', 'lobby_form_export', 'lobby_form_edit'],
+	start : "2011-11-29 10:50",
+	end : "2011-11-29 11:00"
 })
 
 ReportGrid.pieChart("#lobbyforms", {
@@ -142,10 +144,10 @@ ratio(function(r) {
 	<div class="chart"><div id="modules"></div></div>
 	<div class="chart"><div id="modulespie"></div></div>
 	<h1>Modules Over Time</h1>
-	<h2>Between 1.10pm and 1.22pm of 11/11/2011</h2>
+	<h2>Between 10.50am and 11.00am of 11/29/2011</h2>
 	<div class="chart"><div id="modulesovertime"></div></div>
 	<h1>Lobby Forms</h1>
-	<h2>Last 2 weeks.</h2>
+	<h2>Between 10.50am and 11.00am of 11/29/2011</h2>
 	<div class="chart"><div id="lobbyformsovertime"></div></div>
 	<div class="chart"><div id="lobbyforms"></div></div>
 	<h1>Form Submission</h1>
