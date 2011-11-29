@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<title>Bizodo</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link href="http://api.reportgrid.com/css/rg.css" rel="stylesheet" type="text/css"/>
+	<style>
+* {
+	font-family: sans-serif;
+}
+
+#funnel {
+	width : 300px;
+	height : 250px;
+}
+
+#modulesovertime, #modules, #lobbyformsovertime {
+	width : 600px;
+	height : 250px;
+}
+
+#modulespie, #lobbyforms {
+	width  : 250px;
+	height : 250px;
+}
+
+#conversion {
+	border: 1px solid black;
+	font-family: sans-serif;
+	font-size: 10px;
+	color: #999;
+	width: 90px;
+	padding: 30px 8px;
+	text-align: center;
+	background-color: #000;
+}
+
+#conversion span {
+	font-size: 30px;
+	font-weight: bold;
+	color: #fff;
+}
+
+.chart {
+	padding: 8px;
+	border: 2px solid #ddd;
+	float: left;
+	margin-left: 8px;
+	margin-bottom: 8px;
+}
+
+h1, h2 {
+	clear: left;
+	margin: 0;
+}
+
+h1 {
+	padding-top: 20px;
+}
+
+h2 {
+	color: #999;
+}
+	</style>
+<!--
+	<link href="http://api.reportgrid.com/css/colors/rg-colors-accent-4-qual.css" rel="stylesheet" type="text/css"/>
+	<link href="http://api.reportgrid.com/css/colors/rg-colors-blues-4-seq.css" rel="stylesheet" type="text/css"/>
+-->
+	<script src="http://api.reportgrid.com/js/reportgrid-core.js?tokenId=DE1644A6-7492-47DD-BFCB-DF3DAAB3FE10" type="text/javascript"></script>
+	<script src="http://api.reportgrid.com/js/reportgrid-viz.js" type="text/javascript"></script>
+	<script type="text/javascript">
+document.addEventListener("DOMContentLoaded", function(){
+
+
+var path = "/";
+
+ReportGrid.barChart("#modules", {
+	path : path,
+	event : 'module_impression',
+	property : 'current_module',
+	values : ['lobby', 'forms', 'messages', 'feed'],
+	periodicity : "eternity"
+});
+
+ReportGrid.pieChart("#modulespie", {
+	path : path,
+	event : 'module_impression',
+	property : 'current_module',
+	values : ['lobby', 'forms', 'messages', 'feed'],
+	periodicity : "eternity"
+});
+
+ReportGrid.barChart("#modulesovertime", {
+	path : path,
+	event : 'module_impression',
+	property : 'current_module',
+	values : ['lobby', 'forms', 'messages', 'feed'],
+	start : "2011-11-11 13:10:00",
+	end   : "2011-11-29 13:22:00"
+});
+
+ReportGrid.lineChart("#lobbyformsovertime", {
+	path : path,
+	events : ['lobby_form_view_pipeline', 'lobby_form_preview', 'lobby_form_export', 'lobby_form_edit']
+})
+
+ReportGrid.pieChart("#lobbyforms", {
+	path : path,
+	events : ['lobby_form_view_pipeline', 'lobby_form_preview', 'lobby_form_export', 'lobby_form_edit']
+})
+
+
+ReportGrid.funnelChart("#funnel", {
+	path : path,
+	events : ['form_shown', 'form_submit_attempt', 'form_submit_success'],
+	periodicity : "eternity",
+	options : {
+		download : true
+	}
+});
+
+function ratio(handler) {
+	var values = [];
+	function complete(r) {
+		if(values.push(r) < 2) return;
+		handler(values.sort()[1] / values[0]);
+	}
+	ReportGrid.propertyCount(path, { property : ".form_shown" }, complete);
+	ReportGrid.propertyCount(path, { property : ".form_submit_success" }, complete);
+}
+
+
+ratio(function(r) {
+	document.getElementById("ratio").innerHTML = Math.round(r * 1000) / 10 + "%";
+})
+
+});
+	</script>
+</head>
+<body>
+	<h1>Module Impressions</h1>
+	<div class="chart"><div id="modules"></div></div>
+	<div class="chart"><div id="modulespie"></div></div>
+	<h1>Modules Over Time</h1>
+	<h2>Between 1.10pm and 1.22pm of 11/11/2011</h2>
+	<div class="chart"><div id="modulesovertime"></div></div>
+	<h1>Lobby Forms</h1>
+	<h2>Last 2 weeks.</h2>
+	<div class="chart"><div id="lobbyformsovertime"></div></div>
+	<div class="chart"><div id="lobbyforms"></div></div>
+	<h1>Form Submission</h1>
+	<div class="chart"><div id="funnel"></div></div>
+	<div class="chart"><div id="conversion">conversion <span id="ratio"></span></div></div>
+	<div id="haxe:trace"></div>
+</body>
+</html>

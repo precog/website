@@ -74,6 +74,10 @@ ul, ul li
 	margin: 0;
 }
 
+.small {
+	font-size: 80%;
+}
+
 .container
 {
 	width: 736px;
