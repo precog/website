@@ -708,8 +708,9 @@ $(function() {
   }
 
   var setupAccountCreation = function() {
+    var validator;
     try {
-      $("#signupForm").validate({
+      validator = $("#signupForm").validate({
         rules: {
           firstName: "required",
           lastName: "required",
@@ -808,6 +809,8 @@ $(function() {
     var cardPostalCode         = function() { return $('#signupForm input[name="postalCode"]'); }
 
     $('#signup').click(function(e) {
+      if(!validator.form())
+        return;
       $('#signup').attr("disabled", "disabled");
       e.preventDefault();
 
