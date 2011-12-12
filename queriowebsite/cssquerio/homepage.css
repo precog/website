@@ -1,0 +1,177 @@
+* {
+    border: 0;
+    list-style-type: none;
+    text-decoration: none;
+    position: relative;
+    color: #FFF;
+    font-family: arial;
+    outline: none;
+    margin: 0;
+    padding: 0;
+}
+
+body { background-color: #0E0F12;
+    text-align: center;
+}
+@font-face {
+    font-family: 'Abel';
+    src: url('fonts/abel-regular-webfont.eot');
+    src: url('fonts/abel-regular-webfont.eot?#iefix') format('embedded-opentype'), url('fonts/abel-regular-webfont.woff') format('woff'), url('fonts/abel-regular-webfont.ttf') format('truetype'), url('fonts/abel-regular-webfont.svg#AbelRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Questrial';
+    src: url('fonts/questrial-regular-webfont.eot');
+    src: url('fonts/questrial-regular-webfont.eot?#iefix') format('embedded-opentype'), url('fonts/questrial-regular-webfont.woff') format('woff'), url('fonts/questrial-regular-webfont.ttf') format('truetype'), url('fonts/questrial-regular-webfont.svg#') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Antic';
+    src: url('fonts/antic-regular-webfont.eot');
+    src: url('fonts/antic-regular-webfont.eot?#iefix') format('embedded-opentype'), url('fonts/antic-regular-webfont.woff') format('woff'), url('fonts/antic-regular-webfont.ttf') format('truetype'), url('fonts/antic-regular-webfont.svg#AnticRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Rexlia';
+    src: url('fonts/rexlia_free-webfont.eot');
+    src: url('fonts/rexlia_free-webfont.eot?#iefix') format('embedded-opentype'), url('fonts/rexlia_free-webfont.woff') format('woff'), url('fonts/rexlia_free-webfont.ttf') format('truetype'), url('fonts/rexlia_free-webfont.svg#RexliaFree') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+P {
+    font-size: 16px;
+    font-family: Abel;
+    color: #fff;
+    line-height: normal;
+    padding-bottom: 12px;
+}
+
+h1 {
+    font-size: 20pt;
+    font-family: Abel;
+    color: #fff;
+    line-height: normal;
+    font-weight: normal;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+#wrapper {
+    width: 1090px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0px;
+    text-align: left;
+}
+
+#wrapper .header {
+    position: relative;
+    width: 1090px;    
+    height: 408px;
+    background-image: url("../imagesquerio/header.png");
+}
+
+#headerlogo {
+    top: 120px;
+    left: 103.5px;
+}
+
+#headerslogan {
+    top: 200px;
+    left: 103.5px;
+}
+
+#wrapper .header h1{
+    font-size: 24pt;
+    font-family: Abel;
+    color: #fff;
+    line-height: normal;
+}
+
+#wrapper .body {
+    position: relative;
+    width: 1090px;
+    height: 486px;
+    background-repeat: no-repeat;
+    background-image: url("../imagesquerio/body.png");
+    background-color: #1F2126;
+}
+
+#bodydiagram {
+    background-image: url("../imagesquerio/bodydiagram.png");
+    width: 883px;
+    height: 197px;
+    float:left;
+    left: 103.5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#newsletter {
+    position: absolute;
+    top:440px;left:103.5px;
+    color: #ffffff;
+    width:192px;
+    height:30px;
+}
+
+#newsletter p{
+    font-size: 9pt;
+}
+
+#mc_embed_signup {
+    position: absolute;
+    top: 436px;
+    left: 220px;
+    color: #ffffff;
+}
+
+#mce-EMAIL{
+    background-color: #fff;
+    width: 142px;
+    height: 22px;
+    border: 0px;
+    margin-right: 2px;
+    font-family: Abel;
+    font-size: 10pt;
+    color: black;
+}
+    
+#mc-embedded-subscribe {
+    background-image: url(../imagesquerio/subscribebutton.png);
+    background-color: #1f2126;
+    height: 22px;
+    width: 14px;
+    font-family: AbelRegular, arial, sans-serif;
+    font-size: 12pt;
+}
+
+.phonenumber {
+    float: right;
+    top: 206px;
+    right: 103.5px;
+}
+
+#wrapper .footer {
+    position: relative;
+    width: 1090px;
+    height: 174px;
+    background-image: url("../imagesquerio/footer.png");
+}
+
+.textcolumn {
+    float: left;
+    margin-left: 103.5px;
+    width: 380px;
+}
+
+.blue {
+    color: #3FA9F5;
+}
+
+.textcolumn h1 {
+    color: #3FA9F5;
+}
