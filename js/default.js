@@ -27,7 +27,8 @@ var USTORE=(function(){var e,a,c,f,b,k,i,j,d;var g={setValue:function(l,m,n){if(
 
 USTORE.init();
 
-var API = {};
+var JSON = JSON || { stringify : jQuery.toJSON, parse : jQuery.evalJSON },
+    API = {};
 
 (function() {
   var Util = {
@@ -318,7 +319,10 @@ var API = {};
 
         document.head.removeChild(document.getElementById(funcName));
 
-        delete window[funcName];
+        window[funcName] = undefined;
+        try{
+          delete window[funcName];
+        }catch(e){}
       }
 
       var extraQuery = {};
@@ -456,7 +460,12 @@ var API = {};
   API.Extend(API.Http, API.Bool(API.Config.useJsonp) ? API.Http.Jsonp : API.Http.Ajax);
 
   API.woopra = (function() {
-    var _tracker;
+    var _tracker = {
+      setDomain : function(_) {},
+      track : function(_) {},
+      setIdleTimeout : function(_) {},
+      addVisitorProperty : function(_, _) {}
+    }; // prevents error when used locally
     function customValues() {
       var ob = {}, value;
       if(value = USTORE.getValue("st-email"))
@@ -479,7 +488,7 @@ var API = {};
 
     return {
       track : function(tracker) {
-        _tracker = tracker;
+        _tracker = tracker || _tracker;
         _tracker.setDomain('reportgrid.com');
         _tracker.setIdleTimeout(300000);
         prepareTracker();
@@ -699,8 +708,9 @@ $(function() {
   }
 
   var setupAccountCreation = function() {
+    var validator;
     try {
-      $("#signupForm").validate({
+      validator = $("#signupForm").validate({
         rules: {
           firstName: "required",
           lastName: "required",
@@ -799,6 +809,8 @@ $(function() {
     var cardPostalCode         = function() { return $('#signupForm input[name="postalCode"]'); }
 
     $('#signup').click(function(e) {
+      if(!validator.form())
+        return;
       $('#signup').attr("disabled", "disabled");
       e.preventDefault();
 
@@ -848,7 +860,7 @@ $(function() {
           var content = $('#middlepanel');
 
           content.empty().append('<h1>Welcome to the ReportGrid family &mdash; you\'re in good hands now</h1>');
-          content.append('<p>Your token id is <strong>' + response.id.token + '</strong>. You will need this token to access any API.</p>');
+          content.append('<p>Your production token id is <strong>' + response.id.tokens.production + '</strong> and your development token id is <strong>' + response.id.tokens.development + '</strong>. You will need these tokens to access any API.</p>');
           content.append('<p>A welcome email has been sent to ' + response.id.email + '. If you have any questions, please visit the <a href="support.html">support page</a> where you can learn about all the different ways we support our customers.</p>');
           content.append('<p>Have fun, and good luck!</p>');
 
@@ -864,7 +876,7 @@ $(function() {
       return false;
     });
   }
-  
+
   var setupSyntaxHighlighting = function() {
    if(!$.isFunction($.snippet)) return;
    $("pre.literal-block").snippet("css",{style:"darkness"});

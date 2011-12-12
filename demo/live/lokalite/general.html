@@ -1,0 +1,246 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<title>Lokalite</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link href="http://api.reportgrid.com/css/rg.css" rel="stylesheet" type="text/css"/>
+	<script src="http://api.reportgrid.com/js/reportgrid-core.js?tokenId=AA13A361-0C42-4DC1-8CDB-A7F017832236" type="text/javascript"></script>
+	<script src="http://api.reportgrid.com/js/reportgrid-viz.js" type="text/javascript"></script>
+	<style>
+* {
+	font-family: sans-serif;
+}
+
+#funnel {
+	width : 300px;
+	height : 250px;
+}
+
+#modulesovertime, #modules, #lobbyformsovertime {
+	width : 600px;
+	height : 250px;
+}
+
+#modulespie, #lobbyforms {
+	width  : 250px;
+	height : 250px;
+}
+
+#conversion {
+	border: 1px solid black;
+	font-family: sans-serif;
+	font-size: 10px;
+	color: #999;
+	width: 90px;
+	padding: 30px 8px;
+	text-align: center;
+	background-color: #000;
+}
+
+#conversion span {
+	font-size: 30px;
+	font-weight: bold;
+	color: #fff;
+}
+
+.chart {
+	padding: 8px;
+	border: 2px solid #ddd;
+	float: left;
+	margin-left: 8px;
+	margin-bottom: 8px;
+}
+
+h1, h2 {
+	color: #ccc;
+
+	clear: left;
+	margin: 0;
+	text-align: center;
+
+	text-shadow: 1px 1px 2px #333;
+	filter: dropshadow(color=#ccc, offx=1, offy=1);
+}
+
+h2 {
+	color: #999;
+}
+
+p {
+	margin: 0 4px 0 0;
+	color: #666;
+}
+
+.funnel {
+	width: 250px;
+	height: 250px;
+}
+
+.float {
+	float: left;
+	margin: 08px 8px 0;
+}
+
+.vs {
+	float: left;
+	font-size: 20pt;
+	font-weight: bold;
+	color: #ccc;
+	margin-top: 80px;
+}
+
+.value {
+	font-weight: bold;
+	color: #000;
+}
+
+#ratio_more {
+	color: green;
+	font-weight: bold;
+}
+
+#ratio_less {
+	color: red;
+	font-weight: bold;
+}
+
+.box {
+	width: 580px;
+	padding: 10px;
+	float: left;
+	margin: 0 10px 10px 0;
+
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	-moz-box-shadow: 1px 1px 8px #ddd;
+	-webkit-box-shadow: 1px 1px 8px #ddd;
+	box-shadow: inset 1px 1px 8px #ccc;
+	background-color: #f0f0f0;
+}
+	</style>
+	<script type="text/javascript">
+document.addEventListener("DOMContentLoaded", function(){
+
+
+var path = "/";
+
+
+// general conversion rate for tiles
+ReportGrid.funnelChart("#general_tile_conversion", {
+	path : path,
+	events : ['event_tile_impression', 'event_tile_engage', 'event_tile_click']
+})
+
+// sidebar conversions
+ReportGrid.funnelChart("#featured_sidebar_conversion", {
+	path : path,
+	events : ['featured_sidebar_impression', 'featured_sidebar_click']
+});
+
+ReportGrid.funnelChart("#popular_sidebar_conversion", {
+	path : path,
+	events : ['popular_sidebar_impression', 'popular_sidebar_click']
+});
+
+(function() {
+	var values = [null, null, null, null];
+
+	function percent(v) { return (Math.round(v * 1000 ) / 10) + "%"; }
+
+	function complete() {
+		for(v in values) if(v === null) return;
+
+		var featured = values[1] / values[0],
+			popular = values[3] / values[2],
+			ratio    = (featured - popular) / popular;
+
+		document.getElementById('featured_sidebar_conversion_value').innerHTML = percent(featured);
+		document.getElementById('popular_sidebar_conversion_value').innerHTML = percent(popular);
+		document.getElementById('sidebar_conversion_ratio').innerHTML = percent(Math.abs(ratio));
+		document.getElementById('ratio_more').style.display = ratio >= 0 ? 'inline' : 'none';
+		document.getElementById('ratio_less').style.display = ratio < 0 ? 'inline' : 'none';
+	}
+
+	ReportGrid.propertyCount(path, { property : '.featured_sidebar_impression' }, function(v) { values[0] = v; complete() })
+	ReportGrid.propertyCount(path, { property : '.featured_sidebar_click' }, 	  function(v) { values[1] = v; complete() })
+	ReportGrid.propertyCount(path, { property : '.popular_sidebar_impression' }, function(v) { values[2] = v; complete() })
+	ReportGrid.propertyCount(path, { property : '.popular_sidebar_click' }, 	  function(v) { values[3] = v; complete() })
+})();
+
+
+ReportGrid.lineChart("#event_page_events", {
+	path : path,
+	events : ['event_page_impression','event_page_map_engage'],
+	periodicity : 'hour',
+	start : "2011-11-28 09:00",
+	end : "2011-11-28 16:00"
+})
+
+
+ReportGrid.barChart("#popular_sidebar_impression_category", {
+	path  : path,
+	event : 'popular_sidebar_impression',
+	property : 'org_category',
+	periodicity : 'hour',
+	start : "2011-11-28 09:00",
+	end : "2011-11-28 16:00"
+})
+
+ReportGrid.barChart("#popular_sidebar_impression_category_nonprofit", {
+	path  : path,
+	event : 'popular_sidebar_impression',
+	property : 'org_category',
+	value : 'Non-Profit',
+	periodicity : 'hour',
+	start : "2011-11-28 09:00",
+	end : "2011-11-28 16:00"
+})
+
+ReportGrid.barChart("#popular_sidebar_impression_category_arts", {
+	path  : path,
+	event : 'popular_sidebar_impression',
+	property : 'org_category',
+	value : 'Arts and Entertainment',
+	periodicity : 'hour',
+	start : "2011-11-28 09:00",
+	end : "2011-11-28 16:00"
+})
+
+// TODO:
+// property : 'event_categories.Health and Beauty'
+
+});
+	</script>
+</head>
+<body>
+	<div class="box">
+		<h1>Tile Conversion</h1>
+		<div id="general_tile_conversion" class="funnel float"></div>
+		<p>This same chart can also be built based on where the tiles do appear. The following event prefixes are used: "related" (tiles on an event page), "front" (tiles on the front page), "org" (tiles on the organization/customer page)</p>
+	</div>
+	<div class="box">
+	<h1>Sidebar Conversion</h1>
+		<div id="featured_sidebar_conversion" class="funnel float"></div>
+		<div class="vs">VS</div>
+		<div id="popular_sidebar_conversion" class="funnel float"></div>
+		<p>The conversion rate for featured sidebar links is <span id="featured_sidebar_conversion_value" class="value"></span> VS the popular sidebar links conversion rate of  <span id="popular_sidebar_conversion_value" class="value"></span>, showing that featured sidebar links are <span id="sidebar_conversion_ratio" class="value"></span> <span id="ratio_more">more</span><span id="ratio_less">less</span> effective</p>
+	</div>
+	<div class="box">
+		<h1>Event Page Interactions Over Time</h1>
+		<div id="event_page_events"></div>
+	</div>
+	<div class="box">
+		<h1>Sidebar Impressions Splitted by Category Over Time</h1>
+		<div id="popular_sidebar_impression_category"></div>
+	</div>
+	<div class="box">
+		<h1>Sidebar Impressions For Category: Non-Profit</h1>
+		<div id="popular_sidebar_impression_category_nonprofit"></div>
+	</div>
+	<div class="box">
+		<h1>Sidebar Impressions For Category: Arts & Entertainment</h1>
+		<div id="popular_sidebar_impression_category_arts"></div>
+	</div>
+	<div id="haxe:trace"></div>
+</body>
+</html>

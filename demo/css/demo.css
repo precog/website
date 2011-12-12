@@ -20,7 +20,7 @@ body
 	-moz-border-radius: 10px;
 	-webkit-border-radius: 10px;
 	border-radius: 10px;
-	
+
 	box-shadow: 4px 5px 5px  rgba(0,0,0,0.25),
 	inset 4px 5px 5px  rgba(255,255,255,0.75);
 	-o-box-shadow: 4px 5px 5px  rgba(0,0,0,0.25),
@@ -74,6 +74,10 @@ ul, ul li
 	margin: 0;
 }
 
+.small {
+	font-size: 80%;
+}
+
 .container
 {
 	width: 736px;
@@ -109,11 +113,11 @@ ul, ul li
 	text-shadow: 1px 1px 1px #888;
 	font-weight: bold;
 	background-color: #ccc;
-	
+
 	background-repeat: no-repeat;
 	background-position: 8px 8px;
 	min-width: 120px;
-	
+
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
 	border-radius: 5px;
@@ -123,6 +127,7 @@ ul, ul li
 {
 	background-color: #999;
 }
+
 /*
 .demos li:last a
 {

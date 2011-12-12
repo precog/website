@@ -1,0 +1,26 @@
+#chart3
+{
+	background-color: #ccc;
+}
+
+.rg .contour path
+{
+	stroke: #fff;
+	stroke-width: 2;
+}
+
+.rg .centroid circle
+{
+	stroke: none;
+	fill-opacity: 0.75;
+}
+
+.rg .county path
+{
+	stroke: none;
+}
+
+.rg .geo text
+{
+	font-size: 9px;
+}

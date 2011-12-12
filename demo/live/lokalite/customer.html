@@ -1,0 +1,308 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<title>Lokalite</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link href="http://api.reportgrid.com/css/rg.css" rel="stylesheet" type="text/css"/>
+	<script src="http://api.reportgrid.com/js/reportgrid-core.js?tokenId=AA13A361-0C42-4DC1-8CDB-A7F017832236" type="text/javascript"></script>
+	<script src="http://api.reportgrid.com/js/reportgrid-viz.js" type="text/javascript"></script>
+	<style>
+* {
+	font-family: sans-serif;
+}
+
+h1, h2 {
+	color: #ccc;
+
+	clear: left;
+	margin: 0;
+	text-align: center;
+
+	text-shadow: 1px 1px 2px #333;
+	filter: dropshadow(color=#ccc, offx=1, offy=1);
+}
+
+h2 {
+	color: #999;
+}
+
+p {
+	margin: 0 4px 0 0;
+	color: #666;
+}
+
+.funnel {
+	width: 225px;
+	height: 250px;
+}
+
+.chart {
+	float: left;
+	margin-left: 8px;
+	margin-top: 8px;
+}
+
+.fill {
+	width: 330px;
+	height: 250px;
+}
+
+.float {
+	float: left;
+	margin: 08px 8px 0;
+}
+
+.vs {
+	float: left;
+	font-size: 20pt;
+	font-weight: bold;
+	color: #ccc;
+	margin-top: 80px;
+}
+
+.value {
+	font-weight: bold;
+	color: #000;
+}
+
+#ratio_more {
+	color: green;
+	font-weight: bold;
+}
+
+#ratio_less {
+	color: red;
+	font-weight: bold;
+}
+
+.box {
+	width: 580px;
+	padding: 10px;
+	float: left;
+	margin: 0 10px 10px 0;
+
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	-moz-box-shadow: 1px 1px 8px #ddd;
+	-webkit-box-shadow: 1px 1px 8px #ddd;
+	box-shadow: inset 1px 1px 8px #ccc;
+	background-color: #f0f0f0;
+}
+
+.banner {
+	width: 70px;
+	height: 70px;
+	border: 10px solid #fff;
+	background-color: #000;
+	padding: 10px;
+	text-align: center;
+	margin: 10px 10px 10px 0;
+	float: left;
+}
+
+.banner .count {
+	color: #fe6;
+	font-size: 50px;
+	font-weight: bold;
+}
+
+.banner .description {
+	color: #ccc;
+	font-size: 11px;
+	margin: 0;
+	padding: 0;
+	line-height: 9px;
+}
+
+.clear {
+	clear: left;
+}
+	</style>
+	<script type="text/javascript">
+document.addEventListener("DOMContentLoaded", function(){
+
+var pathorg = "/124",
+	path = pathorg + "/152/4380",
+	start = "2011-11-29 06:00",
+	end = "2011-11-29 12:00",
+	periodicity = "hour";
+
+ReportGrid.funnelChart("#related_event_tile_conversion", {
+	path : path,
+	events : ['related_event_tile_impression', 'related_event_tile_engage', 'related_event_tile_click']
+})
+
+ReportGrid.lineChart("#related_event_tile_conversion_time", {
+	path : path,
+	events : ['related_event_tile_impression', 'related_event_tile_engage', 'related_event_tile_click'],
+	periodicity : periodicity, start : start, end : end
+})
+
+ReportGrid.funnelChart("#popular_sidebar_tile_conversion", {
+	path : path,
+	events : ['popular_sidebar_impression', 'popular_sidebar_click']
+})
+
+ReportGrid.lineChart("#popular_sidebar_tile_conversion_time", {
+	path : path,
+	events : ['popular_sidebar_impression', 'popular_sidebar_click'],
+	periodicity : periodicity, start : start, end : end
+})
+
+ReportGrid.funnelChart("#featured_sidebar_conversion", {
+	path : path,
+	events : ['featured_sidebar_impression', 'featured_sidebar_click']
+})
+
+ReportGrid.barChart("#featured_sidebar_conversion_time", {
+	path : path,
+	events : ['featured_sidebar_impression', 'featured_sidebar_click'],
+	periodicity : periodicity, start : start, end : end
+})
+
+ReportGrid.funnelChart("#featured_event_tile_conversion", {
+	path : path,
+	events : ['featured_event_tile_impression', 'featured_event_tile_engage', 'featured_event_tile_click']
+})
+
+ReportGrid.barChart("#featured_event_tile_conversion_time", {
+	path : path,
+	events : ['featured_event_tile_impression', 'featured_event_tile_engage', 'featured_event_tile_click'],
+	periodicity : periodicity, start : start, end : end
+})
+
+function count(id, path, property, callback) {
+	var el = document.getElementById(id),
+		property = property || id;
+	ReportGrid.propertyCount(path, { property : property }, function(r) {
+		el.innerHTML = r;
+		if(callback) callback(r);
+	});
+}
+
+count("org_tile_impression", pathorg, null, function(count) {
+	// if there are impressions show the conversion funnel
+	if(!count) return;
+	ReportGrid.funnelChart("#org_tile_conversion", {
+		path : pathorg,
+		events : ['org_tile_impression', 'org_tile_engage', 'org_tile_click']
+	})
+
+	ReportGrid.lineChart("#org_tile_conversion_time", {
+		path : pathorg,
+		events : ['org_tile_impression', 'org_tile_engage', 'org_tile_click'],
+		periodicity : periodicity, start : start, end : end
+	})
+});
+count("org_page_impression", pathorg);
+count("org_page_website_click", pathorg);
+count("org_page_map_click", pathorg);
+
+
+
+
+
+count("event_tile_impression", path, null, function(count) {
+	// if there are impressions show the conversion funnel
+	if(!count) return;
+	ReportGrid.funnelChart("#event_tile_conversion", {
+		path : pathorg,
+		events : ['event_tile_impression', 'event_tile_engage', 'event_tile_click']
+	})
+
+	ReportGrid.lineChart("#event_tile_conversion_time", {
+		path : pathorg,
+		events : ['event_tile_impression', 'event_tile_engage', 'event_tile_click'],
+		periodicity : periodicity, start : start, end : end
+	})
+});
+count("event_page_impression", path);
+count("event_page_org_click", path);
+count("event_page_map_click", path);
+
+});
+	</script>
+</head>
+<body>
+	<div class="box" clear><h1>Organization</h1></div>
+
+	<div class="box clear">
+		<h1>Banners</h1>
+		<div class="banner">
+			<div id="org_tile_impression" class="count"></div>
+			<div class="description">tile impressions</div>
+		</div>
+		<div class="banner">
+			<div id="org_page_impression" class="count"></div>
+			<div class="description">page impressions</div>
+		</div>
+		<div class="banner">
+			<div id="org_page_website_click" class="count"></div>
+			<div class="description">website click</div>
+		</div>
+		<div class="banner">
+			<div id="org_page_map_click" class="count"></div>
+			<div class="description">map click</div>
+		</div>
+	</div>
+	<div class="box">
+		<h1>Tile Conversions</h1>
+		<div id="org_tile_conversion" class="chart funnel"></div>
+		<div id="org_tile_conversion_time" class="chart fill"></div>
+	</div>
+
+
+
+	<div class="box clear"><h1>Event</h1></div>
+	<div class="box clear">
+		<h1>Banners</h1>
+		<div class="banner">
+			<div id="event_tile_impression" class="count"></div>
+			<div class="description">tile impressions</div>
+		</div>
+		<div class="banner">
+			<div id="event_page_impression" class="count"></div>
+			<div class="description">page impressions</div>
+		</div>
+		<div class="banner">
+			<div id="event_page_org_click" class="count"></div>
+			<div class="description">website click</div>
+		</div>
+		<div class="banner">
+			<div id="event_page_map_click" class="count"></div>
+			<div class="description">map click</div>
+		</div>
+	</div>
+	<div class="box">
+		<h1>Event Tile Conversions</h1>
+		<div id="event_tile_conversion" class="chart funnel"></div>
+		<div id="event_tile_conversion_time" class="chart fill"></div>
+	</div>
+
+	<div class="box">
+		<h1>Related Event Tile Conversions</h1>
+		<div id="related_event_tile_conversion" class="chart funnel"></div>
+		<div id="related_event_tile_conversion_time" class="chart fill"></div>
+	</div>
+
+	<div class="box">
+		<h1>Popular Sidebar Tile Conversions</h1>
+		<div id="popular_sidebar_tile_conversion" class="chart funnel"></div>
+		<div id="popular_sidebar_tile_conversion_time" class="chart fill"></div>
+	</div>
+
+	<div class="box">
+		<h1>Featured Sidebar Conversions</h1>
+		<div id="featured_sidebar_conversion" class="chart funnel"></div>
+		<div id="featured_sidebar_conversion_time" class="chart fill"></div>
+	</div>
+
+	<div class="box">
+		<h1>Featured Event Tile Conversions</h1>
+		<div id="featured_event_tile_conversion" class="chart funnel"></div>
+		<div id="featured_event_tile_conversion_time" class="chart fill"></div>
+	</div>
+
+	<div id="haxe:trace"></div>
+</body>
+</html>
