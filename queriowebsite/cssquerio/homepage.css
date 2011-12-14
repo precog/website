@@ -121,7 +121,7 @@ h1 {
 #yourapp {
     position: absolute;
     top: 20px;
-    left: 32px;
+    left: 38px;
 }
 
 #yourapp p{
@@ -131,7 +131,7 @@ h1 {
 #yourappq {
     position: absolute;
     top: 20px;
-    left: 474px;
+    left: 464px;
 }
 
 #yourappq p{
@@ -140,6 +140,7 @@ h1 {
 
 .yourapp {
     margin-top: 42px;
+    margin-left: 15px;
     width: 850px;
     height: 151px;
     overflow: hidden;
@@ -157,8 +158,8 @@ h1 {
 }
 
 .yoxview a{
-    margin-left: 29.25px;
-    margin-right: 29.25px;
+    margin-left: 22px;
+    margin-right: 22px;
 }
 
 .appselectordots {
