@@ -70,17 +70,17 @@ h1 {
 #wrapper .header {
     position: relative;
     width: 1090px;    
-    height: 408px;
+    height: 222px;
     background-image: url("../imagesquerio/header.png");
 }
 
 #headerlogo {
-    top: 120px;
+    top: 80px;
     left: 103.5px;
 }
 
 #headerslogan {
-    top: 200px;
+    top: 90px;
     left: 103.5px;
 }
 
@@ -94,7 +94,7 @@ h1 {
 #wrapper .body {
     position: relative;
     width: 1090px;
-    height: 486px;
+    height: 760px;
     background-repeat: no-repeat;
     background-image: url("../imagesquerio/body.png");
     background-color: #1F2126;
@@ -110,9 +110,71 @@ h1 {
     margin-bottom: 20px;
 }
 
+#yourappcontainer{
+    background-color: #1A1A1A;
+    width: 883px;
+    height: 246px;
+    margin-left: 103.5px;
+    float:left;
+}
+
+#yourapp {
+    position: absolute;
+    top: 20px;
+    left: 32px;
+}
+
+#yourapp p{
+    color: #989898;
+}
+
+#yourappq {
+    position: absolute;
+    top: 20px;
+    left: 474px;
+}
+
+#yourappq p{
+    color: #3FA9F5;
+}
+
+.yourapp {
+    margin-top: 42px;
+    width: 850px;
+    height: 151px;
+    overflow: hidden;
+}
+
+.yourapp ul{
+    width: 9999px;
+}
+
+.yourapp ul li{
+    float: left;
+    display: block;
+    width: 850px;
+    height: 151px;
+}
+
+.yoxview a{
+    margin-left: 29.25px;
+    margin-right: 29.25px;
+}
+
+.appselectordots {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.appselectordots a{
+    padding-left: 10px;
+    padding-right: 20px;
+}
+
 #newsletter {
     position: absolute;
-    top:440px;left:103.5px;
+    top: 710px;
+    left: 103.5px;
     color: #ffffff;
     width:192px;
     height:30px;
@@ -124,7 +186,7 @@ h1 {
 
 #mc_embed_signup {
     position: absolute;
-    top: 436px;
+    top: 706px;
     left: 220px;
     color: #ffffff;
 }
@@ -151,14 +213,13 @@ h1 {
 
 .phonenumber {
     float: right;
-    top: 206px;
     right: 103.5px;
 }
 
 #wrapper .footer {
     position: relative;
     width: 1090px;
-    height: 174px;
+    height: 101px;
     background-image: url("../imagesquerio/footer.png");
 }
 
