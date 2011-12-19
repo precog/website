@@ -20,6 +20,7 @@ body { background-color: #0E0F12;
     font-weight: normal;
     font-style: normal;
 }
+ 
 @font-face {
     font-family: 'Questrial';
     src: url('fonts/questrial-regular-webfont.eot');
@@ -46,7 +47,6 @@ P {
     font-family: Abel;
     color: #fff;
     line-height: normal;
-    padding-bottom: 12px;
 }
 
 h1 {
@@ -59,6 +59,51 @@ h1 {
     padding-bottom: 10px;
 }
 
+
+#wrapperheader {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0px;
+    height: 222px;
+    background-color: #191A1F;
+    text-align: left;
+}
+
+#wrapperheader .header {
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    width: 1090px;    
+    height: 222px;
+    background-image: url("../imagesquerio/header.png");
+}
+
+#headerlogo {
+    top: 106px;
+    left: 103.5px;
+}
+
+#headertextbox {
+    width: 460px;
+    height: 160px;
+    Margin-left: 545px;
+}
+
+#wrapperheader .header h1{
+    font-size: 20pt;
+    font-family: Abel;
+    color: #7AC943;
+    line-height: normal;
+}
+
+#wrapperheader .header p{
+    font-size: 18px;
+    font-family: Abel;
+    color: #fff;
+    line-height: normal;
+}
+
 #wrapper {
     width: 1090px;
     margin-left: auto;
@@ -67,173 +112,307 @@ h1 {
     text-align: left;
 }
 
-#wrapper .header {
-    position: relative;
-    width: 1090px;    
-    height: 222px;
-    background-image: url("../imagesquerio/header.png");
-}
-
-#headerlogo {
-    top: 80px;
-    left: 103.5px;
-}
-
-#headerslogan {
-    top: 90px;
-    left: 103.5px;
-}
-
-#wrapper .header h1{
-    font-size: 24pt;
-    font-family: Abel;
-    color: #fff;
-    line-height: normal;
-}
-
 #wrapper .body {
     position: relative;
     width: 1090px;
+    height: 1510px;
+    background-color: #0B151A;
+    overflow: hidden;
+}
+
+#wrapper .body2 {
+    position: relative;
+    width: 1090px;
+    height: 370px;
+    background-color: #0B151A;
+    overflow: hidden;
+}
+
+#appslider {
+    width: 10000px;
     height: 760px;
+}
+
+#leftarrow {
+    position: absolute;
+    top: 300px;
+}
+
+#leftarrow:hover {
+    cursor: pointer;
+}
+
+#rightarrow {
+    position: absolute;
+    float: right;
+    right: 0px;
+    top: 300px;
+}
+
+#rightarrow:hover {
+    cursor: pointer;
+}
+
+.bodyappbox {
+    width: 1090px;
+    float:left;
+}
+
+.bodyheader {
+    width: 1090px;
+}
+
+.bodyheader p {
+    font-size: 20pt;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 6px;
+}
+.appwrapper {
+    width: 1090px;
+}
+
+.yourapp1 {
+    background-image: url("../imagesquerio/CRM.png");
     background-repeat: no-repeat;
-    background-image: url("../imagesquerio/body.png");
-    background-color: #1F2126;
+    left: 250px;
+    width: 600px;
+    height: 308px;
+}
+
+.yourapp2 {
+    background-image: url("../imagesquerio/CRMNew.png");
+    background-repeat: no-repeat;
+    left: 279px;
+    width: 600px;
+    height: 308px;
+}
+
+.yourapp3 {
+    background-image: url("../imagesquerio/Reports.png");
+    background-repeat: no-repeat;
+    left: 254px;
+    width: 600px;
+    height: 308px;
+}
+
+.yourapp4 {
+    background-image: url("../imagesquerio/ReportsNew.png");
+    background-repeat: no-repeat;
+    left: 279px;
+    width: 600px;
+    height: 308px;
+}
+
+.yourapp5 {
+    background-image: url("../imagesquerio/App.png");
+    background-repeat: no-repeat;
+    left: 254px;
+    width: 600px;
+    height: 308px;
+}
+
+.yourapp6 {
+    background-image: url("../imagesquerio/AppNew.png");
+    background-repeat: no-repeat;
+    left: 279px;
+    width: 600px;
+    height: 308px;
+}
+
+.apptextleft {
+    width: 170px;
+    float: left;
+    left: 76px;
+    text-align: right;
+}
+
+.apptextleft p{
+    font-family: abel;
+    font-size: 18pt;
+    color: #3FA9F5;
+    font-weight: 300;
+}
+
+.apptextright {
+    width: 170px;
+    float: right;
+    right: 64px;
+}
+
+.apptextright p{
+    font-family: abel;
+    font-size: 18pt;
+    color: #3FA9F5;
+    font-weight: 300;
+}
+
+.bodyheader2 {
+    background-color: #172A33;
+    width: 1090px;
+    height: 117px;
+    margin-top: 40px;
+}
+
+.bodyheader2 p{
+    font-size: 20pt;
+    padding-left: 103.5px;
+    padding-top: 40px;
 }
 
 #bodydiagram {
     background-image: url("../imagesquerio/bodydiagram.png");
-    width: 883px;
-    height: 197px;
-    float:left;
-    left: 103.5px;
-    margin-top: 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 1090px;
+    height: 448px;
+    margin-top: 60px;
     margin-bottom: 20px;
 }
 
-#yourappcontainer{
-    background-color: #1A1A1A;
-    width: 883px;
-    height: 246px;
-    margin-left: 103.5px;
+#diagramarrows {
+    background-image: url("../imagesquerio/diagramarrows.png");
+    background-repeat: no-repeat;
+    position: absolute;
+    z-index: 2;
+    top: 1102px;
+    left: -27px;
+    width: 1200px;
+    height: 248px;
+}
+
+.bodytext1 {
+    background-image: url("../imagesquerio/bodyleftbox.png");
+    position: absolute;
+    z-index: 1;
+    top: 950px;
+    left: -175px;
+    width: 300px;
+    height: 152px;
+}
+
+.bodytext1 p{
+    margin-top: 30px;
+    margin-left: 40px;
+    margin-right: 60px;
+}
+
+.bodytext2 {
+    background-image: url("../imagesquerio/bodyrightbox.png");
+    position: absolute;
+    z-index: 1;
+    top: 950px;
+    right: -175px;
+    width: 300px;
+    height: 152px;
+}
+
+.bodytext2 p{
+    margin-top: 30px;
+    margin-left: 40px;
+    margin-right: 60px;
+}
+
+.bodytext3 {
+    top: 352px;
+    left: 364px;
+    width: 342px;
+    height: 70px;
+}
+
+#learnmore {
+    height: 34px;
+    width: 116px;
+    left: 103.5px;
     float:left;
 }
 
-#yourapp {
-    position: absolute;
-    top: 20px;
-    left: 38px;
+#learnmore:hover {
+    cursor: pointer;
 }
 
-#yourapp p{
-    color: #989898;
+#learnmoretext {
+    width: 300px;
+    left: 203.5px;
+    top: 74px;
+    float:left;
 }
 
-#yourappq {
-    position: absolute;
-    top: 20px;
-    left: 464px;
-}
-
-#yourappq p{
-    color: #3FA9F5;
-}
-
-.yourapp {
-    margin-top: 42px;
-    margin-left: 15px;
-    width: 850px;
-    height: 151px;
-    overflow: hidden;
-}
-
-.yourapp ul{
-    width: 9999px;
-}
-
-.yourapp ul li{
-    float: left;
-    display: block;
-    width: 850px;
-    height: 151px;
-}
-
-.yoxview a{
-    margin-left: 22px;
-    margin-right: 22px;
-}
-
-.appselectordots {
-    text-align: center;
-    margin-top: 10px;
-}
-
-.appselectordots a{
-    padding-left: 10px;
-    padding-right: 20px;
-}
-
-#newsletter {
-    position: absolute;
-    top: 710px;
-    left: 103.5px;
-    color: #ffffff;
-    width:192px;
-    height:30px;
-}
-
-#newsletter p{
-    font-size: 9pt;
-}
-
-#mc_embed_signup {
-    position: absolute;
-    top: 706px;
-    left: 220px;
-    color: #ffffff;
-}
-
-#mce-EMAIL{
-    background-color: #fff;
-    width: 142px;
-    height: 22px;
-    border: 0px;
-    margin-right: 2px;
-    font-family: Abel;
-    font-size: 10pt;
-    color: black;
-}
-    
-#mc-embedded-subscribe {
-    background-image: url(../imagesquerio/subscribebutton.png);
-    background-color: #1f2126;
-    height: 22px;
-    width: 14px;
-    font-family: AbelRegular, arial, sans-serif;
+#learnmoretext p{
     font-size: 12pt;
 }
 
-.phonenumber {
+#phonenumber {
     float: right;
-    right: 103.5px;
+    right: 130px;
 }
 
-#wrapper .footer {
+#phonenumber p{
+    font-size: 20pt;
+}
+
+.emailus {
+    float: right;
+    right: 103.5;
+    top: 4px;
+}
+
+.footer {
     position: relative;
-    width: 1090px;
-    height: 101px;
-    background-image: url("../imagesquerio/footer.png");
-}
-
-.textcolumn {
-    float: left;
-    margin-left: 103.5px;
-    width: 380px;
+    width: 100%;
+    height: 100px;
+    background-color: #13232B;
 }
 
 .blue {
     color: #3FA9F5;
 }
 
-.textcolumn h1 {
-    color: #3FA9F5;
+.orange {
+    color: #FF931E;
+}
+
+.black {
+    color: #000000;
+}
+.rgform {
+    float:left;
+    left: 300px;
+    padding-bottom: 50px;
+    padding-top: 40px;
+}
+
+.indicates-required {
+  left: 200px;
+  font-family: abel;
+  font-size: 11px;
+}
+#mergeTable {
+  top: 10px;
+  width: 600px;
+  font-family: abel;
+  font-size: 11px;
+  color: #000000;
+}
+.field-group input {
+  border: 0 none;
+  display: block;
+  padding: 4px;
+  width: 40%;
+}
+.field-group {
+  margin: 3px 0 10px;
+}
+
+#submit {
+  background-image: url(../imagesquerio/signupbuttonsm.png);
+  float:left;
+  top: 10px;
+  left: 150px;
+  height: 26px;
+  width: 90px;
+}
+
+#submit:hover {
+    cursor: pointer;
 }
