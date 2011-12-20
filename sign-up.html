@@ -203,10 +203,10 @@
                 <div class="rgform">
                     <form id="signupForm">
                            <div id="planidradios">
-                               <input class="planradio1" type="radio" name="planId" value="starter" checked>
-                               <input class="planradio2" type="radio" name="planId" value="bronze">
-                               <input class="planradio2" type="radio" name="planId" value="silver">
-                               <input class="planradio2" type="radio" name="planId" value="gold">
+                               <input class="planradio1" tabindex="20" type="radio" name="planId" value="starter" checked>
+                               <input class="planradio2" tabindex="21" type="radio" name="planId" value="bronze">
+                               <input class="planradio2" tabindex="22" type="radio" name="planId" value="silver">
+                               <input class="planradio2" tabindex="23" type="radio" name="planId" value="gold">
                            </div>
                        <div class="signupwrapper">
                             <div class="floatleft">
@@ -221,45 +221,47 @@
                        <p>* Note that <strong>all</strong> fields are required.</p>
                        </div>
                        <div class="leftfields">
-                       <p class="signupfields">Email:</p><div class="fieldgroup"><input class="blacktext" tabIndex=1 type="text" name="email" /></div>
-                       <p class="signupfields">Password:</p><div class="fieldgroup"><input class="blacktext" tabIndex=2 type="password" name="password" /></div>
-                       <p class="signupfields">First Name:</p><div class="fieldgroup"><input class="blacktext" tabIndex=4 type="text" name="firstName" /></div>
-                       <p class="signupfields">Company:</p><div class="fieldgroup"><input class="blacktext" tabIndex=6 type="text" name="company" /></div>
-                       <p class="signupfields">Address:</p><div class="fieldgroup"><input class="blacktext" tabIndex=8 type="text" name="street" /></div>
-                       <p class="signupfields">State:</p><div class="fieldgroup"><input class="blacktext" tabIndex=10 type="text" name="state" /></div>
-                       <p class="signupfields">Phone Number:</p><div class="fieldgroup"><input class="blacktext" tabIndex=12 type="text" name="phone" />
+                       <p class="signupfields">Email:</p><div class="fieldgroup"><input class="blacktext" tabindex="1" type="text" name="email" /></div>
+                       <p class="signupfields">Password:</p><div class="fieldgroup"><input class="blacktext" tabindex="3" type="password" name="password" /></div>
+                       <p class="signupfields">First Name:</p><div class="fieldgroup"><input class="blacktext" tabindex="5" type="text" name="firstName" /></div>
+                       <p class="signupfields">Company:</p><div class="fieldgroup"><input class="blacktext" tabindex="7" type="text" name="company" /></div>
+                       <p class="signupfields">Address:</p><div class="fieldgroup"><input class="blacktext" tabindex="8" type="text" name="street" /></div>
+                       <p class="signupfields">State:</p><div class="fieldgroup"><input class="blacktext" tabindex="9" type="text" name="state" /></div>
+                       <p class="signupfields">Phone Number:</p><div class="fieldgroup"><input class="blacktext" tabindex="11" type="text" name="phone" />
                        </div>
                        </div>
                        <div class="rightfields">
                        <p class="signupfields">Discount Code:</p>
                        <div class="fieldgroup">
-                            <input type="text"  class="blacktext" name="discountCode" value="developer"/>
+                            <input type="text" tabindex="2" class="blacktext" name="discountCode" value="developer"/>
                        </div>
-                       <p class="signupfields">Password Confirm:</p><div class="fieldgroup"><input class="blacktext" tabIndex=3 type="password" name="confirmPassword" /></div>
-                       <p class="signupfields">Last Name:</p><div class="fieldgroup"><input class="blacktext" tabIndex=5 type="text" name="lastName" /></div>
-                       <p class="signupfields">Title:</p><div class="fieldgroup"><input class="blacktext" tabIndex=7 type="text" name="title" /></div>
-                       <p class="signupfields">City:</p><div class="fieldgroup"><input class="blacktext" tabIndex=9 type="text" name="city" /></div>
-                       <p class="signupfields">Zip Code:</p><div class="fieldgroup"><input class="blacktext" tabIndex=11 type="text" name="postalCode" /></div>
-                       <p class="signupfields">Website:</p><div class="fieldgroup"><input class="blacktext" tabIndex=13 type="text" name="website" value="http://" /></div>
+                       <p class="signupfields">Password Confirm:</p><div class="fieldgroup"><input class="blacktext" tabindex="4" type="password" name="confirmPassword" /></div>
+                       <p class="signupfields">Last Name:</p><div class="fieldgroup"><input class="blacktext" tabindex="6" type="text" name="lastName" /></div>
+                       <p class="signupfields">Title:</p><div class="fieldgroup"><input class="blacktext" tabindex="7" type="text" name="title" /></div>
+                       <p class="signupfields">City:</p><div class="fieldgroup"><input class="blacktext" tabindex="8" type="text" name="city" /></div>
+                       <p class="signupfields">Zip Code:</p><div class="fieldgroup"><input class="blacktext" tabindex="10" type="text" name="postalCode" /></div>
+                       <p class="signupfields">Website:</p><div class="fieldgroup"><input class="blacktext" tabindex="12" type="text" name="website" value="http://" /></div>
                        </div>
                        <div class="signupwrapper">
                        <h1>Billing</h1>
                        <p>If you like, you can enter your payment details below. If you don't enter payment details, you will not be able to store any more information in ReportGrid when your credit expires.</p>
                        </div>
+                    </form>
+                    <form id="creditcardinfoform">
                        <div id="creditcardform">
                             <div class="leftfields">
                                 <p class="signupfields">Credit Card Number:</p>
                                 <div class="fieldgroup">
-                                    <input id="creditcard"  class="blacktext" tabIndex=15 type="text" name="cardNumber" autocomplete="off" />
+                                    <input class="blacktext" tabindex="13" type="text" name="cardNumber" autocomplete="off" />
                                 </div>
 
                                 <p class="signupfields">Expiration Month/Year</p>
                                 <div class="signupfieldspecial">
-                                    <input id="cardmonth" tabIndex=16 type="text" name="cardExpMonth" placeholder="mm" autocomplete="off" />
+                                    <input tabindex="15" type="text" name="cardExpMonth" placeholder="mm" autocomplete="off" />
                                 </div>
 
                                 <div class="signupfieldspecial">
-                                    <input id="cardyear" tabIndex=17 type="text" name="cardExpYear" placeholder="yyyy" autocomplete="off" />
+                                    <input tabindex="16" type="text" name="cardExpYear" placeholder="yyyy" autocomplete="off" />
                                 </div>
 
                             </div>
@@ -267,22 +269,22 @@
                             <div class="rightfields2">
                                 <p class="signupfields">CCV Code:</p>
                                 <div class="fieldgroup">
-                                    <input id="cardsecurecode" class="blacktext" tabIndex=17 type="text" name="cardCCV" autocomplete="off" />
+                                    <input class="blacktext" tabindex="14" type="text" name="cardCCV" autocomplete="off" />
                                 </div>
 
                                 <p class="signupfields">Name of Card Holder:</p>
                                 <div class="fieldgroup">
-                                    <input id="cardnameon" class="blacktext" tabIndex=14 type="text" name="cardHolder" autocomplete="off" />
+                                    <input class="blacktext" tabindex="17" type="text" name="cardHolder" autocomplete="off" />
                                 </div>
 
                                 <p class="signupfields">Zip Code</p>
                                 <div class="fieldgroup">
-                                    <input id="postalcode" tabIndex=15 type="text" name="postalCode" autocomplete="off" />
+                                    <input tabindex="18" type="text" name="cardPostalCode" autocomplete="off" />
                                 </div>
                             </div>
                         </div>
-                        <input type="submit" id="signup" value=""/>
                     </form>
+                    <input type="submit" tabindex="19" id="signup" value=""/>
                 </div>
             </div>
             <div id="rightpanel">

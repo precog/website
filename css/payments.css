@@ -33,3 +33,6 @@ label.error {
     display: none;
     position: absolute;
 }
+.signupfieldspecial label {
+	float: left;
+}
