@@ -184,7 +184,7 @@ h1 {
     display: block;
     float: left;
     z-index: 3;
-    top: 31px;
+    top: 30px;
     padding-left: 10px;
 }
 
@@ -208,7 +208,7 @@ h1 {
 	padding-left:10px;
         padding-right:42px;
         padding-top:4px;
-        padding-bottom:2px;
+        padding-bottom:1px;
 	color:#fff;
 	background:#55A4DB;
 	text-decoration:none;
@@ -402,6 +402,10 @@ h1 {
     left: 364px;
     width: 342px;
     height: 70px;
+}
+
+.bodytext3 p {
+    font-size: 15px;
 }
 
 #learnmore {
