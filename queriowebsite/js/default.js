@@ -18,29 +18,42 @@ $(document).ready(function(){
   $(".yoxview").yoxview({
     autoHideInfo : false,
   });
-  */
+  
   var slides = 3,
       width  = 1090,
       index  = 0;
   function slide()
   {
-    $("#leftarrow").attr("src", index == 0 ? "/imagesquerio/leftarrow-alt.png" : "/imagesquerio/leftarrow.png");
-    $("#rightarrow").attr("src", index == slides-1 ? "/imagesquerio/rightarrow-alt.png" : "/imagesquerio/rightarrow.png");
     $("#appslider").animate({
       left : - index * width
     })
   }
   $("#rightarrow").click(function(){
     if(index == slides-1)
-      return;
-    index++;
+      index=0;
+    else
+      index++;
     slide();
   })
   $("#leftarrow").click(function(){
     if(index == 0)
-      return;
-    index--;
+      index=slides-1;
+    else
+      index--;
     slide();
   })
+  */
+  var last;
+  
+  $(".appselector a").click(function(e){
+    var selector=$(this).attr("class");
+    var current=$(".bodyappbox."+selector);
+    if(last.hasClass(selector))
+      return false;
+    last.fadeOut();
+    last=current.fadeIn();
+    return false
+  });
+last=$(".bodyappbox:first").css("display", "block")
 })
 
