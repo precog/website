@@ -708,7 +708,7 @@ $(function() {
   }
 
   var setupAccountCreation = function() {
-    var validator;
+    var validator, validatorcc;
     try {
       validator = $("#signupForm").validate({
         rules: {
@@ -783,6 +783,47 @@ $(function() {
           agree:        "Please accept our policy"
         }
       });
+      validatorcc = $("#creditcardinfoform").validate({
+        rules: {
+          cardNumber: {
+            required: true,
+            creditcard: true
+          },
+          cardCCV: {
+            required: true,
+            number: true,
+            minlength: 3
+          },
+          cardExpMonth: {
+            required: true,
+            number: true,
+            maxlength: 2,
+            minlength: 2
+          },
+          cardExpYear: {
+            required: true,
+            number: true,
+            maxlength: 4,
+            minlength: 4
+          },
+          cardHolder: {
+            required: true,
+            minlength: 5
+          },
+          cardPostalCode: {
+            required: true,
+            minlength: 5
+          }
+        },
+        messages: {
+          cardNumber:     "Please enter a valid credit card number",
+          cardCCV:        "Please enter the CCV on the back of your card",
+          cardExpMonth:   "*&nbsp;",
+          cardExpYear:    "Please enter the expiration year",
+          cardHolder:     "Please enter the cardholder name",
+          cardPostalCode: "Please enter the zip code associated to your card"
+        }
+      });
     } catch(err) {}
 
     var planId          = function() { return $('#signupForm input[name="planId"]:checked'); }
@@ -801,14 +842,20 @@ $(function() {
     var city            = function() { return $('#signupForm input[name="city"]'); }
     var postalCode      = function() { return $('#signupForm input[name="postalCode"]'); }
     var website         = function() { return $('#signupForm input[name="website"]'); }
-    var cardHolder      = function() { return $('#signupForm input[name="cardHolder"]'); }
-    var cardExpMonth    = function() { return $('#signupForm input[name="cardExpMonth"]'); }
-    var cardExpYear     = function() { return $('#signupForm input[name="cardExpYear"]'); }
-    var cardNumber      = function() { return $('#signupForm input[name="cardNumber"]'); }
-    var cardCCV         = function() { return $('#signupForm input[name="cardCCV"]'); }
-    var cardPostalCode         = function() { return $('#signupForm input[name="postalCode"]'); }
+    var cardHolder      = function() { return $('#creditcardinfoform input[name="cardHolder"]'); }
+    var cardExpMonth    = function() { return $('#creditcardinfoform input[name="cardExpMonth"]'); }
+    var cardExpYear     = function() { return $('#creditcardinfoform input[name="cardExpYear"]'); }
+    var cardNumber      = function() { return $('#creditcardinfoform input[name="cardNumber"]'); }
+    var cardCCV         = function() { return $('#creditcardinfoform input[name="cardCCV"]'); }
+    var cardPostalCode  = function() { return $('#creditcardinfoform input[name="cardPostalCode"]'); }
+
+    var creditcardhasinfo = function() { return $('#creditcardinfoform input').filter(function() { return $(this).val(); }).length > 0; }
 
     $('#signup').click(function(e) {
+      if(creditcardhasinfo() && !validatorcc.form())
+        return;
+      else if(!creditcardhasinfo())
+        validatorcc.resetForm();
       if(!validator.form())
         return;
       $('#signup').attr("disabled", "disabled");
