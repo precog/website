@@ -232,6 +232,7 @@ h1 {
 #nav ul li{
 	padding-top:1px; /* Introducing a padding between the li and the a give the illusion spaced items */
 	float:none;
+        text-align: left;
 }
 #nav ul a{
 	white-space:nowrap; /* Stop text wrapping and creating multi-line dropdown items */
@@ -241,7 +242,6 @@ h1 {
 }
 #nav li:hover a{ /* These create persistent hover states, meaning the top-most link stays 'hovered' even when your cursor has moved down the list. */
 	background:#55A4DB;
-	text-decoration:underline;
         background-image: url(../imagesquerio/appselectorarrow.png);
         background-repeat: no-repeat;
         background-position: right;
