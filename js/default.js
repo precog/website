@@ -748,8 +748,7 @@ $(function() {
             minlength: 2
           },
           postalCode: {
-            required: true,
-            digits: true
+            required: true
           },
           phone: {
             required: true
@@ -811,8 +810,7 @@ $(function() {
             minlength: 5
           },
           cardPostalCode: {
-            required: true,
-            minlength: 5
+            required: true
           }
         },
         messages: {
