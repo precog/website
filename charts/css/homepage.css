@@ -130,14 +130,14 @@ h1 {
     height: 372px;
     background-image: url("../images/bodycomputer.png");
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: 180px 40px;
     padding-bottom: 84px;
 }
 
 .visualization-panel {
     position: absolute;
     text-align: center;
-    top: 90px;
+    top: 70px;
     width: 936px;
     height: 372px;
 }
