@@ -58,7 +58,6 @@
 	{ "time:day" : new Date("2011-02-26").getTime(), tMax : 55, tMin : 14,   tAverage : (55+14)/2,    precipitation : 0.00, snow : 0.0,  snowCover : 0 },
 	{ "time:day" : new Date("2011-02-27").getTime(), tMax : 49, tMin : 35,   tAverage : (49+35)/2,    precipitation : 0.00, snow : 0.0,  snowCover : 0 },
 	{ "time:day" : new Date("2011-02-28").getTime(), tMax : 61, tMin : 24,   tAverage : (61+24)/2,    precipitation : 0.00, snow : 0.0,  snowCover : 0 },
-	{ "time:day" : new Date("2011-02-29").getTime(), tMax : 61, tMin : 26,   tAverage : (61+26)/2,    precipitation : 0.00, snow : 0.0,  snowCover : 0 },
 	{ "time:day" : new Date("2011-03-01").getTime(), tMax : 62, tMin : 27,   tAverage : (62+27)/2,    precipitation : 0.00, snow : 0.0,  snowCover : 0 },
 	{ "time:day" : new Date("2011-03-02").getTime(), tMax : 63, tMin : 22,   tAverage : (63+22)/2,    precipitation : 0.00, snow : 0.0,  snowCover : 0 },
 	{ "time:day" : new Date("2011-03-03").getTime(), tMax : 60, tMin : 36,   tAverage : (60+36)/2,    precipitation : 0.00, snow : 0.0,  snowCover : 0 },
