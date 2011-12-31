@@ -154,7 +154,12 @@ h1 {
     height: 55px;
 }
 
-#line:hover {
+#chart-icons li {
+    width: 55px;
+    height: 55px;
+}
+
+#chart-icons li:hover, #chart-icons li.over {
     background-position: 0 -55px;
 }
 
@@ -164,18 +169,10 @@ h1 {
     height: 55px;
 }
 
-#area:hover {
-    background-position: 0 -55px;
-}
-
 #stackedarea {
     background-image: url("../images/stackedarea.png");
     width: 55px;
     height: 55px;
-}
-
-#stackedarea:hover {
-    background-position: 0 -55px;
 }
 
 #percentarea {
@@ -184,18 +181,10 @@ h1 {
     height: 55px;
 }
 
-#percentarea:hover {
-    background-position: 0 -55px;
-}
-
 #bar {
     background-image: url("../images/bar.png");
     width: 55px;
     height: 55px;
-}
-
-#bar:hover {
-    background-position: 0 -55px;
 }
 
 #stackedbar {
@@ -204,18 +193,10 @@ h1 {
     height: 55px;
 }
 
-#stackedbar:hover {
-    background-position: 0 -55px;
-}
-
 #pie {
     background-image: url("../images/pie.png");
     width: 55px;
     height: 55px;
-}
-
-#pie:hover {
-    background-position: 0 -55px;
 }
 
 #donut {
@@ -224,18 +205,10 @@ h1 {
     height: 55px;
 }
 
-#donut:hover {
-    background-position: 0 -55px;
-}
-
 #leaderboard {
     background-image: url("../images/leaderboard.png");
     width: 55px;
     height: 55px;
-}
-
-#leaderboard:hover {
-    background-position: 0 -55px;
 }
 
 #funnel {
@@ -244,18 +217,10 @@ h1 {
     height: 55px;
 }
 
-#funnel:hover {
-    background-position: 0 -55px;
-}
-
 #stream {
     background-image: url("../images/stream.png");
     width: 55px;
     height: 55px;
-}
-
-#stream:hover {
-    background-position: 0 -55px;
 }
 
 #heatmap {
@@ -264,18 +229,10 @@ h1 {
     height: 55px;
 }
 
-#heatmap:hover {
-    background-position: 0 -55px;
-}
-
 #pivottable {
     background-image: url("../images/pivottable.png");
     width: 55px;
     height: 55px;
-}
-
-#pivottable:hover {
-    background-position: 0 -55px;
 }
 
 #geo {
@@ -284,18 +241,10 @@ h1 {
     height: 55px;
 }
 
-#geo:hover {
-    background-position: 0 -55px;
-}
-
 #sankey {
     background-image: url("../images/sankey.png");
     width: 55px;
     height: 55px;
-}
-
-#sankey:hover {
-    background-position: 0 -55px;
 }
 
 #computer-text {

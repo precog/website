@@ -24,6 +24,12 @@ $(document).ready(function(){
 		}
 	}
 
+	function changeVisualization(item)
+	{
+		$("#samplecurrent").html(item.title);
+		callService('info', displaySample, { sample : item.sample });
+	}
+
 	callService('list', function(values){
 		var ul = $('#samplesmenu');
 		for(var i = 0; i < values.length; i++)
@@ -31,7 +37,13 @@ $(document).ready(function(){
 			var value = values[i],
 				li = $('<li><a href="#details">'+value.title+'</a></li>');
 			ul.append(li);
-			li.click(value, function(e){ callService('info', displaySample, { sample : e.data.sample }); });
+			li.click(value, function(e){
+				e.preventDefault();
+				changeVisualization(e.data);
+				return false;
+			});
 		}
-	})
+
+		changeVisualization(values[0]);
+	});
 })

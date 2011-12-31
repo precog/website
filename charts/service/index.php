@@ -4,8 +4,14 @@ define('SAMPLES_CHARTS_DIR', '../samples/charts/');
 define('SAMPLES_DATA_DIR', '../samples/data/');
 define('SAMPLE_EXT', '.js');
 
-define('REPORTGRID_VIZ_API', 'http://api.reportgrid.com/js/reportgrid-charts.js');
-define('REPORTGRID_CSS_API', 'http://api.reportgrid.com/css/rg.css');
+if(in_array(gethostname(), array('localhost')))
+{
+	define('REPORTGRID_VIZ_API', '../js/reportgrid-charts.js');
+	define('REPORTGRID_CSS_API', '../css/rg.css');
+} else {
+	define('REPORTGRID_VIZ_API', 'http://api.reportgrid.com/js/reportgrid-charts.js');
+	define('REPORTGRID_CSS_API', 'http://api.reportgrid.com/css/rg.css');
+}
 
 function extractTitle($sample)
 {

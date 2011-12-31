@@ -7,6 +7,7 @@
             <noscript><link rel="stylesheet" href="[fallback css]" /></noscript>
         <![endif]-->
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+        <script type="text/javascript" src="js/jquery.zclip.min.js"></script>
         <script type="text/javascript" src="js/default.js"></script>
         <script type="text/javascript" src="js/charts.js"></script>
         <script type="text/javascript" src="http://api.reportgrid.com/js/reportgrid-charts.js"></script>
@@ -46,30 +47,69 @@
                     <p>NEXT-GENERATION VIZUALIZATION ENGINE</p>
                 </div>
                 <div id="body-computer">
-                    <div class="visualization-panel">
-                        <img src="images/funnel-chart.png">
+                    <div id="panel-line" class="visualization-panel">
+                        <img src="images/line.png">
                     </div>
-                    <div class="visualization-panel">
-                        <img src="images/pie-chart.png">
+                    <div id="panel-area" class="visualization-panel">
+                        <img src="images/area.png">
+                    </div>
+                    <div id="panel-stackedarea" class="visualization-panel">
+                        <img src="images/stackedarea.png">
+                    </div>
+                    <div id="panel-percentarea" class="visualization-panel">
+                        <img src="images/percentarea.png">
+                    </div>
+                    <div id="panel-bar" class="visualization-panel">
+                        <img src="images/bar.png">
+                    </div>
+                    <div id="panel-stackedbar" class="visualization-panel">
+                        <img src="images/stackedbar.png">
+                    </div>
+                    <div id="panel-pie" class="visualization-panel">
+                        <img src="images/pie.png">
+                    </div>
+                    <div id="panel-donut" class="visualization-panel">
+                        <img src="images/donut.png">
+                    </div>
+                    <div id="panel-leaderboard" class="visualization-panel">
+                        <img src="images/leaderboard.png">
+                    </div>
+                    <div id="panel-funnel" class="visualization-panel">
+                        <img src="images/funnel.png">
+                    </div>
+                    <div id="panel-stream" class="visualization-panel">
+                        <img src="images/stream.png">
+                    </div>
+                    <div id="panel-heatmap" class="visualization-panel">
+                        <img src="images/heatmap.png">
+                    </div>
+                    <div id="panel-pivottable" class="visualization-panel">
+                        <img src="images/pivottable.png">
+                    </div>
+                    <div id="panel-geo" class="visualization-panel">
+                        <img src="images/geo.png">
+                    </div>
+                    <div id="panel-sankey" class="visualization-panel">
+                        <img src="images/sankey.png">
                     </div>
                 </div>
                 <div id="chart-icons">
                     <ul>
-                        <li id="line"><a href="#"></a></li>
-                        <li id="area"><a href="#"></a></li>
-                        <li id="stackedarea"><a href="#"></a></li>
-                        <li id="percentarea"><a href="#"></a></li>
-                        <li id="bar"><a href="#"></a></li>
-                        <li id="stackedbar"><a href="#"></a></li>
-                        <li id="pie"><a href="#"></a></li>
-                        <li id="donut"><a href="#"></a></li>
-                        <li id="leaderboard"><a href="#"></a></li>
-                        <li id="funnel"><a href="#"></a></li>
-                        <li id="stream"><a href="#"></a></li>
-                        <li id="heatmap"><a href="#"></a></li>
-                        <li id="pivottable"><a href="#"></a></li>
-                        <li id="geo"><a href="#"></a></li>
-                        <li id="sankey"><a href="#"></a></li>
+                        <li id="line" class="over"><a href="#body"></a></li>
+                        <li id="area"><a href="#body"></a></li>
+                        <li id="stackedarea"><a href="#body"></a></li>
+                        <li id="percentarea"><a href="#body"></a></li>
+                        <li id="bar"><a href="#body"></a></li>
+                        <li id="stackedbar"><a href="#body"></a></li>
+                        <li id="pie"><a href="#body"></a></li>
+                        <li id="donut"><a href="#body"></a></li>
+                        <li id="leaderboard"><a href="#"body></a></li>
+                        <li id="funnel"><a href="#body"></a></li>
+                        <li id="stream"><a href="#body"></a></li>
+                        <li id="heatmap"><a href="#body"></a></li>
+                        <li id="pivottable"><a href="#"body></a></li>
+                        <li id="geo"><a href="#body"></a></li>
+                        <li id="sankey"><a href="#body"></a></li>
                     </ul>
                 </div>
                 <div id="computer-text">
@@ -174,28 +214,26 @@
                             <h1>1</h1>
                             <p>COPY A SINGLE LINE OF CODE INTO YOUR WEB PAGE</p>
                             <div class="codebox">
-                                <p>
-                                    &lt;script type="text/javascript" src="http://api.reportgrid.com/js/reportgrid-charts.js"&gt;&lt;/script&gt;
-                                </p>
-                                <a class="copybutton" href="details"></a>
+                                <p id="samplescript">&lt;script type="text/javascript" src="http://api.reportgrid.com/js/reportgrid-charts.js"&gt;&lt;/script&gt;</p>
+                                <a id="copyscript" class="copybutton" href="details"></a>
                             </div>
                             <div id="javascript-diagram">
                             </div>
                         </div>
-                        <div class="started-details">
+                        <div class="started-details" id="details">
                             <h1>2</h1>
                             <p>SELECT YOUR DESIRED VISUALIZATION AND THEN COPY THE CODE TO YOUR PAGE</p>
                             <div class="codebox">
                                 <div id="visualization-list">
                                     <ul>
-                                        <li id="samplecurrent"><a href="#">LINE CHART</a>
+                                        <li><a href="#details" id="samplecurrent">LINE CHART</a>
                                           <ul id="samplesmenu">
                                           </ul>
                                         </li>
                                      </ul>
                                 </div>
                                 <div id="samplecode">Script</div>
-                                <a class="copybutton" href="#"></a>
+                                <a id="copycode" class="copybutton" href="#details"></a>
                             </div>
                         </div>
                         <div class="started-details">
