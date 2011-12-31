@@ -3,26 +3,26 @@
         <title>Welcome to ReportGrid Visualizations</title>
         <link rel="stylesheet" type="text/css" href="css/homepage.css">
         <!--[if (gte IE 6)&(lte IE 8)]>
-                <script type="text/javascript" src="js/selectivizr.js"></script>
-                <noscript><link rel="stylesheet" href="[fallback css]" /></noscript>
+            <script type="text/javascript" src="js/selectivizr.js"></script>
+            <noscript><link rel="stylesheet" href="[fallback css]" /></noscript>
         <![endif]-->
-            <!-- Start of Woopra Code -->
-            <script type="text/javascript">
-            function woopraReady(tracker) { return API.woopra.track(tracker); }
-            (function() {
-               var wsc = document.createElement('script');
-               wsc.src = document.location.protocol+'//static.woopra.com/js/woopra.js';
-               wsc.type = 'text/javascript';
-               wsc.async = true;
-               var ssc = document.getElementsByTagName('script')[0];
-               ssc.parentNode.insertBefore(wsc, ssc);
-            })();
-            </script>
-            <!-- End of Woopra Code -->
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
         <script type="text/javascript" src="js/default.js"></script>
         <script type="text/javascript" src="js/charts.js"></script>
         <script type="text/javascript" src="http://api.reportgrid.com/js/reportgrid-charts.js"></script>
+        <!-- Start of Woopra Code -->
+        <script type="text/javascript">
+        function woopraReady(tracker) { return API.woopra.track(tracker); }
+        (function() {
+           var wsc = document.createElement('script');
+           wsc.src = document.location.protocol+'//static.woopra.com/js/woopra.js';
+           wsc.type = 'text/javascript';
+           wsc.async = true;
+           var ssc = document.getElementsByTagName('script')[0];
+           ssc.parentNode.insertBefore(wsc, ssc);
+        })();
+        </script>
+        <!-- End of Woopra Code -->
     </head>
     <body>
         <div id="header">
@@ -51,7 +51,7 @@
                     </div>
                     <div class="visualization-panel">
                         <img src="images/pie-chart.png">
-                    </div> 
+                    </div>
                 </div>
                 <div id="chart-icons">
                     <ul>
@@ -174,8 +174,10 @@
                             <h1>1</h1>
                             <p>COPY A SINGLE LINE OF CODE INTO YOUR WEB PAGE</p>
                             <div class="codebox">
-                                <p>Script</p>
-                                <a class="copybutton" href="#"></a>
+                                <p>
+                                    &lt;script type="text/javascript" src="http://api.reportgrid.com/js/reportgrid-charts.js"&gt;&lt;/script&gt;
+                                </p>
+                                <a class="copybutton" href="details"></a>
                             </div>
                             <div id="javascript-diagram">
                             </div>
@@ -186,28 +188,25 @@
                             <div class="codebox">
                                 <div id="visualization-list">
                                     <ul>
-                                        <li><a href="">LINE CHART</a>
-                                          <ul>
-                                          <li><a href="">AREA CHART</a></li>
-                                          <li><a href="">STACKED AREA CHART</a></li>
-                                          <li><a href="">PERCENT AREA CHART</a></li>
+                                        <li id="samplecurrent"><a href="#">LINE CHART</a>
+                                          <ul id="samplesmenu">
                                           </ul>
                                         </li>
                                      </ul>
                                 </div>
-                                <p>Script</p>
+                                <div id="samplecode">Script</div>
                                 <a class="copybutton" href="#"></a>
                             </div>
                         </div>
                         <div class="started-details">
                             <h1>3</h1>
                             <p>ENJOY BEAUTIFUL, INTERACTIVE VISUALIZATIONS</p>
-                            <div class="visualizationbox">
-                            </div>
+                            <div id="samplevisualization" class="visualizationbox"><iframe></iframe></div>
                         </div>
                     </div>
                 </div>
                 </div>
+                <div class="clear"></div>
             </div>
         </div>
         <div id="footer">
