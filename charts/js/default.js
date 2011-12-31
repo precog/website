@@ -4,6 +4,9 @@ var USTORE=(function(){var e,a,c,f,b,k,i,j,d;var g={setValue:function(l,m,n){if(
 USTORE.init();
 
 var API = {};
+
+API.samplesService = "http://api.reportgrid.com/services/viz/samples/index.php";
+
 API.woopra = (function() {
   var _tracker = {
     setDomain : function(_) {},
