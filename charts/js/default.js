@@ -73,6 +73,7 @@ API.woopra = (function() {
   };
 })();
 
+
 $(document).ready(function(){
   var lastpanel, lastbutton;
   $('#chart-icons li').click(function(){

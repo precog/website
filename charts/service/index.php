@@ -4,7 +4,7 @@ define('SAMPLES_CHARTS_DIR', '../samples/charts/');
 define('SAMPLES_DATA_DIR', '../samples/data/');
 define('SAMPLE_EXT', '.js');
 
-if(in_array(gethostname(), array('localhost')))
+if(in_array($_SERVER['SERVER_NAME'], array('localhost')))
 {
 	define('REPORTGRID_VIZ_API', '../js/reportgrid-charts.js');
 	define('REPORTGRID_CSS_API', '../css/rg.css');
