@@ -1,5 +1,4 @@
 $(document).ready(function(){
-
 	var service = API.samplesService;
 	var callService = function(action, handler, data)
 	{
