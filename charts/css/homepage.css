@@ -90,10 +90,15 @@ h1 {
     font-size: 10pt;
     float: left;
     margin-left: 20px;
+    height: 50px;    
 }
 
 #header-navbar a:hover{
     color: #60B2DC;
+    background-image: url("../images/menuselect.png");
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    background-color: transparent;
 }
 
 /*HEADEREND*/
@@ -261,6 +266,7 @@ h1 {
 .textarea li{
     background-image: url("../images/libullet.png");
     background-repeat: no-repeat;
+    background-position: 0px 8px;
     padding-left: 20px;
     font-family: abel;
     color: #333333;
@@ -285,27 +291,65 @@ h1 {
     padding-bottom: 10px;
 }
 
-#features-list {
-    height: 90px;
+#features-list1 {
+    height: 20px;
 }
 
-#features-list li {
+#features-list1 li {
     float: left;
     font-size: 10pt;
     color: #333333;
     background-color: #CCCCCC;
     background-image: url("../images/check-mark.png");
-    background-position: right;
+    background-position: 192px 4px;
     background-repeat: no-repeat;
     width: 200px;
     height: 20px;
     padding-top: 6px;
     padding-left: 6px;
-    margin-right: 24px;
+    padding-right: 6px;
+    margin-right: 20px;
 }
 
-.features-list-alt {
-    background-color: transparent;
+#features-list2 {
+    height: 20px;
+}
+
+#features-list2 li {
+    float: left;
+    font-size: 10pt;
+    color: #333333;
+    background-image: url("../images/check-mark.png");
+    background-position: 192px 4px;
+    background-repeat: no-repeat;
+    width: 200px;
+    height: 20px;
+    padding-top: 6px;
+    padding-left: 6px;
+    padding-right: 6px;
+    margin-right: 20px;
+}
+
+#whitelabel {
+    position: absolute;
+    left: 480px;
+    top: 8px;
+}
+
+#whitelabel p {
+    color: #4D4D4D;
+    font-size: 16pt;
+}
+
+#branded {
+    position: absolute;
+    left: 790px;
+    top: 8px;
+}
+
+#branded p {
+    color: #4D4D4D;
+    font-size: 16pt;
 }
 
 #pricing-details {
@@ -406,11 +450,24 @@ h1 {
     margin-top: 10px;
 }
 
+#samplescript {
+    color: #000;
+    font-family: Andale Mono;
+    font-size: 10pt;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-left: 10px;
+    padding-right: 10px;
+    max-height: 200px;
+    overflow: auto;
+}
+
 #samplecode {
     color: #000;
     font-family: Andale Mono;
-    margin-top: 40px;
-    padding-bottom: 0px;
+    font-size: 10pt;
+    padding-top: 6px;
+    padding-bottom: 6px;
     padding-left: 10px;
     padding-right: 10px;
     max-height: 200px;
@@ -443,6 +500,8 @@ h1 {
 /*visualizationlist*/
     #visualization-list {
 	z-index: 1;
+        width: 808px;
+        height: 30px;
     }
     
     #visualization-list ul {
@@ -501,6 +560,7 @@ h1 {
     height: 520px;
     float:left;
     margin-top: 10px;
+    margin-bottom: 20px;
 }
 
 /*BODYEND*/
@@ -517,11 +577,38 @@ h1 {
 
 #footer-sub {
     width: 936px;
+    height: 20px;
     margin-left: auto;
     margin-right: auto;
 }
 
-#footer-sub p{
+#copyrights {
+    position: absolute;
+    right: 0px;
+}
+
+#copyrights p{
+    color: #fff;
+    text-align: right;
+}
+
+#phone {
+    position: absolute;
+}
+
+#phone p{
+    color: #3895C7;
+    text-align: right;
+}
+
+#termsprivacy {
+    position: absolute;
+    left: 100px;
+}
+
+#termsprivacy a {
+    font-family: abel;
+    font-size: 10pt;
     color: #fff;
 }
 
