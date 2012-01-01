@@ -472,7 +472,38 @@ h1 {
     padding-right: 10px;
     max-height: 200px;
     overflow: auto;
+    white-space: pre;
 }
+
+#samplevisualization, #samplecode {
+    -moz-transition: 1s;
+    transition: 1s;
+}
+
+#samplevisualization
+{
+/*    width : 480px; */
+    height : 330px;
+}
+
+#samplevisualization.wide
+{
+/*    width : 640px; */
+    height : 330px;
+}
+
+#samplevisualization.square
+{
+/*    width : 320px; */
+    height : 330px;
+}
+
+#samplevisualization.big
+{
+/*    width : 780px; */
+    height : 510px;
+}
+
 
 #samplevisualization iframe {
     width: 100%;

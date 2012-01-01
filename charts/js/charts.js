@@ -1,5 +1,6 @@
 $(document).ready(function(){
-	var service = API.samplesService;
+	var service = API.samplesService,
+		lastclass;
 	var callService = function(action, handler, data)
 	{
 		data = data || {};
@@ -11,8 +12,13 @@ $(document).ready(function(){
 	{
 		var source = info['data'] + "\n\n" + info['viz'];
 		source = source.replace(/\t/g, "  ");
+		if(lastclass)
+			$('#samplevisualization').toggleClass(lastclass);
+		lastclass = info['class'];
+		if(lastclass)
+			$('#samplevisualization').toggleClass(lastclass);
 		$('#samplevisualization iframe').attr('src', service + "?action=display&sample=" + encodeURI(info.sample));
-		$('#samplecode').html(source);
+		$('#samplecode').text(source);
 
 		var doc = info['doc'];
 		if(doc)
