@@ -21,7 +21,7 @@ body {
     font-weight: normal;
     font-style: normal;
 }
- 
+
 @font-face {
     font-family: 'Questrial';
     src: url('fonts/questrial-regular-webfont.eot');
@@ -90,7 +90,7 @@ h1 {
     font-size: 10pt;
     float: left;
     margin-left: 20px;
-    height: 50px;    
+    height: 50px;
 }
 
 #header-navbar a:hover{
@@ -503,7 +503,7 @@ h1 {
         width: 808px;
         height: 30px;
     }
-    
+
     #visualization-list ul {
 	font-family: questrial;
 	font-size: 14px;
@@ -524,7 +524,7 @@ h1 {
 	display: block;
 	text-decoration: none;
 	color: #333333;
-	width: 200px;
+	width: 280px;
 	height: 20px;
 	padding-top: 6px;
 	padding-left: 6px;
@@ -548,7 +548,7 @@ h1 {
     }
     #visualization-list li:hover a { background: #E6E8F2; }
     #visualization-list li:hover li a:hover { background: #F2F4FF; }
-    
+
     /*visualizationlistend*/
 
 .visualizationbox {
@@ -565,7 +565,7 @@ h1 {
 
 /*BODYEND*/
 /*FOOTER*/
- 
+
 #footer {
     width: 100%;
     margin-left: auto;
