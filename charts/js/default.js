@@ -109,6 +109,30 @@ $(document).ready(function(){
     copy:function(){ return $('#samplecode').text(); }
   });
 
+  var inView = function(a) {
+    var st = (document.documentElement.scrollTop || document.body.scrollTop),
+        ot = $(a).offset().top;
+    return ot >= st;
+  };
+
+  var updateActiveSection = function()
+  {
+    var found = false;
+    $('.pane').each(function(){
+      var pane = $("#"+this.id.split("-")[0] + "-link");
+      if(!found && (inView(this) || $(this).is('.last')))
+      {
+        found = true;
+        pane.addClass("active");
+      } else {
+        pane.removeClass("active");
+      }
+    })
+  }
+
+  $(document).scroll(updateActiveSection);
+  updateActiveSection();
+
   var selectText = function(element) {
     if (document.body.createTextRange) { // ms
       var range = doc.body.createTextRange();

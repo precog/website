@@ -142,7 +142,7 @@ h1 {
     float:right;
 }
 
-#header-navbar a{
+#header-navbar li {
     font-family: questrial;
     font-size: 10pt;
     float: left;
@@ -150,7 +150,7 @@ h1 {
     height: 40px;
 }
 
-#header-navbar a:hover{
+#header-navbar a:hover, #header-navbar a.active {
     color: #60B2DC;
     background-image: url("../images/menuselect.png");
     background-position: bottom center;
@@ -161,7 +161,7 @@ h1 {
 /*HEADEREND*/
 /*BODY*/
 
-#body {
+#body-anchor {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
