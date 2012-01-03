@@ -85,8 +85,8 @@ h1 {
     text-align: left;
     position: fixed;
     top: 120px;
-    left: 60px;
-    width: 200px;
+    left: 40px;
+    width: 120px;
     height: 200px;
     z-index: 4;
 }
@@ -102,13 +102,15 @@ h1 {
     
 #mce-EMAIL {
     background-color: #CCCCCC;
-    width: 200px;
+    width: 120px;
     height: 20px;
     color: #000;
+    margin-bottom: 6px;
 }
 
 #mc-embedded-subscribe{
     background-image: url("../images/signup-button.png");
+    background-color: transparent;
     width: 120px;
     height: 52px;
 }
@@ -700,8 +702,9 @@ h1 {
 }
 
 .apidoc-box {
+    clear: left;
     width: 936px;
-    height: 400px;
+    height: 90px;
 }
 
 #api-doc {
