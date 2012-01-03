@@ -82,13 +82,15 @@ API.woopra = (function() {
 
 $(document).ready(function(){
   var lastpanel, lastbutton;
-  $('#chart-icons li').hover(function(){
+  $('#chart-icons li').mouseenter(function(){
     lastbutton.toggleClass('over');
     lastbutton = $(this);
     var id = "panel-" + lastbutton.attr('id');
     var current = $('#'+id);
     lastbutton.toggleClass('over');
-    lastpanel.fadeOut();
+    $.dequeue(lastpanel);
+    lastpanel.hide();
+//    lastpanel.fadeOut();
     lastpanel = current.fadeIn();
   $.dequeue (this);
   })
@@ -106,5 +108,30 @@ $(document).ready(function(){
     path:'js/ZeroClipboard.swf',
     copy:function(){ return $('#samplecode').text(); }
   });
+
+  var selectText = function(element) {
+    if (document.body.createTextRange) { // ms
+      var range = doc.body.createTextRange();
+      range.moveToElementText(element);
+      range.select();
+    } else if (window.getSelection) {
+      var selection = window.getSelection();
+      if (selection.setBaseAndExtent) { // webkit
+        selection.setBaseAndExtent(element, 0, element, 1);
+      } else { // moz, opera
+        var range = document.createRange();
+        range.selectNodeContents(element);
+        selection.removeAllRanges();
+        selection.addRange(range);
+      }
+    }
+  };
+
+  $('#samplescript').click(function(){
+    selectText(this);
+  })
+  $('#samplecode').click(function(){
+    selectText(this);
+  })
 })
 
