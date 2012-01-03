@@ -231,8 +231,10 @@
                     <h1>GET STARTED</h1>
                     <div id="getting-started">
                         <div class="started-details">
-                            <h1>1</h1>
-                            <p>COPY A SINGLE LINE OF CODE INTO YOUR WEB PAGE</p>
+                            <div class="sd-header">
+                                <h1>1</h1>
+                                <p>COPY A SINGLE LINE OF CODE INTO YOUR WEB PAGE</p>
+                            </div>
                             <div class="codebox">
                                 <a id="copyscript" class="copybutton" href="details"></a>
                                 <p id="samplescript">&lt;script type="text/javascript" src="http://api.reportgrid.com/js/reportgrid-charts.js"&gt;&lt;/script&gt;</p>
@@ -241,8 +243,26 @@
                             </div>
                         </div>
                         <div class="started-details" id="details">
-                            <h1>2</h1>
-                            <p>SELECT YOUR DESIRED VISUALIZATION AND THEN COPY THE CODE TO YOUR PAGE</p>
+                            <div class="sd-header">
+                                <h1>2</h1>
+                                <p>SELECT YOUR DESIRED VISUALIZATION AND THEN COPY THE CODE TO YOUR PAGE</p> 
+                                    <div id="visualization-menu">
+                                        <ul>
+                                            <li>area chart</li>
+                                            <li>line chart</li>
+                                            <li>bar chart</li>
+                                            <li>stream graph</li>
+                                            <li>geo map</li>
+                                            <li>heat map</li>
+                                        </ul>
+                                    </div>
+                                    <div id="visualization-options">
+                                        <ul>
+                                            <li>stacked area</li>
+                                            <li>percent chart</li>
+                                        </ul>
+                                    </div>
+                            </div>
                             <div class="codebox">
                                 <div id="visualization-list">
                                     <ul>
@@ -257,14 +277,14 @@
                             </div>
                         </div>
                         <div class="started-details">
-                            <h1>3</h1>
-                            <p>ENJOY BEAUTIFUL, INTERACTIVE VISUALIZATIONS</p>
+                            <div class="sd-header">
+                                <h1>3</h1>
+                                <p>ENJOY BEAUTIFUL, INTERACTIVE VISUALIZATIONS</p>
+                            </div>
                             <div id="samplevisualization" class="visualizationbox"><iframe></iframe></div>
                         </div>
                     </div>
-                </div>
-                <div class="bodysection">
-                    <div class="apidoc-box">
+                     <div class="apidoc-box">
                             <div id="api-doc">
                                 <a href="http://api.reportgrid.com/doc/visualization-api.v1.rst.html"><img alt="api" src="images/api-doc.png"></a>
                             </div>
@@ -273,7 +293,6 @@
                 </div>
                 <div class="clear"></div>
             </div>
-        </div>
         <div id="footer">
             <div id="footer-sub">
                 <div id="phone">

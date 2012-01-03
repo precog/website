@@ -436,6 +436,10 @@ h1 {
     height: 814px;
 }
 
+.sd-header {
+    float:left;
+}
+
 .started-details {
     width: 936px;
 }
@@ -461,6 +465,7 @@ h1 {
     width: 808px;
     min-height: 46px;
     float:left;
+    left: 68px;
     margin-top: 10px;
 }
 
@@ -498,6 +503,7 @@ h1 {
 {
 /*    width : 480px; */
     height : 330px;
+    left: 68px;
 }
 
 #samplevisualization.wide
@@ -539,6 +545,48 @@ h1 {
     width: 936px;
     height: 163px;
     float:left;
+}
+
+#visualization-menu {
+    clear: left;
+    left: 68px;
+    width: 808px;
+    height: 30px;
+}
+
+#visualization-menu ul li{
+    background-image: url("../images/libullet.png");
+    background-repeat: no-repeat;
+    background-position: 0px 6px;
+    width: 160px;
+    float: left;
+    padding-right: 20px;
+    padding-left: 20px;
+    font-family: questrial;
+    font-size: 12pt;
+    color: #3895C7;
+    padding-bottom: 6px;
+}
+
+#visualization-options {
+    clear: left;
+    left: 68px;
+    width: 808px;
+    height: 30px;
+    padding-top: 20px;
+}
+
+#visualization-options ul li{
+    background-image: url("../images/x-mark.png");
+    background-repeat: no-repeat;
+    background-position: 0px 0px;
+    width: 160px;
+    float: left;
+    padding-right: 20px;
+    padding-left: 20px;
+    font-family: questrial;
+    font-size: 10pt;
+    color: #666666;
 }
 
 /*visualizationlist*/
@@ -609,7 +657,7 @@ h1 {
 
 .apidoc-box {
     width: 936px;
-    height: 270px;
+    height: 400px;
 }
 
 #api-doc {
