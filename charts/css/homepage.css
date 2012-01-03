@@ -50,6 +50,13 @@ P {
     line-height: normal;
 }
 
+strong {
+    font-size: 16px;
+    font-family: Abel;
+    color: #4D4D4D;
+    line-height: normal;
+}
+
 h1 {
     font-size: 18pt;
     font-family: Abel;
@@ -72,6 +79,38 @@ h1 {
 
 #support-button a:hover {
     background-position: 0px 120px;
+}
+
+#newsletter {
+    text-align: left;
+    position: fixed;
+    top: 120px;
+    left: 60px;
+    width: 200px;
+    height: 200px;
+    z-index: 4;
+}
+
+#newsletter p {
+    text-align: left;
+    padding-bottom: 6px;
+}
+
+#mc_embed_signup {
+    background: transparent;
+    }
+    
+#mce-EMAIL {
+    background-color: #CCCCCC;
+    width: 200px;
+    height: 20px;
+    color: #000;
+}
+
+#mc-embedded-subscribe{
+    background-image: url("../images/signup-button.png");
+    width: 120px;
+    height: 52px;
 }
 
 /*HEADER*/
