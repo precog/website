@@ -528,9 +528,8 @@ h1 {
 .copybutton {
     background-image: url("../images/copybutton.png");
     width: 60px;
-    height: 27px;
+    height: 30px;
     float: right;
-    bottom: 0px;
 }
 
 #javascript-diagram {
