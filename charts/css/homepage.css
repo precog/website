@@ -65,7 +65,7 @@ h1 {
     float: right;
     right: 0px;
     top: 200px;
-    width: 45px;
+    width: 50px;
     height: 116px;
     z-index: 3;
 }
@@ -150,7 +150,7 @@ h1 {
 
 .visualization-panel {
     position: absolute;
-    text-align: center;
+    text-align: left;
     top: 70px;
     width: 936px;
     height: 372px;

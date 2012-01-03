@@ -87,6 +87,7 @@ $(document).ready(function(){
     lastbutton.toggleClass('over');
     lastpanel.fadeOut();
     lastpanel = current.fadeIn();
+  $.dequeue (this);
   })
 
   $('.visualization-panel').hide();
