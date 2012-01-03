@@ -5,7 +5,10 @@ USTORE.init();
 
 var API = {};
 
-API.samplesService = "http://api.reportgrid.com/services/viz/samples/index.php";
+if(window.location.href.substr(0, 17) == 'http://localhost/')
+  API.samplesService = "/rg/charts/service/index.php";
+else
+  API.samplesService = "http://api.reportgrid.com/services/viz/samples/index.php";
 
 API.woopra = (function() {
   var _tracker = {

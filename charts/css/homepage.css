@@ -630,11 +630,11 @@ h1 {
 
 /*visualizationlist*/
     #visualization-list {
-	z-index: 1;
+	   z-index: 1;
         width: 808px;
         height: 30px;
     }
-
+/*
     #visualization-list ul {
 	font-family: questrial;
 	font-size: 14px;
@@ -679,8 +679,13 @@ h1 {
     }
     #visualization-list li:hover a { background: #E6E8F2; }
     #visualization-list li:hover li a:hover { background: #F2F4FF; }
-
+*/
     /*visualizationlistend*/
+
+#samplecategories li, #sampleoptions li
+{
+    cursor: pointer;
+}
 
 .visualizationbox {
     border: solid;
