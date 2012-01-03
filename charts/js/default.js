@@ -79,7 +79,7 @@ API.woopra = (function() {
 
 $(document).ready(function(){
   var lastpanel, lastbutton;
-  $('#chart-icons li').click(function(){
+  $('#chart-icons li').hover(function(){
     lastbutton.toggleClass('over');
     lastbutton = $(this);
     var id = "panel-" + lastbutton.attr('id');
