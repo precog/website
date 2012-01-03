@@ -82,13 +82,15 @@ API.woopra = (function() {
 
 $(document).ready(function(){
   var lastpanel, lastbutton;
-  $('#chart-icons li').hover(function(){
+  $('#chart-icons li').mouseenter(function(){
     lastbutton.toggleClass('over');
     lastbutton = $(this);
     var id = "panel-" + lastbutton.attr('id');
     var current = $('#'+id);
     lastbutton.toggleClass('over');
-    lastpanel.fadeOut();
+    $.dequeue(lastpanel);
+    lastpanel.hide();
+//    lastpanel.fadeOut();
     lastpanel = current.fadeIn();
   $.dequeue (this);
   })
