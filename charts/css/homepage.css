@@ -436,6 +436,10 @@ h1 {
     height: 814px;
 }
 
+.started-details {
+    width: 936px;
+}
+
 .started-details h1 {
     font-size: 40pt;
     color: #333333;
@@ -604,6 +608,19 @@ h1 {
     margin-bottom: 20px;
 }
 
+.apidoc-box {
+    width: 936px;
+    height: 270px;
+}
+
+#api-doc {
+    text-align: center;
+    left: 348px;
+    width: 242px;
+    height: 72px;
+    z-index: 4;
+}
+
 /*BODYEND*/
 /*FOOTER*/
 
@@ -644,7 +661,7 @@ h1 {
 
 #termsprivacy {
     position: absolute;
-    left: 100px;
+    left: 110px;
 }
 
 #termsprivacy a {
