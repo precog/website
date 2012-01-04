@@ -152,15 +152,6 @@ h1 {
     top: 19px;
 }
 
-#header-navbar-selection {
-    background-image: url("../images/menuselect.png");
-    position: absolute;
-    top: 26px;
-    left: 686px;
-    width: 42px;
-    height: 38px;
-}
-
 #header-navbar {
     float:right;
 }
@@ -175,10 +166,6 @@ h1 {
 
 #header-navbar a:hover, #header-navbar a.active {
     color: #60B2DC;
-    background-image: url("../images/menuselect.png");
-    background-position: bottom center;
-    background-repeat: no-repeat;
-    background-color: transparent;
 }
 
 /*HEADEREND*/
