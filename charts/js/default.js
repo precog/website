@@ -109,6 +109,19 @@ $(document).ready(function(){
     copy:function(){ return $('#samplecode').text(); }
   });
 
+$('#features-anchor').bind('inview', function (event, visible) {
+    if (visible == true) {
+      $("#header-navbar-selection").animate({
+          left: '+=50'
+          })
+    } else {
+      $("#header-navbar-selection").animate({
+          left: '-=50'
+          })
+    }
+});
+
+/*
   var inView = function(a) {
     var st = (document.documentElement.scrollTop || document.body.scrollTop),
         ot = $(a).offset().top;
@@ -123,12 +136,16 @@ $(document).ready(function(){
       if(!found && (inView(this) || $(this).is('.last')))
       {
         found = true;
-        pane.addClass("active");
+        $("#header-navbar-selection").animate({
+          left: '+=50'
+          })
+          pane.addClass("active");
       } else {
         pane.removeClass("active");
       }
     })
   }
+*/
 
   $(document).scroll(updateActiveSection);
   updateActiveSection();
