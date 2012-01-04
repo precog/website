@@ -168,7 +168,7 @@ h1 {
 #header-navbar li {
     font-family: questrial;
     font-size: 10pt;
-    float: left;
+    display: inline;
     margin-left: 20px;
     height: 36px;
 }

@@ -108,19 +108,6 @@ $(document).ready(function(){
     copy:function(){ return $('#samplecode').text(); }
   });
 
-$('#features-anchor').bind('inview', function (event, visible) {
-    if (visible == true) {
-      $("#header-navbar-selection").animate({
-          left: '+=50'
-          })
-    } else {
-      $("#header-navbar-selection").animate({
-          left: '-=50'
-          })
-    }
-});
-
-/*
   var inView = function(a) {
     var st = (document.documentElement.scrollTop || document.body.scrollTop),
         ot = $(a).offset().top;
@@ -131,20 +118,21 @@ $('#features-anchor').bind('inview', function (event, visible) {
   {
     var found = false;
     $('.pane').each(function(){
-      var pane = $("#"+this.id.split("-")[0] + "-link");
+      var link = $("#"+this.id.split("-")[0] + "-link");
       if(!found && (inView(this) || $(this).is('.last')))
       {
         found = true;
-        $("#header-navbar-selection").animate({
-          left: '+=50'
-          })
-          pane.addClass("active");
+        var p = link.parent();
+        $("#header-navbar-selection").stop().animate({
+          "left" : 660 + p.position().left + (p.width() / 2)
+        });
+//        link.addClass("active");
       } else {
-        pane.removeClass("active");
+//        link.removeClass("active");
       }
     })
   }
-*/
+
 
   $(document).scroll(updateActiveSection);
   updateActiveSection();
