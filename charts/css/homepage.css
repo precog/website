@@ -580,26 +580,32 @@ h1 {
 #samplevisualization
 {
 /*    width : 480px; */
-    height : 330px;
+    height : 335px;
     left: 68px;
 }
 
 #samplevisualization.wide
 {
 /*    width : 640px; */
-    height : 330px;
+    height : 335px;
 }
 
 #samplevisualization.square
 {
 /*    width : 320px; */
-    height : 330px;
+    height : 335px;
 }
 
 #samplevisualization.big
 {
 /*    width : 780px; */
-    height : 510px;
+    height : 515px;
+}
+
+#samplevisualization.very-tall
+{
+/*    width : 780px; */
+    height : 865px;
 }
 
 
