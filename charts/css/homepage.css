@@ -91,7 +91,14 @@ h1 {
     z-index: 4;
 }
 
+#newsletter h1 {
+    font-size: 11pt;
+    text-align: left;
+    padding-bottom: 6px;
+}
+
 #newsletter p {
+    font-size: 10pt;
     text-align: left;
     padding-bottom: 6px;
 }
@@ -106,6 +113,7 @@ h1 {
     height: 20px;
     color: #000;
     margin-bottom: 6px;
+    padding-left: 4px;
 }
 
 #mc-embedded-subscribe{
@@ -156,6 +164,10 @@ h1 {
     background-position: bottom center;
     background-repeat: no-repeat;
     background-color: transparent;
+}
+
+#bodylink {
+    height: 40px;
 }
 
 /*HEADEREND*/
@@ -598,6 +610,11 @@ h1 {
     float:left;
 }
 
+#vmiddle-text p {
+    left: 68px;
+    font-size: 12pt;
+}
+
 #visualization-menu {
     clear: left;
     left: 68px;
@@ -605,7 +622,7 @@ h1 {
     height: 30px;
 }
 
-#visualization-menu ul li{
+#visualization-menu ul li {
     background-image: url("../images/libullet-alt.png");
     background-repeat: no-repeat;
     background-position: 0px 6px;
@@ -650,7 +667,7 @@ h1 {
 }
 
 #sampleoptions li.active {
-    background-image: url("../images/check-mark.png");
+    background-image: url("../images/circle-mark-alt.png");
     background-repeat: no-repeat;
     background-position: 0px 0px;
     color: #333333;
