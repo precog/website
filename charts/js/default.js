@@ -129,6 +129,9 @@ $(document).ready(function(){
     })
   }
 
+  $("#newsletter-close").click(function() {
+    $(this).parent().hide();
+  });
 
   $(document).scroll(updateActiveSection);
   updateActiveSection();

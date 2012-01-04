@@ -81,6 +81,16 @@ h1 {
     background-position: 0px 120px;
 }
 
+#newsletter-close {
+    background-image: url("../images/x-mark.png");
+    float: right;
+    display: block;
+    top: 6px;
+    width: 10px;
+    height: 11px;
+    z-index: 6;
+}
+
 #newsletter {
     text-align: left;
     position: fixed;
