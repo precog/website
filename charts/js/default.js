@@ -122,13 +122,9 @@ $(document).ready(function(){
       if(!found && (inView(this) || $(this).is('.last')))
       {
         found = true;
-        var p = link.parent();
-        $("#header-navbar-selection").stop().animate({
-          "left" : 660 + p.position().left + (p.width() / 2)
-        });
-//        link.addClass("active");
+        link.addClass("active");
       } else {
-//        link.removeClass("active");
+        link.removeClass("active");
       }
     })
   }
