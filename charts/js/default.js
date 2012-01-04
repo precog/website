@@ -82,17 +82,16 @@ API.woopra = (function() {
 
 $(document).ready(function(){
   var lastpanel, lastbutton;
-  $('#chart-icons li').mouseenter(function(){
-    lastbutton.toggleClass('over');
-    lastbutton = $(this);
-    var id = "panel-" + lastbutton.attr('id');
+  $('#chart-icons li').mouseover(function(){
+    // buttons
+    $('#chart-icons li').removeClass('over');
+    $(this).addClass('over');
+
+    // panels
+    $('#body-computer .visualization-panel').hide();
+    var id = "panel-" + $(this).attr('id');
     var current = $('#'+id);
-    lastbutton.toggleClass('over');
-    $.dequeue(lastpanel);
-    lastpanel.hide();
-//    lastpanel.fadeOut();
-    lastpanel = current.fadeIn();
-  $.dequeue (this);
+    current.show();
   })
 
   $('.visualization-panel').hide();
