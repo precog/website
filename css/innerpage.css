@@ -940,44 +940,13 @@ input.packagecosttext1 {color: #fff;font-family: abel;font-size: 100%;}
 }
 /*underconstruction*/
 /*visualizationengine*/
-#vizgallerycontainer {
-  height: 340px;
-  width: 548px;
-  position: relative;
-  overflow: hidden;
+
+#chartscheckitout {
+  width: 600px;
+  text-align: center;
+  padding-top: 40px;
 }
- #vizgallerycontainer .leftarrow {
-   background-image: url(../images/visengleftarrow.png);
-   position: absolute;
-   height: 193px;
-   width: 30px;
-   top: 73px;
-   left: 0px;
-   z-index: 100;
- }
- #vizgallerycontainer .leftarrow:hover {  background-position: 0 -193px }
- #vizgallerycontainer .rightarrow {
-   background-image: url(../images/visengrightarrow.png);
-   position: absolute;
-   height: 193px;
-   width: 30px;
-   top: 73px;
-   right: 0px;
-   z-index: 100;
- }
- #vizgallerycontainer .rightarrow:hover {  background-position: 0 -193px }
-#vizgallery {
-  height: 340px;
-  float: left;
-}
- #vizgallery li.galleryslide {
-   display: block;
-   width: 488px;
-   height: 340px;
-   padding-left: 30px;
-   padding-right: 30px;
-   float: left;
- }
+
 /*visualizationengine*/
 /*team*/
 .personhover:hover {  opacity: 0.0 }
