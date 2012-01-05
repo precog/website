@@ -139,7 +139,7 @@ $(document).ready(function(){
 
   var selectText = function(element) {
     if (document.body.createTextRange) { // ms
-      var range = doc.body.createTextRange();
+      var range = document.body.createTextRange();
       range.moveToElementText(element);
       range.select();
     } else if (window.getSelection) {
