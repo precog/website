@@ -4,7 +4,12 @@ $(document).ready(function(){
 	{
 		data = data || {};
 		data.action = action;
-		$.getJSON(service, data, handler);
+		$.ajax({
+			url : service,
+			dataType : 'jsonp',
+			data : data,
+			success : handler
+		});
 	};
 
 	var lastsampleclass;
