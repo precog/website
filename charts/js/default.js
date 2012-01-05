@@ -131,6 +131,7 @@ $(document).ready(function(){
 
   $("#newsletter-close").click(function() {
     $(this).parent().hide();
+    return false;
   });
 
   $(document).scroll(updateActiveSection);

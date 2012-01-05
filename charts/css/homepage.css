@@ -97,8 +97,13 @@ h1 {
     top: 120px;
     left: 40px;
     width: 140px;
-    height: 200px;
+    height: 86px;
+    padding-left: 6px;
+    padding-right: 10px;
+    padding-top: 6px;
+    padding-bottom: 6px;
     z-index: 4;
+    background-color: #EBEBEB;
 }
 
 #newsletter h1 {
@@ -414,7 +419,7 @@ h1 {
 
 #whitelabel {
     position: absolute;
-    left: 480px;
+    left: 630px;
     top: 8px;
 }
 
@@ -425,7 +430,7 @@ h1 {
 
 #branded {
     position: absolute;
-    left: 790px;
+    left: 470px;
     top: 8px;
 }
 
@@ -460,9 +465,23 @@ h1 {
     padding-top: 0px;
 }
 
+.free {
+    float: left;
+    width: 156px;
+    height: 106px;
+    background-color: #F2F2F2;
+    margin-left: 4px;
+}
+
+.free h1{
+    color: #333333;
+    text-align: center;
+    top: 40px;
+}
+
 .pricing {
     float: left;
-    width: 300px;
+    width: 285px;
     height: 106px;
     background-color: #F2F2F2;
     margin-left: 4px;
@@ -487,20 +506,6 @@ h1 {
 
 .buybutton:hover{
     background-position: 0px 52px;
-}
-
-.free {
-    float: left;
-    width: 116px;
-    height: 106px;
-    background-color: #F2F2F2;
-    margin-left: 4px;
-}
-
-.free h1{
-    color: #333333;
-    text-align: center;
-    top: 40px;
 }
 
 .background-alt {
@@ -627,6 +632,29 @@ h1 {
     width: 936px;
     height: 163px;
     float:left;
+}
+
+#javascript-or {
+    font-family: questrial;
+    font-size: 26pt;
+    color: #666666;
+    position: absolute;
+    left: 692px;
+    top: 150px;
+}
+
+#javascript-download {
+    background-image: url("../images/downloadit-button.png");
+    width: 111px;
+    height: 80px;
+    display: block;
+    position: absolute;
+    left: 750px;
+    top: 150px;
+}
+
+#javascript-download:hover {
+    background-position: 0px 82px;
 }
 
 #vmiddle-text p {
