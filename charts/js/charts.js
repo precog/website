@@ -4,6 +4,7 @@ $(document).ready(function(){
 	{
 		data = data || {};
 		data.action = action;
+		data.fotmat = "jsonp";
 		$.getJSON(service, data, handler);
 	};
 
