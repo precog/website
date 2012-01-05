@@ -4,8 +4,12 @@ $(document).ready(function(){
 	{
 		data = data || {};
 		data.action = action;
-		data.fotmat = "jsonp";
-		$.getJSON(service, data, handler);
+		$.ajax({
+			url : service,
+			dataType : 'jsonp',
+			data : data,
+			success : handler
+		});
 	};
 
 	var lastsampleclass;
