@@ -551,7 +551,7 @@ h1 {
 
 #samplescript {
     color: #000;
-    font-family: Andale Mono;
+    font-family: Andale Mono, Courrier New, monospace;
     font-size: 10pt;
     padding-top: 6px;
     padding-bottom: 6px;
@@ -563,7 +563,7 @@ h1 {
 
 #samplecode {
     color: #000;
-    font-family: Andale Mono;
+    font-family: Andale Mono, Courrier New, monospace;
     font-size: 10pt;
     padding-top: 6px;
     padding-bottom: 6px;
