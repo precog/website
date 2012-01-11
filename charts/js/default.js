@@ -47,6 +47,8 @@ API.woopra = (function() {
       return false;
     },
     custom : function(event, params) {
+      if(!_tracker.pushEvent)
+        return;
       params = params || {};
       params.name = event;
 //      console.log(params);
@@ -101,7 +103,7 @@ $(document).ready(function(){
   $('#copyscript').zclip({
     path:'js/ZeroClipboard.swf',
     copy:function(){
-      API.woopra .custom("copy", { what : "charts API script", how : "copy button" });
+      API.woopra.custom("copy", { what : "charts API script", how : "copy button" });
       return $('#samplescript').text();
     }
   });
@@ -109,7 +111,7 @@ $(document).ready(function(){
   $('#copycode').zclip({
     path:'js/ZeroClipboard.swf',
     copy:function(){
-      API.woopra .custom("copy", { what : "chart code sample", how : "copy button" });
+      API.woopra.custom("copy", { what : "chart code sample", how : "copy button" });
       return $('#samplecode').text();
     }
   });
@@ -124,11 +126,16 @@ $(document).ready(function(){
   {
     var found = false;
     $('.pane').each(function(){
-      var link = $("#"+this.id.split("-")[0] + "-link");
+      var section = "#"+this.id.split("-")[0],
+          link = $(section + "-link");
       if(!found && (inView(this) || $(this).is('.last')))
       {
         found = true;
-        link.addClass("active");
+        if(!link.hasClass("active"))
+        {
+          link.addClass("active");
+          API.woopra.custom("section", { section : section });
+        }
       } else {
         link.removeClass("active");
       }
@@ -163,12 +170,12 @@ $(document).ready(function(){
   };
 
   $('#samplescript').click(function(){
-    API.woopra .custom("copy", { what : "charts API script", how : "click on code" });
+    API.woopra.custom("copy", { what : "charts API script", how : "click on code" });
     selectText(this);
   });
 
   $('#samplecode').click(function(){
-    API.woopra .custom("copy", { what : "chart code sample", how : "click on code" });
+    API.woopra.custom("copy", { what : "chart code sample", how : "click on code" });
     selectText(this);
   });
 
@@ -184,7 +191,7 @@ $(document).ready(function(){
 
   $('.buybutton').click(function(){
     var value = $.trim($(this.parentNode).select("h1").text());
-    API.woopra .custom("buy", { what : "charts API", value : value });
+    API.woopra.custom("buy", { what : "charts API", value : value });
     return true;
   })
 })
