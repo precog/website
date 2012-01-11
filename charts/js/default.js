@@ -172,13 +172,14 @@ $(document).ready(function(){
     selectText(this);
   });
 
-  $('#javascript-download').click(function(){
-    API.woopra .custom("download", { what : "charts API" });
+  $('#javascript-download').click(function(e){
+    // woopra seems to automatically download events if there is a timer that allows that
     var href = $(this).attr("href");
     setTimeout(function(){
       window.location.href = href;
     }, 250);
-    return false;
+    e.preventDefault();
+    return true;
   });
 
   $('.buybutton').click(function(){
