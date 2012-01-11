@@ -49,8 +49,8 @@ API.woopra = (function() {
     custom : function(event, params) {
       params = params || {};
       params.name = event;
-      console.log(params);
-//        _tracker.pushEvent(params);
+//      console.log(params);
+      _tracker.pushEvent(params);
     },
     setEmail : function(email) {
       if(!email) return;
@@ -100,12 +100,18 @@ $(document).ready(function(){
 
   $('#copyscript').zclip({
     path:'js/ZeroClipboard.swf',
-    copy:$('#samplescript').text()
+    copy:function(){
+      API.woopra .custom("copy", { what : "charts API script", how : "copy button" });
+      return $('#samplescript').text();
+    }
   });
 
   $('#copycode').zclip({
     path:'js/ZeroClipboard.swf',
-    copy:function(){ return $('#samplecode').text(); }
+    copy:function(){
+      API.woopra .custom("copy", { what : "chart code sample", how : "copy button" });
+      return $('#samplecode').text();
+    }
   });
 
   var inView = function(a) {
@@ -130,6 +136,7 @@ $(document).ready(function(){
   }
 
   $("#newsletter-close").click(function() {
+    API.woopra.custom("close", { what : "newsletter" });
     $(this).parent().hide();
     return false;
   });
@@ -156,10 +163,28 @@ $(document).ready(function(){
   };
 
   $('#samplescript').click(function(){
+    API.woopra .custom("copy", { what : "charts API script", how : "click on code" });
     selectText(this);
-  })
+  });
+
   $('#samplecode').click(function(){
+    API.woopra .custom("copy", { what : "chart code sample", how : "click on code" });
     selectText(this);
+  });
+
+  $('#javascript-download').click(function(){
+    API.woopra .custom("download", { what : "charts API" });
+    var href = $(this).attr("href");
+    setTimeout(function(){
+      window.location.href = href;
+    }, 250);
+    return false;
+  });
+
+  $('.buybutton').click(function(){
+    var value = $.trim($(this.parentNode).select("h1").text());
+    API.woopra .custom("buy", { what : "charts API", value : value });
+    return true;
   })
 })
 

@@ -34,6 +34,7 @@ $(document).ready(function(){
 		} else {
 			$('#docpanel').hide();
 		}
+		API.woopra .custom("visualization", { type : info.sample });
 	};
 
 	var lastcategory;
