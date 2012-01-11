@@ -1,5 +1,6 @@
 $(document).ready(function(){
-	var service = API.samplesService;
+	var service = API.samplesService,
+		firstdisplay = true;
 	var callService = function(action, handler, data)
 	{
 		data = data || {};
@@ -34,6 +35,10 @@ $(document).ready(function(){
 		} else {
 			$('#docpanel').hide();
 		}
+		if(firstdisplay)
+			firstdisplay = false;
+		else
+			API.woopra.custom("visualization", { type : info.sample });
 	};
 
 	var lastcategory;

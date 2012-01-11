@@ -47,10 +47,12 @@ API.woopra = (function() {
       return false;
     },
     custom : function(event, params) {
+      if(!_tracker.pushEvent)
+        return;
       params = params || {};
       params.name = event;
-      console.log(params);
-//        _tracker.pushEvent(params);
+//      console.log(params);
+      _tracker.pushEvent(params);
     },
     setEmail : function(email) {
       if(!email) return;
@@ -100,12 +102,18 @@ $(document).ready(function(){
 
   $('#copyscript').zclip({
     path:'js/ZeroClipboard.swf',
-    copy:$('#samplescript').text()
+    copy:function(){
+      API.woopra.custom("copy", { what : "charts API script", how : "copy button" });
+      return $('#samplescript').text();
+    }
   });
 
   $('#copycode').zclip({
     path:'js/ZeroClipboard.swf',
-    copy:function(){ return $('#samplecode').text(); }
+    copy:function(){
+      API.woopra.custom("copy", { what : "chart code sample", how : "copy button" });
+      return $('#samplecode').text();
+    }
   });
 
   var inView = function(a) {
@@ -118,11 +126,16 @@ $(document).ready(function(){
   {
     var found = false;
     $('.pane').each(function(){
-      var link = $("#"+this.id.split("-")[0] + "-link");
+      var section = "#"+this.id.split("-")[0],
+          link = $(section + "-link");
       if(!found && (inView(this) || $(this).is('.last')))
       {
         found = true;
-        link.addClass("active");
+        if(!link.hasClass("active"))
+        {
+          link.addClass("active");
+          API.woopra.custom("section", { section : section });
+        }
       } else {
         link.removeClass("active");
       }
@@ -130,6 +143,7 @@ $(document).ready(function(){
   }
 
   $("#newsletter-close").click(function() {
+    API.woopra.custom("close", { what : "newsletter" });
     $(this).parent().hide();
     return false;
   });
@@ -156,10 +170,29 @@ $(document).ready(function(){
   };
 
   $('#samplescript').click(function(){
+    API.woopra.custom("copy", { what : "charts API script", how : "click on code" });
     selectText(this);
-  })
+  });
+
   $('#samplecode').click(function(){
+    API.woopra.custom("copy", { what : "chart code sample", how : "click on code" });
     selectText(this);
+  });
+
+  $('#javascript-download').click(function(e){
+    // woopra seems to automatically download events if there is a timer that allows that
+    var href = $(this).attr("href");
+    setTimeout(function(){
+      window.location.href = href;
+    }, 250);
+    e.preventDefault();
+    return true;
+  });
+
+  $('.buybutton').click(function(){
+    var value = $.trim($(this.parentNode).select("h1").text());
+    API.woopra.custom("buy", { what : "charts API", value : value });
+    return true;
   })
 })
 
