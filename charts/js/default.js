@@ -168,21 +168,10 @@ API.google = (function() {
     API.cookie.set('rg-adwords', adwordsreferrer = true);
   }
 
-//  adwordsreferrer = true;
-
   return {
     conversion : function(type, handler) {
       setGlobalVars(googleinfo);
-      setGlobalVar('label', conversions[type]);
-
-      console.log('google_conversion_id : '+window['google_conversion_id']);
-      console.log('google_conversion_language : '+window['google_conversion_language']);
-      console.log('google_conversion_format : '+window['google_conversion_format']);
-      console.log('google_conversion_color : '+window['google_conversion_color']);
-      console.log('google_conversion_label : '+window['google_conversion_label']);
-      console.log('google_conversion_value : '+window['google_conversion_value']);
-
-//      $.getScript(google_url, handler);
+      $.getScript(google_url, handler);
     },
     fromAdWords : function() {
       return adwordsreferrer;
