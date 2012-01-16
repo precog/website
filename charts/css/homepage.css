@@ -657,9 +657,16 @@ h1 {
     background-position: 0px 82px;
 }
 
+#vmiddle-text {
+    width: 808px;
+    float:left;
+    padding-top: 6px;
+}
+
 #vmiddle-text p {
     left: 68px;
     font-size: 12pt;
+    text-align: left;
 }
 
 #visualization-menu {
