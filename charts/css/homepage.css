@@ -451,6 +451,7 @@ h1 {
 }
 
 .pricing-options h1{
+    float: left;
     font-size: 16pt;
     color: #333333;
     padding-top: 10px;
@@ -488,6 +489,7 @@ h1 {
 }
 
 .pricing h1 {
+    float: left;
     color: #3FA9F5;
     font-family: abel;
     font-size: 30pt;
@@ -495,9 +497,16 @@ h1 {
     left: 20px;
 }
 
+.pricing p {
+    float: left;
+    top: 28px;
+    left: 20px;
+}
+
 .buybutton{
     background-image: url("../images/buybutton.png");
     display: block;
+    clear: left;
     top: -34px;
     left: 200px;
     height: 53px;
