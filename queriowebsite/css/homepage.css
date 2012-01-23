@@ -218,12 +218,17 @@ h1 {
     padding-top: 10px;
 }
 
-#button-getstarted-m{
+#button-getstarted-m a{
     background-image: url("../images/button-getstarted-m.png");
+    display: block;
     width: 251px;
     height: 74px;
     top: 50px;
     float: right;
+}
+
+#button-getstarted-m a:hover{
+    background-image: url("../images/button-getstarted-m-alt.png");
 }
 
 #apps-bulletselector {
@@ -304,18 +309,22 @@ h1 {
 
 #button-learnmore-m a{
     background-image: url("../images/button-learnmore-m.png");
+    display: block;
     width: 203px;
     height: 62px;
     margin-left: auto;
     margin-right: auto;
-    top: 164px;
-    float: right;
+    top: 210px;
+}
+
+#button-learnmore-m a:hover{
+    background-image: url("../images/button-learnmore-m-alt.png");
 }
 
 #background-main2 {
     background-color: #24292E;
     width: 100%;
-    height: 232px;
+    height: 256px;
 }
 
 #com {
@@ -333,7 +342,7 @@ h1 {
 
 .com-box {
     background-color: #0B151A;
-    height: 175px;
+    height: 195px;
     width: 244px;
     border-radius: 3px;
     top: 30px;
@@ -358,6 +367,7 @@ h1 {
     color: #9AB4CC;
 }
 
+/*newsletter*/
 #mc_embed_signup {
     background: transparent;
     top: 70px;
@@ -365,13 +375,14 @@ h1 {
     }
     
 #mce-EMAIL {
-    background-color: #CCCCCC;
-    width: 140px;
-    height: 20px;
-    color: #000;
-    margin-bottom: 6px;
-    padding-left: 4px;
+    background-color: #3C454D;
+    border-radius: 6px;
+    width: 172px;
+    height: 21px;
+    font-family: arial;
+    color: #ACCBDC;
     float: left;
+    padding-left: 6px;
 }
 
 #mc-embedded-subscribe{
@@ -379,14 +390,16 @@ h1 {
     background-color: transparent;
     width: 20px;
     height: 21px;
+    left: -20px;
 }
 
 #mc-embedded-subscribe:hover {
-    background-image: url("../images/signup-button-alt.png");
+    background-image: url("../images/button-newsletter-signup-sm-alt.png");
     background-color: transparent;
     cursor: pointer;
 }
 
+/*cred*/
 #background-main3 {
     background-image: url("../images/background-main3-home.png");
     width: 100%;
