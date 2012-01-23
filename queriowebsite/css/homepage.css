@@ -73,16 +73,12 @@ h1 {
     height: 606px;
 }
 
-.section {
-    width: 1050px;
-    height: auto;
-}
-
 #header {
     width: 1050px;
     text-align: left;
     margin-left: auto;
     margin-right: auto;
+    height: 0px;
 }
 
 #header-logo {
@@ -91,26 +87,34 @@ h1 {
 }
 
 #header-menu {
+    position: absolute;
     float: right;
-    top: 40px;
+    right: 0px;
+    top: 0px;
     width: 400px;
     display: none;
 }
 
 #header-menu li a{
+    padding-top: 60px;
     float: left;
-    padding-right: 24px;
+    margin-right: 24px;
     font-family: questrial;
     font-size: 12pt;
     color: #999999;
 }
 
 #header-menu li a:hover{
+    padding-top: 57px;
     float: left;
-    padding-right: 24px;
+    margin-right: 24px;
     font-family: questrial;
     font-size: 12pt;
     color: #fff;
+    border-top: solid;
+    border-width: 4px;
+    border-color: #ff0000;
+    text-shadow: 0 0 0.2em #EA7F1E, 0 0 0.2em #EA7F1E;
 }
 
 #header-apps {
@@ -501,6 +505,18 @@ h1 {
     text-align: left;
     margin-left: auto;
     margin-right: auto;
+}
+
+#footer-menu {
+    display: none;
+}
+
+#footer-menu ul li {
+    float: left;
+}
+
+#footer-menu ul li ul {
+    clear: both;
 }
 
 #copyrights p{
