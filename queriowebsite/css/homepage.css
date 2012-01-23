@@ -232,6 +232,7 @@ h1 {
     font-family: questrial;
     font-size: 12pt;
     padding-top: 10px;
+    line-height: 120%;
 }
 
 #button-getstarted-m a{
@@ -239,7 +240,7 @@ h1 {
     display: block;
     width: 251px;
     height: 74px;
-    top: 50px;
+    top: 40px;
     float: right;
 }
 
@@ -248,7 +249,11 @@ h1 {
 }
 
 #apps-bulletselector {
-    width: 271px;
+    width: 542px;
+    left: 210px;
+}
+
+#apps-bulletselector ul{
 }
 
 #apps-bulletselector ul li a {
@@ -314,6 +319,11 @@ h1 {
     width: 230px;
     height: 64px;
     padding-top: 6px;
+    line-height: 130%;
+}
+
+#how .how-textarea p:hover{
+    color: #fff;
 }
 
 #how-diagram {
@@ -382,7 +392,7 @@ h1 {
 .com-box p{
     width: 176px;
     top: 60px;
-    left: 48px;
+    left: 34px;
     font-size: 10pt;
     color: #9AB4CC;
 }
