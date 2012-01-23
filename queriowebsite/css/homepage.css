@@ -73,6 +73,11 @@ h1 {
     height: 606px;
 }
 
+.section {
+    width: 1050px;
+    height: auto;
+}
+
 #header {
     width: 1050px;
     text-align: left;
@@ -111,7 +116,7 @@ h1 {
     width: 950px;
     margin-left: auto;
     margin-right: auto;
-    top: 164px;
+    margin-top: 164px;
 }
 
 #background-apps {
@@ -120,40 +125,91 @@ h1 {
     background-color: #000;
     border-radius: 6px;
     box-shadow: 2px 2px 3px #000;
+    float: left;
 }
 
-.app-box {
+.yourapp-box {
     background-image: url("../images/graphic-yourapp.png");
+    position: absolute;
     width: 542px;
     height: 307px;
 }
 
-#button-yourapp {
-    background-image: url("../images/button-yourapp.png");
-    width: 272px;
-    height: 45px;
-    float: left;
-    top: 306px;
+.yourapp-box-alt {
+    background-image: url("../images/graphic-yourapp-alt.png");
+    position: absolute;
+    width: 542px;
+    height: 307px;
 }
 
-#button-yourapponquerio {
-    background-image: url("../images/button-yourapponquerio.png");
-    width: 272px;
+.yourcrm-box {
+    background-image: url("../images/graphic-yourcrm.png");
+    position: absolute;
+    width: 542px;
+    height: 307px;
+}
+
+.yourcrm-box-alt {
+    background-image: url("../images/graphic-yourcrm-alt.png");
+    position: absolute;
+    width: 542px;
+    height: 307px;
+}
+
+.yourhelpdesk-box {
+    background-image: url("../images/graphic-yourhelpdesk.png");
+    position: absolute;
+    width: 542px;
+    height: 307px;
+}
+
+.yourhelpdesk-box-alt {
+    background-image: url("../images/graphic-yourhelpdesk-alt.png");
+    position: absolute;
+    width: 542px;
+    height: 307px;
+}
+
+.yourecom-box {
+    background-image: url("../images/graphic-yourecom.png");
+    position: absolute;
+    width: 542px;
+    height: 307px;
+}
+
+.yourecom-box-alt {
+    background-image: url("../images/graphic-yourecom-alt.png");
+    position: absolute;
+    width: 542px;
+    height: 307px;
+}
+
+#button-yourapp a{
+    background-image: url("../images/button-yourapp.png");
+    width: 271px;
     height: 45px;
+    top: 307px;
     float: left;
-    top: 261px;
-    left: 272px;
+}
+
+#button-yourapponquerio a{
+    background-image: url("../images/button-yourapponprecog.png");
+    width: 271px;
+    height: 45px;
+    top: 307px;
+    float: left;
 }
 
 #app-textbox {
-    left: 600px;
+    margin-left: 74px;
     width: 318px;
-    top: -330px;
+    float: left;
 }
 
 #app-textbox h1{
     font-size: 28pt;
     color: #C13707;
+    padding-top: 0px;
 }
 
 #app-textbox p{
@@ -166,8 +222,22 @@ h1 {
     background-image: url("../images/button-getstarted-m.png");
     width: 251px;
     height: 74px;
-    top: 50;
+    top: 50px;
     float: right;
+}
+
+#apps-bulletselector {
+    width: 271px;
+}
+
+#apps-bulletselector ul li a{
+    background-image: url("../images/button-app-dot.png");
+    height: 12px;
+    width: 11px;
+    float: left;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-top: 20px;
 }
 
 #background-main1 {
