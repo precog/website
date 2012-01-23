@@ -128,56 +128,56 @@ h1 {
     float: left;
 }
 
-.yourapp-box {
+#yourapp .box {
     background-image: url("../images/graphic-yourapp.png");
     position: absolute;
     width: 542px;
     height: 307px;
 }
 
-.yourapp-box-alt {
+#yourapp .box-alt {
     background-image: url("../images/graphic-yourapp-alt.png");
     position: absolute;
     width: 542px;
     height: 307px;
 }
 
-.yourcrm-box {
+#yourcrm .box {
     background-image: url("../images/graphic-yourcrm.png");
     position: absolute;
     width: 542px;
     height: 307px;
 }
 
-.yourcrm-box-alt {
+#yourcrm .box-alt {
     background-image: url("../images/graphic-yourcrm-alt.png");
     position: absolute;
     width: 542px;
     height: 307px;
 }
 
-.yourhelpdesk-box {
+#yourhelpdesk .box {
     background-image: url("../images/graphic-yourhelpdesk.png");
     position: absolute;
     width: 542px;
     height: 307px;
 }
 
-.yourhelpdesk-box-alt {
+#yourhelpdesk .box-alt {
     background-image: url("../images/graphic-yourhelpdesk-alt.png");
     position: absolute;
     width: 542px;
     height: 307px;
 }
 
-.yourecom-box {
+#yourecom .box {
     background-image: url("../images/graphic-yourecom.png");
     position: absolute;
     width: 542px;
     height: 307px;
 }
 
-.yourecom-box-alt {
+#yourecom .box-alt {
     background-image: url("../images/graphic-yourecom-alt.png");
     position: absolute;
     width: 542px;
