@@ -88,6 +88,8 @@ $(".app-link").bind("mouseenter", function() {
       index = links.index(this),
       container = $('#background-apps .app-container'),
       width = parseFloat(container.css("width"));
+  links.removeClass("active");
+  $(this).addClass("active");
   container.animate({
     left : -index * width / len
   })
