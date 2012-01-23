@@ -281,12 +281,12 @@ h1 {
 .how-textarea {
     background-color: #000;
     height: 150px;
-    width: 218px;
+    width: 270px;
     border-radius: 3px;
     top: 30px;
     float: left;
-    margin-left: 49px;
-    margin-right: 49px;
+    margin-left: 23px;
+    margin-right: 23px;
 }
 
 #how .how-textarea h1{
@@ -302,11 +302,11 @@ h1 {
 
 #how .how-textarea p{
     font-family: questrial;
-    font-size: 8.5pt;
-    color: #fff;
+    font-size: 10pt;
+    color: #999999;
     left: 20px;
     top: 0px;
-    width: 175px;
+    width: 230px;
     height: 64px;
     padding-top: 6px;
 }
