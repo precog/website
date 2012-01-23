@@ -126,78 +126,93 @@ h1 {
     border-radius: 6px;
     box-shadow: 2px 2px 3px #000;
     float: left;
+    overflow: hidden;
+}
+
+#background-apps .app {
+    width: 542px;
+    height: 307px;
+    float: left;
+}
+
+#background-apps .app-container {
+    width: 2168px;
+    height: 307px;
+}
+
+#background-apps .box, #background-apps .box-alt {
+    position: absolute;
+    width: 542px;
+    height: 307px;
+}
+
+#background-apps .box-alt {
+    opacity: 0;
 }
 
 #yourapp .box {
     background-image: url("../images/graphic-yourapp.png");
-    position: absolute;
-    width: 542px;
-    height: 307px;
+
 }
 
 #yourapp .box-alt {
     background-image: url("../images/graphic-yourapp-alt.png");
-    position: absolute;
-    width: 542px;
-    height: 307px;
 }
 
 #yourcrm .box {
     background-image: url("../images/graphic-yourcrm.png");
-    position: absolute;
-    width: 542px;
-    height: 307px;
 }
 
 #yourcrm .box-alt {
     background-image: url("../images/graphic-yourcrm-alt.png");
-    position: absolute;
-    width: 542px;
-    height: 307px;
 }
 
 #yourhelpdesk .box {
     background-image: url("../images/graphic-yourhelpdesk.png");
-    position: absolute;
-    width: 542px;
-    height: 307px;
 }
 
 #yourhelpdesk .box-alt {
     background-image: url("../images/graphic-yourhelpdesk-alt.png");
-    position: absolute;
-    width: 542px;
-    height: 307px;
 }
 
 #yourecom .box {
     background-image: url("../images/graphic-yourecom.png");
-    position: absolute;
-    width: 542px;
-    height: 307px;
 }
 
 #yourecom .box-alt {
     background-image: url("../images/graphic-yourecom-alt.png");
-    position: absolute;
-    width: 542px;
-    height: 307px;
 }
 
-#button-yourapp a{
+#button-yourapp {
+    clear: left;
+}
+
+#button-yourapp, #button-yourapponquerio {
+    float: left;
+    width: 271px;
+    height: 45px;
+}
+
+#button-yourapp a, #button-yourapponquerio a {
+    display: block;
+    width: 271px;
+    height: 45px;
+}
+
+#button-yourapp.active a {
     background-image: url("../images/button-yourapp.png");
-    width: 271px;
-    height: 45px;
-    top: 307px;
-    float: left;
 }
 
-#button-yourapponquerio a{
+#button-yourapponquerio.active a {
     background-image: url("../images/button-yourapponprecog.png");
-    width: 271px;
-    height: 45px;
-    top: 307px;
-    float: left;
+}
+
+#button-yourapp a {
+    background-image: url("../images/button-yourapp-alt.png");
+}
+
+#button-yourapponquerio a {
+    background-image: url("../images/button-yourapponprecog-alt.png");
 }
 
 #app-textbox {

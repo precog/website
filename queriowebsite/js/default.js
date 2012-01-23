@@ -43,8 +43,8 @@ $(document).ready(function(){
     slide();
   })
   */
+/*
   var last;
-  
   $(".appselector a").click(function(e){
     var selector=$(this).attr("class");
     var current=$(".bodyappbox."+selector);
@@ -55,5 +55,43 @@ $(document).ready(function(){
     return false
   });
 last=$(".bodyappbox:first").css("display", "block")
+*/
+
+$("#background-apps .box-alt").css('opacity', 0);
+$("#button-yourapp").bind("mouseenter", function() {
+  $("#button-yourapp").addClass("active");
+  $("#button-yourapponquerio").removeClass("active");
+
+  $("#background-apps .box-alt").stop().animate({
+    opacity : 0
+  });
+  $("#background-apps .box").stop().animate({
+    opacity : 1
+  });
+})
+
+$("#button-yourapponquerio").bind("mouseenter", function() {
+  $("#button-yourapponquerio").addClass("active");
+  $("#button-yourapp").removeClass("active");
+
+  $("#background-apps .box").stop().animate({
+    opacity : 0
+  });
+  $("#background-apps .box-alt").stop().animate({
+    opacity : 1
+  });
+})
+
+$(".app-link").bind("mouseenter", function() {
+  var links = $(".app-link"),
+      len = links.length,
+      index = links.index(this),
+      container = $('#background-apps .app-container'),
+      width = parseFloat(container.css("width"));
+  container.animate({
+    left : -index * width / len
+  })
+})
+
 })
 
