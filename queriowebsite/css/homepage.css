@@ -94,6 +94,7 @@ h1 {
     float: right;
     top: 40px;
     width: 400px;
+    display: none;
 }
 
 #header-menu li a{
