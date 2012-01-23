@@ -3,8 +3,6 @@
     list-style-type: none;
     text-decoration: none;
     position: relative;
-    color: #FFF;
-    font-family: arial;
     outline: none;
     margin: 0;
     padding: 0;
@@ -90,14 +88,23 @@ h1 {
 #header-menu {
     float: right;
     top: 40px;
+    width: 400px;
 }
 
-#header-menu li {
+#header-menu li a{
     float: left;
     padding-right: 24px;
     font-family: questrial;
     font-size: 12pt;
     color: #999999;
+}
+
+#header-menu li a:hover{
+    float: left;
+    padding-right: 24px;
+    font-family: questrial;
+    font-size: 12pt;
+    color: #fff;
 }
 
 #header-apps {
@@ -151,21 +158,22 @@ h1 {
 
 #app-textbox p{
     font-family: questrial;
-    font-size: 16pt;
+    font-size: 12pt;
+    padding-top: 10px;
 }
 
-#button-getstarted-m a{
+#button-getstarted-m{
     background-image: url("../images/button-getstarted-m.png");
     width: 251px;
     height: 74px;
+    top: 50;
     float: right;
-    top: 160
 }
 
 #background-main1 {
     background-image: url("../images/background-main1-home.png");
     width: 100%;
-    height: 440px;
+    height: 510px;
 }
 
 #how {
@@ -180,54 +188,58 @@ h1 {
     color: #879EB3;
 }
 
-#how-diagram {
-    background-image: url("../images/graphic-howitworks-pipe.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    top: 140px;
-    margin-right: auto;
-    margin-left: auto;
-    width: 950px;
-    height: 135px;
-}
-
 .how-textarea {
     background-color: #000;
-    height: 90px;
+    height: 150px;
     width: 218px;
     border-radius: 3px;
-    top: 46px;
+    top: 30px;
     float: left;
     margin-left: 49px;
     margin-right: 49px;
 }
 
 #how .how-textarea h1{
-    top: -40px;
+    top: -16px;
     font-family: questrial;
     font-size: 8pt;
     color: #5AA4CC;
     line-height: normal;
     font-weight: normal;
+    padding-top: 0px;
+    padding-bottom: 0px;
 }
 
 #how .how-textarea p{
     font-family: questrial;
-    font-size: 10pt;
+    font-size: 8.5pt;
     color: #fff;
     left: 20px;
-    top: -20px;
+    top: 0px;
     width: 175px;
     height: 64px;
+    padding-top: 6px;
 }
 
-#button-learnmore-m{
+#how-diagram {
+    background-image: url("../images/graphic-howitworks-pipe.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    top: 190px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 950px;
+    height: 135px;
+}
+
+#button-learnmore-m a{
     background-image: url("../images/button-learnmore-m.png");
     width: 203px;
     height: 62px;
     margin-left: auto;
     margin-right: auto;
     top: 164px;
+    float: right;
 }
 
 #background-main2 {
