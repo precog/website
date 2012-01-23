@@ -250,7 +250,7 @@ h1 {
     width: 271px;
 }
 
-#apps-bulletselector ul li a{
+#apps-bulletselector ul li a {
     background-image: url("../images/button-app-dot.png");
     height: 12px;
     width: 11px;
@@ -258,6 +258,10 @@ h1 {
     margin-right: 10px;
     margin-left: 10px;
     margin-top: 20px;
+}
+
+#apps-bulletselector ul li a.active {
+    background-image: url("../images/button-app-dot-alt.png");
 }
 
 #background-main1 {
