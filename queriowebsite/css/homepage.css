@@ -101,7 +101,7 @@ h1 {
 }
 
 #header-menu li a:hover{
-    padding-top: 57px;
+    padding-top: 56px;
     float: left;
     margin-right: 24px;
     font-family: 'Questrial';
@@ -111,6 +111,19 @@ h1 {
     border-width: 4px;
     border-color: #ff0000;
     text-shadow: 0 0 0.2em #EA7F1E, 0 0 0.2em #EA7F1E;
+}
+
+#header-menu li a:active{
+    padding-top: 57px;
+    float: left;
+    margin-right: 24px;
+    font-family: 'Questrial';
+    font-size: 12pt;
+    color: #F2F2F2;
+    border-top: solid;
+    border-width: 4px;
+    border-color: #ff0000;
+    text-shadow: 0 0 1.0em #EA7F1E, 0 0 1.0em #EA7F1E;
 }
 
 #header-apps {
@@ -471,6 +484,7 @@ h1 {
     font-weight: 100;
     color: #9AB4CC;
     word-break: break-all;
+    height: 50px;
 }
 
 .cred-owner {
