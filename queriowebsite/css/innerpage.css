@@ -53,6 +53,10 @@ h1 {
     padding-bottom: 10px;
 }
 
+.atrib-clear-left {
+    clear: left;
+}
+
 #support a{
     background-image: url("../images/button-support-side.png");
     background-position: right;
@@ -180,7 +184,7 @@ h1 {
 /*body-navigationbar*/
 #body-navbar {
     width: 1050px;
-    height: 20px;
+    height: 40px;
 }
 
 #body-navbar li a{
@@ -213,27 +217,50 @@ h1 {
     padding-left: 6px;
 }
 
-#body-content {
+#body-content-left {
     width: 660px;
+    float: left;
     padding-right: 62px;
     border-right: solid;
     border-width: 1px;
     border-color: #2E5366;
 }
 
-#body-content h1 {
+#body-content-left h1 {
     font-size: 40px;
     color: #C03C26;
     margin-top: 10px;
     margin-bottom: 10px;
 }
 
-#body-content p {
+#body-content-left p {
     font-family: Questrial;
     padding-top: 4px;
     padding-bottom: 4px;
     line-height: 1.3;
 }
+
+#body-content-right {
+    width: 325px;
+    float: left;
+}
+
+#jdegoes {
+    display: block;
+}
+
+#jdegoes:hover {
+    background-image: url("../images/photo-jdegoes-full.png");
+    width: 133px;
+    height: 187px;
+    font-size: 0px;
+    -webkit-transition: .2s ease;
+    -moz-transition: .2s ease;
+    -o-transition: .2s ease;
+    -ms-transition: .2s ease;
+    transition: .2s ease;
+}
+
 
 /*footer*/
 #background-footer {
@@ -260,19 +287,16 @@ h1 {
 
 #footer-menu ul li{
     width: 180px;
+    color: #9AB4CC;
     font-family: 'Questrial';
-    font-size: 10pt;
+    font-size: 10.5pt;
     padding-top: 2px;
     padding-bottom: 2px;
 }
 
 #footer-menu ul li a{
     color: #748899;
-}
-
-#footer-menu ul li a.main {
-    font-size: 11pt;
-    color: #9AB4CC;
+    font-size: 10pt;
 }
 
 #footer-menu ul li a:hover{
