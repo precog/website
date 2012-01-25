@@ -593,19 +593,16 @@ h1 {
 
 #footer-menu ul li{
     width: 180px;
+    color: #9AB4CC;
     font-family: 'Questrial';
-    font-size: 10pt;
+    font-size: 10.5pt;
     padding-top: 2px;
     padding-bottom: 2px;
 }
 
 #footer-menu ul li a{
     color: #748899;
-}
-
-#footer-menu ul li a.main {
-    font-size: 11pt;
-    color: #9AB4CC;
+    font-size: 10pt;
 }
 
 #footer-menu ul li a:hover{
