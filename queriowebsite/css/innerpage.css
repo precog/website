@@ -167,60 +167,80 @@ h1 {
     min-height: 252px;
 }
 
-.pageicon {
-    position: absolute;
-    left: -120px;
-    top: 20px;
-}
-
 #body {
     width: 1050px;
     text-align: left;
     margin-left: auto;
     margin-right: auto;
-    padding-bottom: 20px;
+    padding-bottom: 40px;
 }
 
 /*body-navigationbar*/
 #body-navbar {
-    width: 1050px;
-    height: 40px;
+    position: absolute;
+    top: 40px;
+    left: -200px;
+    text-align: right;
 }
 
-#body-navbar li a{
-    float: left;
+#body-navbar a {
     font-family: Questrial;
-    font-size: 8pt;
-    color: #748899;
-    padding-top: 20px;
+    font-size: 0pt;
+    color: #000;
+    display: block;
+    width: 100px;
+    height: 30px;
+    padding-top: 28px;
+    padding-bottom: 10px;
+    -webkit-transition: .3s ease;
+    -moz-transition: .3s ease;
+    -o-transition: .3s ease;
+    -ms-transition: .3s ease;
+    transition: .3s ease;
+    padding-right: 60px;
 }
 
-#body-navbar li a:hover{
+#body-navbar a:hover {
     color: #fff;
+    font-size: 9pt;
 }
 
-#body-navbar li a:active{
-    padding-top: 21px;
+#body-navbar .bodynav-about {
+    background-image: url("../images/icon-about.png");
+    background-repeat: no-repeat;
+    background-position: center right;
 }
 
-#body-navbar .bodynav-active{
-    color: #fff;
+#body-navbar .bodynav-about:hover {
+    background-image: url("../images/icon-about-alt.png");
 }
 
-#body-navbar li p{
-    float: left;
-    font-family: Questrial;
-    font-size: 8pt;
-    color: #748899;
-    padding-top: 20px;
-    padding-right: 6px;
-    padding-left: 6px;
+#body-navbar .bodynav-contact {
+    background-image: url("../images/icon-contact.png");
+    background-repeat: no-repeat;
+    background-position: center right;
 }
 
+#body-navbar .bodynav-contact:hover {
+    background-image: url("../images/icon-contact-alt.png");
+}
+
+#body-navbar .bodynav-jobs {
+    background-image: url("../images/icon-jobs.png");
+    background-repeat: no-repeat;
+    background-position: center right;
+}
+
+#body-navbar .bodynav-jobs:hover {
+    background-image: url("../images/icon-jobs-alt.png");
+}
+
+/*bodycontentarea*/
 #body-content-left {
-    width: 660px;
+    width: 580px;
     float: left;
     padding-right: 62px;
+    margin-top: 30px;
     border-right: solid;
     border-width: 1px;
     border-color: #2E5366;
@@ -229,7 +249,6 @@ h1 {
 #body-content-left h1 {
     font-size: 40px;
     color: #C03C26;
-    margin-top: 10px;
     margin-bottom: 10px;
 }
 
