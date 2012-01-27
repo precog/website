@@ -117,8 +117,8 @@ h1 {
 }
 
 #header-logo {
-    left: 16px;
-    top: 68px;
+    left: 0px;
+    top: 58px;
 }
 
 #header-menu {
@@ -130,7 +130,7 @@ h1 {
 }
 
 #header-menu li a{
-    padding-top: 60px;
+    padding-top: 66px;
     float: left;
     margin-right: 24px;
     font-family: 'Questrial';
@@ -139,7 +139,7 @@ h1 {
 }
 
 #header-menu li a:hover{
-    padding-top: 56px;
+    padding-top: 62px;
     float: left;
     margin-right: 24px;
     font-family: 'Questrial';
@@ -148,11 +148,11 @@ h1 {
     border-top: solid;
     border-width: 4px;
     border-color: #ff0000;
-    text-shadow: 0 0 0.2em #EA7F1E, 0 0 0.2em #EA7F1E;
+    text-shadow: 0 0 0.2em #60B2DC, 0 0 0.2em #60B2DC;
 }
 
 #header-menu li a:active{
-    padding-top: 57px;
+    padding-top: 63px;
     float: left;
     margin-right: 24px;
     font-family: 'Questrial';
@@ -161,7 +161,7 @@ h1 {
     border-top: solid;
     border-width: 4px;
     border-color: #ff0000;
-    text-shadow: 0 0 1.0em #EA7F1E, 0 0 1.0em #EA7F1E;
+    text-shadow: 0 0 1.0em #60B2DC, 0 0 1.0em #60B2DC;
 }
 
 /*body*/

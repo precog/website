@@ -115,7 +115,7 @@ h1 {
 }
 
 #header-logo {
-    left: 16px;
+    left: 0px;
     top: 68px;
 }
 
@@ -147,7 +147,7 @@ h1 {
     border-top: solid;
     border-width: 4px;
     border-color: #ff0000;
-    text-shadow: 0 0 0.2em #EA7F1E, 0 0 0.2em #EA7F1E;
+    text-shadow: 0 0 0.2em #60B2DC, 0 0 0.2em #60B2DC;
 }
 
 #header-menu li a:active{
@@ -160,7 +160,7 @@ h1 {
     border-top: solid;
     border-width: 4px;
     border-color: #ff0000;
-    text-shadow: 0 0 1.0em #EA7F1E, 0 0 1.0em #EA7F1E;
+    text-shadow: 0 0 1.0em #60B2DC, 0 0 1.0em #60B2DC;
 }
 
 #header-apps {
