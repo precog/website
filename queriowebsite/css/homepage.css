@@ -73,7 +73,6 @@ h1 {
     -o-transition: .2s ease;
     -ms-transition: .2s ease;
     transition: .2s ease;
-    display: none;
 }
 
 #support a:hover{
@@ -125,7 +124,6 @@ h1 {
     right: 0px;
     top: 0px;
     width: 400px;
-    display: none;
 }
 
 #header-menu li a{
@@ -347,13 +345,23 @@ h1 {
 .how-textarea {
     background-color: #000;
     height: 150px;
-    width: 270px;
+    width: 268px;
     border-radius: 3px;
     top: 30px;
     float: left;
     margin-left: 40px;
     margin-right: 40px;
+    border: solid;
+    border-width: 1px;
+    border-color: #000;
 }
+
+.how-textarea:hover {
+    border: solid;
+    border-width: 1px;
+    border-color: #404952;
+}
+
 
 #how .how-textarea h1{
     top: 156px;
@@ -393,6 +401,7 @@ h1 {
 }
 
 #how .how-textarea p:hover{
+    cursor: pointer;
     color: #fff;
 }
 
@@ -589,7 +598,6 @@ h1 {
 
 /*footermenu*/
 #footer-menu {
-    display: none;
     top: 38px;
 }
 
