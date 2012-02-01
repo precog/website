@@ -62,8 +62,8 @@ h1 {
 #support a{
     background-image: url("../images/button-support-side.png");
     background-position: right;
-    width: 30px;
-    height: 100px;
+    width: 28px;
+    height: 98px;
     z-index: 1;
     top: 200px;
     left: 0px;
@@ -76,14 +76,14 @@ h1 {
 }
 
 #support a:hover{
-    width: 59px;
+    width: 57px;
 }
 
 #contact-us a{
     background-image: url("../images/button-contactus-side.png");
     background-position: right;
-    width: 30px;
-    height: 100px;
+    width: 28px;
+    height: 98px;
     z-index: 1;
     top: 310px;
     left: 0px;
@@ -96,7 +96,7 @@ h1 {
 }
 
 #contact-us a:hover{
-    width: 59px;
+    width: 57px;
 }
 
 #background-top {
