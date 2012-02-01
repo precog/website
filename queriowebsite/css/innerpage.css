@@ -44,8 +44,8 @@ body { background-color: #0E0F12;
 }
 
 P {
-    font-size: 16px;
-    font-family: Abel;
+    font-size: 11pt;
+    font-family: Questrial;
     color: #9AB4CC;
     line-height: normal;
 }
@@ -196,24 +196,25 @@ h1 {
 
 #body-navbar a {
     font-family: Questrial;
-    font-size: 0pt;
-    color: #000;
+    font-size: 9pt;
+    color: #1E2226;
     display: block;
     width: 100px;
     height: 30px;
     padding-top: 28px;
     padding-bottom: 10px;
-    -webkit-transition: .3s ease;
-    -moz-transition: .3s ease;
-    -o-transition: .3s ease;
-    -ms-transition: .3s ease;
-    transition: .3s ease;
+    -webkit-transition: .6s ease;
+    -moz-transition: .6s ease;
+    -o-transition: .6s ease;
+    -ms-transition: .6s ease;
+    transition: .6s ease;
     padding-right: 60px;
 }
 
 #body-navbar a:hover {
     color: #fff;
     font-size: 9pt;
+    width: 100px;
 }
 
 #body-navbar .bodynav-about {
@@ -264,7 +265,7 @@ h1 {
 }
 
 #body-content-left p {
-    font-family: questrial;
+    font-family:  Helvetica, Questrial, sans-serif;
     padding-top: 4px;
     padding-bottom: 4px;
     line-height: 1.3;
