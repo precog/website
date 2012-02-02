@@ -95,5 +95,37 @@ $(".app-link").bind("mouseenter", function() {
   })
 })
 
+
+
+// HOW IT WORKS
+var inView = function(a) {
+  var st = (document.documentElement.scrollTop || document.body.scrollTop),
+      ot = $(a).offset().top;
+  return ot >= st;
+};
+
+var updateActiveSection = function()
+{
+  var found = false;
+  $('.mega').each(function(){
+    var section = this.id.split("-")[1],
+        panel = $('#hiw-' + section);
+console.log(section);
+    if(!found && (inView(this))) //  || $(this).is('.last')
+    {
+      found = true;
+      if(!panel.hasClass("active"))
+      {
+        panel.addClass("active");
+      }
+    } else {
+      panel.removeClass("active");
+    }
+  })
+}
+
+$(document).scroll(updateActiveSection);
+updateActiveSection();
+
 })
 

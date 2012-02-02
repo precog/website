@@ -19,7 +19,7 @@ body { background-color: #0E0F12;
     font-weight: normal;
     font-style: normal;
 }
- 
+
 @font-face {
     font-family: 'Questrial';
     src: url('fonts/questrial-regular-webfont.eot');
@@ -273,6 +273,16 @@ h1 {
     border-right: solid;
     border-width: 1px;
     border-color: #2E5366;
+    opacity : 0;
+    -moz-transition: all 1s;
+    -webkit-transition: all 1s;
+    -ms-transition: all 1s;
+    -o-transition: all 1s;
+    transition: all 1s;
+}
+
+.how-it-works-content-left.active {
+    opacity : 1;
 }
 
 .how-it-works-content-left h1 {
@@ -286,14 +296,6 @@ h1 {
     padding-top: 4px;
     padding-bottom: 4px;
     line-height: 1.3;
-}
-
-#hiw-capture {
-    display: block;
-}
-
-#hiw-enrich {
-    display: none;
 }
 
 #how-it-works-content-right {
