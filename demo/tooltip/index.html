@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<!-- saved from url=(0125)http://localhost/rg/queries/service/index.php?action=display&sample=VZ500-pie%20chart%20with%20drill%20down%20in%20tooltip.js -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=IE8">
+
+<title>pie chart with drill down in tooltip</title>
+<script src="./pie chart with drill down in tooltip_files/reportgrid-core.js?tokenId=A3BC1539-E8A9-4207-BB41-3036EC2C6E6D&analyticsServer=http://stageapp01.reportgrid.com/services/analytics/v1/" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="./pie chart with drill down in tooltip_files/rg-charts.css">
+<script src="./pie chart with drill down in tooltip_files/reportgrid-charts.js"></script>
+<style>
+#chart {
+    width: 600px;
+    height: 400px;
+}
+</style>
+<script src="./pie chart with drill down in tooltip_files/reportgrid-query.js"></script>
+<style>
+.rg.tooltip .layer.title text
+{
+	font-size: 10px;
+	font-weight : bold;
+}
+</style>
+<style>
+#out {
+    font-family: monospace;
+    white-space: pre;
+}
+</style>
+</head>
+
+<body>
+<div id="chart"></div>
+<div id="out"></div>
+<div id="haxe:trace"></div>
+<script>
+
+var callback = function(dps) {
+    document.getElementById('out').innerHTML += 'QUERY RESULT:\n[\n  '
+        + dps.map(function(o){ return JSON.stringify(o); }).join(',\n  ')+'\n]\n\n';
+};
+
+ReportGrid.pieChart("#chart", {
+    axes : ['gender', 'count'],
+    load : ReportGrid.query
+        .values({
+            path : '/query/test2',
+            event : "impression",
+            property : "gender"
+        })
+        .count().audit(callback),
+    options : {
+        label : {
+            datapoint : function(dp) {
+                return dp.gender;
+            },
+            datapointover : function(dp, stats) {
+                var id = "tooltipid";
+                haxe.Timer.delay(function() {
+                    var el = document.getElementById(id);
+                    var c = document.createElement("div");
+                    ReportGrid.lineChart(c, {
+                        axes : ['time:hour', 'count'],
+                        load : ReportGrid.query
+                            .series({
+                                path : '/query/test2',
+                                event : "impression",
+                                start : "24 hours ago",
+                                end : "now",
+                                periodicity : "hour",
+                                where : {
+                                    gender : dp.gender
+                                }
+                            }),
+                        options : {
+                            width  : 180,
+                            height : 120,
+                            label  : {
+                                title : 'last 24 hours'
+                            },
+                            displayticklabel : false,
+                            effect : "none",
+                            displayarea : true,
+                            ready : function() {
+                                while(el.childNodes.length) el.removeChild(el.childNodes[0]);
+                                el.appendChild(c);
+                            }
+                        }
+                    })
+                }, 0)
+                return '<div id="'+id+'"><img src="http://api.reportgrid.com/css/images/spinner.gif"/></div>';
+            }
+        }
+    }
+})
+</script>
+</body></html>
