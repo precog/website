@@ -127,20 +127,16 @@ h1 {
 }
 
 #header-menu li a{
-    padding-top: 60px;
-    float: left;
-    margin-right: 24px;
+    padding-top: 66px;
+    float: right;
+    margin-left: 24px;
     font-family: 'Questrial';
     font-size: 12pt;
     color: #999999;
 }
 
 #header-menu li a:hover{
-    padding-top: 56px;
-    float: left;
-    margin-right: 24px;
-    font-family: 'Questrial';
-    font-size: 12pt;
+    padding-top: 62px;;
     color: #fff;
     border-top: solid;
     border-width: 4px;
@@ -149,11 +145,7 @@ h1 {
 }
 
 #header-menu li a:active{
-    padding-top: 57px;
-    float: left;
-    margin-right: 24px;
-    font-family: 'Questrial';
-    font-size: 12pt;
+    padding-top: 63px;
     color: #F2F2F2;
     border-top: solid;
     border-width: 4px;
