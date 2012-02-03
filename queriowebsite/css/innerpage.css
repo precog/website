@@ -68,18 +68,6 @@ h1 {
     clear: left;
 }
 
-.font-code {
-    font-family: Abel;
-    font-size: 10pt;
-    color: #C03C26;
-    background-color: #14171A;
-    border-radius: 6px;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
-
 #support a{
     background-image: url("../images/button-support-side.png");
     background-position: right;
@@ -251,6 +239,35 @@ h1 {
     background-image: url("../images/icon-jobs-alt.png");
 }
 
+#body-navbar .bodynav-howitworks {
+    background-image: url("../images/icon-howitworks.png");
+    background-repeat: no-repeat;
+    background-position: center right;
+}
+
+#body-navbar .bodynav-howitworks:hover {
+    background-image: url("../images/icon-howitworks-alt.png");
+}
+
+#body-navbar .bodynav-pricing {
+    background-image: url("../images/icon-pricing.png");
+    background-repeat: no-repeat;
+    background-position: center right;
+}
+
+#body-navbar .bodynav-pricing:hover {
+    background-image: url("../images/icon-pricing-alt.png");
+}
+
+#body-navbar .bodynav-addons{
+    background-image: url("../images/icon-addons.png");
+    background-repeat: no-repeat;
+    background-position: center right;
+}
+
+#body-navbar .bodynav-addons:hover {
+    background-image: url("../images/icon-addons-alt.png");
+}
 /*bodycontentarea*/
 #body-content-left {
     width: 580px;
@@ -274,6 +291,7 @@ h1 {
     padding-bottom: 4px;
     line-height: 1.3;
 }
+
 
 /*how it works special*/
 .how-it-works-content-left {
@@ -310,6 +328,24 @@ h1 {
     line-height: 1.3;
 }
 
+#font-code {
+    background-color: #14171A;
+    border-radius: 6px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#font-code p{
+    font-family: Abel;
+    font-size: 10pt;
+    color: #C03C26;
+    background-color: #14171A;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
 #how-it-works-content-right {
     width: 495px;
     left: 554px;
@@ -323,13 +359,22 @@ h1 {
     margin-right: auto;
 }
 
+#mega-menu {
+    position: fixed;
+    width: 103px;
+    height: 459px;
+    background-image: url("../images/button-hiw-capture.png");
+    background-repeat: no-repeat;
+    margin-left: 1000px;
+    margin-top: 60px;
+}
+
 #mega-capture {
     width: 410px;
     height: 200px;
     background-image: url("../images/graphic-capture.png");
     background-position: center;
     background-repeat: no-repeat;
-    margin-top: 60px;
 }
 
 #mega-enrich {
