@@ -359,22 +359,13 @@ h1 {
     margin-right: auto;
 }
 
-#mega-menu {
-    position: fixed;
-    width: 103px;
-    height: 459px;
-    background-image: url("../images/button-hiw-capture.png");
-    background-repeat: no-repeat;
-    margin-left: 1000px;
-    margin-top: 60px;
-}
-
 #mega-capture {
     width: 410px;
     height: 200px;
     background-image: url("../images/graphic-capture.png");
     background-position: center;
     background-repeat: no-repeat;
+    margin-bottom: 100px;
 }
 
 #mega-enrich {
@@ -383,6 +374,7 @@ h1 {
     background-image: url("../images/graphic-enrich.png");
     background-position: center;
     background-repeat: no-repeat;
+    margin-bottom: 100px;
 }
 
 #mega-analyze {
@@ -391,14 +383,74 @@ h1 {
     background-image: url("");
     background-position: center;
     background-repeat: no-repeat;
+    margin-bottom: 100px;
+}
+
+#mega-sankey {
+    display: block;
+    width: 410px;
+    height: 118px;
+    background-image: url("../images/graphic-hiw-sankey.png");
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 #mega-act {
     width: 410px;
     height: 200px;
-    background-image: url("");
+    background-image: url("../images/graphic-act.png");
     background-position: center;
     background-repeat: no-repeat;
+}
+
+#hiw-navigation {
+    position: absolute;
+    top: 40px;
+    left: 748px;
+    width: 100px;
+    text-align: center;
+}
+
+.hiw-nav-name {
+    width: 100px;
+    height: 30px;
+}
+
+.hiw-nav-name h1{
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #CC3E22;
+    font-size: 10pt;
+}
+
+@-webkit-keyframes thisway {
+    0% {background-position: 0 0;}
+    100% {background-position: 0 12px;}
+}
+    
+@-moz-keyframes thisway {
+    0%   {background-position: 0 0;}
+    100% {background-position: 0 12px;}
+}
+@-ms-keyframes thisway {
+    0%   {background-position: 0 0;}
+    100% {background-position: 0 12px;}
+}
+
+.hiw-nav-anim {
+    -webkit-animation-duration: .5s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-name: thisway;
+    -webkit-animation-timing-function: linear;
+    background: url("../images/animated-dots.png");
+    background-repeat: repeat-y;
+    background-position: right;
+    height: 220px;
+    opacity: .2;
+    width: 100px;
+    left: 49px;
 }
 
 /*body-content-right*/
