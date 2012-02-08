@@ -526,7 +526,7 @@ h1 {
 .cred-box {
     height: 120px;
     width: 292px;
-    top: 96px;
+    top: 76px;
     margin-left: 134px;
     float: left;
 }
@@ -537,7 +537,7 @@ h1 {
     font-weight: 100;
     color: #9AB4CC;
     word-break: break-all;
-    height: 70px;
+    height: 90px;
 }
 
 .cred-owner {
@@ -563,8 +563,8 @@ h1 {
     height: 40px;
 }
 
-.cred-box #logo-spotze {
-    background-image: url("../images/logo-spotze.png");
+.cred-box #logo-snapengage {
+    background-image: url("../images/logo-snapengage.png");
     background-position: center left;
     background-repeat: no-repeat;
     width: 120px;
