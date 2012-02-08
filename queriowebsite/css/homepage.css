@@ -524,7 +524,7 @@ h1 {
 }
 
 .cred-box {
-    height: 72px;
+    height: 120px;
     width: 292px;
     top: 96px;
     margin-left: 134px;
@@ -537,7 +537,7 @@ h1 {
     font-weight: 100;
     color: #9AB4CC;
     word-break: break-all;
-    height: 50px;
+    height: 70px;
 }
 
 .cred-owner {
@@ -551,7 +551,7 @@ h1 {
     font-weight: 100;
     color: #E5692C;
     float: right;
-    width: 160px;
+    width: 170px;
     text-align: right;
 }
 

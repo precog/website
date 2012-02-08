@@ -295,8 +295,7 @@ h1 {
 
 /*how it works special*/
 .how-it-works-content-left {
-    position: fixed;
-    width: 495px;
+    width: 295px;
     float: left;
     padding-right: 59px;
     margin-top: 30px;
@@ -347,110 +346,10 @@ h1 {
 }
 
 #how-it-works-content-right {
-    width: 495px;
+    width: 695px;
+    height: 600px;
     left: 554px;
     float: left;
-}
-
-#how-it-works-mega{
-    width: 410px;
-    height: 1600px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-#mega-capture {
-    width: 410px;
-    height: 200px;
-    background-image: url("../images/graphic-capture.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    margin-bottom: 100px;
-}
-
-#mega-enrich {
-    width: 410px;
-    height: 200px;
-    background-image: url("../images/graphic-enrich.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    margin-bottom: 100px;
-}
-
-#mega-analyze {
-    width: 410px;
-    height: 200px;
-    background-image: url("");
-    background-position: center;
-    background-repeat: no-repeat;
-    margin-bottom: 100px;
-}
-
-#mega-sankey {
-    display: block;
-    width: 410px;
-    height: 118px;
-    background-image: url("../images/graphic-hiw-sankey.png");
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-#mega-act {
-    width: 410px;
-    height: 200px;
-    background-image: url("../images/graphic-act.png");
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-#hiw-navigation {
-    position: absolute;
-    top: 40px;
-    left: 748px;
-    width: 100px;
-    text-align: center;
-}
-
-.hiw-nav-name {
-    width: 100px;
-    height: 30px;
-}
-
-.hiw-nav-name h1{
-    padding-top: 0px;
-    padding-bottom: 0px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    color: #CC3E22;
-    font-size: 10pt;
-}
-
-@-webkit-keyframes thisway {
-    0% {background-position: 0 0;}
-    100% {background-position: 0 12px;}
-}
-    
-@-moz-keyframes thisway {
-    0%   {background-position: 0 0;}
-    100% {background-position: 0 12px;}
-}
-@-ms-keyframes thisway {
-    0%   {background-position: 0 0;}
-    100% {background-position: 0 12px;}
-}
-
-.hiw-nav-anim {
-    -webkit-animation-duration: .5s;
-    -webkit-animation-iteration-count: infinite;
-    -webkit-animation-name: thisway;
-    -webkit-animation-timing-function: linear;
-    background: url("../images/animated-dots.png");
-    background-repeat: repeat-y;
-    background-position: right;
-    height: 220px;
-    opacity: .2;
-    width: 100px;
-    left: 49px;
 }
 
 /*body-content-right*/
