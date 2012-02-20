@@ -456,6 +456,10 @@ h1 {
     border-color: #404952;
 }
 
+.com-box:hover {
+    border-color: #545F6B;
+}
+
 .com-box-icon {
     text-align: center;
     top: 40px;

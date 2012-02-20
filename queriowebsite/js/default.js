@@ -97,35 +97,149 @@ $(".app-link").bind("mouseenter", function() {
 
 
 
-// HOW IT WORKS
-var inView = function(a) {
-  var st = (document.documentElement.scrollTop || document.body.scrollTop),
-      ot = $(a).offset().top;
-  return ot >= st;
-};
-
-var updateActiveSection = function()
-{
-  var found = false;
-  $('.mega').each(function(){
-    var section = this.id.split("-")[1],
-        panel = $('#hiw-' + section);
-console.log(section);
-    if(!found && (inView(this))) //  || $(this).is('.last')
-    {
-      found = true;
-      if(!panel.hasClass("active"))
-      {
-        panel.addClass("active");
+  // HOW IT WORKS
+  $(".capture-lg").click(function(){
+      $("#hiw-panel-slider").animate({
+          'left': '0'
+          }, {queue: false}
+          );
       }
-    } else {
-      panel.removeClass("active");
-    }
-  })
-}
+      );
+  $(".enrich-lg").click(function(){
+      $("#hiw-panel-slider").animate({
+          'left': '-1050'
+          }, {queue: false}
+          );
+      }
+      );
+  $(".analyze-lg").click(function(){
+      $("#hiw-panel-slider").animate({
+          'left': '-2100'
+          }, {queue: false}
+          );
+      }
+      );
+  $(".act-lg").click(function(){
+      $("#hiw-panel-slider").animate({
+          'left': '-3150'
+          }, {queue: false}
+          );
+      }
+      );
 
-$(document).scroll(updateActiveSection);
-updateActiveSection();
+// HOW IT WORK CAPTURE
+$(".hiw-pane").mouseover(function(){
+      $(".hiw-text-pane").css({
+        'display': 'none'
+        }, {queue: false}
+        );
+      
+      var id = $(this).attr("id").split("-").pop();
+      
+      $("#hiw-text-"+id).css({
+        'display': 'block'
+        }, {queue: false}
+        );
+    }
+    );
+
+// HOW IT WORK ANALYZE
+$(".hiw-analyze-icon").mouseover(function(){
+      $(".hiw-text-pane").css({
+        'display': 'none'
+        }, {queue: false}
+        );
+      $(".analyze-script").css({
+        'display': 'none'
+        }, {queue: false}
+        );
+      
+      var idanalyze = $(this).attr("id").split("-").pop();
+      
+      $("#hiw-analyze-"+idanalyze).css({
+        'display': 'block'
+        }, {queue: false}
+        );
+      $("#analyze-script-"+idanalyze).css({
+        'display': 'block'
+        }, {queue: false}
+        );
+    }
+    );
+
+//HOW IT WORKS ENRICH
+$(".hiw-enrich-panel").mouseover(function(){
+      $(".hiw-text-pane").css({
+        'display': 'none'
+        }, {queue: false}
+        );
+       
+      var idenrich = $(this).attr("id").split("-").pop();
+      
+      $("#hiw-enrich-"+idenrich).css({
+        'display': 'block'
+        }, {queue: false}
+        );
+    }
+    );
+      
+      
+// HOW IT WORK ACT
+$(".hiw-act-app").mouseover(function(){
+      $(".hiw-text-pane2").css({
+        'display': 'none'
+        }, {queue: false}
+        );
+      $(".hiw-act-app-pic").css({
+        'display': 'none'
+        }, {queue: false}
+        );
+       
+      var idact = $(this).attr("id").split("-").pop();
+      
+      $("#hiw-act-"+idact).css({
+        'display': 'block'
+        }, {queue: false}
+        );
+      $("#hiw-act-app-pic-"+idact).css({
+        'display': 'block'
+        }, {queue: false}
+        );
+    }
+    );
+
+//WHY PRECOG
+$("#why-dot-left").click(function(){
+    $("#why-precog-slider").animate({
+        'left': '0'
+        }, {queue: false}
+        );
+    }
+    );
+$("#why-dot-middle").click(function(){
+    $("#why-precog-slider").animate({
+        'left': '-390'
+        }, {queue: false}
+        );
+    }
+    );
+$("#why-dot-right").click(function(){
+    $("#why-precog-slider").animate({
+        'left': '-780'
+        }, {queue: false}
+        );
+    }
+    );
+
+//JOBS
+
+$(".scrolling-right-panel-graphic").mouseover(function(){
+  $(".scrolling-right-panel-graphic").animate({
+        'left': '-1230'
+        }, 17500
+        );
+}
+);
 
 })
 
