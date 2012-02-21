@@ -537,11 +537,11 @@ h1 {
 
 .cred-box p {
     font-family: 'Questrial';
-    font-size: 11pt;
+    font-size: 10pt;
     font-weight: 100;
     color: #9AB4CC;
-    word-break: break-all;
     height: 90px;
+    text-align: center;
 }
 
 .cred-owner {
@@ -653,6 +653,7 @@ h1 {
 #copyrights p{
     position: absolute;
     right: 0px;
-    font-size: 10pt;
-    top: 110px;
+    font-size: 8pt;
+    top: 120px;
+    color: #4B5660;
 }

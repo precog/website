@@ -232,7 +232,6 @@ $("#why-dot-right").click(function(){
     );
 
 //JOBS
-
 $(".scrolling-right-panel-graphic").mouseover(function(){
   $(".scrolling-right-panel-graphic").animate({
         'left': '-1230'
@@ -240,6 +239,28 @@ $(".scrolling-right-panel-graphic").mouseover(function(){
         );
 }
 );
+
+//DEVELOPER CENTER
+$(".dev-center-api-docs").mouseover(function(){
+      $(".dev-center-api-doc").css({
+        'display': 'block'
+        }, {queue: false}
+        );
+      }
+    );
+
+//PRICING
+$(".body-pricing-difference").mouseover(function(){
+      $(".body-pricing-difference-li").animate({
+        'opacity': '1.0'
+        }, {queue: false}
+        );
+      $(".body-pricing-difference ul").animate({
+        'top': '180'
+        }, {queue: false}
+        );
+    }
+    );
 
 })
 
