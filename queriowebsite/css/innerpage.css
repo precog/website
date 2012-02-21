@@ -1078,6 +1078,8 @@ h1 {
 
 .about-employee h2 {
     font-size: 9pt;
+    text-align: center;
+    padding-left: 0px;
 }
 
 .jdg-contact, .knc-contact, .fp-contact, .js-contact, .ds-contact, .dcb-contact, .nm-contact, .mdg-contact, .ap-contact, .yh-contact {
