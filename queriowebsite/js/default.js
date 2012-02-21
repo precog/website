@@ -262,5 +262,186 @@ $(".body-pricing-difference").mouseover(function(){
     }
     );
 
+//ABOUT
+$(".jdg").mouseenter(function(){
+      $(".jdg-contact").animate({
+        opacity: 1.0,
+        top: 96
+        }, {queue: false}
+        );
+    }
+    );
+
+$(".jdg").mouseleave(function(){
+      $(".jdg-contact").animate({
+        opacity: 0.0,
+        top: 110
+        }, {queue: false}
+        );
+    }
+    );
+
+$(".fp").mouseenter(function(){
+      $(".fp-contact").animate({
+        opacity: 1.0,
+        top: 96
+        }, {queue: false}
+        );
+    }
+    );
+
+$(".fp").mouseleave(function(){
+      $(".fp-contact").animate({
+        opacity: 0.0,
+        top: 110
+        }, {queue: false}
+        );
+    }
+    );
+
+$(".knc").mouseenter(function(){
+      $(".knc-contact").animate({
+        opacity: 1.0,
+        top: 96
+        }, {queue: false}
+        );
+    }
+    );
+
+$(".knc").mouseleave(function(){
+      $(".knc-contact").animate({
+        opacity: 0.0,
+        top: 110
+        }, {queue: false}
+        );
+    }
+    );
+
+$(".js").mouseenter(function(){
+      $(".js-contact").animate({
+        opacity: 1.0,
+        top: 96
+        }, {queue: false}
+        );
+    }
+    );
+
+$(".js").mouseleave(function(){
+      $(".js-contact").animate({
+        opacity: 0.0,
+        top: 110
+        }, {queue: false}
+        );
+    }
+    );
+
+$(".ds").mouseenter(function(){
+      $(".ds-contact").animate({
+        opacity: 1.0,
+        top: 96
+        }, {queue: false}
+        );
+    }
+    );
+
+$(".ds").mouseleave(function(){
+      $(".ds-contact").animate({
+        opacity: 0.0,
+        top: 110
+        }, {queue: false}
+        );
+    }
+    );
+
+$(".dcb").mouseenter(function(){
+      $(".dcb-contact").animate({
+        opacity: 1.0,
+        top: 96
+        }, {queue: false}
+        );
+    }
+    );
+
+$(".dcb").mouseleave(function(){
+      $(".dcb-contact").animate({
+        opacity: 0.0,
+        top: 110
+        }, {queue: false}
+        );
+    }
+    );
+
+$(".nm").mouseenter(function(){
+      $(".nm-contact").animate({
+        opacity: 1.0,
+        top: 96
+        }, {queue: false}
+        );
+    }
+    );
+
+$(".nm").mouseleave(function(){
+      $(".nm-contact").animate({
+        opacity: 0.0,
+        top: 110
+        }, {queue: false}
+        );
+    }
+    );
+
+$(".mdg").mouseenter(function(){
+      $(".mdg-contact").animate({
+        opacity: 1.0,
+        top: 96
+        }, {queue: false}
+        );
+    }
+    );
+
+$(".mdg").mouseleave(function(){
+      $(".mdg-contact").animate({
+        opacity: 0.0,
+        top: 110
+        }, {queue: false}
+        );
+    }
+    );
+
+$(".ap").mouseenter(function(){
+      $(".ap-contact").animate({
+        opacity: 1.0,
+        top: 96
+        }, {queue: false}
+        );
+    }
+    );
+
+$(".ap").mouseleave(function(){
+      $(".ap-contact").animate({
+        opacity: 0.0,
+        top: 110
+        }, {queue: false}
+        );
+    }
+    );
+
+$(".yh").mouseenter(function(){
+      $(".yh-contact").animate({
+        opacity: 1.0,
+        top: 96
+        }, {queue: false}
+        );
+    }
+    );
+
+$(".yh").mouseleave(function(){
+      $(".yh-contact").animate({
+        opacity: 0.0,
+        top: 110
+        }, {queue: false}
+        );
+    }
+    );
+
 })
 

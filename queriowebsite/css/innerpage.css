@@ -1076,6 +1076,18 @@ h1 {
     top: 90px;
 }
 
+.about-employee h2 {
+    font-size: 9pt;
+}
+
+.jdg-contact, .knc-contact, .fp-contact, .js-contact, .ds-contact, .dcb-contact, .nm-contact, .mdg-contact, .ap-contact, .yh-contact {
+    font-family: questrial;
+    font-size: 10pt;
+    color: #C13707;
+    top: 110px;
+    opacity: 0.0;
+}
+
 /*contact-us*/
 .contact-details h2 {
     float: left;
