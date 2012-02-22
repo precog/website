@@ -457,12 +457,12 @@ $("#news-items-only").click(function(){
     );
 
 $("#event-items-only").click(function(){
-      $("#news-item").css({
-        'display': 'none'
-        }, {queue: false}
-        );
       $("#event-item").css({
         'display': 'block'
+        }, {queue: false}
+        );
+      $("#news-item").css({
+        'display': 'none'
         }, {queue: false}
         );
     }
