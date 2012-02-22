@@ -539,7 +539,7 @@ h1 {
     font-family: 'Questrial';
     font-size: 10pt;
     font-weight: 100;
-    color: #9AB4CC;
+    color: #748899;
     height: 90px;
     text-align: center;
 }
@@ -656,4 +656,95 @@ h1 {
     font-size: 8pt;
     top: 120px;
     color: #4B5660;
+}
+
+
+/*tempsection*/
+#count-down-page {
+    width: 100%;
+    height: 100%;
+    background-color: #14171A;
+}
+
+#count-down-body {
+    width: 1050px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#count-header {
+    height: 400px;
+    width: 1050px;
+    text-align: center;
+    padding-top: 200px;
+}
+
+#count-header p {
+    font-family: questrial;
+    font-size: 20pt;
+    color: #fff;
+    letter-spacing: 8pt;
+    padding-top: 40px;
+}
+
+#count-header h1 {
+    font-family: questrial;
+    font-size: 24pt;
+    color: #282E33;
+    padding-top: 10px;
+}
+
+#countdown {
+    padding-top: 10px;
+}
+
+#newsletter-subscribe-countdown {
+    width: 1050px;
+    height: 200px;
+}
+
+#newsletter-subscribe-countdown p {
+    font-family: questrial;
+    font-size: 20pt;
+    color: #CC3E22;
+}
+
+#mc_embed_signup {
+    position: absolute;
+    left: 418px;
+    top: 40px;
+    }
+    
+#mce-EMAIL {
+    background-color: #fff;
+    width: 140px;
+    height: 20px;
+    color: #000;
+    margin-bottom: 6px;
+    padding-left: 4px;
+}
+
+#mc-embedded-subscribe{
+    background-image: url("../images/signup-button.png");
+    background-color: transparent;
+    width: 78px;
+    height: 37px;
+    left: 120px;
+    top: -36px;
+}
+
+#mc-embedded-subscribe:hover {
+    background-image: url("../images/signup-button-alt.png");
+    background-color: transparent;
+    cursor: pointer;
+}
+
+#count-down-footer {
+    width: 1050px;
+}
+
+#count-down-footer p {
+    font-size: 8pt;
+    color: #fff;
+    text-align: center;
 }

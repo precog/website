@@ -363,10 +363,10 @@ h1 {
     background-image: url("../images/icon-status-alt.png");
 }
 
-
 /*bodycontentarea*/
 #body-content-left {
     width: 580px;
+    min-height: 400px;
     float: left;
     padding-right: 58px;
     margin-top: 30px;
@@ -1295,24 +1295,22 @@ h1 {
 .news-event-details {
     width: 71px;
     height: 71px;
-    background-image: url("../images/graphic-news&events-date.png");
     display: block;
     float: left;
 }
 
-#body-content-left .news-event-date h1 {
-    width: 74px;
-    font-size: 12pt;
-    padding-top: 18pt;
-    color: #fff;
-    text-align: center;
-    letter-spacing: 1px;
+.news-icon {
+    background-image: url("../images/graphic-news-date.png");
+}
+
+.events-icon {
+    background-image: url("../images/graphic-events-date.png");
 }
 
 #body-content-left .news-event-date h2 {
     width: 71px;
     font-size: 9pt;
-    margin-top: 10pt;
+    margin-top: 50pt;
     color: #808080;
     text-align: center;
     padding-top: 8px;

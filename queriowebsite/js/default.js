@@ -443,5 +443,31 @@ $(".yh").mouseleave(function(){
     }
     );
 
+//NEWS AND EVENTS
+$("#news-items-only").click(function(){
+      $("#event-item").css({
+        'display': 'none'
+        }, {queue: false}
+        );
+      $("#news-item").css({
+        'display': 'block'
+        }, {queue: false}
+        );
+    }
+    );
+
+$("#event-items-only").click(function(){
+      $("#news-item").css({
+        'display': 'none'
+        }, {queue: false}
+        );
+      $("#event-item").css({
+        'display': 'block'
+        }, {queue: false}
+        );
+    }
+    );
+
+
 })
 
