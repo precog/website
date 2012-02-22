@@ -687,16 +687,8 @@ h1 {
     padding-top: 40px;
 }
 
-#count-header h1 {
-    font-family: questrial;
-    font-size: 24pt;
-    color: #000;
-    padding-top: 10px;
-    text-shadow: 0 0 1.0em #879EB3, 0 0 1.0em #879EB3;
-}
-
 #countdown {
-    padding-top: 10px;
+    padding-top: 40px;
 }
 
 #newsletter-subscribe-countdown {
@@ -704,17 +696,20 @@ h1 {
     height: 200px;
 }
 
-#newsletter-subscribe-countdown p {
+#mc_embed_signup p {
     font-family: questrial;
     font-size: 20pt;
     color: #CC3E22;
+    top: 26px;
+    left: -150px;
+    z-index: 5;
 }
 
 #mc_embed_signup {
     position: absolute;
-    left: 418px;
+    left: 480px;
     top: 40px;
-    }
+}
     
 #mce-EMAIL {
     background-color: #fff;
@@ -730,8 +725,9 @@ h1 {
     background-color: transparent;
     width: 78px;
     height: 37px;
-    left: 120px;
-    top: -36px;
+    left: 90px;
+    top: -33px;
+    float: right;
 }
 
 #mc-embedded-subscribe:hover {
