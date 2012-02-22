@@ -445,11 +445,11 @@ $(".yh").mouseleave(function(){
 
 //NEWS AND EVENTS
 $("#news-items-only").click(function(){
-      $("#event-item").css({
+      $(".event-item").css({
         'display': 'none'
         }, {queue: false}
         );
-      $("#news-item").css({
+      $(".news-item").css({
         'display': 'block'
         }, {queue: false}
         );
@@ -457,11 +457,11 @@ $("#news-items-only").click(function(){
     );
 
 $("#event-items-only").click(function(){
-      $("#event-item").css({
+      $(".event-item").css({
         'display': 'block'
         }, {queue: false}
         );
-      $("#news-item").css({
+      $(".news-item").css({
         'display': 'none'
         }, {queue: false}
         );
