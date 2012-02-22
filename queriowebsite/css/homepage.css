@@ -698,16 +698,18 @@ h1 {
 
 #mc_embed_signup p {
     font-family: questrial;
-    font-size: 20pt;
+    font-size: 16pt;
     color: #CC3E22;
-    top: 26px;
-    left: -150px;
+    top: 25px;
+    left: -236px;
+    text-align: left;
     z-index: 5;
+    letter-spacing: 8pt;
 }
 
 #mc_embed_signup {
     position: absolute;
-    left: 480px;
+    left: 532px;
     top: 40px;
 }
     
@@ -725,8 +727,8 @@ h1 {
     background-color: transparent;
     width: 78px;
     height: 37px;
-    left: 90px;
-    top: -33px;
+    left: 00px;
+    top: -4px;
     float: right;
 }
 
