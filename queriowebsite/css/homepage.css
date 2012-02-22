@@ -690,8 +690,9 @@ h1 {
 #count-header h1 {
     font-family: questrial;
     font-size: 24pt;
-    color: #282E33;
+    color: #000;
     padding-top: 10px;
+    text-shadow: 0 0 1.0em #879EB3, 0 0 1.0em #879EB3;
 }
 
 #countdown {
@@ -745,6 +746,7 @@ h1 {
 
 #count-down-footer p {
     font-size: 8pt;
-    color: #fff;
-    text-align: center;
+    color: #3C454D;
+    text-align: right;
+    margin-bottom: 20px;
 }
