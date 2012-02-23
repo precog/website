@@ -567,6 +567,14 @@ h1 {
     height: 40px;
 }
 
+.cred-box #logo-flixmaster {
+    background-image: url("../images/logo-flixmaster.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 120px;
+    height: 40px;
+}
+
 .cred-box #logo-snapengage {
     background-image: url("../images/logo-snapengage.png");
     background-position: center left;

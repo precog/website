@@ -98,28 +98,28 @@ $(".app-link").bind("mouseenter", function() {
 
 
   // HOW IT WORKS
-  $(".capture-lg").click(function(){
+  $(".capture-lg").mouseover(function(){
       $("#hiw-panel-slider").animate({
           'left': '0'
           }, {queue: false}
           );
       }
       );
-  $(".enrich-lg").click(function(){
+  $(".enrich-lg").mouseover(function(){
       $("#hiw-panel-slider").animate({
           'left': '-1050'
           }, {queue: false}
           );
       }
       );
-  $(".analyze-lg").click(function(){
+  $(".analyze-lg").mouseover(function(){
       $("#hiw-panel-slider").animate({
           'left': '-2100'
           }, {queue: false}
           );
       }
       );
-  $(".act-lg").click(function(){
+  $(".act-lg").mouseover(function(){
       $("#hiw-panel-slider").animate({
           'left': '-3150'
           }, {queue: false}
