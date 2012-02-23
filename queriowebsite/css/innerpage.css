@@ -1194,17 +1194,17 @@ h1 {
 }
 
 /*jobs*/
-.button-arewehiring-lg a {
+.button-contactus-lg a {
     display: block;
-    background-image: url("../images/button-arewehiring.png");
+    background-image: url("../images/button-contactus-lg.png");
     width: 203px;
     height: 63px;
     float: right;
     padding-right: 0px;
 }
 
-.button-arewehiring-lg a:hover {
-    background-image: url("../images/button-arewehiring-alt.png");
+.button-contactus-lg a:hover {
+    background-image: url("../images/button-contactus-lg-alt.png");
 }
 
 #scrolling-jobs-panel {
@@ -1376,9 +1376,46 @@ h1 {
     cursor: pointer;
 }
 
-/*why precog*/
+#featured-event {
+    width: 390px;
+    height: 200px;
+    margin-left: 20px;
+    margin-top: 8px;
+    background-color: #15181A;
+    border-radius: 6px;
+}
+
+#featured-event h1 {
+    font-size: 18px;
+    color: #C2DFF4;
+    padding-top: 20px;
+    padding-left: 20px;
+    font-family: questrial;
+    font-weight: normal;
+    text-shadow: 0 0 .5em #879EB3, 0 0 .2em #879EB3;
+}
+
+#featured-event p {
+    font-size: 14px;
+    color: #879EB3;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-family: questrial;
+}
+
+.featuredevent-image-right {
+    float: right;
+    width: 350px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+}
+
+/*WHY PRECOG*/
 #why-precog-frame {
-    position: fixed;
     width: 390px;
     height: 606px;
     margin-left: 10px;
@@ -1420,10 +1457,9 @@ h1 {
 }
 
 #why-precog-selector {
-    position: fixed;
     width: 120px;
     margin-left: 162px;
-    margin-top: 450px;
+    top: -150px;
 }
 
 #why-precog-selector ul li{
