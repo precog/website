@@ -615,16 +615,16 @@ h1 {
 }
 
 #hiw-panel-1 {
-    background-image: url("../images/graphic-mgosqlhdp.png");
+    background-image: url("../images/graphic-database.png");
     background-position: center;
     background-repeat: no-repeat;
     background-color: #0F171B;
     border-radius: 6px;
-    width: 188px;
-    height: 188px;
+    width: 165px;
+    height: 165px;
     float: left;
-    margin-left: 80px;
-    margin-right: 38px;
+    margin-left: 55px;
+    margin-right: 25px;
 }
 
 #hiw-panel-2 {
@@ -633,10 +633,10 @@ h1 {
     background-repeat: no-repeat;
     background-color: #0F171B;
     border-radius: 6px;
-    width: 188px;
-    height: 188px;
+    width: 165px;
+    height: 165px;
     float: left;
-    margin-right: 38px;
+    margin-right: 25px;
 }
 
 #hiw-panel-3 {
@@ -645,10 +645,10 @@ h1 {
     background-repeat: no-repeat;
     background-color: #0F171B;
     border-radius: 6px;
-    width: 188px;
-    height: 188px;
+    width: 165px;
+    height: 165px;
     float: left;
-    margin-right: 38px;
+    margin-right: 25px;
 }
 
 #hiw-panel-4 {
@@ -657,16 +657,28 @@ h1 {
     background-repeat: no-repeat;
     background-color: #0F171B;
     border-radius: 6px;
-    width: 188px;
-    height: 188px;
+    width: 165px;
+    height: 165px;
+    float: left;
+    margin-right: 25px;
+}
+
+#hiw-panel-5 {
+    background-image: url("../images/graphic-mobile.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #0F171B;
+    border-radius: 6px;
+    width: 165px;
+    height: 165px;
     float: left;
 }
 
-#hiw-panel-1 p, #hiw-panel-2 p, #hiw-panel-3 p, #hiw-panel-4 p {
+#hiw-panel-1 p, #hiw-panel-2 p, #hiw-panel-3 p, #hiw-panel-4 p, #hiw-panel-5 p {
     font-size: 10pt;
-    width: 188px;
+    width: 165px;
     text-align: center;
-    margin-top: 160px;
+    margin-top: 140px;
     color: #9BC6DC;
 }
 
@@ -674,7 +686,7 @@ h1 {
     display: block;
 }
 
-#hiw-text-2, #hiw-text-3, #hiw-text-4 {
+#hiw-text-2, #hiw-text-3, #hiw-text-4, #hiw-text-5 {
     display: none;
 }
 
@@ -719,23 +731,23 @@ h1 {
 }
 
 #hiw-enrich-pane-1 {
-    background-image: url("../images/graphic-hiw-weather.png");
-}
-
-#hiw-enrich-pane-2 {
-    background-image: url("../images/graphic-hiw-geo.png");
-}
-
-#hiw-enrich-pane-3 {
-    background-image: url("../images/graphic-hiw-sentiment.png");
-}
-
-#hiw-enrich-pane-4 {
     background-image: url("../images/graphic-hiw-demographics.png");
 }
 
+#hiw-enrich-pane-2 {
+    background-image: url("../images/graphic-hiw-sentiment.png");
+}
+
+#hiw-enrich-pane-3 {
+    background-image: url("../images/graphic-hiw-geo.png");
+}
+
+#hiw-enrich-pane-4 {
+    background-image: url("../images/graphic-hiw-facets.png");
+}
+
 #hiw-enrich-pane-5 {
-    background-image: url("../images/graphic-hiw-insight.png");
+    background-image: url("../images/graphic-hiw-weather.png");
 }
 
 #hiw-enrich-pane-6 {
