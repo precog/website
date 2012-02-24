@@ -497,10 +497,14 @@ h1 {
     background-image: url("../images/button-learnmore-sm.png");
     display: block;
     width: 136px;
-    height: 46px;
+    height: 50px;
     right: 14px;
     top: 30px;
     cursor: pointer;
+}
+
+.button-learnmore-sm a:hover {
+    background-image: url("../images/button-learnmore-sm-alt.png");
 }
 
 /*how it works special*/
