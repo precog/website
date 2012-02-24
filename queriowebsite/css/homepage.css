@@ -820,6 +820,7 @@ label {
   width: 130px;
   right: -10px;
   float: right;
+  cursor: pointer;
 }
 
 #strata-newsletter-signup h2 {
