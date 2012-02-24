@@ -1817,3 +1817,81 @@ h1 {
     top: 120px;
     color: #4B5660;
 }
+
+/*webinar*/
+#webinar-options {
+    
+}
+
+#webinar-options ul li{
+    background-image: url("../images/graphic-hiw-bullet.png");
+    background-repeat: no-repeat;
+    background-position: left center;
+    color: #fff;
+    font-family: questrial;
+    font-size: 12pt;
+    padding-left: 20px;
+    padding-bottom: 2px;
+    padding-top: 2px;
+}
+
+#webinar-options p {
+    font-size: 10pt;
+    color: #808080;
+    margin-left: 20px;
+    padding-bottom: 6px;
+}
+
+#webinar-form {
+    left: 20px;
+}
+
+#webinar-form p {
+    font-size: 10pt;
+    padding-bottom: 6px;
+    padding-top: 10px;
+    color: #B3B3B3;
+}
+
+#webinar-form table {
+    padding-top: 20px;
+    border-spacing: 0px;
+}
+
+#webinar-form table tr td p {
+    padding-bottom: 4px;
+    padding-top: 4px;
+}
+
+.textfield-0 {
+    width: 200px;
+    height: 20px;
+}
+
+.textfield-1 {
+    width: 200px;
+    height: 100px;
+}
+
+.radiofield-0 {
+    margin-right: 10px;
+}
+
+#body-content-right-form {
+    padding-top: 60px;
+}
+
+#body-content-right-form h2 {
+    font-size: 20px;
+    color: #C13707;
+    padding-bottom: 2px;
+    font-family: questrial;
+    font-weight: normal;
+}
+
+#reserveform {
+    width: 138px;
+    height: 100px;
+    background-image: url("../images/button-reserveyourspot-lg.png");
+    cursor: pointer;
+}
