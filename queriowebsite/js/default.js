@@ -143,9 +143,26 @@ $(".hiw-pane").mouseover(function(){
     }
     );
 
+
+//HOW IT WORKS ENRICH
+$(".hiw-enrich-panel").mouseover(function(){
+      $(".hiw-text-pane3").css({
+        'display': 'none'
+        }, {queue: false}
+        );
+       
+      var idenrich = $(this).attr("id").split("-").pop();
+      
+      $("#hiw-enrich-"+idenrich).css({
+        'display': 'block'
+        }, {queue: false}
+        );
+    }
+    );
+
 // HOW IT WORK ANALYZE
 $(".hiw-analyze-icon").mouseover(function(){
-      $(".hiw-text-pane").css({
+      $(".hiw-text-pane4").css({
         'display': 'none'
         }, {queue: false}
         );
@@ -165,24 +182,7 @@ $(".hiw-analyze-icon").mouseover(function(){
         }, {queue: false}
         );
     }
-    );
-
-//HOW IT WORKS ENRICH
-$(".hiw-enrich-panel").mouseover(function(){
-      $(".hiw-text-pane").css({
-        'display': 'none'
-        }, {queue: false}
-        );
-       
-      var idenrich = $(this).attr("id").split("-").pop();
-      
-      $("#hiw-enrich-"+idenrich).css({
-        'display': 'block'
-        }, {queue: false}
-        );
-    }
-    );
-      
+    );      
       
 // HOW IT WORK ACT
 $(".hiw-act-app").mouseover(function(){

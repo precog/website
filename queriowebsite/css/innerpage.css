@@ -569,7 +569,7 @@ h1 {
     margin-bottom: 100px;
 }
 
-.hiw-text-pane {
+.hiw-text-pane, .hiw-text-pane3, .hiw-text-pane4 {
     position: absolute;
     width: 1050px;
     display: table;
@@ -577,7 +577,7 @@ h1 {
     z-index: 10;
 }
 
-#hiw-panel-slider .hiw-text-pane p {
+#hiw-panel-slider .hiw-text-pane p, #hiw-panel-slider .hiw-text-pane3 p, #hiw-panel-slider .hiw-text-pane4 p {
     width: 800px;
     height: 100px;
     font-size: 12pt;
@@ -933,6 +933,18 @@ h1 {
 
 #hiw-act-app-pic-4 {
     background-image: url("../images/graphic-hiw-act-ecom.png");
+    display: none;
+    border-radius: 6px;
+}
+
+#hiw-act-app-pic-5 {
+    background-image: url("../images/graphic-hiw-act-ads.png");
+    display: none;
+    border-radius: 6px;
+}
+
+#hiw-act-app-pic-6 {
+    background-image: url("../images/graphic-hiw-act-cmt.png");
     display: none;
     border-radius: 6px;
 }
@@ -1708,6 +1720,13 @@ h1 {
     color: #C03B27;
     left: 10px;
     display: none;
+}
+
+#developer-console {
+    width: 780px;
+    height: 400px;
+    background-color: #15181A;
+    border-radius: 6px;
 }
 
 /*FOOTER*/
