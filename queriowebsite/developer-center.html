@@ -28,7 +28,18 @@
         <!-- End of Woopra Code -->
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
         <script type="text/javascript" src="js/default.js"></script>
-        
+        <script src="js/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="js/ace/theme-pastel_on_dark.js" type="text/javascript" charset="utf-8"></script>
+        <script src="js/ace/mode-quirrel-uncompressed.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+    var editor = ace.edit("console");
+    editor.setTheme("ace/theme/pastel_on_dark");
+    editor.setShowPrintMargin(false);
+    var QuirrelMode = require("ace/mode/quirrel").Mode;
+    editor.getSession().setMode(new QuirrelMode());
+})
+</script>
     </head>
     <body>
         <div id="contact-us">
@@ -78,6 +89,35 @@
                     </div>
                     <h2>Console</h2>
                     <div id="developer-console">
+                        <div id="console">pageViews := load(//pageViews)
+bound := 2 * stdDev(pageViews.duration)
+avg := mean(pageViews.duration)
+-- comment
+longPageViews := pageViews where (- inline comment -) pageViews.duration > (avg + bound)
+longPageViews.userId
+
+{name: "John", age: 29, gender: "male"}
+
+
+"foo" = "foo"
+
+total := 2 + 1
+total * 3
+
+
+count(load(//payments))
+-- 92323
+
+mean(load(//payments).amount)
+-- 23.91
+
+sum(load(//payments).amount)
+
+clicks := load(//clicks)
+views  := load(//views)
+clickthroughRate('day) := {day: 'day, ctr: count(clicks where clicks.day = 'day) / count(views where views.day = 'day)}
+clickthroughRate
+</div>
                     </div>
                 </div>
                 <div id="body-content-right-dev-cntr">

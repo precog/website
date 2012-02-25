@@ -1895,3 +1895,9 @@ h1 {
     background-image: url("../images/button-reserveyourspot-lg.png");
     cursor: pointer;
 }
+
+#console {
+    position: absolute;
+    width: 780px;
+    height: 400px;
+}
