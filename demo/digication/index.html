@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sample Project</title>
+	<link rel="stylesheet" type="text/css" href="http://api.reportgrid.com/css/rg-charts.css"/>
+	<link rel="stylesheet" type="text/css" href="css/style.css"/>
+	<script src="http://api.reportgrid.com/js/reportgrid-core.js?tokenId=A3BC1539-E8A9-4207-BB41-3036EC2C6E6D&analyticsServer=http://stageapp01.reportgrid.com/services/analytics/v1/"></script>
+	<script src="http://api.reportgrid.com/js/reportgrid-query.js"></script>
+	<script src="http://api.reportgrid.com/js/reportgrid-charts.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script src="js/queries.js"></script>
+<script>
+$(document).ready(function() {
+	// wire controls
+	$('#teacher_gender_score').change(function() {
+		gender_scores($(this).val());
+		average_score_by_major($(this).val());
+		average_score_by_major_series($(this).val());
+		comments_by_gender($(this).val());
+		comments_by_major($(this).val());
+		comments_sentiment($(this).val());
+	})
+
+	$('#programs').change(function() {
+		average_score_by_teachers_for_program($(this).val());
+		average_score_by_teachers_for_program_series($(this).val());
+	})
+
+	// load default data
+	teachers(function(values) {
+		values.sort();
+		$.each(values, function(_, teacher){
+			$('#teacher_gender_score').append(
+		        $('<option></option>').val(teacher).html(teacher)
+		    );
+		})
+	});
+	gender_scores();
+	average_score_by_major();
+	average_score_by_credits();
+	comments_by_gender();
+	comments_by_major();
+	comments_sentiment();
+	programs_and_teachers(function(values) {
+		values.sort();
+		$.each(values, function(_, program){
+			$('#programs').append(
+		        $('<option></option>').val(program).html(program)
+		    );
+		})
+	});
+})
+</script>
+</head>
+<body>
+	<h1>Digication Demo</h1>
+	<div class="teacher pane">
+		<div class="controls">teacher : <select id="teacher_gender_score"><option value="">all</option></select></div>
+		<div class="chart"><div id="comments_by_gender" class="thin"></div>
+			<h2>comments by gender</h2>
+			<p>number of comments left based on student's gender.</p>
+		</div>
+		<div class="chart"><div id="comments_by_major" class="thin"></div>
+			<h2>comments by major</h2>
+			<p>number of comments left based on student's major.</p>
+		</div>
+		<div class="chart"><div id="comments_sentiment" class="thin"></div>
+			<h2>comment sentiments</h2>
+			<p>general sentiment on the comments left split by gender.</p>
+		</div>
+		<div class="chart"><div id="average_score_by_credits" class="thin"></div>
+			<h2>average score by credits.</h2>
+			<p></p>
+		</div>
+		<div class="chart"><div id="gender_scores"></div>
+			<h2>average score by gender</h2>
+			<p>counts of score split by gender.</p>
+		</div>
+		<div class="chart"><div id="average_score_by_major" class="thin"></div>
+			<h2>average score by major</h2>
+			<p>(visible only when a teacher is selected)</p>
+		</div>
+		<div class="chart"><div id="average_score_by_major_series"></div>
+			<h2>average score by major over time</h2>
+			<p>(visible only when a teacher is selected)</p>
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div class="teacher pane">
+		<div class="controls">programs : <select id="programs"></select></div>
+		<div class="chart"><div id="average_score_by_teachers_for_program" class="thin"></div>
+			<h2>average score by teacher for program</h2>
+			<p></p>
+		</div>
+		<div class="chart"><div id="average_score_by_teachers_for_program_series" class="wide"></div>
+			<h2>average score by teacher for program over time</h2>
+			<p></p>
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div id="haxe:trace"></div>
+</body>
+</html>

@@ -1,0 +1,107 @@
+/* RESET */
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}
+body{line-height:1}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
+nav ul{list-style:none}
+blockquote,q{quotes:none}
+blockquote:before,blockquote:after,q:before,q:after{content:none}
+a{margin:0;padding:0;font-size:100%;vertical-align:baseline;background:transparent}
+ins{background-color:#ff9;color:#000;text-decoration:none}
+mark{background-color:#ff9;color:#000;font-style:italic;font-weight:bold}
+del{text-decoration:line-through}
+abbr[title],dfn[title]{border-bottom:1px dotted;cursor:help}
+table{border-collapse:collapse;border-spacing:0}
+hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0}
+input,select{vertical-align:middle}
+
+/* STYLING DEMO */
+* {
+	font-family: sans-serif;
+}
+
+body {
+	margin-bottom: 10px;
+	background-color: #f0f0f0;
+}
+
+.pane {
+	border: 1px solid #666;
+	margin: 10px 10px 0 10px;
+	padding: 15px 15px 5px;
+	background-color: #ccc;
+	border-radius: 8px;
+	box-shadow: inset 0 0 5px #666;
+}
+
+.controls {
+	border: 1px solid #999;
+	margin: 0 0px 10px 0;
+	padding: 5px;
+	background-color: #eee;
+	border-radius: 4px;
+	box-shadow: 1px 1px 3px #999;
+}
+
+h1 {
+	border: 1px solid #999;
+	margin: 10px;
+	padding: 5px;
+	background-color: #eee;
+	border-radius: 4px;
+	font-size: 120%;
+	box-shadow: 1px 1px 3px #999;
+}
+
+.chart {
+	border: 1px solid #999;
+	margin: 0 10px 10px 0;
+	float: left;
+	padding: 5px;
+	background-color: #eee;
+	border-radius: 4px;
+	box-shadow: 1px 1px 3px #999;
+}
+
+.chart div {
+	border: 1px solid #ccc;
+	background-color: #fff;
+	width: 400px;
+	height: 300px;
+}
+
+.chart div.wide {
+	width: 720px;
+}
+
+.chart div.thin {
+	width: 280px;
+}
+
+.clear {
+	clear: left;
+}
+
+h1, h2, p {
+	text-align: center;
+	line-height: 1.5em;
+}
+
+p {
+	color: #999;
+	font-size: 75%;
+	width: 280px;
+	margin: 0 auto;
+}
+
+/* STYLING CHART */
+#gender_scores.rg .fill-0, #comments_by_gender.rg .fill-0, #comments_sentiment.rg .fill-0 {
+	fill: pink;
+}
+
+/* DEBUG */
+#haxe\:trace
+{
+	white-space: pre;
+	font-family: monospace;
+	font-size: 83%;
+}
