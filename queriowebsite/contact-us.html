@@ -10,6 +10,15 @@
         <![endif]-->
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
         <script type="text/javascript" src="js/default.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $('a[href^="mailto:"]').click(function(){
+        var el = $(this);
+        _gaq.push(['_trackEvent', 'Contact', el.attr('href').split(':').pop()]);
+        return true;
+    })
+})
+</script>
     </head>
     <body>
         <div id="contact-us">
