@@ -10,9 +10,12 @@
         <![endif]-->
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
         <script type="text/javascript" src="js/default.js"></script>
+<!--
         <script src="js/ace/ace.js" type="text/javascript" charset="utf-8"></script>
         <script src="js/ace/theme-pastel_on_dark.js" type="text/javascript" charset="utf-8"></script>
         <script src="js/ace/mode-quirrel-uncompressed.js" type="text/javascript" charset="utf-8"></script>
+-->
+        <script type="text/javascript" src="js/jquery.console.js"></script>
         <script type="text/javascript" src="js/console.js"></script>
     </head>
     <body>
@@ -63,57 +66,12 @@
                     </div>
                     <h2>Console</h2>
                     <div id="developer-console">
-                        <div id="padding-console-black">
-                        </div>
-                        <div id="padding-console-grey">
-                        </div>
-                        <div id="padding-console-white">
-                        </div>
-                        <div class="atrib-clear-left">
-                        </div>
-                        <div id="console">pageViews := load(//pageViews)
-bound := 2 * stdDev(pageViews.duration)
-avg := mean(pageViews.duration)
--- comment
-longPageViews := pageViews where (- inline comment -) pageViews.duration > (avg + bound)
-longPageViews.userId
-
-{name: "John", age: 29, gender: "male"}
-
-
-"foo" = "foo"
-
-total := 2 + 1
-total * 3
-
-
-count(load(//payments))
--- 92323
-
-mean(load(//payments).amount)
--- 23.91
-
-sum(load(//payments).amount)
-
-clicks := load(//clicks)
-views  := load(//views)
-clickthroughRate('day) := {day: 'day, ctr: count(clicks where clicks.day = 'day) / count(views where views.day = 'day)}
-clickthroughRate
-                        </div>
-                        <div id="console-hole-fix">
-                        </div>
-                        <div id="console-execute">
-                            <div id="console-execute-button">
-                                <p>execute<p>
-                            </div>
-                        </div>
-                        <div id="console-execute-left">
-                        </div>
+                        <div id="console"></div>
                     </div>
-                    <h2>Output</h2>
-                    <div id="console-output">
-                    </div>
-                    <div class="atrib-clear-left">
+                    <div id="console-execute">
+                        <div id="console-execute-button">
+                            <p>execute<p>
+                        </div>
                     </div>
                 </div>
                 <div id="body-content-right-dev-cntr">
@@ -133,7 +91,7 @@ clickthroughRate
                 <div class="atrib-clear-left">
                 </div>
             </div>
-        </div>            
+        </div>
         <div id="background-footer">
             <div id="footer">
                 <div id="footer-menu">

@@ -1752,16 +1752,47 @@ h1 {
 
 #developer-console {
     width: 780px;
-    height: 160px;
+    height: 200px;
     background-color: #15181A;
     border-radius: 6px;
     margin-top: 8px;
     margin-bottom: 30px;
+/*
+    overflow: auto;
+*/
 }
 
 #console {
     width: 780px;
-    height: 160px;
+    height: 200px;
+
+    color: #fff;
+    font-family: 'Monaco','Menlo','Ubuntu Mono','Droid Sans Mono','Consolas',monospace;
+    font-size: 12px;
+    white-space: pre;
+}
+
+#console div.jquery-console-inner {
+    width:780px;
+    height:200px;
+    background:#000;
+    padding:0.5em;
+    overflow:auto
+}
+
+#console .jquery-console-cursor {
+    background-color: #ccc;
+}
+
+#console .jquery-console-prompt-label {
+    color: #4629eb;
+}
+
+#console .jquery-console-message.success {
+    color: #51bbce;
+}
+#console .jquery-console-message.error {
+    color: #c63846;
 }
 
 #padding-console-black {
