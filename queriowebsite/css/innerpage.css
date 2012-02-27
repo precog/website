@@ -1796,26 +1796,26 @@ h1 {
 .ace_print_margin_layer {
 }
 
+#console-hole-fix {
+    width: 15px;
+    height: 15px;
+    background-color: #FFFFFF;
+    z-index: 110;
+    float: right;
+    top: 145px;
+}
+
 #console-execute {
-    width: 765px;
+    width: 780px;
     height: 30px;
     background-color: #000;
-    top: 370px;
+    top: 350px;
     z-index: 1;
     float: left;
     -moz-user-select: -moz-none;
     -khtml-user-select: none;
     -webkit-user-select: none;
     user-select: none;
-}
-
-#console-execute-left {
-    width: 15px;
-    height: 30px;
-    background-color: #F8F9FA;
-    top: 370px;
-    z-index: 1;
-    float: left;
 }
 
 #console-execute-button {
@@ -1850,6 +1850,7 @@ h1 {
     border-radius: 6px;
     margin-top: 6px;
     overflow: auto;
+    padding-bottom: 20px;
 }
 
 #console-output {

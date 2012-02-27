@@ -100,6 +100,8 @@ views  := load(//views)
 clickthroughRate('day) := {day: 'day, ctr: count(clicks where clicks.day = 'day) / count(views where views.day = 'day)}
 clickthroughRate
                         </div>
+                        <div id="console-hole-fix">
+                        </div>
                         <div id="console-execute">
                             <div id="console-execute-button">
                                 <p>execute<p>
