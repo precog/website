@@ -1797,11 +1797,21 @@ h1 {
 }
 
 #console-execute {
-    width: 780px;
+    width: 765px;
     height: 30px;
     background-color: #000;
     top: 370px;
     z-index: 1;
+    float: left;
+}
+
+#console-execute-left {
+    width: 15px;
+    height: 30px;
+    background-color: #F8F9FA;
+    top: 370px;
+    z-index: 1;
+    float: left;
 }
 
 #console-execute-button {
@@ -1815,14 +1825,18 @@ h1 {
 }
 
 #console-execute-button:hover {
-    background-color: #1A1A1A;
+    border-bottom: solid;
+    border-width: 1px;
+    height: 29px;
+    border-color: #FF0000;
 }
 
 #console-execute-button p {
     font-size: 10pt;
-    color: #FEC129;
-    font-family: Courier;
+    color: #fff;
+    font-family: questrial;
     padding-top: 6px;
+    letter-spacing: 1px;
 }
 
 #console-output {
@@ -1911,4 +1925,84 @@ h1 {
     font-size: 8pt;
     top: 120px;
     color: #4B5660;
+}
+
+#webinar-options {
+    
+}
+
+#webinar-options ul li{
+    background-image: url("../images/icon-new-post.png");
+    background-repeat: no-repeat;
+    background-position: left center;
+    color: #fff;
+    font-family: questrial;
+    font-size: 12pt;
+    padding-left: 20px;
+    padding-bottom: 2px;
+    padding-top: 2px;
+}
+
+#webinar-options p {
+    font-size: 10pt;
+    color: #808080;
+    margin-left: 20px;
+    padding-bottom: 6px;
+}
+
+#body-content-right-form {
+    float: left;
+    padding-top: 60px;
+}
+
+#webinar-form {
+    left: 20px;
+    width: 300px;
+}
+
+#mc_embed_signup {
+    background-color: transparent !important;
+}
+
+#mc_embed_signup label {
+    color: #fff;
+    font-family: questrial;
+    font-size: 10pt;
+}
+
+#mc_embed_signup h2 {
+    color: #E5692C;
+    font-family: questrial;
+    font-size: 12pt;
+    font-weight: normal !important;
+}
+
+.indicates-required {
+    color: #fff;
+}
+
+.asterisk {
+    z-index: 1;
+}
+
+#mc_embed_signup .input-group ul li label {
+    left: 10px;
+}
+
+#mc-embedded-subscribe {
+    background-image: url("../images/signup-button.png");
+    display: block;
+    width: 78px !important;
+    height: 37px;
+    background-color: transparent !important;
+    cursor: pointer;
+    float: right;
+}
+
+#mc_embed_signup input {
+    border: none !important;
+}
+
+.webinarbutton:hover {
+    background-image: url("../images/signup-button-alt.png");
 }
