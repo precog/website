@@ -1752,7 +1752,7 @@ h1 {
 
 #developer-console {
     width: 780px;
-    height: 200px;
+    height: 160px;
     background-color: #15181A;
     border-radius: 6px;
     margin-top: 8px;
@@ -1761,7 +1761,7 @@ h1 {
 
 #console {
     width: 780px;
-    height: 200px;
+    height: 160px;
 }
 
 #padding-console-black {
@@ -1803,6 +1803,10 @@ h1 {
     top: 370px;
     z-index: 1;
     float: left;
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 #console-execute-left {
@@ -1841,11 +1845,31 @@ h1 {
 
 #console-output {
     width: 780px;
-    height: 200px;
+    height: 160px;
     background-color: #15181A;
     border-radius: 6px;
     margin-top: 6px;
     overflow: auto;
+}
+
+#console-output {
+    color: #fff;
+    font-family: 'Monaco','Menlo','Ubuntu Mono','Droid Sans Mono','Consolas',monospace;
+    font-size: 12px;
+}
+
+#console-output .msg {
+    padding:4px;
+    border-bottom: 1px solid #666;
+}
+
+#console-output .msg.error {
+    background-color: #330000;
+    color: #ccc;
+}
+
+#console-output .msg.success {
+
 }
 
 /*FOOTER*/
