@@ -1738,6 +1738,11 @@ h1 {
     border-radius: 6px;
 }
 
+#console {
+    width: 780px;
+    height: 400px;
+}
+
 .ace_gutter-cell {
     background-color: #000;
     color: #FEC129;
