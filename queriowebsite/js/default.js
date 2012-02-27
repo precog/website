@@ -103,6 +103,22 @@ $(".app-link").bind("mouseenter", function() {
           'left': '0'
           }, {queue: false}
           );
+      $(".hiw-menu-text-1 p").animate({
+        'opacity': '1.0'
+        }, {queue: false}
+        );
+      $(".hiw-menu-text-2 p").animate({
+        'opacity': '.3'
+        }, {queue: false}
+        );
+      $(".hiw-menu-text-3 p").animate({
+        'opacity': '.3'
+        }, {queue: false}
+        );
+      $(".hiw-menu-text-4 p").animate({
+        'opacity': '.3'
+        }, {queue: false}
+        );
       }
       );
   $(".enrich-lg").mouseover(function(){
@@ -110,6 +126,22 @@ $(".app-link").bind("mouseenter", function() {
           'left': '-1050'
           }, {queue: false}
           );
+      $(".hiw-menu-text-1 p").animate({
+        'opacity': '.3'
+        }, {queue: false}
+        );
+      $(".hiw-menu-text-2 p").animate({
+        'opacity': '1.0'
+        }, {queue: false}
+        );
+      $(".hiw-menu-text-3 p").animate({
+        'opacity': '.3'
+        }, {queue: false}
+        );
+      $(".hiw-menu-text-4 p").animate({
+        'opacity': '.3'
+        }, {queue: false}
+        );
       }
       );
   $(".analyze-lg").mouseover(function(){
@@ -117,6 +149,22 @@ $(".app-link").bind("mouseenter", function() {
           'left': '-2100'
           }, {queue: false}
           );
+      $(".hiw-menu-text-1 p").animate({
+        'opacity': '.3'
+        }, {queue: false}
+        );
+      $(".hiw-menu-text-2 p").animate({
+        'opacity': '.3'
+        }, {queue: false}
+        );
+      $(".hiw-menu-text-3 p").animate({
+        'opacity': '1.'
+        }, {queue: false}
+        );
+      $(".hiw-menu-text-4 p").animate({
+        'opacity': '.3'
+        }, {queue: false}
+        );
       }
       );
   $(".act-lg").mouseover(function(){
@@ -124,6 +172,22 @@ $(".app-link").bind("mouseenter", function() {
           'left': '-3150'
           }, {queue: false}
           );
+      $(".hiw-menu-text-1 p").animate({
+        'opacity': '.3'
+        }, {queue: false}
+        );
+      $(".hiw-menu-text-2 p").animate({
+        'opacity': '.3'
+        }, {queue: false}
+        );
+      $(".hiw-menu-text-3 p").animate({
+        'opacity': '.3'
+        }, {queue: false}
+        );
+      $(".hiw-menu-text-4 p").animate({
+        'opacity': '1.'
+        }, {queue: false}
+        );
       }
       );
 
