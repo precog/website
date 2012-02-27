@@ -8,38 +8,20 @@
                 <script type="text/javascript" src="js/selectivizr.js"></script>
                 <noscript><link rel="stylesheet" href="[fallback css]" /></noscript>
         <![endif]-->
-        <!-- Start of Woopra Code -->
-        <script type="text/javascript">
-        function woopraReady(tracker) {
-           tracker.setDomain('querio.co');
-           tracker.setIdleTimeout(300000);
-           tracker.track();
-           return false;
-        }
-        (function() {
-           var wsc = document.createElement('script');
-           wsc.src = document.location.protocol+'//static.woopra.com/js/woopra.js';
-           wsc.type = 'text/javascript';
-           wsc.async = true;
-           var ssc = document.getElementsByTagName('script')[0];
-           ssc.parentNode.insertBefore(wsc, ssc);
-        })();
-        </script>
-        <!-- End of Woopra Code -->
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
         <script type="text/javascript" src="js/default.js"></script>
         <script src="js/ace/ace.js" type="text/javascript" charset="utf-8"></script>
         <script src="js/ace/theme-pastel_on_dark.js" type="text/javascript" charset="utf-8"></script>
         <script src="js/ace/mode-quirrel-uncompressed.js" type="text/javascript" charset="utf-8"></script>
-<script type="text/javascript">
-$(document).ready(function() {
-    var editor = ace.edit("console");
-    editor.setTheme("ace/theme/pastel_on_dark");
-    editor.setShowPrintMargin(false);
-    var QuirrelMode = require("ace/mode/quirrel").Mode;
-    editor.getSession().setMode(new QuirrelMode());
-})
-</script>
+        <script type="text/javascript">
+        $(document).ready(function() {
+            var editor = ace.edit("console");
+            editor.setTheme("ace/theme/pastel_on_dark");
+            editor.setShowPrintMargin(false);
+            var QuirrelMode = require("ace/mode/quirrel").Mode;
+            editor.getSession().setMode(new QuirrelMode());
+        })
+        </script>
     </head>
     <body>
         <div id="contact-us">
