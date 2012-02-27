@@ -1897,7 +1897,7 @@ h1 {
 }
 
 #mc_embed_signup h2 {
-    color: #368CE6;
+    color: #E5692C;
     font-family: questrial;
     font-size: 12pt;
     font-weight: normal !important;
@@ -1922,6 +1922,7 @@ h1 {
     height: 37px;
     background-color: transparent !important;
     cursor: pointer;
+    float: right;
 }
 
 #mc_embed_signup input {
