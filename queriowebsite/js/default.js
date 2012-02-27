@@ -532,6 +532,5 @@ $("#event-items-only").click(function(){
     }
     );
 
-
 })
 
