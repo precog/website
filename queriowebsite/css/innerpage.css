@@ -1738,6 +1738,40 @@ h1 {
     border-radius: 6px;
 }
 
+.ace_gutter-cell {
+    background-color: #000;
+    color: #FEC129;
+}
+
+#console-execute {
+    width: 780px;
+    height: 30px;
+    background-color: #000;
+    top: 370px;
+    z-index: 1;
+}
+
+#console-execute-button {
+    width: 100px;
+    height: 30px;
+    background-color: #000;
+    z-index: 2;
+    float: right;
+    cursor: pointer;
+    text-align: center;
+}
+
+#console-execute-button:hover {
+    background-color: #1A1A1A;
+}
+
+#console-execute-button p {
+    font-size: 10pt;
+    color: #FEC129;
+    font-family: Courier;
+    padding-top: 6px;
+}
+
 /*FOOTER*/
 #background-footer {
     background-color: #15181A;

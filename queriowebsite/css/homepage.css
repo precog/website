@@ -770,10 +770,10 @@ h1 {
 #strata-newsletter-signup {
     position: fixed;
     width: 300px;
-    height: 430px;
+    height: 460px;
     left: 40%;
     right: 40%;
-    margin-top: 200px;
+    margin-top: 120px;
     z-index: 100;
     background-color: #3C454D;
     border-radius: 6px;
