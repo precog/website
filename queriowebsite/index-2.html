@@ -20,6 +20,15 @@
             img3.src = "images/button-newsletter-signup-sm-alt.png";
         }
         </script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $('a[href^="mailto:"]').click(function(){
+        var el = $(this);
+        _gaq.push(['_trackEvent', 'Contact', el.attr('href').split(':').pop()]);
+        return true;
+    })
+})
+</script>
     </head>
     <body>
         <div id="strata-overlay">

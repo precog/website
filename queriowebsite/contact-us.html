@@ -12,7 +12,7 @@
         <script type="text/javascript" src="js/default.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
-    $('.contact-details a').click(function(){
+    $('a[href^="mailto:"]').click(function(){
         var el = $(this);
         _gaq.push(['_trackEvent', 'Contact', el.attr('href').split(':').pop()]);
         return true;
