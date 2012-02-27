@@ -1745,7 +1745,7 @@ h1 {
 
 #developer-console {
     width: 780px;
-    height: 400px;
+    height: 200px;
     background-color: #15181A;
     border-radius: 6px;
     margin-top: 8px;
@@ -1754,7 +1754,7 @@ h1 {
 
 #console {
     width: 780px;
-    height: 400px;
+    height: 200px;
 }
 
 .ace_gutter-cell {
@@ -1803,6 +1803,7 @@ h1 {
     background-color: #15181A;
     border-radius: 6px;
     margin-top: 6px;
+    overflow: auto;
 }
 
 /*FOOTER*/
