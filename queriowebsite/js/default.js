@@ -119,8 +119,13 @@ $(".app-link").bind("mouseenter", function() {
         'opacity': '.3'
         }, {queue: false}
         );
+      $(".capture-lg").addClass("capture-lg-alt")
+      $(".enrich-lg").removeClass("enrich-lg-alt")
+      $(".analyze-lg").removeClass("analyze-lg-alt")
+      $(".act-lg").removeClass("act-lg-alt")
       }
       );
+  
   $(".enrich-lg").mouseover(function(){
       $("#hiw-panel-slider").animate({
           'left': '-1050'
@@ -142,8 +147,13 @@ $(".app-link").bind("mouseenter", function() {
         'opacity': '.3'
         }, {queue: false}
         );
+      $(".capture-lg").removeClass("capture-lg-alt")
+      $(".enrich-lg").addClass("enrich-lg-alt")
+      $(".analyze-lg").removeClass("analyze-lg-alt")
+      $(".act-lg").removeClass("act-lg-alt")
       }
       );
+  
   $(".analyze-lg").mouseover(function(){
       $("#hiw-panel-slider").animate({
           'left': '-2100'
@@ -165,8 +175,13 @@ $(".app-link").bind("mouseenter", function() {
         'opacity': '.3'
         }, {queue: false}
         );
+      $(".capture-lg").removeClass("capture-lg-alt")
+      $(".enrich-lg").removeClass("enrich-lg-alt")
+      $(".analyze-lg").addClass("analyze-lg-alt")
+      $(".act-lg").removeClass("act-lg-alt")
       }
       );
+  
   $(".act-lg").mouseover(function(){
       $("#hiw-panel-slider").animate({
           'left': '-3150'
@@ -188,6 +203,10 @@ $(".app-link").bind("mouseenter", function() {
         'opacity': '1.'
         }, {queue: false}
         );
+      $(".capture-lg").removeClass("capture-lg-alt")
+      $(".enrich-lg").removeClass("enrich-lg-alt")
+      $(".analyze-lg").removeClass("analyze-lg-alt")
+      $(".act-lg").addClass("act-lg-alt")
       }
       );
 

@@ -522,7 +522,6 @@ h1 {
     height: 74px;
     float: left;
     cursor: pointer;
-    opacity: 0.8;
     margin-left: -5px;
 }
 
@@ -534,7 +533,7 @@ h1 {
     background-image: url("../images/button-capture-lg.png");
 }
 
-.capture-lg:hover {
+.capture-lg-alt {
     background-image: url("../images/button-capture-lg-alt.png");
 }
 
@@ -542,7 +541,7 @@ h1 {
     background-image: url("../images/button-enrich-lg.png");
 }
 
-.enrich-lg:hover {
+.enrich-lg-alt {
     background-image: url("../images/button-enrich-lg-alt.png");
 }
 
@@ -550,7 +549,7 @@ h1 {
     background-image: url("../images/button-analyze-lg.png");
 }
 
-.analyze-lg:hover {
+.analyze-lg-alt {
     background-image: url("../images/button-analyze-lg-alt.png");
 }
 
@@ -558,7 +557,7 @@ h1 {
     background-image: url("../images/button-act-lg.png");
 }
 
-.act-lg:hover {
+.act-lg-alt {
     background-image: url("../images/button-act-lg-alt.png");
 }
 
@@ -625,6 +624,7 @@ h1 {
     padding-right: 20px;
     padding-top: 20px;
     opacity: .3;
+    color: #fff;
 }
 
 #hiw-panel-capture {
@@ -961,6 +961,12 @@ h1 {
 
 #hiw-act-app-pic-6 {
     background-image: url("../images/graphic-hiw-act-cmt.png");
+    display: none;
+    border-radius: 6px;
+}
+
+#hiw-act-app-pic-7 {
+    background-image: url("../images/graphic-hiw-act-kickstarter.png");
     display: none;
     border-radius: 6px;
 }
@@ -1749,12 +1755,33 @@ h1 {
     background-color: #15181A;
     border-radius: 6px;
     margin-top: 8px;
-    margin-bottom: 8px;
+    margin-bottom: 30px;
 }
 
 #console {
     width: 780px;
     height: 400px;
+}
+
+#padding-console-black {
+    background-color: #000;
+    width: 46px;
+    height: 20px;
+    float: left;
+}
+
+#padding-console-grey {
+    background-color: #2C2827;
+    width: 719px;
+    height: 20px;
+    float: left;
+}
+
+#padding-console-white {
+    background-color: #F3F3F3;
+    width: 15px;
+    height: 20px;
+    float: left;
 }
 
 .ace_gutter-cell {
@@ -1883,85 +1910,4 @@ h1 {
     font-size: 8pt;
     top: 120px;
     color: #4B5660;
-}
-
-/*webinar*/
-#webinar-options {
-    
-}
-
-#webinar-options ul li{
-    background-image: url("../images/icon-new-post.png");
-    background-repeat: no-repeat;
-    background-position: left center;
-    color: #fff;
-    font-family: questrial;
-    font-size: 12pt;
-    padding-left: 20px;
-    padding-bottom: 2px;
-    padding-top: 2px;
-}
-
-#webinar-options p {
-    font-size: 10pt;
-    color: #808080;
-    margin-left: 20px;
-    padding-bottom: 6px;
-}
-
-#body-content-right-form {
-    float: left;
-    padding-top: 60px;
-}
-
-#webinar-form {
-    left: 20px;
-    width: 300px;
-}
-
-#mc_embed_signup {
-    background-color: transparent !important;
-}
-
-#mc_embed_signup label {
-    color: #fff;
-    font-family: questrial;
-    font-size: 10pt;
-}
-
-#mc_embed_signup h2 {
-    color: #E5692C;
-    font-family: questrial;
-    font-size: 12pt;
-    font-weight: normal !important;
-}
-
-.indicates-required {
-    color: #fff;
-}
-
-.asterisk {
-    z-index: 1;
-}
-
-#mc_embed_signup .input-group ul li label {
-    left: 10px;
-}
-
-#mc-embedded-subscribe {
-    background-image: url("../images/signup-button.png");
-    display: block;
-    width: 78px !important;
-    height: 37px;
-    background-color: transparent !important;
-    cursor: pointer;
-    float: right;
-}
-
-#mc_embed_signup input {
-    border: none !important;
-}
-
-.webinarbutton:hover {
-    background-image: url("../images/signup-button-alt.png");
 }
