@@ -16,6 +16,15 @@
             img1.src = "images/button-contactus-lg-alt.png";
         }
         </script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $('.button-learnmore-sm a').click(function(){
+        var el = $(this);
+        _gaq.push(['_trackEvent', 'Add-On', el.attr('data-category'), el.attr('data-type')]);
+        return true;
+    })
+})
+</script>
     </head>
     <body>
         <div id="contact-us">
@@ -84,7 +93,7 @@
                                 </div>
                             </div>
                             <div class="button-learnmore-sm">
-                                <a href="mailto:contact@precog.io"></a>
+                                <a href="mailto:contact@precog.io" data-category="Alchemy API" data-type="Sentiment"></a>
                             </div>
                         </div>
                         <div class="add-on-section">

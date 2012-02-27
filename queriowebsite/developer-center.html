@@ -13,15 +13,7 @@
         <script src="js/ace/ace.js" type="text/javascript" charset="utf-8"></script>
         <script src="js/ace/theme-pastel_on_dark.js" type="text/javascript" charset="utf-8"></script>
         <script src="js/ace/mode-quirrel-uncompressed.js" type="text/javascript" charset="utf-8"></script>
-        <script type="text/javascript">
-        $(document).ready(function() {
-            var editor = ace.edit("console");
-            editor.setTheme("ace/theme/pastel_on_dark");
-            editor.setShowPrintMargin(false);
-            var QuirrelMode = require("ace/mode/quirrel").Mode;
-            editor.getSession().setMode(new QuirrelMode());
-        })
-        </script>
+        <script type="text/javascript" src="js/console.js"></script>
     </head>
     <body>
         <div id="contact-us">
@@ -71,6 +63,14 @@
                     </div>
                     <h2>Console</h2>
                     <div id="developer-console">
+                        <div id="padding-console-black">
+                        </div>
+                        <div id="padding-console-grey">
+                        </div>
+                        <div id="padding-console-white">
+                        </div>
+                        <div class="atrib-clear-left">
+                        </div>
                         <div id="console">pageViews := load(//pageViews)
 bound := 2 * stdDev(pageViews.duration)
 avg := mean(pageViews.duration)
@@ -100,10 +100,14 @@ views  := load(//views)
 clickthroughRate('day) := {day: 'day, ctr: count(clicks where clicks.day = 'day) / count(views where views.day = 'day)}
 clickthroughRate
                         </div>
+                        <div id="console-hole-fix">
+                        </div>
                         <div id="console-execute">
                             <div id="console-execute-button">
                                 <p>execute<p>
                             </div>
+                        </div>
+                        <div id="console-execute-left">
                         </div>
                     </div>
                     <h2>Output</h2>
