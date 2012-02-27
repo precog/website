@@ -1772,7 +1772,7 @@ h1 {
 }
 
 #padding-console-grey {
-    background-color: #2C2827;
+    background-color: #000;
     width: 719px;
     height: 20px;
     float: left;
@@ -1871,6 +1871,10 @@ h1 {
 
 #console-output .msg.success {
 
+}
+
+.ace_scroller, .ace_sb {
+    background-color: #000 !important;
 }
 
 /*FOOTER*/
