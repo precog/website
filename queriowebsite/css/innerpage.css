@@ -1858,7 +1858,7 @@ h1 {
 }
 
 #webinar-options ul li{
-    background-image: url("../images/graphic-hiw-bullet.png");
+    background-image: url("../images/icon-new-post.png");
     background-repeat: no-repeat;
     background-position: left center;
     color: #fff;
@@ -1876,62 +1876,58 @@ h1 {
     padding-bottom: 6px;
 }
 
-#webinar-form {
-    left: 20px;
-}
-
-#webinar-form p {
-    font-size: 10pt;
-    padding-bottom: 6px;
-    padding-top: 10px;
-    color: #B3B3B3;
-}
-
-#webinar-form table {
-    padding-top: 20px;
-    border-spacing: 0px;
-}
-
-#webinar-form table tr td p {
-    padding-bottom: 4px;
-    padding-top: 4px;
-}
-
-.textfield-0 {
-    width: 200px;
-    height: 20px;
-}
-
-.textfield-1 {
-    width: 200px;
-    height: 100px;
-}
-
-.radiofield-0 {
-    margin-right: 10px;
-}
-
 #body-content-right-form {
+    float: left;
     padding-top: 60px;
 }
 
-#body-content-right-form h2 {
-    font-size: 20px;
-    color: #C13707;
-    padding-bottom: 2px;
-    font-family: questrial;
-    font-weight: normal;
+#webinar-form {
+    left: 20px;
+    width: 300px;
 }
 
-#reserveform {
-    width: 138px;
-    height: 100px;
-    background-image: url("../images/button-reserveyourspot-lg.png");
+#mc_embed_signup {
+    background-color: transparent !important;
+}
+
+#mc_embed_signup label {
+    color: #fff;
+    font-family: questrial;
+    font-size: 10pt;
+}
+
+#mc_embed_signup h2 {
+    color: #368CE6;
+    font-family: questrial;
+    font-size: 12pt;
+    font-weight: normal !important;
+}
+
+.indicates-required {
+    color: #fff;
+}
+
+.asterisk {
+    z-index: 1;
+}
+
+#mc_embed_signup .input-group ul li label {
+    left: 10px;
+}
+
+#mc-embedded-subscribe {
+    background-image: url("../images/signup-button.png");
+    display: block;
+    width: 78px !important;
+    height: 37px;
+    background-color: transparent !important;
     cursor: pointer;
 }
 
-#console {
-    position: absolute;
-    width: 780px;
-    height: 400px;
+#mc_embed_signup input {
+    border: none !important;
+}
+
+.webinarbutton:hover {
+    background-image: url("../images/signup-button-alt.png");
 }
