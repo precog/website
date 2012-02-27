@@ -1748,6 +1748,8 @@ h1 {
     height: 400px;
     background-color: #15181A;
     border-radius: 6px;
+    margin-top: 8px;
+    margin-bottom: 8px;
 }
 
 #console {
@@ -1758,6 +1760,12 @@ h1 {
 .ace_gutter-cell {
     background-color: #000;
     color: #FEC129;
+}
+
+.ace_active_line {
+}
+
+.ace_print_margin_layer {
 }
 
 #console-execute {
@@ -1787,6 +1795,14 @@ h1 {
     color: #FEC129;
     font-family: Courier;
     padding-top: 6px;
+}
+
+#console-output {
+    width: 780px;
+    height: 200px;
+    background-color: #15181A;
+    border-radius: 6px;
+    margin-top: 6px;
 }
 
 /*FOOTER*/
