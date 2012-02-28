@@ -31,6 +31,10 @@ var console = $('#console'),
   autofocus:true
 //  animateScroll:true,
 });
+
+$('#console-execute-button').click(function() {
+  controller.trigger();
+})
 /*
     editor = ace.edit("console");
     editor.commands.addCommand({

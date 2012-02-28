@@ -135,7 +135,7 @@
         (function(){
             container.append(inner);
             inner.append(typer);
-            typer.css({position:'absolute',top:0,left:'-9999px'});
+            typer.css({position:'fixed',bottom:0,left:'-9999px'});
             if (config.welcomeMessage)
                 message(config.welcomeMessage,'jquery-console-welcome');
             newPromptBox();
@@ -200,6 +200,11 @@
             return n;
         };
 
+        extern.trigger = function(){
+            executeTrigger();
+            container.click();
+        }
+
         ////////////////////////////////////////////////////////////////////////
         // Make a new prompt box
         function newPromptBox() {
@@ -224,7 +229,7 @@
             inner.addClass('jquery-console-focus');
             inner.removeClass('jquery-console-nofocus');
             typer.focus();
-            scrollToBottom();
+//            scrollToBottom();
             return false;
         });
 
@@ -446,7 +451,7 @@
         // Scroll to the bottom of the view
         function scrollToBottom() {
             if (jQuery.fn.jquery > "1.6") {
-                inner.animate({ scrollTop: inner.prop("scrollHeight") });
+                inner.animate({ scrollTop: inner.prop("scrollHeight") }, { queue : false });
             }
             else {
                 inner.attr({ scrollTop: inner.attr("scrollHeight") });
