@@ -1849,6 +1849,16 @@ h1 {
     background-image: url("../images/button-execute-m-alt.png");
 }
 
+/*TUTORIALS*/
+.console-tutorials {
+    width: 768px;
+    color: #fff;
+    background-color: #000;
+    font-family: 'Monaco','Menlo','Ubuntu Mono','Droid Sans Mono','Consolas',monospace;
+    font-size: 12px;
+    border-radius: 6px;
+}
+
 /*FOOTER*/
 #background-footer {
     background-color: #15181A;
