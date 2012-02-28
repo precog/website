@@ -89,15 +89,15 @@ h1 {
 
 #header-logo {
     background-image: url("../images/quirrel-logo.png");
-    width: 120px;
-    height: 13px;
-    top: 13px;
+    width: 121px;
+    height: 23px;
+    top: 8px;
 }
 
 #header-nav-menu {
     left: 242px;
     text-align: center;
-    top: -13px;
+    top: -23px;
 }
 
 #header-nav-menu ul li {
