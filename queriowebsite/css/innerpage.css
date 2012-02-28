@@ -1727,6 +1727,7 @@ h1 {
     letter-spacing: 1px;
     padding-bottom: 4px;
     line-height: 1.4;
+    font-weight: lighter;
 }
 
 #body-content-left-dev-cntr ul li a {
