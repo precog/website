@@ -250,7 +250,7 @@
             // fired *before* the text is actually pasted
 
             setTimeout(function() {
-                var lines = typer.val().split(/\r\n|\n|\r/g);
+                var lines = (e.clipboardData || typer.val()).split(/\r\n|\n|\r/g);
                 for(var i = 0; i < lines.length; i++)
                     setTimeout((function(line, first) {
                         return function() {
@@ -416,7 +416,7 @@
                         handleCommand();
                     }
                 } else {
-                    commandResult(ret,"jquery-console-message-error");
+                    commandResult(ret,"error");
                 }
             } else {
                 handleCommand();
@@ -445,10 +445,10 @@
 //                        commandResult();
                     } else {
                         commandResult('Command failed.',
-                                      "jquery-console-message-error");
+                                      "error");
                     }
                 } else if (typeof ret == "string") {
-                    commandResult(ret,"jquery-console-message-success");
+                    commandResult(ret,"success");
                 } else if (typeof ret == 'object' && ret.length) {
                     commandResult(ret);
                 } else if (extern.continuedPrompt) {

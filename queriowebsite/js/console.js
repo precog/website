@@ -19,23 +19,15 @@ var console = $('#console'),
     if(line == "") return false;
     controller.continuedPrompt = false;
 
-    $.ajax(service, {
+    API.Http.Jsonp.post(service, line, {
       success : function(data) {
         handler({ msg : data, className : 'success'});
         scroll();
       },
-      error : function(_, error) {
-        handler({ msg : error, className : 'error'});
+      failure : function(_, message) {
+        handler({ msg : message, className : 'error'});
         scroll();
-      },
-      dataType : 'jsonp',
-      type : 'GET',
-      contentType : 'text/quirrel',
-      data : {
-        method : 'POST',
-        content : JSON.stringify(line)
-      },
-      crossDomain : true
+      }
     })
     scroll();
     return true;
