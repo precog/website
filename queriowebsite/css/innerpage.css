@@ -1759,11 +1759,11 @@ h1 {
 
 #console {
     width: 768px;
-    height: 200px;
+    height: 202px;
     color: #fff;
     font-family: 'Monaco','Menlo','Ubuntu Mono','Droid Sans Mono','Consolas',monospace;
     font-size: 12px;
-    white-space: pre;
+    margin-top: 30px;
 }
 
 #console div.jquery-console-inner {
@@ -1780,6 +1780,7 @@ h1 {
 
 #console .jquery-console-prompt-label {
     color: #4629eb;
+    white-space: pre;
 }
 
 #console .jquery-console-message.success {
@@ -1802,7 +1803,7 @@ h1 {
 #console-execute {
     width: 780px;
     height: 30px;
-    top: 28px;
+    top: 0px;
     z-index: 1;
     float: left;
     -moz-user-select: -moz-none;
