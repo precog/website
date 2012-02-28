@@ -1685,6 +1685,8 @@ h1 {
 
 .body-pricing-difference-li {
     opacity: 0.0;
+    font-weight: lighter;
+    letter-spacing: 1px;
 }
 
 /*DEVELOPER CENTER*/
@@ -1714,13 +1716,14 @@ h1 {
     line-height: 1.3;
 }
 
-#body-content-left-dev-cntr ul {
+#body-content-left-dev-cntr ul, #body-content-left ul {
     padding-top: 10px;
     list-style-image: url(../images/button-ul-li.png);
     padding-left: 20px;
+    padding-bottom: 10px;
 }
 
-#body-content-left-dev-cntr ul li {
+#body-content-left-dev-cntr ul li, #body-content-left ul li {
     font-family: Helvetica, Questrial, sans-serif;
     font-size: 10pt;
     color: #9AB4CC;
