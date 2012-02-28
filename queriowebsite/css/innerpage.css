@@ -1714,6 +1714,26 @@ h1 {
     line-height: 1.3;
 }
 
+#body-content-left-dev-cntr ul {
+    padding-top: 10px;
+    list-style-image: url(../images/graphic-hiw-bullet.png);
+    padding-left: 20px;
+}
+
+#body-content-left-dev-cntr ul li {
+    font-family: Helvetica, Questrial, sans-serif;
+    font-size: 10pt;
+    color: #9AB4CC;
+    letter-spacing: 1px;
+    padding-bottom: 4px;
+    line-height: 1.4;
+}
+
+#body-content-left-dev-cntr ul li a {
+    color: #C0E1FF;
+}
+
+
 #body-content-right-dev-cntr {
     padding-top: 34px;
     width: 190px;
