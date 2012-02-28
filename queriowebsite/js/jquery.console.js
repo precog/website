@@ -64,6 +64,9 @@
 	    // tab
 	    18: doNothing
 	};
+    var shiftCodes = {
+        13: executeTrigger
+    };
 	var ctrlCodes = {
 	    // C-a
 	    65: moveToStart,
@@ -80,9 +83,7 @@
 	    // C-f
 	    70: moveForward,
 	    // C-k
-	    75: deleteUntilEnd,
-        // C-return,
-        13: executeTrigger
+	    75: deleteUntilEnd
 	};
 	var altCodes = {
 	    // M-f
@@ -277,7 +278,11 @@
 		return false;
 	    }
 	    if (acceptInput) {
-    		if (e.ctrlKey && keyCode in ctrlCodes) {
+    		if (e.shiftKey && keyCode in shiftCodes) {
+                cancelKeyPress = keyCode;
+                (shiftCodes[keyCode])();
+                return false;
+            } else if (e.ctrlKey && keyCode in ctrlCodes) {
                 cancelKeyPress = keyCode;
                 (ctrlCodes[keyCode])();
                 return false;
