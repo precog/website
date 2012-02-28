@@ -451,7 +451,7 @@ h1 {
     top: -10px;
     left: -20px;
     width: 275px;
-    height: 70px;
+    height: 60px;
     text-align: center;
 }
 
@@ -469,6 +469,7 @@ h1 {
     color: #fff;
     padding-left: 17.5pt;
     width: 230px;
+    height: 24px;
 }
 
 #body-add-ons .add-on-pricing-options p {
