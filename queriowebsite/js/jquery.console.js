@@ -248,9 +248,18 @@
             typer.val("");
             // this timeout is required because the onpaste event is
             // fired *before* the text is actually pasted
+
             setTimeout(function() {
-                typer.consoleInsert(typer.val());
-                typer.val("");
+                var lines = typer.val().split(/\r\n|\n|\r/g);
+                for(var i = 0; i < lines.length; i++)
+                    setTimeout((function(line, first) {
+                        return function() {
+                            if(!first)
+                                commandTrigger();
+                            typer.consoleInsert(line);
+                        }
+                    })(lines[i], i == 0), i);
+                setTimeout(function() { typer.val(""); }, lines.length);
             }, 0);
         });
 
