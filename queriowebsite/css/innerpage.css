@@ -1751,12 +1751,7 @@ h1 {
 }
 
 #developer-console {
-    width: 780px;
-    height: 200px;
-    background-color: #15181A;
-    border-radius: 6px;
-    margin-top: 8px;
-    margin-bottom: 30px;
+    top: -20px;
 /*
     overflow: auto;
 */
@@ -1764,12 +1759,11 @@ h1 {
 
 #console {
     width: 768px;
-    height: 200px;
-
+    height: 202px;
     color: #fff;
     font-family: 'Monaco','Menlo','Ubuntu Mono','Droid Sans Mono','Consolas',monospace;
     font-size: 12px;
-    white-space: pre;
+    margin-top: 30px;
 }
 
 #console div.jquery-console-inner {
@@ -1786,6 +1780,7 @@ h1 {
 
 #console .jquery-console-prompt-label {
     color: #4629eb;
+    white-space: pre;
 }
 
 #console .jquery-console-message.success {
@@ -1795,51 +1790,19 @@ h1 {
     color: #c63846;
 }
 
-#padding-console-black {
-    background-color: #000;
-    width: 46px;
-    height: 20px;
-    float: left;
-}
-
-#padding-console-grey {
-    background-color: #000;
-    width: 719px;
-    height: 20px;
-    float: left;
-}
-
-#padding-console-white {
-    background-color: #F3F3F3;
-    width: 15px;
-    height: 20px;
-    float: left;
-}
-
-.ace_gutter-cell {
-    background-color: #000;
-    color: #FEC129;
-}
-
-.ace_active_line {
-}
-
-.ace_print_margin_layer {
-}
-
-#console-hole-fix {
-    width: 15px;
-    height: 15px;
-    background-color: #FFFFFF;
-    z-index: 110;
-    float: right;
-    top: 145px;
+#sticker-console {
+    background-image: url("../images/sticker-console-page.png");
+    width: 141px;
+    height: 66px;
+    position: absolute;
+    z-index: 1;
+    left: 670px;
+    margin-top: -20px;
 }
 
 #console-execute {
     width: 780px;
     height: 30px;
-    background-color: #000;
     top: 0px;
     z-index: 1;
     float: left;
@@ -1850,62 +1813,16 @@ h1 {
 }
 
 #console-execute-button {
-    width: 100px;
-    height: 30px;
-    background-color: #000;
+    width: 81px;
+    height: 39px;
+    background-image: url("../images/button-execute-m.png");
     z-index: 2;
     float: right;
     cursor: pointer;
-    text-align: center;
 }
 
 #console-execute-button:hover {
-    border-bottom: solid;
-    border-width: 1px;
-    height: 29px;
-    border-color: #FF0000;
-}
-
-#console-execute-button p {
-    font-size: 10pt;
-    color: #fff;
-    font-family: questrial;
-    padding-top: 6px;
-    letter-spacing: 1px;
-}
-
-#console-output {
-    width: 780px;
-    height: 160px;
-    background-color: #15181A;
-    border-radius: 6px;
-    margin-top: 6px;
-    overflow: auto;
-    padding-bottom: 20px;
-}
-
-#console-output {
-    color: #fff;
-    font-family: 'Monaco','Menlo','Ubuntu Mono','Droid Sans Mono','Consolas',monospace;
-    font-size: 12px;
-}
-
-#console-output .msg {
-    padding:4px;
-    border-bottom: 1px solid #666;
-}
-
-#console-output .msg.error {
-    background-color: #330000;
-    color: #ccc;
-}
-
-#console-output .msg.success {
-
-}
-
-.ace_scroller, .ace_sb {
-    background-color: #000 !important;
+    background-image: url("../images/button-execute-m-alt.png");
 }
 
 /*FOOTER*/

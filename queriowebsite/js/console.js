@@ -1,4 +1,5 @@
 $(document).ready(function(){
+var service = "http://demo.precog.io/services/quirrel/v1/query?tokenId=C5EF0038-A2A2-47EB-88A4-AAFCE59EC22B";
 
 var console = $('#console'),
   scroll = function() { console.animate({ scrollTop: console.prop("scrollHeight") }, 250); }
@@ -17,13 +18,17 @@ var console = $('#console'),
   execute:function(line, handler){
     if(line == "") return false;
     controller.continuedPrompt = false;
-    setTimeout(function() {
-      if(Math.random() < 0.5)
-        handler({ msg : '{ some : "output here" } ', className : 'success'});
-      else
-        handler({ msg : 'error, you got it wrong', className : 'error'});
-      scroll();
-    }, 1000)
+
+    API.Http.Jsonp.post(service, line, {
+      success : function(data) {
+        handler({ msg : data, className : 'success'});
+        scroll();
+      },
+      failure : function(_, message) {
+        handler({ msg : message, className : 'error'});
+        scroll();
+      }
+    })
     scroll();
     return true;
   },
@@ -35,47 +40,6 @@ var console = $('#console'),
 $('#console-execute-button').click(function() {
   controller.trigger();
 })
-/*
-    editor = ace.edit("console");
-    editor.commands.addCommand({
-        name: 'executeQuery',
-        bindKey: {
-            win: 'Shift-Return',
-            mac: 'Shift-Return|Command-Return',
-            sender: 'editor|cli'
-        },
-        exec: function(env, args, request) {
-          executeQuery();
-        }
-    });
-    editor.setTheme("ace/theme/pastel_on_dark");
-    editor.setShowPrintMargin(false);
-    var QuirrelMode = require("ace/mode/quirrel").Mode;
-    editor.getSession().setMode(new QuirrelMode());
 
-    var output = $("#console-output");
-
-    var displayOutput = function(text, cls)
-    {
-      output.append('<div class="msg '+cls+'">'+text+'</div>');
-      output.animate({ scrollTop: output.prop("scrollHeight") }, 250);
-    }
-    var success = function(response) {
-      displayOutput(response, "success");
-    }
-
-    var error = function(message) {
-      displayOutput(message, "error");
-    }
-
-    var executeQuery = function()
-    {
-      var content = editor.getSession().getValue();
-      setTimeout(function() {
-        Math.random() < 0.5 ? success('{ a : 1 }') : error("doesn't work");
-      }, 100) // replace with POST to service
-    }
-    $('#console-execute-button').click(executeQuery);
-*/
 })
 
