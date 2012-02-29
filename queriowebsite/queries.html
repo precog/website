@@ -44,8 +44,8 @@
                 </div>
                 <div id="body-content-left-dev-cntr">
                     <h1 class="body-title">QUERIES</h1>
-                    <p>Precog lets you do very sophisticated, custom analytical and statistical queries when you need to. Precog implements the open standard
-                      <a href="http://whatisquirrel.com">Quirrel</a>, which is a query language designed specifically for analytics and statistics on large, multi-structured data sets.</p>
+                    <p>Precog lets you do very sophisticated, custom analytical and statistical queries. We implement the open standard
+                      <a href="http://whatisquirrel.com">Quirrel</a> language, a query language designed specifically for analytics and statistics on large, multi-structured data sets.</p>
                       
                     <p>If the analysis you want is not already packaged into the client library you are using, then it's a good bet you can perform it with Quirrel.
                       All the client libraries implement <em>all of their functionality</em> in terms of simple Quirrel queries.</p>
@@ -81,7 +81,7 @@
                     <div class="body-section-breaker">
                     </div>
                     <h2>NUMBERS</h2>
-                    <p>Quirrel is designed for analytics, so it has very good support for math. In fact, you can use Quirrel as a calculator.</p>
+                    <p>Since quirrel is designed for analytics, it has good support for math expressions. To start exploring, you can use Quirrel REPL as a calculator.</p>
 
                     <div class="console-tutorials console" id="console-sum"></div>
                     <div class="console-execute">
@@ -151,7 +151,7 @@
                     </div>
                     <p>The load function returns all the data stored at the specified path, even if the values have differing types or schemas.</p>
                     <h2>FILTERED DESCENT</h2>
-                    <p>Quirrel has direct support for JavaScript's <em>object dereference</em> and <em>array dereference</em> operators. These operators implicitly filter the data set to those items that contain the specified field or array index.</p>
+                    <p>Quirrel has direct support for JavaScript's <em>object dereference</em> and <em>array dereference</em> operations. These implicitly filter the data set to those items that contain the specified field or array index.</p>
                     <div class="console-tutorials console" id="console-jsproperty"></div>
                     <div class="console-execute">
                         <div class="console-execute-button button-top-adjust" id="console-jsproperty-execute-button">
@@ -167,7 +167,6 @@
                     <script type="text/javascript">buildConsole('console-arrayaccess', 'payments := load(//payments)\npayments.recipients[0]')</script>
                     <div class="body-section-breaker">
                     </div>
-                    <p>The descent operators filter the data set to those items that contain the specified field or array index.</p>
                     <h2>REDUCTIONS</h2>
                     <p>Quirrel can reduce sets of data into a single value. There are many built-in reductions.</p>
                     <div class="console-tutorials console" id="console-sumcount"></div>
