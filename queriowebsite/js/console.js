@@ -25,8 +25,26 @@ function _console(id, query)
           scroll();
         },
         failure : function(_, message, content) {
-          console.log(content);
-          handler({ msg : (content || message), className : 'error'});
+          var msg;
+          if(content instanceof Array)
+          {
+            var lines = [];
+            for(var i = 0; i < content.length; i++)
+            {
+              var o = content[i];
+                  line = "line " + o.lineNum + ", column "+ o.colNum + ": " + o.message + "\n" + o.line + "\n";
+              for(var j = 1; j < o.colNum; j++)
+                line += " ";
+              line += "^";
+              lines.push(line);
+            }
+            msg = lines.join("\n");
+          } else if(content) {
+            msg = "" + content;
+          } else {
+            msg = message;
+          }
+          handler({ msg : msg, className : 'error'});
           scroll();
         }
       })
