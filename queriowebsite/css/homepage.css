@@ -311,9 +311,10 @@ h1 {
     background-image: url("../images/button-app-dot-alt.png");
 }
 
-.sticker-repl-main {
+.sticker-repl-main-square {
     position: absolute;
-    right: 0px;
+    right: -140px;
+    top: -80px;
     z-index: 20;
 }
 
