@@ -1809,11 +1809,11 @@ h1 {
 
 #console {
     width: 768px;
-    height: 200px;
+    height: 350px;
 }
 
 #console div.jquery-console-inner {
-    min-height: 188px;
+    height: 330px;
 }
 
 #body-content-left-dev-cntr ul {
@@ -1877,7 +1877,6 @@ h1 {
     font-family: 'Monaco','Menlo','Ubuntu Mono','Droid Sans Mono','Consolas',monospace;
     font-size: 12px;
     margin-top: 30px;
-    max-height: 250px;
     overflow: auto;
 }
 
