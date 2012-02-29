@@ -288,7 +288,7 @@
                         <div class="console-execute-button button-top-adjust" id="console-partialfunction2-execute-button">
                         </div>
                     </div>
-                    <script type="text/javascript">buildConsole('console-partialfunction2', 'clicks := load(//clicks)\nviews  := load(//views)\nclickthroughRate(\'day) := {day: \'day, ctr: count(clicks where clicks.day = \'day) / count(views where views.day = \'day)}\nclickthroughRate')</script>
+                    <script type="text/javascript">buildConsole('console-partialfunction2', 'clicks := load(//clicks)\nviews  := load(//views)\nclickthroughRate(\'page) := {page: \'page, ctr: count(clicks where clicks.pageId = \'page) / count(views where views.pageId = \'page)}\nclickthroughRate')</script>
                     <div class="body-section-breaker">
                     </div>
                     <p>The final set contains objects that have a <em>day</em> field and a <em>ctr</em> field (the clickthrough rate on the specified day).</p>
