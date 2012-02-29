@@ -199,7 +199,8 @@ pageViewsForUser(12345)
 			        <p>In many cases, Quirrel knows how to compute the range of values for a parameter. If you call the function without supplying a value, Quirrel will evaluate the function at all possible values and merge the results into a single set.</p>
 				<div class="body-code">
 				    <p>pageViews := load(//pageViews)
-pageViewsForUser('userId) := {userId: 'userId, meanPageView: mean(pageViews.duration where pageViews.userId = 'userId)}
+pageViewsForUser('userId) := {userId: 'userId, 
+                              meanPageView: mean(pageViews.duration where pageViews.userId = 'userId)}
 pageViewsForUser
 
 [{"userId":12359,"meanPageView":83},{"userId":12347,"meanPageView":42}, ...]
