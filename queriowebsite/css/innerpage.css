@@ -1816,10 +1816,11 @@ h1 {
 #console {
     width: 768px;
     height: 350px;
+    max-height: 350px;
 }
 
 #console div.jquery-console-inner {
-    height: 330px;
+    min-height: 330px;
 }
 
 #body-content-left-dev-cntr ul {
@@ -1884,6 +1885,7 @@ h1 {
     font-size: 12px;
     margin-top: 30px;
     overflow: auto;
+    max-height: 200px;
 }
 
 .console div.jquery-console-inner {
