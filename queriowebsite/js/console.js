@@ -13,14 +13,16 @@ function _console(id, query)
       return true;
     },
     commandHandle:function(line,report){
+      window.console.log("handle: " + line);
       controller.continuedPrompt = true;
       scroll();
 //      window.console.log("commandHandle");
       return;
     },
     execute:function(line, handler){
+      window.console.log("execute: " + line);
       if(line == "") return false;
-      controller.continuedPrompt = false;
+//      controller.continuedPrompt = false;
 
       API.Http.Jsonp.post(service, line, {
         success : function(data) {

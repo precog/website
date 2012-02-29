@@ -482,6 +482,8 @@
                         // Command succeeded without a result.
 //                        commandResult();
                     } else {
+                        working = false;
+                        extern.continuedPrompt = false;
                         commandResult('Command failed.',
                                       "error");
                     }
@@ -538,6 +540,8 @@
                         // Command succeeded without a result.
                         commandResult();
                     } else {
+                        working = false;
+                        extern.continuedPrompt = false;
                         commandResult('Command failed.',
                                       "jquery-console-message-error");
                     }
@@ -548,7 +552,11 @@
                 } else if (extern.continuedPrompt) {
                     commandResult();
                 } else {
-//                    extern.continuedPrompt = true;
+                    if(!working)
+                    {
+                        extern.continuedPrompt = true;
+                        newPromptBox();
+                    }
 //                    enableInput();
 //                    commandResult();
                 }
@@ -558,11 +566,13 @@
         ////////////////////////////////////////////////////////////////////////
         // Disable input
 	function disableInput() {
+        $console.log("DISABLED " + working);
 	    acceptInput = false;
 	};
 
         // Enable input
 	function enableInput() {
+        $console.log("ENABLED " + working);
 	    acceptInput = true;
 	}
 
