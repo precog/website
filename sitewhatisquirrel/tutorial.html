@@ -101,7 +101,7 @@ square - 1
 				<div class="body-code">
 				    <p>payments := load(//payments)
 payments
-[{amount: "29.95", date: 92348943, recipients: ["John", "Mary"]}, ...]
+[{"date":1330497295803,"amount":500.0,"recipients":["research","marketting"]},...]
 </p>
 				</div>
 				<p>The load function returns all the data stored at the specified path, even if the values have differing types or schemas.</p>
@@ -110,10 +110,10 @@ payments
 				<div class="body-code">
 				    <p>payments := load(//payments)
 payments.date
-[9812389, 18923892, ...]
+[1330404486064, 1330445714479, 1330577286058, ...]
 
-payments.recipients[0].name
-["John", "Mary", ...]
+payments.recipients[0]
+["research", "operations", ...]
 				    </p>
 				</div>
 				<p>The descent operators filter the data set to those items that contain the specified field or array index.</p>
@@ -127,7 +127,7 @@ mean(load(//payments).amount)
 [23.91]
 
 sum(load(//payments).amount)
-[12899348.99]
+[2207442.93]
 				    </p>
 				</div>
 				<p>See the Quirrel reference guide for documentation on all supported reductions.</p>
@@ -137,8 +137,8 @@ sum(load(//payments).amount)
 			        <p>All functions and operators in Quirrel operate on sets of events, not values. When you add two sets (for example), Quirrel finds the events whose identities match, and adds their values, to produce a new set.</p>
 				<div class="body-code">
 				    <p>orders := load(//orders)
-orders.purchaseTotal + orders.tax + orders.shipping + orders.handling
-[199.95, 27.99, ...]
+orders.subTotal + orders.subTotal * orders.taxRate + orders.shipping + orders.handling
+[134.31905, 156.09615, 31.30669, 94.3478, ...]
 				    </p>
 				</div>
 				<p>The set-oriented nature of Quirrel lets you perform bulk operations without having to iterate over elements. This property is also what makes it possible to efficiently distribute Quirrel queries across clusters of machines.</p>
@@ -147,18 +147,21 @@ orders.purchaseTotal + orders.tax + orders.shipping + orders.handling
 				<div class="body-code">
 				    <p>payments := load(//payments)
 payments.amount * 0.10
+[39.560, 47.780, 25.3480, ...]
 				    </p>
 				</div>
 				<p>In this example, all values in the _payments.amount_ set are multiplied by 0.10, because the 0.10 event has bottom identity and therefore matches with all events in the "payments.amount" set.</p>
 				<h1>FILTERING</h2>
 			        <p>Quirrel has a "where" operator which allows you to filter one set by another set of boolean values.</p>
 				<div class="body-code">
-				    <p>count(payments where payments.amount > 10.00)
-[2923]
+				    <p>payments := load(//payments)
+count(payments where payments.amount > 10.00)
+[2932]
 
+users := load(//users)
 segment := users.age > 19 & users.age < 53 & users.income > 60000
 count(users where segment)
-[64]
+[74]
 				    </p>
 				</div>
 				<p>The <em>where</em> operator in Quirrel is not magical -- it's simply a function from two sets (one of which is a boolean set) to one set. You can store the boolean set in a variable if you want to use it multiple times.</p>
