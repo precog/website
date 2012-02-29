@@ -117,6 +117,7 @@ h1 {
     cursor: pointer;
     font-size: 10pt;
     padding-top: 12px;
+    color: #fff;
 }
 
 #header-nav-menu ul li a:hover {
