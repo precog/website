@@ -375,7 +375,7 @@ h1 {
     border-color: #15181A;
 }
 
-#body-content-left a, #body-content-left-dev-cntr {
+#body-content-left a, #body-content-left-dev-cntr a, #how-it-works-content a {
     text-decoration: underline !important;
 }
 
@@ -582,7 +582,7 @@ h1 {
     position: absolute;
     width: 1050px;
     display: table;
-    margin-top: 220px;
+    margin-top: 210px;
     z-index: 10;
 }
 
@@ -601,7 +601,7 @@ h1 {
     position: absolute;
     width: 1050px;
     display: table;
-    margin-top: 40px;
+    margin-top: 30px;
     z-index: 10;
 }
 
