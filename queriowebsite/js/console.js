@@ -21,10 +21,11 @@ function _console(id, query)
 
       API.Http.Jsonp.post(service, line, {
         success : function(data) {
-          handler({ msg : data, className : 'success'});
+          handler({ msg : JSON.stringify(data), className : 'success'});
           scroll();
         },
         failure : function(_, message, content) {
+          console.log(content);
           handler({ msg : (content || message), className : 'error'});
           scroll();
         }
