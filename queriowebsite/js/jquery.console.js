@@ -38,6 +38,7 @@
 //   Google Chrome 5.0.375.55 (Mac)
 
 (function($){
+    $console = ('undefined' != typeof window.console ? window.console : null);
     $.fn.console = function(config){
         ////////////////////////////////////////////////////////////////////////
         // Constants
@@ -216,6 +217,14 @@
                 }
                 typer.consoleInsert(lines[i]);
             }
+//            updatePromptDisplay();
+//            continuedPrompt = false;
+//            updatePromptDisplay();
+//            continuedPrompt = false;
+
+            extern.continuedPrompt = false;
+
+//            updatePromptDisplay();
         }
 
         ////////////////////////////////////////////////////////////////////////
@@ -239,6 +248,7 @@
         ////////////////////////////////////////////////////////////////////////
         // Handle setting focus
         container.click(function(){
+//            $console.log("FOCUS");
             inner.addClass('jquery-console-focus');
             inner.removeClass('jquery-console-nofocus');
             typer.focus();
@@ -249,6 +259,7 @@
         ////////////////////////////////////////////////////////////////////////
         // Handle losing focus
         typer.blur(function(){
+//            $console.log("BLUR");
             inner.removeClass('jquery-console-focus');
             inner.addClass('jquery-console-nofocus');
         });
@@ -285,9 +296,9 @@
             var keyCode = e.keyCode;
 	    // C-c: cancel the execution
 	    if(e.ctrlKey && keyCode == 67) {
-		cancelKeyPress = keyCode;
-		cancelExecution();
-		return false;
+    		cancelKeyPress = keyCode;
+    		cancelExecution();
+    		return false;
 	    }
 	    if (acceptInput) {
     		if (e.shiftKey && keyCode in shiftCodes) {
@@ -494,7 +505,7 @@
         // Handle a command
         function handleCommand() {
             if (typeof config.commandHandle == 'function') {
-		disableInput();
+		        disableInput();
                 addToHistory(promptText);
                 var text = promptText;
                 if (extern.continuedPrompt) {
@@ -504,10 +515,14 @@
                 } else continuedText = undefined;
                 if (continuedText) text = continuedText;
                 var ret = config.commandHandle(text,function(msgs){
+                    extern.continuedPrompt = false;
                     commandResult(msgs);
                 });
                 if (extern.continuedPrompt && !continuedText)
+                {
                   continuedText = promptText;
+//                  $console.log("HERE");
+                }
                 if (typeof ret == 'boolean') {
                     if (ret) {
                         // Command succeeded without a result.
@@ -522,6 +537,10 @@
                     commandResult(ret);
                 } else if (extern.continuedPrompt) {
                     commandResult();
+                } else {
+//                    extern.continuedPrompt = true;
+//                    enableInput();
+//                    commandResult();
                 }
             }
         };

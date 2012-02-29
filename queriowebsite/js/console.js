@@ -1,6 +1,6 @@
 var service = "http://demo.precog.io/services/quirrel/v1/query?tokenId=C5EF0038-A2A2-47EB-88A4-AAFCE59EC22B";
 
-function console(id, query)
+function _console(id, query)
 {
   var console = $('#'+id),
     scroll = function() { console.animate({ scrollTop: console.prop("scrollHeight") }, 250); }
@@ -9,11 +9,13 @@ function console(id, query)
     continuedPromptLabel: '       | ',
     commandValidate:function(line){
       scroll();
+//      window.console.log("commandValidate");
       return true;
     },
     commandHandle:function(line,report){
       controller.continuedPrompt = true;
       scroll();
+//      window.console.log("commandHandle");
       return;
     },
     execute:function(line, handler){
@@ -47,7 +49,7 @@ function console(id, query)
 function buildConsole(id, query)
 {
   $(document).ready(function(){
-    var controller = console(id, query);
+    var controller = _console(id, query);
     $('#'+id+'-execute-button').click(function() {
       controller.trigger();
     })
