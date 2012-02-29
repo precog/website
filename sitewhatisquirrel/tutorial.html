@@ -101,7 +101,7 @@ square - 1
 				<div class="body-code">
 				    <p>payments := load(//payments)
 payments
-[{"date":1330497295803,"amount":500.0,"recipients":["research","marketting"]},...]
+[{"date":1330497295803, "amount": 500.0, "recipients": ["research", "marketting"]}, ...]
 </p>
 				</div>
 				<p>The load function returns all the data stored at the specified path, even if the values have differing types or schemas.</p>
@@ -200,7 +200,7 @@ pageViewsForUser(12345)
 pageViewsForUser('userId) := {userId: 'userId, meanPageView: mean(pageViews.duration where pageViews.userId = 'userId)}
 pageViewsForUser
 
-[{"userId":12359,"meanPageView":83},{"userId":12347,"meanPageView":42},
+[{"userId":12359,"meanPageView":83},{"userId":12347,"meanPageView":42}, ...]
 				    </p>
 				</div>
 				<p>This query results in average page view durations for all users.</p>
@@ -209,10 +209,12 @@ pageViewsForUser
 				<div class="body-code">
 				    <p>clicks := load(//clicks)
 views  := load(//views)
-clickthroughRate('page) := {page: 'page, ctr: count(clicks where clicks.pageId = 'page) / count(views where views.pageId = 'page)}
+clickthroughRate('page) := {page: 'page, ctr: count(clicks where clicks.pageId = 'page) / 
+                                              count(views where views.pageId = 'page)}
 clickthroughRate
 
-[{"page":"page-4","ctr":0.5555555555555555555555555555555556}, {"page":"page-1","ctr":2.076923076923076923076923076923077}, ...]
+[{"page":"page-4","ctr":0.5555555555555555555555555555555556}, 
+ {"page":"page-1","ctr":2.076923076923076923076923076923077}, ...]
                                     
 				    </p>
 				</div>
@@ -224,7 +226,8 @@ clickthroughRate
 clicksWithDays := clicks with {day: (std :: time :: dayOfYear(clicks.timeString)) }
 clicksWithDays
 
-[{"timeString":"2012-02-16T09:16:56.645+14:00","pageId":"page-0","time":1329333416645,"userId":"user-1010","day":47,"timeZone":"+14:00"}, ...]
+[{"timeString": "2012-02-16T09:16:56.645+14:00", "pageId": "page-0", "time": 1329333416645,
+  "userId": "user-1010", "day": 47,"timeZone": "+14:00"}, ...]
 				    </p>
 				</div>
 				<p>In this query, a "day" field is added to the click objects.</p>
@@ -250,7 +253,7 @@ users' := new users
 users ~ users'
 { location: users.location.state,  income: users.income }
 
-[{"location":"ID","income":150000},{"location":"TX","income":109000}, ...]
+[{"location": "ID", "income": 150000}, {"location": "TX", "income": 109000}, ...]
 				    </p>
 				</div>
 				<p>The above query produces a cross-product of all states and income levels.</p>
