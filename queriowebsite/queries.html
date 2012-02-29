@@ -253,7 +253,10 @@
                     <div class="console-tutorials console" id="console-userfunction">
                         <div class="jquery-console-inner jquery-console-nofocus">
                             <div class="jquery-console-prompt-box">
-                                <span class="jquery-console-prompt-label">       | </span><span class="jquery-console-prompt">pageViews := load(//pageViews)\npageViewsForUser('userId) := pageViews where pageViews.userId = 'userId</span>
+                                <span class="jquery-console-prompt-label">       | </span><span class="jquery-console-prompt">pageViews := load(//pageViews)</span>
+                            </div>
+                            <div class="jquery-console-prompt-box">
+                                <span class="jquery-console-prompt-label">       | </span><span class="jquery-console-prompt">pageViewsForUser('userId) := pageViews where pageViews.userId = 'userId</span>
                             </div>
                         </div>
                     </div>
@@ -295,7 +298,7 @@
                     <script type="text/javascript">buildConsole('console-partialfunction2', 'clicks := load(//clicks)\nviews  := load(//views)\nclickthroughRate(\'page) := {page: \'page, ctr: count(clicks where clicks.pageId = \'page) / count(views where views.pageId = \'page)}\nclickthroughRate')</script>
                     <div class="body-section-breaker">
                     </div>
-                    <p>The final set contains objects that have a <em>day</em> field and a <em>ctr</em> field (the clickthrough rate on the specified day).</p>
+                    <p>The final set contains objects that have a <em>page</em> field and a <em>ctr</em> field (the clickthrough rate for the specified page).</p>
                     <h2>AUGMENTATION</h2>
                     <p>You can easily add more fields to objects, or more elements to arrays, with the <em>with</em> operator.</p>
                     <div class="console-tutorials console" id="console-augmentation"></div>
@@ -308,7 +311,7 @@
                     </div>
                     <p>In this query, a "day" field is added to the click objects.</p>
                     <h2>JOINS</h2>
-                    <p>The most complicated operator in Quirrel is the relate operator 'relate', which joins together sets that don't share identities, and allows you to perform operations on the joined sets.</p>
+                    <p>The most complicated operator in Quirrel is the relate operator '~', which joins together sets that don't share identities, and allows you to perform operations on the joined sets.</p>
                     <div class="console-tutorials console" id="console-join"></div>
                     <div class="console-execute">
                         <div class="console-execute-button button-top-adjust" id="console-join-execute-button">
@@ -331,7 +334,7 @@
                     <p>The above query produces a cross-product of all states and income levels.</p>
                     <h2>THAT'S IT!</h2>
                     <p>Quirrel has many built-in functions that help you do analytics. However, you now know all there is to know about Quirrel syntax and semantics.</p>
-                    <p>Check out the analytics gallery to see how Quirrel makes short work of even very hard analytical problems!</p>
+                    <p>Go ahead and play with our <a href="console.html">live console</a> to explore further!</p>
                     
                 </div>
                 <div id="body-content-right-dev-cntr">
