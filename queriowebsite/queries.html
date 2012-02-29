@@ -152,7 +152,7 @@
                         <div class="console-execute-button button-top-adjust" id="console-arrayaccess-execute-button">
                         </div>
                     </div>
-                    <script type="text/javascript">buildConsole('console-arrayaccess', 'payments := load(//payments)\npayments.date\npayments.recipients[0].name')</script>
+                    <script type="text/javascript">buildConsole('console-arrayaccess', 'payments := load(//payments)\npayments.recipients[0]')</script>
                     <div class="body-section-breaker">
                     </div>
                     <p>The descent operators filter the data set to those items that contain the specified field or array index.</p>
@@ -192,7 +192,7 @@
                         <div class="console-execute-button button-top-adjust" id="console-identity-execute-button">
                         </div>
                     </div>
-                    <script type="text/javascript">buildConsole('console-identity', 'orders := load(//orders)\norders.purchaseTotal + orders.tax + orders.shipping + orders.handling')</script>
+                    <script type="text/javascript">buildConsole('console-identity', 'orders := load(//orders)\norders.subTotal + orders.subTotal * orders.taxRate + orders.shipping + orders.handling')</script>
                     <div class="body-section-breaker">
                     </div>
                     <p>The set-oriented nature of Quirrel lets you perform bulk operations without having to iterate over elements. This property is also what makes it possible to efficiently distribute Quirrel queries across clusters of machines.</p>
@@ -214,14 +214,14 @@
                         <div class="console-execute-button button-top-adjust" id="console-filter-execute-button">
                         </div>
                     </div>
-                    <script type="text/javascript">buildConsole('console-filter', 'count(payments where payments.amount > 10.00)')</script>
+                    <script type="text/javascript">buildConsole('console-filter', 'payments := load(//payments)\ncount(payments where payments.amount > 10.00)')</script>
 
                     <div class="console-tutorials console" id="console-where"></div>
                     <div class="console-execute">
                         <div class="console-execute-button button-top-adjust" id="console-where-execute-button">
                         </div>
                     </div>
-                    <script type="text/javascript">buildConsole('console-where', 'segment := users.age > 19 & users.age < 53 & users.income > 60000\ncount(users where segment)')</script>
+                    <script type="text/javascript">buildConsole('console-where', 'users := load(//users)\nsegment := users.age > 19 & users.age < 53 & users.income > 60000\ncount(users where segment)')</script>
                     <div class="body-section-breaker">
                     </div>
                     <p>The _where_ operator in Quirrel is not magical -- it's simply a function from two sets (one of which is a boolean set) to one set. You can store the boolean set in a variable if you want to use it multiple times.</p>
@@ -243,7 +243,7 @@
                         <div class="console-execute-button button-top-adjust" id="console-userfunction-execute-button">
                         </div>
                     </div>
-                    <script type="text/javascript">buildConsole('console-userfunction', "pageViewsForUser('userId) := pageViews where pageViews.userId = 'userId")</script>
+                    <script type="text/javascript">buildConsole('console-userfunction', "pageViews := pageViewsForUser('userId) := pageViews where pageViews.userId = 'userId")</script>
                     <div class="body-section-breaker">
                     </div>
                     <p>This function returns all page views for a given userId.</p>
@@ -254,7 +254,7 @@
                         <div class="console-execute-button button-top-adjust" id="console-fullyapplied-execute-button">
                         </div>
                     </div>
-                    <script type="text/javascript">buildConsole('console-fullyapplied', 'pageViewsForUser(\'userId) := pageViews where pageViews.userId = \'userId\npageViewsForUser("jdoe")')</script>
+                    <script type="text/javascript">buildConsole('console-fullyapplied', 'pageViews := load(//pageViews)\npageViewsForUser(\'userId) := pageViews where pageViews.userId = \'userId\npageViewsForUser(12345)')</script>
                     <div class="body-section-breaker">
                     </div>
                     <h2>PARTIALLY-APPLIED FUNCTIONS, PART I</h2>
@@ -268,7 +268,7 @@
                         <div class="console-execute-button button-top-adjust" id="console-partialfunction1-execute-button">
                         </div>
                     </div>
-                    <script type="text/javascript">buildConsole('console-partialfunction1', 'pageViewsForUser(\'userId) := mean(pageViews.duration where pageViews.userId = \'userId)\npageViewsForUser')</script>
+                    <script type="text/javascript">buildConsole('console-partialfunction1', 'pageViews := load(//pageViews)\npageViewsForUser(\'userId) := {userId: \'userId, meanPageView: mean(pageViews.duration where pageViews.userId = \'userId)}\npageViewsForUser')</script>
                     <div class="body-section-breaker">
                     </div>
                     <p>This query results in average page view durations for all users.</p>
