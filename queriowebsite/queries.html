@@ -310,7 +310,7 @@
                         <div class="console-execute-button button-top-adjust" id="console-join-execute-button">
                         </div>
                     </div>
-                    <script type="text/javascript">buildConsole('console-join', 'customers := load(//customers)\norders := load(//orders)\nfractionForUser(\'userId) :=\n  customers where customers.userId = \'userId :: orders where orders.userId = \'userId\n  orders.total / customers.income')</script>
+                    <script type="text/javascript">buildConsole('console-join', 'customers := load(//customers)\norders := load(//orders)\nfractionForUser(\'userId) :=\n  customers where customers.userId = \'userId :: orders where orders.userId = \'userId\n  orders.total / customers.income\nfractionForUser')</script>
                     <div class="body-section-breaker">
                     </div>
                     <p>The above query relates the customers and orders sets by their userId field, then computes the total order cost over income. The relate operator is similar to SQL's JOIN operator, but more powerful.</p>
