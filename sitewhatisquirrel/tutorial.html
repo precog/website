@@ -64,7 +64,7 @@ true
 ["hello world"]</p>
 				</div>
 				<h1>NUMBERS</h1>
-			        <p>Quirrel is designed for analytics, so it has very good support for math. In fact, you can use Quirrel as a calculator!</p>
+			        <p>Quirrel is designed for analytics, so it has very good support for math. In fact, you can use Quirrel as a calculator.</p>
 				<div class="body-code">
 				    <p>5 + 2
 [7]
@@ -100,14 +100,14 @@ square - 1
 				<h1>LOADING DATA</h1>
 			        <p>The most basic query you can do is to retrieve raw data. To do this, use the <em>load</em> function, and specify the path to load data from.</p>
 				<div class="body-code">
-				    <p>payments := load(//payments)
+				    <p>load(//payments)
 payments
 [{"date":1330497295803, "amount": 500.0, "recipients": ["research", "marketting"]}, ...]
 </p>
 				</div>
 				<p>The load function returns all the data stored at the specified path, even if the values have differing types or schemas.</p>
 				<h1>FILTERED DESCENT</h1>
-			        <p>Quirrel has direct support for JavaScript's <em>object descent</em> and <em>array descent</em> operators. These operators allow you to descend into sets containing objects or arrays.</p>
+			        <p>Quirrel has direct support for JavaScript's <em>object dereference</em> and <em>array dereference</em> operators. These operations implicitly filter the dataset to those items that contain the specified field or array index.</p>
 				<div class="body-code">
 				    <p>payments := load(//payments)
 payments.date
@@ -151,7 +151,7 @@ payments.amount * 0.10
 [39.560, 47.780, 25.3480, ...]
 				    </p>
 				</div>
-				<p>In this example, all values in the _payments.amount_ set are multiplied by 0.10, because the 0.10 event has bottom identity and therefore matches with all events in the "payments.amount" set.</p>
+				<p>In this example, all values in the <em>payments.amount</em> set are multiplied by 0.10, because the 0.10 event has bottom identity and therefore matches with all events in the "payments.amount" set.</p>
 				<h1>FILTERING</h1>
 			        <p>Quirrel has a "where" operator which allows you to filter one set by another set of boolean values.</p>
 				<div class="body-code">
@@ -200,8 +200,8 @@ pageViewsForUser(12345)
 			        <p>In many cases, Quirrel knows how to compute the range of values for a parameter. If you call the function without supplying a value, Quirrel will evaluate the function at all possible values and merge the results into a single set.</p>
 				<div class="body-code">
 				    <p>pageViews := load(//pageViews)
-pageViewsForUser('userId) := {userId: 'userId, 
-                              meanPageView: mean(pageViews.duration where pageViews.userId = 'userId)}
+pageViewsForUser('userId) := 
+  {userId: 'userId, meanPageView: mean(pageViews.duration where pageViews.userId = 'userId)}
 pageViewsForUser
 
 [{"userId":12359,"meanPageView":83},{"userId":12347,"meanPageView":42}, ...]
@@ -213,8 +213,9 @@ pageViewsForUser
 				<div class="body-code">
 				    <p>clicks := load(//clicks)
 views  := load(//views)
-clickthroughRate('page) := {page: 'page, ctr: count(clicks where clicks.pageId = 'page) / 
-                                              count(views where views.pageId = 'page)}
+clickthroughRate('page) := 
+  {page: 'page, ctr: count(clicks where clicks.pageId = 'page) / 
+                     count(views where views.pageId = 'page)}
 clickthroughRate
 
 [{"page":"page-4","ctr":0.5555555555555555555555555555555556}, 
@@ -241,7 +242,9 @@ clicksWithDays
 				    <p>customers := load(//customers)
 orders := load(//orders)
 fractionForUser('userId) :=
-  customers where customers.userId = 'userId ~ orders where orders.userId = 'userId
+  customers' = customers where customers.userId = 'userId 
+  orders' = orders where orders.userId = 'userId
+  customers' ~ orders'
   orders.total / customers.income
 fractionForUser
 
