@@ -218,14 +218,6 @@
                 }
                 typer.consoleInsert(lines[i]);
             }
-//            updatePromptDisplay();
-//            continuedPrompt = false;
-//            updatePromptDisplay();
-//            continuedPrompt = false;
-
-//            extern.continuedPrompt = false;
-
-//            updatePromptDisplay();
         }
 
         ////////////////////////////////////////////////////////////////////////
@@ -249,18 +241,15 @@
         ////////////////////////////////////////////////////////////////////////
         // Handle setting focus
         container.click(function(){
-//            $console.log("FOCUS");
             inner.addClass('jquery-console-focus');
             inner.removeClass('jquery-console-nofocus');
             typer.focus();
-//            scrollToBottom();
             return false;
         });
 
         ////////////////////////////////////////////////////////////////////////
         // Handle losing focus
         typer.blur(function(){
-//            $console.log("BLUR");
             inner.removeClass('jquery-console-focus');
             inner.addClass('jquery-console-nofocus');
         });
@@ -456,7 +445,6 @@
             if(working) return;
             if (typeof config.execute == 'function') {
                 disableInput();
-                $console.log(promptText);
                 addToHistory(promptText);
                 var text = promptText;
                 if (extern.continuedPrompt) {
@@ -475,12 +463,9 @@
                 if (extern.continuedPrompt && !continuedText)
                   continuedText = promptText;
 
-                $console.log(ret);
-
                 if (typeof ret == 'boolean') {
                     if (ret) {
                         // Command succeeded without a result.
-//                        commandResult();
                     } else {
                         working = false;
                         extern.continuedPrompt = false;
@@ -527,13 +512,11 @@
                 } else continuedText = undefined;
                 if (continuedText) text = continuedText;
                 var ret = config.commandHandle(text,function(msgs){
-//                    extern.continuedPrompt = false;
                     commandResult(msgs);
                 });
                 if (extern.continuedPrompt && !continuedText)
                 {
                   continuedText = promptText;
-//                  $console.log("HERE");
                 }
                 if (typeof ret == 'boolean') {
                     if (ret) {
@@ -557,8 +540,6 @@
                         extern.continuedPrompt = true;
                         newPromptBox();
                     }
-//                    enableInput();
-//                    commandResult();
                 }
             }
         };
@@ -566,13 +547,11 @@
         ////////////////////////////////////////////////////////////////////////
         // Disable input
 	function disableInput() {
-        $console.log("DISABLED " + working);
 	    acceptInput = false;
 	};
 
         // Enable input
 	function enableInput() {
-        $console.log("ENABLED " + working);
 	    acceptInput = true;
 	}
 
