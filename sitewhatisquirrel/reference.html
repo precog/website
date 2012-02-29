@@ -77,6 +77,24 @@ true
                             <p>Note that single values are represented as single-element sets.</p>
 
                             <h1>Operator Reference</h1>
+                            <ul>
+                              <li><p class="funcsig">new arg</p><p>Produces a copy of the given set with a fresh set of identities (for use in self-joins)</p></li>
+                              <li><p class="funcsig">arg1 + arg2</p><p>Numeric addition</p></li>
+                              <li><p class="funcsig">arg1 - arg2</p><p>Numeric subtraction</p></li>
+                              <li><p class="funcsig">arg1 * arg2</p><p>Numeric multiplication</p></li>
+                              <li><p class="funcsig">arg1 / arg2</p><p>Numeric subtraction</p></li>
+                              <li><p class="funcsig">arg1 &lt; arg2</p><p>Numeric less-than comparison</p></li>
+                              <li><p class="funcsig">arg1 &lt;= arg2</p><p>Numeric less-than-equal comparison</p></li>
+                              <li><p class="funcsig">arg1 &gt; arg2</p><p>Numeric greater-than comparison</p></li>
+                              <li><p class="funcsig">arg1 &gt;= arg2</p><p>Numeric greater-than-equal comparison</p></li>
+                              <li><p class="funcsig">arg1 = arg2</p><p>Equality comparison</p></li>
+                              <li><p class="funcsig">arg1 != arg2</p><p>Negated equality comparison</p></li>
+                              <li><p class="funcsig">arg1 &amp; arg2</p><p>Boolean conjunction</p></li>
+                              <li><p class="funcsig">arg1 | arg2</p><p>Boolean disjunction</p></li>
+                              <li><p class="funcsig">! arg</p><p>Boolean complementation</p></li>
+                              <li><p class="funcsig">neg arg</p><p>Numeric negation</p></li>
+                              <li><p class="funcsig">arg1 ~ arg2 arg3</p><p>Set relation (for use in cross-set joins)</p></li>
+                            </ul>
 
                             <h1>Function Reference</h1>
                             <ul>
@@ -140,7 +158,7 @@ true
 
                             <li><p class="funcsig">sum (s : Numeric): Int</p>
                               <p>Takes a single set of numeric events and returns the sum of all the values.</p></li>
-
+                            </ul>
                           </div>
                         </div>
 		    </div>
