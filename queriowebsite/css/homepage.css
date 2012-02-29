@@ -269,9 +269,10 @@ h1 {
 
 #app-textbox p{
     font-family: 'Questrial';
-    font-size: 14pt;
+    font-size: 15pt;
     padding-top: 10px;
-    line-height: 150%;
+    padding-bottom: 5px;
+    line-height: 100%;
 }
 
 #button-getstarted-m a{
