@@ -199,7 +199,8 @@ pageViewsForUser
 				<div class="body-code">
 				    <p>clicks := load(//clicks)
 views  := load(//views)
-clickthroughRate('day) := {day: 'day, ctr: count(clicks where clicks.day = 'day) / count(views where views.day = 'day)}
+clickthroughRate('day) := {day: 'day, ctr: count(clicks where clicks.day = 'day) /
+     count(views where views.day = 'day)}
 clickthroughRate
 				    </p>
 				</div>
