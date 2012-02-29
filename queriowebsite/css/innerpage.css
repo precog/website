@@ -375,6 +375,10 @@ h1 {
     border-color: #15181A;
 }
 
+#body-content-left a, #body-content-left-dev-cntr {
+    text-decoration: underline !important;
+}
+
 #body-content-left h2{
     font-size: 20px;
     color: #C13707;
@@ -1708,6 +1712,14 @@ h1 {
     font-weight: normal;
 }
 
+#body-content-left-dev-cntr h3 {
+    font-size: 15px;
+    color: #fff;
+    padding-bottom: 4px;
+    font-family: questrial;
+    font-weight: normal;
+}
+
 #body-content-left-dev-cntr p {
     font-family:  Helvetica, Questrial, sans-serif;
     font-weight: lighter;
@@ -1942,6 +1954,55 @@ h1 {
 /*API DOCUMENTATION*/
 .api-info {
     width: 768px;
+    background-color: #14171A;
+    border-radius: 6px;
+}
+
+#body-content-left-dev-cntr .api-info table tr td {
+    padding-bottom: 20px;
+}
+
+.api-text-name {
+    font-family: questrial;
+    font-size: 12pt;
+    padding-left: 20px;
+    padding-top: 20px;
+    color: #fff;
+}
+
+.api-text-description {
+    font-family: questrial;
+    font-size: 12pt;
+    padding-left: 20px;
+    padding-top: 20px;
+    color: #fff;
+}
+
+.api-text-name-2 {
+    font-family: questrial;
+    font-size: 10pt;
+    padding-left: 20px;
+    padding-top: 20px;
+    color: #368CE6;
+    vertical-align: text-top;
+}
+
+.api-text-description-2 {
+    font-family: questrial;
+    font-size: 10pt;
+    padding-left: 20px;
+    padding-top: 20px;
+    color: #748899;
+    padding-bottom: 20px;
+    vertical-align: text-top;
+}
+
+.api-code {
+    font-family: questrial;
+    font-size: 10pt;
+    color: #EA7F1E;
+    padding-left: 20px;
+    vertical-align: middle;
 }
 
 /*FOOTER*/
