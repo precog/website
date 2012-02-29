@@ -241,7 +241,7 @@
                         <div class="console-execute-button button-top-adjust" id="console-chaining-execute-button">
                         </div>
                     </div>
-                    <script type="text/javascript">buildConsole('console-chaining', 'pageViews := load(//pageViews)\nbound := 2 * stdDev(pageViews.duration)\navg := mean(pageViews.duration)\nlongPageViews := pageViews where pageViews.duration > (avg + bound)\nlongPageViews.userId')</script>
+                    <script type="text/javascript">buildConsole('console-chaining', 'pageViews := load(//pageViews)\nbound := 1.5 * stdDev(pageViews.duration)\navg := mean(pageViews.duration)\nlongPageViews := pageViews where pageViews.duration > (avg + bound)\nlongPageViews.userId')</script>
                     <div class="body-section-breaker">
                     </div>
                     <p>This query identifies users who spend an unusually long amount of time viewing a page.</p>
