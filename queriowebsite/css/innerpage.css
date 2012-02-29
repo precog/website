@@ -1776,9 +1776,7 @@ h1 {
 
 #developer-console {
     top: -20px;
-/*
     overflow: auto;
-*/
 }
 
 #console {
@@ -1787,10 +1785,15 @@ h1 {
 }
 
 #console div.jquery-console-inner {
+    min-height: 188px;
+}
+
+/*
+.console div.jquery-console-inner {
     width: 768px;
     height: 200px;
 }
-
+*/
 .console {
     color: #fff;
     font-family: 'Monaco','Menlo','Ubuntu Mono','Droid Sans Mono','Consolas',monospace;
