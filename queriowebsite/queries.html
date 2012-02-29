@@ -247,12 +247,13 @@
                     <p>This query identifies users who spend an unusually long amount of time viewing a page.</p>
                     <h2>USER-DEFINED FUNCTIONS</h2>
                     <p>Quirrel lets you create user-defined functions, which map from one or more values to sets. These functions are often used to perform analytical queries on a group of related values. They can also be used to factor out logic that's common across different queries.</p>
-                    <div class="console-tutorials console" id="console-userfunction"></div>
-                    <div class="console-execute">
-                        <div class="console-execute-button button-top-adjust" id="console-userfunction-execute-button">
+                    <div class="console-tutorials console" id="console-userfunction">
+                        <div class="jquery-console-inner jquery-console-nofocus">
+                            <div class="jquery-console-prompt-box">
+                                <span class="jquery-console-prompt-label">       | </span><span class="jquery-console-prompt">pageViews := pageViewsForUser('userId) := pageViews where pageViews.userId = 'userId</span>
+                            </div>
                         </div>
                     </div>
-                    <script type="text/javascript">buildConsole('console-userfunction', "pageViews := pageViewsForUser('userId) := pageViews where pageViews.userId = 'userId")</script>
                     <div class="body-section-breaker">
                     </div>
                     <p>This function returns all page views for a given userId.</p>
@@ -321,7 +322,7 @@
                         <div class="console-execute-button button-top-adjust" id="console-selfjoin-execute-button">
                         </div>
                     </div>
-                    <script type="text/javascript">buildConsole('console-selfjoin', 'users  := load(//users)\nusers\' := new users\nusers ~ users\'\n{location: users.location.state,  income: users.income}')</script>
+                    <script type="text/javascript">buildConsole('console-selfjoin', 'users  := load(//users)\nusers\' := new users\nusers ~ users\'\n{ location: users.location.state,  income: users.income }')</script>
                     <div class="body-section-breaker">
                     </div>
                     <p>The above query produces a cross-product of all states and income levels.</p>
