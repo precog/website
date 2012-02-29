@@ -1709,6 +1709,12 @@ h1 {
     border-color: #15181A;
 }
 
+.body-sticker-repl {
+    position: absolute;
+    right: 58px;
+    top: 10px;
+}
+
 #body-content-left-dev-cntr h2 {
     font-size: 20px;
     color: #C13707;
