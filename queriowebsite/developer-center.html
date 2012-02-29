@@ -45,32 +45,53 @@
                 <div id="body-content-left-dev-cntr">
                     <h1 class="body-title">DEVELOPER CENTER</h1>
                     <h2>Overview</h2>
-                    <p>Precog is a platform for doing advanced analytics, statistics, and predictive modeling across large, multi-structured data sets.</p>
-                    <p>Precog is designed to be used by developers who are building applications, and who need to capture, enrich, and analyze data to power intelligent, insightful features inside their applications.</p>
+                    <p>Precog is designed to be used by developers who are building applications, and who need to capture, enrich, and analyze data to power intelligent, insightful features inside their applications. Precog is ideal for doing advanced analytics, statistics, and predictive modeling across large, multi-structured data sets.</p>
                     <p>The primary interface to Precog is through the <a href="dev-api.html">REST API</a>. However, Precog develops and maintains a growing roster of <a href="dev-client-libs.html">client libraries</a> for common programming languages. These libraries make it easier to use the REST API, and some of them add higher-level functions to perform common operations in analytics and statistics.</p>
-                    <div class="body-section-breaker">
-                    </div>
+                    <div class="body-section-breaker"></div>
                     <h2 id="features">Features</h2>
                     <ul>
                       <li class="feature-json"><em>JSON</em>. Precog uses JSON as the native underlying representation (although you can store XML or tabular data, too).</li>
+                      <li class="feature-vfs"><em>VFS</em>. Precog lets you organize data into a <em>virtual file system</em>, which has a strong capability-based security model.</li>
                       <li class="feature-multistructured"><em>Multi-structured</em>. Precog lets you store raw strings, raw numbers, arrays, key-value pairs, documents, and objects.</li>
                       <li class="feature-schemaless"><em>Schema-less</em>. Precog lets you store real-world, messy data, or change your models freely over time.</li>
                       <li class="feature-highlyscalable"><em>Highly-scalable</em>. Precog is designed to store and efficiently analyze very large amounts of data.</li>
                       <li class="feature-advancedanalysis"><em>Advanced analysis</em>. Precog is capable of very sophisticated analytics and statistics through its support of <a href="http://whatisquirrel.com">Quirrel</a>.</li>
                       <li class="feature-fastqueries"><em>Fast queries</em>. Precog adapts its storage to improve the speed of repeated queries over time.</li>
                       <li class="features-addons"><em>Add-ons</em>.Precog has a <a href="add-ons.html">growing library</a> of add-ons to help you enrich and clean your data.</li>
-                      <li class="feature-opensource"><em>Open source</em>. The technology behind Precog, PrecogDB, is being released in an open source distribution in fall 2012.</li>
+                      <li class="feature-opensource"><em>Open source</em>. The technology behind Precog, PrecogDB, is being released in an open source distribution in fall of 2012.</li>
                     </ul>
                     <!-- 
                     <div class="font-code">
                         <p>some important script</p>
                     </div> 
                     -->
+                    <div class="body-section-breaker"></div>
+                    <h2>Key Concepts</h2>
+                    
+                    <p>There are a few key concepts you should become familiar with: data format, security model, and virtual file system.
+                      
+                    <h3>Data Format</h3>
+                    
+                    <p>Precog natively stores data in an enhanced form of JSON (JSON with a few more types and support for metadata). The JSON format allows you to 
+                      store strings, numbers, arrays, and objects (currently, Precog does not support binary data).</p> 
+                    
+                    <h3>Security Model</h3>
+                    
+                    <p>UNDER CONSTRUCTION</p>
+                    
+                    <h3>Virtual File System</h3>
+                    
+                    <p>When you signup for a Precog account, you are given access to a particular directory in the Precog virtual file system. You can store data at this
+                      directory or any deeper path.</p>
+                      
+                    <p>The virtual file system can be used to organize your data or your customers data.</p>
+                    
                     <div class="body-section-breaker">
                     </div>
-                    <h2>Tutorial</h2>
-                    <p>It's easy to get started with Precog. Just <a href="pricing.html">signup</a> for an account.</p>
+                    <h2>Getting Started</h2>
+                    <p>It's super easy to get started with Precog. Just <a href="pricing.html">signup</a> for an account.</p>
                     <p>Signing up will give you access to a token that you can use to interact with the API. The token keeps your data safe and secure, accessible only to you.</p>
+                    <p>Once you have your token, head over to the <a href="api-documentation">API documentation</a> page to learn what to do with it!</p>
                 </div>
                 <div id="body-content-right-dev-cntr">
                     <div id="content-right-menu">
