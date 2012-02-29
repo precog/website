@@ -25,9 +25,7 @@ function _console(id, query)
           scroll();
         },
         failure : function(_, message, content) {
-          if(content)
-           message += "\n" + content;
-          handler({ msg : message, className : 'error'});
+          handler({ msg : (content || message), className : 'error'});
           scroll();
         }
       })
