@@ -222,12 +222,12 @@ clickthroughRate
                                     
 				    </p>
 				</div>
-				<p>The final set contains objects that have a <em>day</em> field and a <em>ctr</em> field (the clickthrough rate on the specified day).</p>
+				<p>The final set contains objects that have a <em>page</em> field and a <em>ctr</em> field (the clickthrough rate for the specified page).</p>
 				<h1>AUGMENTATION</h2>
 			        <p>You can easily add more fields to objects, or more elements to arrays, with the <em>with</em> operator.</p>
 				<div class="body-code">
 				    <p>clicks := load(//clicks)
-clicksWithDays := clicks with {day: (std :: time :: dayOfYear(clicks.timeString)) }
+clicksWithDays := clicks with {day: (std::time::dayOfYear(clicks.timeString)) }
 clicksWithDays
 
 [{"timeString": "2012-02-16T09:16:56.645+14:00", "pageId": "page-0", "time": 1329333416645,
