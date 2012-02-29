@@ -268,11 +268,12 @@ h1 {
 }
 
 #app-textbox p{
-    font-family: 'Questrial';
+    font-family: 'Helvetica';
     font-size: 15pt;
     padding-top: 10px;
     padding-bottom: 5px;
     line-height: 100%;
+    font-weight: lighter;
 }
 
 #button-getstarted-m a{
@@ -387,7 +388,7 @@ h1 {
 }
 
 #how .how-textarea p{
-    font-family: 'Questrial';
+    font-family: 'Helvetica';
     font-size: 13pt;
     color: #999999;
     left: 20px;
@@ -396,6 +397,7 @@ h1 {
     height: 64px;
     padding-top: 6px;
     line-height: 130%;
+    font-weight: lighter;
 }
 
 #how .how-textarea p:hover{
