@@ -495,7 +495,7 @@ h1 {
     font-size: 7pt;
     padding-right: 22px;
     color: #617280;
-    top: -6px;
+    top: -12px;
 }
 
 .button-learnmore-sm a {
@@ -587,9 +587,10 @@ h1 {
 }
 
 #hiw-panel-slider .hiw-text-pane p, #hiw-panel-slider .hiw-text-pane3 p, #hiw-panel-slider .hiw-text-pane4 p {
+    font-family: helvetica,sans-serif;
     width: 800px;
     height: 100px;
-    font-size: 12pt;
+    font-size: 11pt;
     color: #9BC6DC;
     display: table-cell;
     vertical-align: middle;
@@ -597,6 +598,7 @@ h1 {
     text-align: center;
     letter-spacing: 1px;
     line-height: 1.2;
+    font-weight: lighter;
 }
 
 .hiw-text-pane2 {
@@ -608,9 +610,10 @@ h1 {
 }
 
 #hiw-panel-slider .hiw-text-pane2 p {
+    font-family: helvetica,sans-serif;
     width: 800px;
     height: 100px;
-    font-size: 12pt;
+    font-size: 11pt;
     color: #9BC6DC;
     display: table-cell;
     vertical-align: middle;
@@ -618,6 +621,7 @@ h1 {
     text-align: center;
     letter-spacing: 1px;
     line-height: 1.2;
+    font-weight: lighter;
 }
 
 #hiw-menu-text {
@@ -1603,7 +1607,7 @@ h1 {
     list-style-type: square;
     list-style-image: url("../images/graphic-pricing-bullet.png");
     color: #748899;
-    font-family: questrial;
+    font-family: helvetica;
     padding-top: 4px;
 }
 
