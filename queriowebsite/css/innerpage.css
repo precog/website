@@ -1899,6 +1899,7 @@ h1 {
 }
 .console .jquery-console-message.error {
     color: #c63846;
+    white-space: pre;
 }
 
 #sticker-console {
