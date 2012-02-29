@@ -1897,6 +1897,20 @@ h1 {
     user-select: none;
 }
 
+.console-execute-button-2 {
+    width: 100px;
+    height: 39px;
+    background-image: url("../images/button-execute-lg.png");
+    z-index: 2;
+    float: right;
+    left: -12px;
+    cursor: pointer;
+}
+
+.console-execute-button-2:hover {
+    background-image: url("../images/button-execute-lg-alt.png");
+}
+
 .console-execute-button {
     width: 81px;
     height: 39px;
@@ -1923,6 +1937,11 @@ h1 {
     font-family: 'Monaco','Menlo','Ubuntu Mono','Droid Sans Mono','Consolas',monospace;
     font-size: 12px;
     border-radius: 6px;
+}
+
+/*API DOCUMENTATION*/
+.api-info {
+    width: 768px;
 }
 
 /*FOOTER*/
