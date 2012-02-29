@@ -1742,6 +1742,7 @@ h1 {
     padding-top: 34px;
     width: 190px;
     float: left;
+    min-height: 300px;
 }
 
 #content-right-menu {
@@ -1857,6 +1858,11 @@ h1 {
 
 .console-execute-button:hover {
     background-image: url("../images/button-execute-m-alt.png");
+}
+
+.button-top-adjust {
+    top: -30px !important;
+    left: -5px !important;
 }
 
 /*TUTORIALS*/
