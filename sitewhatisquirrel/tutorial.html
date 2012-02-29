@@ -101,7 +101,7 @@ square - 1
 				<div class="body-code">
 				    <p>payments := load(//payments)
 payments
-[{"date":1330497295803,"amount":500.0,"recipients":["research","marketting"]},...]
+[{"date":1330497295803, "amount": 500.0, "recipients": ["research", "marketting"]}, ...]
 </p>
 				</div>
 				<p>The load function returns all the data stored at the specified path, even if the values have differing types or schemas.</p>
@@ -186,16 +186,21 @@ longPageViews.userId
 				<h1>FULLY-APPLIED FUNCTIONS</h2>
 			        <p>You can call functions with parameters. This has the same effect as substituting the parameters into the body of the function.</p>
 				<div class="body-code">
-				    <p>pageViewsForUser('userId) := pageViews where pageViews.userId = 'userId
-pageViewsForUser("jdoe")
+				    <p>pageViews := load(//pageViews)
+pageViewsForUser('userId) := pageViews where pageViews.userId = 'userId
+pageViewsForUser(12345)
+
+[{"userId":12345,"duration":57},{"userId":12345,"duration":161},{"userId":12345,"duration":7}, ...]
 				    </p>
 				</div>
 				<h1>PARTIALLY-APPLIED FUNCTIONS, PART I</h2>
 			        <p>In many cases, Quirrel knows how to compute the range of values for a parameter. If you call the function without supplying a value, Quirrel will evaluate the function at all possible values and merge the results into a single set.</p>
 				<div class="body-code">
-				    <p>pageViewsForUser('userId) := mean(pageViews.duration where pageViews.userId = 'userId)
+				    <p>pageViews := load(//pageViews)
+pageViewsForUser('userId) := {userId: 'userId, meanPageView: mean(pageViews.duration where pageViews.userId = 'userId)}
 pageViewsForUser
-> [923, 192, 392, 129, É]
+
+[{"userId":12359,"meanPageView":83},{"userId":12347,"meanPageView":42}, ...]
 				    </p>
 				</div>
 				<p>This query results in average page view durations for all users.</p>
@@ -204,9 +209,13 @@ pageViewsForUser
 				<div class="body-code">
 				    <p>clicks := load(//clicks)
 views  := load(//views)
-clickthroughRate('day) := {day: 'day, ctr: count(clicks where clicks.day = 'day) /
-     count(views where views.day = 'day)}
+clickthroughRate('page) := {page: 'page, ctr: count(clicks where clicks.pageId = 'page) / 
+                                              count(views where views.pageId = 'page)}
 clickthroughRate
+
+[{"page":"page-4","ctr":0.5555555555555555555555555555555556}, 
+ {"page":"page-1","ctr":2.076923076923076923076923076923077}, ...]
+                                    
 				    </p>
 				</div>
 				<p>The final set contains objects that have a <em>day</em> field and a <em>ctr</em> field (the clickthrough rate on the specified day).</p>
@@ -214,17 +223,25 @@ clickthroughRate
 			        <p>You can easily add more fields to objects, or more elements to arrays, with the <em>with</em> operator.</p>
 				<div class="body-code">
 				    <p>clicks := load(//clicks)
-clicksWithDays := clicks with {day: time::day(clicks.datetime)}
+clicksWithDays := clicks with {day: (std :: time :: dayOfYear(clicks.timeString)) }
 clicksWithDays
+
+[{"timeString": "2012-02-16T09:16:56.645+14:00", "pageId": "page-0", "time": 1329333416645,
+  "userId": "user-1010", "day": 47,"timeZone": "+14:00"}, ...]
 				    </p>
 				</div>
 				<p>In this query, a "day" field is added to the click objects.</p>
 				<h1>JOINS</h2>
 			        <p>The most complicated operator in Quirrel is the relate operator 'relate', which joins together sets that don't share identities, and allows you to perform operations on the joined sets.</p>
 				<div class="body-code">
-				    <p>fractionForUser('userId) :=
-customers where customers.userId = 'userId relate orders where orders.userId = 'userId
-orders.total / customers.income
+				    <p>customers := load(//customers)
+orders := load(//orders)
+fractionForUser('userId) :=
+  customers where customers.userId = 'userId ~ orders where orders.userId = 'userId
+  orders.total / customers.income
+fractionForUser
+
+[0.0001458322727272727272727272727272727, ...]
 				    </p>
 				</div>
 				<p>The above query relates the customers and orders sets by their userId field, then computes the total order cost over income. The relate operator is similar to SQL's JOIN operator, but more powerful.</p>
@@ -233,8 +250,10 @@ orders.total / customers.income
 				<div class="body-code">
 				    <p>users  := load(//users)
 users' := new users
-users relate users'
-{location: users.location.state,  income: floor(users.income / 10) * 10}
+users ~ users'
+{ location: users.location.state,  income: users.income }
+
+[{"location": "ID", "income": 150000}, {"location": "TX", "income": 109000}, ...]
 				    </p>
 				</div>
 				<p>The above query produces a cross-product of all states and income levels.</p>

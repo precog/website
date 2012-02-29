@@ -128,6 +128,7 @@
 	var acceptInput = true;
 	// When this value is true, the command has been canceled
 	var cancelCommand = false;
+    var working = false;
 
         // External exports object
         var extern = {};
@@ -452,8 +453,10 @@
         };
 
         function executeTrigger() {
+            if(working) return;
             if (typeof config.execute == 'function') {
                 disableInput();
+                $console.log(promptText);
                 addToHistory(promptText);
                 var text = promptText;
                 if (extern.continuedPrompt) {
@@ -462,11 +465,18 @@
                   else continuedText = promptText;
                 } else continuedText = undefined;
                 if (continuedText) text = continuedText;
+                working = true;
                 var ret = config.execute(text,function(msgs){
+                    extern.continuedPrompt = false;
+                    continuedText = undefined;
                     commandResult(msgs.msg, msgs.className);
+                    working = false;
                 });
                 if (extern.continuedPrompt && !continuedText)
                   continuedText = promptText;
+
+                $console.log(ret);
+
                 if (typeof ret == 'boolean') {
                     if (ret) {
                         // Command succeeded without a result.
@@ -568,7 +578,7 @@
                     var ret = msg[x];
                     message(ret.msg,ret.className);
                 }
-            } else { // Assume it's a DOM node or jQuery object.
+            } else if(msg) { // Assume it's a DOM node or jQuery object.
               inner.append(msg);
             }
             newPromptBox();
