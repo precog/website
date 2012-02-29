@@ -299,7 +299,7 @@
                         <div class="console-execute-button button-top-adjust" id="console-augmentation-execute-button">
                         </div>
                     </div>
-                    <script type="text/javascript">buildConsole('console-augmentation', 'clicks := load(//clicks)\nclicksWithDays := clicks with {day: time::day(clicks.datetime)}\nclicksWithDays')</script>
+                    <script type="text/javascript">buildConsole('console-augmentation', 'clicks := load(//clicks)\nclicksWithDays := clicks with {day: (std :: time :: dayOfYear(clicks.timeString)) }\nclicksWithDays')</script>
                     <div class="body-section-breaker">
                     </div>
                     <p>In this query, a "day" field is added to the click objects.</p>
