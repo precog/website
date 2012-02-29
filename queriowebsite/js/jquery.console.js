@@ -222,7 +222,7 @@
 //            updatePromptDisplay();
 //            continuedPrompt = false;
 
-            extern.continuedPrompt = false;
+//            extern.continuedPrompt = false;
 
 //            updatePromptDisplay();
         }
@@ -515,7 +515,7 @@
                 } else continuedText = undefined;
                 if (continuedText) text = continuedText;
                 var ret = config.commandHandle(text,function(msgs){
-                    extern.continuedPrompt = false;
+//                    extern.continuedPrompt = false;
                     commandResult(msgs);
                 });
                 if (extern.continuedPrompt && !continuedText)

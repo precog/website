@@ -845,7 +845,7 @@ var JSON = JSON || { stringify : jQuery.toJSON, parse : jQuery.evalJSON },
           success(content);
         }
         else {
-          failure(meta.status.code, meta.status.reason);
+          failure(meta.status.code, meta.status.reason, content);
         }
 
         document.head.removeChild(document.getElementById(funcName));
