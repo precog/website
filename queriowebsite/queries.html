@@ -128,7 +128,7 @@
                     <div class="body-section-breaker">
                     </div>
                     <h2>LOADING DATA</h2>
-                    <p>The most basic query you can do is to retrieve raw data. To do this, use the _load_ function, and specify the path to load data from.</p>
+                    <p>The most basic query you can do is to retrieve raw data. To do this, use the <em>load</em> function, and specify the path to load data from.</p>
                     <div class="console-tutorials console" id="console-load"></div>
                     <div class="console-execute">
                         <div class="console-execute-button button-top-adjust" id="console-load-execute-button">
@@ -139,7 +139,7 @@
                     </div>
                     <p>The load function returns all the data stored at the specified path, even if the values have differing types or schemas.</p>
                     <h2>FILTERED DESCENT</h2>
-                    <p>Quirrel has direct support for JavaScript's _object descent_ and _array descent_ operators. These operators allow you to descend into sets containing objects or arrays.</p>
+                    <p>Quirrel has direct support for JavaScript's <em>object descent</em> and <em>array descent</em> operators. These operators allow you to descend into sets containing objects or arrays.</p>
                     <div class="console-tutorials console" id="console-jsproperty"></div>
                     <div class="console-execute">
                         <div class="console-execute-button button-top-adjust" id="console-jsproperty-execute-button">
@@ -197,7 +197,7 @@
                     </div>
                     <p>The set-oriented nature of Quirrel lets you perform bulk operations without having to iterate over elements. This property is also what makes it possible to efficiently distribute Quirrel queries across clusters of machines.</p>
                     <h2>VALUES</h2>
-                    <p>Quirrel implicitly converts values like "0.10" or "male" into sets containing a single event. These events have so-called _bottom identity_, which matches against all identities.</p>
+                    <p>Quirrel implicitly converts values like "0.10" or "male" into sets containing a single event. These events have so-called <em>bottom identity</em>, which matches against all identities.</p>
                     <div class="console-tutorials console" id="console-values"></div>
                     <div class="console-execute">
                         <div class="console-execute-button button-top-adjust" id="console-values-execute-button">
@@ -224,7 +224,7 @@
                     <script type="text/javascript">buildConsole('console-where', 'segment := users.age > 19 & users.age < 53 & users.income > 60000\ncount(users where segment)')</script>
                     <div class="body-section-breaker">
                     </div>
-                    <p>The _where_ operator in Quirrel is not magical -- it's simply a function from two sets (one of which is a boolean set) to one set. You can store the boolean set in a variable if you want to use it multiple times.</p>
+                    <p>The <em>where</em> operator in Quirrel is not magical -- it's simply a function from two sets (one of which is a boolean set) to one set. You can store the boolean set in a variable if you want to use it multiple times.</p>
                     <h2>CHAINING</h2>
                     <p>Quirrel lets you chain expressions together without any limitations. This lets you easily perform multi-step analytical queries.</p>
                     <div class="console-tutorials console" id="console-chaining"></div>
@@ -282,9 +282,9 @@
                     <script type="text/javascript">buildConsole('console-partialfunction2', 'clicks := load(//clicks)\nviews  := load(//views)\nclickthroughRate(\'day) := {day: \'day, ctr: count(clicks where clicks.day = \'day) / count(views where views.day = \'day)}\nclickthroughRate')</script>
                     <div class="body-section-breaker">
                     </div>
-                    <p>The final set contains objects that have a _day_ field and a _ctr_ field (the clickthrough rate on the specified day).</p>
+                    <p>The final set contains objects that have a <em>day</em> field and a <em>ctr</em> field (the clickthrough rate on the specified day).</p>
                     <h2>AUGMENTATION</h2>
-                    <p>You can easily add more fields to objects, or more elements to arrays, with the _with_ operator.</p>
+                    <p>You can easily add more fields to objects, or more elements to arrays, with the <em>with</em> operator.</p>
                     <div class="console-tutorials console" id="console-augmentation"></div>
                     <div class="console-execute">
                         <div class="console-execute-button button-top-adjust" id="console-augmentation-execute-button">
