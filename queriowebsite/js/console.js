@@ -1,4 +1,3 @@
-$(document).ready(function(){
 var service = "http://demo.precog.io/services/quirrel/v1/query?tokenId=C5EF0038-A2A2-47EB-88A4-AAFCE59EC22B";
 
 function console(id, query)
@@ -39,12 +38,21 @@ function console(id, query)
   //  animateScroll:true,
   });
 
-  $('#'+id+'-execute-button').click(function() {
-    controller.trigger();
+  if(query)
+    controller.feed(query);
+
+  return controller;
+}
+
+function buildConsole(id, query)
+{
+  $(document).ready(function(){
+    var controller = console(id, query);
+    $('#'+id+'-execute-button').click(function() {
+      controller.trigger();
+    })
   })
 }
 
-})
 
-console('console');
-
+buildConsole('console');

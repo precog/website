@@ -206,6 +206,18 @@
             container.click();
         }
 
+        extern.feed = function(lines){
+            var lines = lines.split(/\r\n|\n|\r/g);
+            for(var i = 0; i < lines.length; i++)
+            {
+                if(i > 0)
+                {
+                    commandTrigger();
+                }
+                typer.consoleInsert(lines[i]);
+            }
+        }
+
         ////////////////////////////////////////////////////////////////////////
         // Make a new prompt box
         function newPromptBox() {

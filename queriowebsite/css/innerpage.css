@@ -1783,34 +1783,41 @@ h1 {
 
 #console {
     width: 768px;
-    height: 202px;
+    height: 200px;
+}
+
+#console div.jquery-console-inner {
+    width: 768px;
+    height: 200px;
+}
+
+.console {
     color: #fff;
     font-family: 'Monaco','Menlo','Ubuntu Mono','Droid Sans Mono','Consolas',monospace;
     font-size: 12px;
     margin-top: 30px;
+    max-height: 250px;
+    overflow: auto;
 }
 
-#console div.jquery-console-inner {
-    width:768px;
-    height:200px;
+.console div.jquery-console-inner {
     background:#000;
     padding:0.5em;
-    overflow:auto
 }
 
-#console .jquery-console-cursor {
+.console .jquery-console-cursor {
     background-color: #ccc;
 }
 
-#console .jquery-console-prompt-label {
+.console .jquery-console-prompt-label {
     color: #4629eb;
     white-space: pre;
 }
 
-#console .jquery-console-message.success {
+.console .jquery-console-message.success {
     color: #51bbce;
 }
-#console .jquery-console-message.error {
+.console .jquery-console-message.error {
     color: #c63846;
 }
 
@@ -1824,7 +1831,7 @@ h1 {
     margin-top: -20px;
 }
 
-#console-execute {
+.console-execute {
     width: 780px;
     height: 30px;
     top: 0px;
@@ -1836,7 +1843,7 @@ h1 {
     user-select: none;
 }
 
-#console-execute-button {
+.console-execute-button {
     width: 81px;
     height: 39px;
     background-image: url("../images/button-execute-m.png");
@@ -1845,7 +1852,7 @@ h1 {
     cursor: pointer;
 }
 
-#console-execute-button:hover {
+.console-execute-button:hover {
     background-image: url("../images/button-execute-m-alt.png");
 }
 

@@ -46,214 +46,276 @@
                     <h1 class="body-title">TUTORIALS</h1>
                     <h2>JSON</h2>
                     <p>Quirrel has native support for JSON. You can create strings, numbers, booleans, arrays, and objects just like you do in JavaScript.</p>
-                    <div class="console-tutorials">
-                        <p>this is a test</p>
-                    </div>
-                    <div id="console-execute">
-                        <div id="console-execute-button">
+                    <div class="console-tutorials console" id="console-json"></div>
+                    <div class="console-execute">
+                        <div class="console-execute-button" id="console-json-execute-button">
                         </div>
                     </div>
+                    <script type="text/javascript">buildConsole('console-json', '{name: "John", age: 29, gender: "male"}')</script>
+
+                    <div class="console-tutorials console" id="console-bool"></div>
+                    <div class="console-execute">
+                        <div class="console-execute-button" id="console-bool-execute-button">
+                        </div>
+                    </div>
+                    <script type="text/javascript">buildConsole('console-bool', 'true')</script>
+
+                    <div class="console-tutorials console" id="console-string"></div>
+                    <div class="console-execute">
+                        <div class="console-execute-button" id="console-string-execute-button">
+                        </div>
+                    </div>
+                    <script type="text/javascript">buildConsole('console-string', '"hello world"')</script>
                     <div class="body-section-breaker">
                     </div>
                     <h2>NUMBERS</h2>
                     <p>Quirrel is designed for analytics, so it has very good support for math. In fact, you can use Quirrel as a calculator!</p>
-                    <div class="console-tutorials">
-                        <p>this is a test</p>
-                    </div>
-                    <div id="console-execute">
-                        <div id="console-execute-button">
+
+                    <div class="console-tutorials console" id="console-sum"></div>
+                    <div class="console-execute">
+                        <div class="console-execute-button" id="console-sum-execute-button">
                         </div>
                     </div>
+                    <script type="text/javascript">buildConsole('console-sum', '5 + 2')</script>
+
+                    <div class="console-tutorials console" id="console-mul"></div>
+                    <div class="console-execute">
+                        <div class="console-execute-button" id="console-mul-execute-button">
+                        </div>
+                    </div>
+                    <script type="text/javascript">buildConsole('console-mul', '8 * 2')</script>
+
+
                     <p>Quirrel has an extensive built-in library of mathematical functions. Check the reference guide to see them all.</p>
                     <div class="body-section-breaker">
                     </div>
                     <h2>BOOLEANS</h2>
                     <p>Quirrel supports equality and inequality operators, which result in boolean values. These operators are often used to filter sets of data (a topic covered later).</p>
-                    <div class="console-tutorials">
-                        <p>this is a test</p>
-                    </div>
-                    <div id="console-execute">
-                        <div id="console-execute-button">
+                    <div class="console-tutorials console" id="console-bigger"></div>
+                    <div class="console-execute">
+                        <div class="console-execute-button" id="console-bigger-execute-button">
                         </div>
                     </div>
+                    <script type="text/javascript">buildConsole('console-bigger', '5 > 2')</script>
+
+                    <div class="console-tutorials console" id="console-different"></div>
+                    <div class="console-execute">
+                        <div class="console-execute-button" id="console-different-execute-button">
+                        </div>
+                    </div>
+                    <script type="text/javascript">buildConsole('console-different', '"foo" != "foo"')</script>
+
+
                     <div class="body-section-breaker">
                     </div>
+                    <p>The full list of equality/inequality operators includes = (equal), != (not equal), < (less than), > (greater than), and variants like <= and >=.</p>
+
                     <h2>VARIABLES</h2>
                     <p>You can store intermediate results in variables to make your queries more readable. The final expression determines what is returned by the query.</p>
-                    <div class="console-tutorials">
-                        <p>this is a test</p>
-                    </div>
-                    <div id="console-execute">
-                        <div id="console-execute-button">
+                    <div class="console-tutorials console" id="console-total"></div>
+                    <div class="console-execute">
+                        <div class="console-execute-button" id="console-total-execute-button">
                         </div>
                     </div>
+                    <script type="text/javascript">buildConsole('console-total', 'total := 2 + 1\ntotal * 3')</script>
+
+                    <div class="console-tutorials console" id="console-square"></div>
+                    <div class="console-execute">
+                        <div class="console-execute-button" id="console-square-execute-button">
+                        </div>
+                    </div>
+                    <script type="text/javascript">buildConsole('console-square', 'num := 4\nsquare := num * num\nsquare - 1')</script>
                     <div class="body-section-breaker">
                     </div>
                     <h2>LOADING DATA</h2>
                     <p>The most basic query you can do is to retrieve raw data. To do this, use the _load_ function, and specify the path to load data from.</p>
-                    <div class="console-tutorials">
-                        <p>this is a test</p>
-                    </div>
-                    <div id="console-execute">
-                        <div id="console-execute-button">
+                    <div class="console-tutorials console" id="console-load"></div>
+                    <div class="console-execute">
+                        <div class="console-execute-button" id="console-load-execute-button">
                         </div>
                     </div>
+                    <script type="text/javascript">buildConsole('console-load', 'payments := load(//payments)\npayments')</script>
                     <div class="body-section-breaker">
                     </div>
+                    <p>The load function returns all the data stored at the specified path, even if the values have differing types or schemas.</p>
                     <h2>FILTERED DESCENT</h2>
                     <p>Quirrel has direct support for JavaScript's _object descent_ and _array descent_ operators. These operators allow you to descend into sets containing objects or arrays.</p>
-                    <div class="console-tutorials">
-                        <p>this is a test</p>
-                    </div>
-                    <div id="console-execute">
-                        <div id="console-execute-button">
+                    <div class="console-tutorials console" id="console-jsproperty"></div>
+                    <div class="console-execute">
+                        <div class="console-execute-button" id="console-jsproperty-execute-button">
                         </div>
                     </div>
+                    <script type="text/javascript">buildConsole('console-jsproperty', 'payments := load(//payments)\npayments.date')</script>
+
+                    <div class="console-tutorials console" id="console-arrayaccess"></div>
+                    <div class="console-execute">
+                        <div class="console-execute-button" id="console-arrayaccess-execute-button">
+                        </div>
+                    </div>
+                    <script type="text/javascript">buildConsole('console-arrayaccess', 'payments := load(//payments)\npayments.date\npayments.recipients[0].name')</script>
                     <div class="body-section-breaker">
                     </div>
+                    <p>The descent operators filter the data set to those items that contain the specified field or array index.</p>
                     <h2>REDUCTIONS</h2>
                     <p>Quirrel can reduce sets of data into a single value. There are many built-in reductions.</p>
-                    <div class="console-tutorials">
-                        <p>this is a test</p>
-                    </div>
-                    <div id="console-execute">
-                        <div id="console-execute-button">
+                    <div class="console-tutorials console" id="console-sumcount"></div>
+                    <div class="console-execute">
+                        <div class="console-execute-button" id="console-sumcount-execute-button">
                         </div>
                     </div>
+                    <script type="text/javascript">buildConsole('console-sumcount', 'count(load(//payments))')</script>
+
+                    <div class="console-tutorials console" id="console-summean"></div>
+                    <div class="console-execute">
+                        <div class="console-execute-button" id="console-summean-execute-button">
+                        </div>
+                    </div>
+                    <script type="text/javascript">buildConsole('console-summean', 'mean(load(//payments).amount)')</script>
+
+                    <div class="console-tutorials console" id="console-sumsum"></div>
+                    <div class="console-execute">
+                        <div class="console-execute-button" id="console-sumsum-execute-button">
+                        </div>
+                    </div>
+                    <script type="text/javascript">buildConsole('console-sumsum', 'sum(load(//payments).amount)')</script>
                     <div class="body-section-breaker">
                     </div>
+                    <p>See the Quirrel reference guide for documentation on all supported reductions.</p>
                     <h2>SETS OF EVENTS</h2>
                     <p>In Quirrel, every expression is a set of events. An event is just something that has an identity and a JSON value. Every value you store gets its own unique identity. Identities are hidden (you'll never see them), but they are used internally by Quirrel.</p>
-                    <div class="console-tutorials">
-                        <p>this is a test</p>
-                    </div>
-                    <div id="console-execute">
-                        <div id="console-execute-button">
-                        </div>
-                    </div>
                     <div class="body-section-breaker">
                     </div>
                     <h2>IDENTITY MATCHING</h2>
                     <p>All functions and operators in Quirrel operate on sets of events, not values. When you add two sets (for example), Quirrel finds the events whose identities match, and adds their values, to produce a new set.</p>
-                    <div class="console-tutorials">
-                        <p>this is a test</p>
-                    </div>
-                    <div id="console-execute">
-                        <div id="console-execute-button">
+                    <div class="console-tutorials console" id="console-identity"></div>
+                    <div class="console-execute">
+                        <div class="console-execute-button" id="console-identity-execute-button">
                         </div>
                     </div>
+                    <script type="text/javascript">buildConsole('console-identity', 'orders := load(//orders)\norders.purchaseTotal + orders.tax + orders.shipping + orders.handling')</script>
                     <div class="body-section-breaker">
                     </div>
+                    <p>The set-oriented nature of Quirrel lets you perform bulk operations without having to iterate over elements. This property is also what makes it possible to efficiently distribute Quirrel queries across clusters of machines.</p>
                     <h2>VALUES</h2>
                     <p>Quirrel implicitly converts values like "0.10" or "male" into sets containing a single event. These events have so-called _bottom identity_, which matches against all identities.</p>
-                    <div class="console-tutorials">
-                        <p>this is a test</p>
-                    </div>
-                    <div id="console-execute">
-                        <div id="console-execute-button">
+                    <div class="console-tutorials console" id="console-values"></div>
+                    <div class="console-execute">
+                        <div class="console-execute-button" id="console-values-execute-button">
                         </div>
                     </div>
+                    <script type="text/javascript">buildConsole('console-values', 'payments := load(//payments)\npayments.amount * 0.10')</script>
                     <div class="body-section-breaker">
                     </div>
+                    <p>In this example, all values in the _payments.amount_ set are multiplied by 0.10, because the 0.10 event has bottom identity and therefore matches with all events in the "payments.amount" set.</p>
                     <h2>FILTERING</h2>
                     <p>Quirrel has a "where" operator which allows you to filter one set by another set of boolean values.</p>
-                    <div class="console-tutorials">
-                        <p>this is a test</p>
-                    </div>
-                    <div id="console-execute">
-                        <div id="console-execute-button">
+                    <div class="console-tutorials console" id="console-filter"></div>
+                    <div class="console-execute">
+                        <div class="console-execute-button" id="console-filter-execute-button">
                         </div>
                     </div>
+                    <script type="text/javascript">buildConsole('console-filter', 'count(payments where payments.amount > 10.00)')</script>
+
+                    <div class="console-tutorials console" id="console-where"></div>
+                    <div class="console-execute">
+                        <div class="console-execute-button" id="console-where-execute-button">
+                        </div>
+                    </div>
+                    <script type="text/javascript">buildConsole('console-where', 'segment := users.age > 19 & users.age < 53 & users.income > 60000\ncount(users where segment)')</script>
                     <div class="body-section-breaker">
                     </div>
+                    <p>The _where_ operator in Quirrel is not magical -- it's simply a function from two sets (one of which is a boolean set) to one set. You can store the boolean set in a variable if you want to use it multiple times.</p>
                     <h2>CHAINING</h2>
                     <p>Quirrel lets you chain expressions together without any limitations. This lets you easily perform multi-step analytical queries.</p>
-                    <div class="console-tutorials">
-                        <p>this is a test</p>
-                    </div>
-                    <div id="console-execute">
-                        <div id="console-execute-button">
+                    <div class="console-tutorials console" id="console-chaining"></div>
+                    <div class="console-execute">
+                        <div class="console-execute-button" id="console-chaining-execute-button">
                         </div>
                     </div>
+                    <script type="text/javascript">buildConsole('console-chaining', 'pageViews := load(//pageViews)\nbound := 2 * stdDev(pageViews.duration)\navg := mean(pageViews.duration)\nlongPageViews := pageViews where pageViews.duration > (avg + bound)\nlongPageViews.userId')</script>
                     <div class="body-section-breaker">
                     </div>
+                    <p>This query identifies users who spend an unusually long amount of time viewing a page.</p>
                     <h2>USER-DEFINED FUNCTIONS</h2>
                     <p>Quirrel lets you create user-defined functions, which map from one or more values to sets. These functions are often used to perform analytical queries on a group of related values. They can also be used to factor out logic that's common across different queries.</p>
-                    <div class="console-tutorials">
-                        <p>this is a test</p>
-                    </div>
-                    <div id="console-execute">
-                        <div id="console-execute-button">
+                    <div class="console-tutorials console" id="console-userfunction"></div>
+                    <div class="console-execute">
+                        <div class="console-execute-button" id="console-userfunction-execute-button">
                         </div>
                     </div>
+                    <script type="text/javascript">buildConsole('console-userfunction', "pageViewsForUser('userId) := pageViews where pageViews.userId = 'userId")</script>
                     <div class="body-section-breaker">
                     </div>
+                    <p>This function returns all page views for a given userId.</p>
                     <h2>FULLY-APPLIED FUNCTIONS</h2>
                     <p>You can call functions with parameters. This has the same effect as substituting the parameters into the body of the function.</p>
-                    <div class="console-tutorials">
-                        <p>this is a test</p>
-                    </div>
-                    <div id="console-execute">
-                        <div id="console-execute-button">
+                    <div class="console-tutorials console" id="console-fullyapplied"></div>
+                    <div class="console-execute">
+                        <div class="console-execute-button" id="console-fullyapplied-execute-button">
                         </div>
                     </div>
+                    <script type="text/javascript">buildConsole('console-fullyapplied', 'pageViewsForUser(\'userId) := pageViews where pageViews.userId = \'userId\npageViewsForUser("jdoe")')</script>
                     <div class="body-section-breaker">
                     </div>
                     <h2>PARTIALLY-APPLIED FUNCTIONS, PART I</h2>
                     <p>In many cases, Quirrel knows how to compute the range of values for a parameter. If you call the function without supplying a value, Quirrel will evaluate the function at all possible values and merge the results into a single set.</p>
-                    <div class="console-tutorials">
-                        <p>this is a test</p>
-                    </div>
-                    <div id="console-execute">
-                        <div id="console-execute-button">
+                    
+
+
+
+                    <div class="console-tutorials console" id="console-partialfunction1"></div>
+                    <div class="console-execute">
+                        <div class="console-execute-button" id="console-partialfunction1-execute-button">
                         </div>
                     </div>
+                    <script type="text/javascript">buildConsole('console-partialfunction1', 'pageViewsForUser(\'userId) := mean(pageViews.duration where pageViews.userId = \'userId)\npageViewsForUser')</script>
                     <div class="body-section-breaker">
                     </div>
+                    <p>This query results in average page view durations for all users.</p>
                     <h2>PARTIALLY-APPLIED FUNCTIONS, PART II</h2>
                     <p>A common idiom in Quirrel is to save the parameters of a function into an object that contains both the parameters, and the desired calculation.</p>
-                    <div class="console-tutorials">
-                        <p>this is a test</p>
-                    </div>
-                    <div id="console-execute">
-                        <div id="console-execute-button">
+                    <div class="console-tutorials console" id="console-partialfunction2"></div>
+                    <div class="console-execute">
+                        <div class="console-execute-button" id="console-partialfunction2-execute-button">
                         </div>
                     </div>
+                    <script type="text/javascript">buildConsole('console-partialfunction2', 'clicks := load(//clicks)\nviews  := load(//views)\nclickthroughRate(\'day) := {day: \'day, ctr: count(clicks where clicks.day = \'day) / count(views where views.day = \'day)}\nclickthroughRate')</script>
                     <div class="body-section-breaker">
                     </div>
+                    <p>The final set contains objects that have a _day_ field and a _ctr_ field (the clickthrough rate on the specified day).</p>
                     <h2>AUGMENTATION</h2>
                     <p>You can easily add more fields to objects, or more elements to arrays, with the _with_ operator.</p>
-                    <div class="console-tutorials">
-                        <p>this is a test</p>
-                    </div>
-                    <div id="console-execute">
-                        <div id="console-execute-button">
+                    <div class="console-tutorials console" id="console-augmentation"></div>
+                    <div class="console-execute">
+                        <div class="console-execute-button" id="console-augmentation-execute-button">
                         </div>
                     </div>
+                    <script type="text/javascript">buildConsole('console-augmentation', 'clicks := load(//clicks)\nclicksWithDays := clicks with {day: time::day(clicks.datetime)}\nclicksWithDays')</script>
                     <div class="body-section-breaker">
                     </div>
+                    <p>In this query, a "day" field is added to the click objects.</p>
                     <h2>JOINS</h2>
                     <p>The most complicated operator in Quirrel is the relate operator 'relate', which joins together sets that don't share identities, and allows you to perform operations on the joined sets.</p>
-                    <div class="console-tutorials">
-                        <p>this is a test</p>
-                    </div>
-                    <div id="console-execute">
-                        <div id="console-execute-button">
+                    <div class="console-tutorials console" id="console-join"></div>
+                    <div class="console-execute">
+                        <div class="console-execute-button" id="console-join-execute-button">
                         </div>
                     </div>
+                    <script type="text/javascript">buildConsole('console-join', 'fractionForUser(\'userId) :=\n  customers where customers.userId = \'userId relate orders where orders.userId = \'userId\n  orders.total / customers.income')</script>
                     <div class="body-section-breaker">
                     </div>
+                    <p>The above query relates the customers and orders sets by their userId field, then computes the total order cost over income. The relate operator is similar to SQL's JOIN operator, but more powerful.</p>
                     <h2>SELF-JOINS</h2>
                     <p>Quirrel makes it easy to do self-joins by providing the 'new' operator, which conceptually creates a copy of a set, but with new identities. The new set is not related to the original set (but you can relate it with the relate operator).</p>
-                    <div class="console-tutorials">
-                        <p>this is a test</p>
-                    </div>
-                    <div id="console-execute">
-                        <div id="console-execute-button">
+                    <div class="console-tutorials console" id="console-selfjoin"></div>
+                    <div class="console-execute">
+                        <div class="console-execute-button" id="console-selfjoin-execute-button">
                         </div>
                     </div>
+                    <script type="text/javascript">buildConsole('console-selfjoin', 'users  := load(//users)\nusers\' := new users\nusers relate users\'\n{location: users.location.state,  income: floor(users.income / 10) * 10}')</script>
                     <div class="body-section-breaker">
                     </div>
+                    <p>The above query produces a cross-product of all states and income levels.</p>
                     <h2>THAT'S IT!</h2>
                     <p>Quirrel has many built-in functions that help you do analytics. However, you now know all there is to know about Quirrel syntax and semantics.</p>
                     <p>Check out the analytics gallery to see how Quirrel makes short work of even very hard analytical problems!</p>
