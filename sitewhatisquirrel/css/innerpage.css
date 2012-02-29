@@ -351,6 +351,7 @@ h1 {
     -moz-box-shadow: 3px 3px 3px #B3B3B3;
     -webkit-box-shadow: 3px 3px 3px #B3B3B3;
     box-shadow: 3px 3px 3px #B3B3B3;
+    white-space: pre;
 }
 
 #page-footer {
