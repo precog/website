@@ -169,10 +169,12 @@ count(users where segment)
 			        <p>Quirrel lets you chain expressions together without any limitations. This lets you easily perform multi-step analytical queries.</p>
 				<div class="body-code">
 				    <p>pageViews := load(//pageViews)
-bound := 2 * stdDev(pageViews.duration)
+bound := 1.5 * stdDev(pageViews.duration)
 avg := mean(pageViews.duration)
 longPageViews := pageViews where pageViews.duration > (avg + bound)
 longPageViews.userId
+
+[12352, 12354, 12360, ...]
 				    </p>
 				</div>
 				<p>This query identifies users who spend an unusually long amount of time viewing a page.</p>
