@@ -314,6 +314,7 @@ h1 {
 .sticker-repl-main {
     position: absolute;
     right: 0px;
+    z-index: 20;
 }
 
 /*howitworks*/

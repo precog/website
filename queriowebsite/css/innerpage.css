@@ -168,6 +168,7 @@ h1 {
 .sticker-repl-main {
     position: absolute;
     right: 0px;
+    z-index: 20;
 }
 
 /*body*/
@@ -1723,6 +1724,7 @@ h1 {
     position: absolute;
     right: 58px;
     top: 10px;
+    z-index: 20;
 }
 
 #body-content-left-dev-cntr h2 {
@@ -1917,6 +1919,15 @@ h1 {
     position: absolute;
     z-index: 1;
     left: 670px;
+    margin-top: -20px;
+}
+
+#sticker-whatisquirrel {
+    width: 141px;
+    height: 66px;
+    position: absolute;
+    z-index: 1;
+    left: 520px;
     margin-top: -20px;
 }
 
