@@ -595,6 +595,8 @@ h1 {
     vertical-align: middle;
     left: 125px;
     text-align: center;
+    letter-spacing: 1px;
+    line-height: 1.2;
 }
 
 .hiw-text-pane2 {
@@ -614,6 +616,8 @@ h1 {
     vertical-align: middle;
     left: 125px;
     text-align: center;
+    letter-spacing: 1px;
+    line-height: 1.2;
 }
 
 #hiw-menu-text {
@@ -1817,7 +1821,7 @@ h1 {
     line-height: 1.4;
     font-weight: lighter;
     background-repeat: no-repeat;
-    padding-lefT: 20px; 
+    padding-left: 20px; 
 }
 
 .feature-json {
