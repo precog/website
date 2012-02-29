@@ -310,6 +310,11 @@ h1 {
     background-image: url("../images/button-app-dot-alt.png");
 }
 
+.sticker-repl-main {
+    position: absolute;
+    right: 0px;
+}
+
 /*howitworks*/
 #background-main1 {
     background-image: url("../images/background-main1-home.png");
