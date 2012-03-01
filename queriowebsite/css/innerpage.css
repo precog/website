@@ -1892,7 +1892,7 @@ h1 {
 
 .console div.jquery-console-inner {
     background:#000;
-    padding:0.5em;
+    padding:1.0em;
 }
 
 .console .jquery-console-cursor {
@@ -1933,7 +1933,7 @@ h1 {
 
 .console-execute {
     width: 780px;
-    height: 30px;
+    height: 10px;
     top: 0px;
     z-index: 1;
     float: left;
@@ -1949,7 +1949,7 @@ h1 {
     background-image: url("../images/button-execute-lg.png");
     z-index: 2;
     float: right;
-    left: -12px;
+    left: -16px;
     cursor: pointer;
 }
 
@@ -1983,6 +1983,7 @@ h1 {
     font-family: 'Monaco','Menlo','Ubuntu Mono','Droid Sans Mono','Consolas',monospace;
     font-size: 12px;
     border-radius: 6px;
+    margin-top: 0px;
 }
 
 /*API DOCUMENTATION*/
