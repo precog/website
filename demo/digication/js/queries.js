@@ -229,7 +229,12 @@ function average_score_by_teachers_for_program(program)
 					teacher : teacher
 				};
 			})
-			.summary(null, ['teacher'])
+			.summary(null, ['teacher']),
+		options : {
+			click : function(dp) {
+				$('#teacher_gender_score').val(dp.teacher).change()
+			}
+		}
 	})
 }
 
@@ -304,4 +309,49 @@ function teachers(handler)
 	})
 	.map(function(o) { return o.value })
 	.execute(handler);
+}
+
+// PIVOT TABLE QUERIES
+function pt_teacher_student(filter, sort)
+{
+	var query = ReportGrid.query.intersect({
+		path : path,
+		event : eventname,
+		properties : ['teacher', 'student']
+	});
+	if(filter)
+		query = query.filter(function(dp) { return ["Walter Maldonado", "Robert Perez", "Giovanna Baker"].indexOf(dp.teacher) >= 0; });
+	if(sort)
+		query = query.sortValue("teacher");
+	ReportGrid.pivotTable("#pt_teacher_student", {
+		axes : ['teacher', 'student', 'count'],
+		load : query
+	})
+}
+
+function pt_teacher_program_student1()
+{
+	ReportGrid.pivotTable("#pt_teacher_program_student1", {
+		axes : ['teacher', 'program', 'student', 'count'],
+		load : ReportGrid.query.intersect({
+			path : path,
+			event : eventname,
+			properties : ['teacher', 'program', 'student']
+		})
+	})
+}
+
+function pt_teacher_program_student2()
+{
+	ReportGrid.pivotTable("#pt_teacher_program_student2", {
+		axes : ['teacher', 'program', 'student', 'count'],
+		load : ReportGrid.query.intersect({
+			path : path,
+			event : eventname,
+			properties : ['teacher', 'program', 'student']
+		}),
+		options : {
+			columnaxes : 2
+		}
+	})
 }

@@ -93,6 +93,13 @@ p {
 	margin: 0 auto;
 }
 
+.chart div.fluid {
+	min-width: 200px;
+	min-height: 100px;
+	width: auto;
+	height: auto;
+}
+
 /* STYLING CHART */
 #gender_scores.rg .fill-0, #comments_by_gender.rg .fill-0, #comments_sentiment.rg .fill-0 {
 	fill: pink;
