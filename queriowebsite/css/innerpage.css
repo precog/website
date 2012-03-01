@@ -512,10 +512,10 @@ h1 {
     position: absolute;
     background-image: url("../images/button-learnmore-sm.png");
     display: block;
-    width: 136px;
-    height: 50px;
-    right: 14px;
-    top: 10px;
+    width: 112px;
+    height: 28px;
+    right: 20px;
+    top: 18px;
     cursor: pointer;
 }
 
