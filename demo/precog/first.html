@@ -35,7 +35,9 @@ var callback = function(dps) {
 ReportGrid.barChart("#chart", {
     axes : ["group", "cnt"],
     load : ReportGrid.query
-        .quirrel("data := load(//organizations)\nhist('group) := { group: 'group, cnt: count(data where data.category = 'group) }\nhist").audit(callback),
+        .quirrel("data := load(//organizations)\nhist('group) := { group: 'group, cnt: count(data where data.category = 'group) }\nhist")
+        .sortValue("group")
+        .audit(callback),
     options : {
         barpadding: 2
     }
