@@ -25,7 +25,6 @@ function _console(id, query)
     },
     execute:function(line, handler){
       if(line == "") return false;
-
       API.Http.Jsonp.post(service, line, {
         success : function(data) {
           track(line, true);

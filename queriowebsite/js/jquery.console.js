@@ -458,6 +458,7 @@
                     extern.continuedPrompt = false;
                     continuedText = undefined;
                     commandResult(msgs.msg, msgs.className);
+                    extern.continuedPrompt = true;
                     working = false;
                 });
                 if (extern.continuedPrompt && !continuedText)
