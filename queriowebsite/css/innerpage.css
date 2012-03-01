@@ -1819,6 +1819,7 @@ h1 {
     width: 768px;
     height: 350px;
     max-height: 350px;
+    overflow: hidden;
 }
 
 #console div.jquery-console-inner {
@@ -1867,7 +1868,7 @@ h1 {
     background-image: url("../images/bullet-icon-fqueries.png");
 }
 
-.feature-addons {
+.features-addons {
     background-image: url("../images/bullet-icon-addons.png");
 }
 
@@ -1949,7 +1950,8 @@ h1 {
     background-image: url("../images/button-execute-lg.png");
     z-index: 2;
     float: right;
-    left: -16px;
+    top: -58px;
+    left: -12px;
     cursor: pointer;
 }
 
