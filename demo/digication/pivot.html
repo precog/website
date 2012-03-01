@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sample Project</title>
+	<link rel="stylesheet" type="text/css" href="http://api.reportgrid.com/css/rg-charts.css"/>
+	<link rel="stylesheet" type="text/css" href="css/style.css"/>
+	<script src="http://api.reportgrid.com/js/reportgrid-core.js?tokenId=A3BC1539-E8A9-4207-BB41-3036EC2C6E6D&analyticsServer=http://stageapp01.reportgrid.com/services/analytics/v1/"></script>
+	<script src="http://api.reportgrid.com/js/reportgrid-query.js"></script>
+	<script src="http://api.reportgrid.com/js/reportgrid-charts.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script src="js/queries.js"></script>
+<script>
+$(document).ready(function() {
+	function refresh_student_query()
+	{
+		pt_teacher_student($("#filter_teachers:checked").val(), $("#sort_teachers:checked").val());
+	}
+	$("#filter_teachers").click(refresh_student_query);
+	$("#sort_teachers").click(refresh_student_query);
+
+	refresh_student_query();
+	pt_teacher_program_student1();
+	pt_teacher_program_student2();
+})
+</script>
+</head>
+<body>
+	<h1>Digication Demo - Pivot Tables</h1>
+	<div class="pane">
+		<div class="controls">
+			filter teachers: <input type="checkbox" id="filter_teachers" value="true">
+			sort teachers: <input type="checkbox" id="sort_teachers" value="true">
+		</div>
+		<div class="chart">
+			<div id="pt_teacher_student" class="fluid"></div>
+			<h2>filterable and sortable pivot table</h2>
+			<p>Intersection on two dimensions + count.</p>
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div class="pane">
+		<div class="chart">
+			<div id="pt_teacher_program_student1" class="fluid"></div>
+			<h2>multi dimensions intersection</h2>
+			<p>Intersection on three dimensions + count.</p>
+		</div>
+		<div class="chart">
+			<div id="pt_teacher_program_student2" class="fluid"></div>
+			<h2>different columns/dimensions distribution</h2>
+			<p>Intersection on three dimensions + count with 2 dimensions on columns.</p>
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div id="haxe:trace"></div>
+</body>
+</html>

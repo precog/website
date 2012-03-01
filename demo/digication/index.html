@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Sample Project</title>
+	<title>Digication Demo</title>
 	<link rel="stylesheet" type="text/css" href="http://api.reportgrid.com/css/rg-charts.css"/>
 	<link rel="stylesheet" type="text/css" href="css/style.css"/>
 	<script src="http://api.reportgrid.com/js/reportgrid-core.js?tokenId=A3BC1539-E8A9-4207-BB41-3036EC2C6E6D&analyticsServer=http://stageapp01.reportgrid.com/services/analytics/v1/"></script>
@@ -55,6 +55,18 @@ $(document).ready(function() {
 <body>
 	<h1>Digication Demo</h1>
 	<div class="teacher pane">
+		<div class="controls">programs : <select id="programs"></select></div>
+		<div class="chart"><div id="average_score_by_teachers_for_program" class="thin"></div>
+			<h2>average score by teacher for program</h2>
+			<p></p>
+		</div>
+		<div class="chart"><div id="average_score_by_teachers_for_program_series" class="wide"></div>
+			<h2>average score by teacher for program over time</h2>
+			<p></p>
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div class="teacher pane">
 		<div class="controls">teacher : <select id="teacher_gender_score"><option value="">all</option></select></div>
 		<div class="chart"><div id="comments_by_gender" class="thin"></div>
 			<h2>comments by gender</h2>
@@ -83,18 +95,6 @@ $(document).ready(function() {
 		<div class="chart"><div id="average_score_by_major_series"></div>
 			<h2>average score by major over time</h2>
 			<p>(visible only when a teacher is selected)</p>
-		</div>
-		<div class="clear"></div>
-	</div>
-	<div class="teacher pane">
-		<div class="controls">programs : <select id="programs"></select></div>
-		<div class="chart"><div id="average_score_by_teachers_for_program" class="thin"></div>
-			<h2>average score by teacher for program</h2>
-			<p></p>
-		</div>
-		<div class="chart"><div id="average_score_by_teachers_for_program_series" class="wide"></div>
-			<h2>average score by teacher for program over time</h2>
-			<p></p>
 		</div>
 		<div class="clear"></div>
 	</div>
