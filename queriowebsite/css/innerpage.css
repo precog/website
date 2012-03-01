@@ -1190,11 +1190,12 @@ h1 {
     cursor: pointer;
 }
 
-#google-map {
+#contact-us-map {
     padding-left: 20px;
-    padding-top: 24px;
+    padding-top: 30px;
 }
 
+/*about*/
 .jdg {
     background-image: url("../images/graphic-johndegoes.png");
     background-repeat: no-repeat;
