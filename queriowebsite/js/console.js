@@ -1,5 +1,12 @@
 var service = "http://demo.precog.io/services/quirrel/v1/query?tokenId=C5EF0038-A2A2-47EB-88A4-AAFCE59EC22B";
 
+(function (){
+
+function track(line, success)
+{
+  _gaq.push(['_trackEvent', 'REPL', line, success ? "successful" : "failure"]);
+}
+
 function _console(id, query)
 {
   var console = $('#'+id),
@@ -21,6 +28,7 @@ function _console(id, query)
 
       API.Http.Jsonp.post(service, line, {
         success : function(data) {
+          track(line, true);
           handler({ msg : JSON.stringify(data), className : 'success'});
           scroll();
         },
@@ -44,6 +52,7 @@ function _console(id, query)
           } else {
             msg = message;
           }
+          track(line, false);
           handler({ msg : msg, className : 'error'});
           scroll();
         }
@@ -62,7 +71,7 @@ function _console(id, query)
   return controller;
 }
 
-function buildConsole(id, query)
+window.buildConsole = function(id, query)
 {
   $(document).ready(function(){
     var controller = _console(id, query);
@@ -74,3 +83,5 @@ function buildConsole(id, query)
 
 
 buildConsole('console');
+
+})()
