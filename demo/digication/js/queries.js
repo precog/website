@@ -263,7 +263,10 @@ function average_score_by_teachers_for_program_series(program)
 			segmenton : "teacher",
 			interpolation : 'basis',
 			symbol : ReportGrid.symbol("circle", 25),
-			effect : 'dropshadow'
+			effect : 'dropshadow',
+			click : function(dp) {
+				$('#teacher_gender_score').val(dp.teacher).change()
+			}
 		}
 	})
 }
