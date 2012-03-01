@@ -12,6 +12,10 @@ body { background-color: #fff;
     text-align: center;
 }
 
+html {
+    overflow-y: scroll;
+}
+
 @font-face {
     font-family: 'Abel';
     src: url('fonts/abel-regular-webfont.eot');
@@ -122,6 +126,13 @@ h1 {
 }
 
 #header-nav-menu ul li a:hover {
+    background-color: #333333;
+    color: #8CC63F;
+    border-bottom: solid;
+    border-width: 4px;
+}
+
+#header-nav-menu ul li a.header-nav-menu-active {
     background-color: #333333;
     color: #8CC63F;
     border-bottom: solid;

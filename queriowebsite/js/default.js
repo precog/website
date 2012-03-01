@@ -315,8 +315,17 @@ $("#why-dot-right").click(function(){
     );
 
 //JOBS
-$(".scrolling-right-panel-graphic").mouseover(function(){
-  $(".scrolling-right-panel-graphic").animate({
+$("#scrolling-scroll-panel").mouseover(function(){
+  $(".scrolling-right-panel-jobs").animate({
+        'left': '-1230'
+        }, 17500
+        );
+}
+);
+
+//JOBS
+$("#scrolling-scroll-panel").mouseover(function(){
+  $(".scrolling-right-panel-newsletter").animate({
         'left': '-1230'
         }, 17500
         );
