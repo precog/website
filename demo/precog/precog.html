@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="chrome=IE8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>simple</title>
+<link rel="stylesheet" type="text/css" href="http://api.reportgrid.com/css/rg-charts.css"/>
+<script src="http://api.reportgrid.com/js/reportgrid-charts.js" type="text/javascript"></script>
+<style>
+#chart {
+    width: 600px;
+    height: 400px;
+}
+</style>
+<script src="http://api.reportgrid.com/js/reportgrid-query.js" type="text/javascript"></script>
+<script src="http://api.reportgrid.com/js/precog.js?tokenId=C5EF0038-A2A2-47EB-88A4-AAFCE59EC22B" type="text/javascript"></script>
+</head>
+<style>
+#out {
+    font-family: monospace;
+    white-space: pre;
+}
+</style>
+<body>
+<div id="chart"></div>
+<div id="out"></div>
+<div id="haxe:trace"></div>
+<script>
+
+var callback = function(dps) {
+    document.getElementById('out').innerHTML += 'QUERY RESULT:\n[\n  '
+        + dps.map(function(o){ return JSON.stringify(o); }).join(',\n  ')+'\n]\n\n';
+};
+
+ReportGrid.barChart("#chart", {
+    axes : ["group", "cnt"],
+    load : ReportGrid.query
+        .quirrel("data := load(//organizations)\nhist('group) := { group: 'group, cnt: count(data where data.category = 'group) }\nhist").audit(callback),
+    options : {
+        barpadding: 2
+    }
+});
+
+
+//data := load(//organizations)\nhist('group) := { group: 'group, cnt: count(data where data.employees = 'group) }\nhist
+</script>
+</body>
+</html>
