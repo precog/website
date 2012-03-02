@@ -470,8 +470,7 @@
                     } else {
                         working = false;
                         extern.continuedPrompt = false;
-                        commandResult('Command failed.',
-                                      "error");
+                        commandResult('No query entered.', "error");
                     }
                 } else if (typeof ret == "string") {
                     commandResult(ret,"success");
@@ -526,8 +525,7 @@
                     } else {
                         working = false;
                         extern.continuedPrompt = false;
-                        commandResult('Command failed.',
-                                      "jquery-console-message-error");
+                        commandResult('No query entered', 'jquery-console-message-error');
                     }
                 } else if (typeof ret == "string") {
                     commandResult(ret,"jquery-console-message-success");
