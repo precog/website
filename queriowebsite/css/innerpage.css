@@ -422,6 +422,28 @@ h1 {
 }
 
 /*add-ons*/
+#add-ons-subnavigation {
+    position: absolute;
+    right: 0px;
+    top: 80px;
+}
+
+#add-ons-subnavigation ul li {
+    float: left;
+    padding-left: 20px;
+}
+
+#add-ons-subnavigation ul li a {
+    font-family: questrial;
+    font-size: 10pt;
+    color: #A81319;
+    text-decoration: underline;
+}
+
+#add-ons-subnavigation ul li a:hover {
+    color: #D6272C;
+}
+
 #body-add-ons {
     width: 1050px;
     padding-top: 30px;
@@ -441,6 +463,7 @@ h1 {
 .add-on-section {
     background-image: url("../images/graphic-addon-background.png");
     margin-top: 30px;
+    margin-bottom: 30px;
     width: 275px;
     height: 400px;
     float: left;
@@ -463,7 +486,7 @@ h1 {
 .app-icon-detail {
     position: relative;
     top: -10px;
-    left: -20px;
+    left: -24px;
     width: 275px;
     height: 60px;
     text-align: center;
@@ -478,18 +501,24 @@ h1 {
 }
 
 #body-add-ons .add-on-section p{
-    font-family: questrial;
-    font-size: 10pt;
+    font-family: helvetica;
+    font-size: 9pt;
     color: #fff;
     padding-left: 17.5pt;
     width: 230px;
     height: 30px;
+    font-weight: 90;
+}
+
+.add-on-pricing-options-holder {
+    padding-top: 20px;
+    padding-bottom: 14px;
 }
 
 #body-add-ons .add-on-pricing-options p {
     font-family: questrial;
     font-size: 11pt;
-    padding-top: 22px;
+    padding-top: 14px;
     padding-left: 17.5pt;
     width: 230px;
     color: #748899;

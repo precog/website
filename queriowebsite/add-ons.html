@@ -16,15 +16,15 @@
             img1.src = "images/button-learnmore-sm.png";
         }
         </script>
-<script type="text/javascript">
-$(document).ready(function(){
-    $('.button-learnmore-sm a').click(function(){
-        var el = $(this);
-        _gaq.push(['_trackEvent', 'Add-On', el.attr('data-category'), el.attr('data-type')]);
-        return true;
-    })
-})
-</script>
+        <script type="text/javascript">
+        $(document).ready(function(){
+            $('.button-learnmore-sm a').click(function(){
+                var el = $(this);
+                _gaq.push(['_trackEvent', 'Add-On', el.attr('data-category'), el.attr('data-type')]);
+                return true;
+            })
+        })
+        </script>
     </head>
     <body>
         <div id="contact-us">
@@ -60,6 +60,12 @@ $(document).ready(function(){
                 </div>
                 <div id="body-add-ons">
                     <h1>FEATURED</h1>
+                    <div id="add-ons-subnavigation">
+                        <ul>
+                            <li><a href="#link-enrichment">enrichment</a></li>
+                            <li><a href="#link-apps">apps</a></li>
+                        </ul>
+                    </div>
                     <div class="body-add-ons-section">
                         <div class="add-on-section left">
                             <div class="app-status">
@@ -70,28 +76,30 @@ $(document).ready(function(){
                             </div>
                             <h1>sentiment analysis</h1>
                             <p>Enriches text with measures of sentiment, both overall and directed at entities referenced in the text.</p>
-                            <div class="add-on-pricing-options">
-                                <p>launch<span class="align-right">$1</span></p>
-                                <div class="add-on-per-month">
-                                    <span>PER MONTH</span>
+                            <div class="add-on-pricing-options-holder">
+                                <div class="add-on-pricing-options">
+                                    <p>launch<span class="align-right">$1</span></p>
+                                    <div class="add-on-per-month">
+                                        <span>PER MONTH</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="add-on-pricing-options">
-                                <p>starter<span class="align-right">$50</span></p>
-                                <div class="add-on-per-month">
-                                    <span>PER MONTH</span>
+                                <div class="add-on-pricing-options">
+                                    <p>starter<span class="align-right">$50</span></p>
+                                    <div class="add-on-per-month">
+                                        <span>PER MONTH</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="add-on-pricing-options">
-                                <p>professional<span class="align-right">$150</span></p>
-                                <div class="add-on-per-month">
-                                    <span>PER MONTH</span>
+                                <div class="add-on-pricing-options">
+                                    <p>professional<span class="align-right">$150</span></p>
+                                    <div class="add-on-per-month">
+                                        <span>PER MONTH</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="add-on-pricing-options">
-                                <p>premium<span class="align-right">$250</span></p>
-                                <div class="add-on-per-month">
-                                    <span>PER MONTH</span>
+                                <div class="add-on-pricing-options">
+                                    <p>premium<span class="align-right">$250</span></p>
+                                    <div class="add-on-per-month">
+                                        <span>PER MONTH</span>
+                                    </div>
                                 </div>
                             </div>
                             <div class="button-learnmore-sm">
@@ -107,28 +115,30 @@ $(document).ready(function(){
                             </div>
                             <h1>demographics by e-mail</h1>
                             <p>Enriches emails with rich demographic information (gender, age, income, etc.).</p>
-                            <div class="add-on-pricing-options">
-                                <p>launch<span class="align-right">$1</span></p>
-                                <div class="add-on-per-month">
-                                    <span>PER MONTH</span>
+                            <div class="add-on-pricing-options-holder">
+                                <div class="add-on-pricing-options">
+                                    <p>launch<span class="align-right">$1</span></p>
+                                    <div class="add-on-per-month">
+                                        <span>PER MONTH</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="add-on-pricing-options">
-                                <p>starter<span class="align-right">$50</span></p>
-                                <div class="add-on-per-month">
-                                    <span>PER MONTH</span>
+                                <div class="add-on-pricing-options">
+                                    <p>starter<span class="align-right">$50</span></p>
+                                    <div class="add-on-per-month">
+                                        <span>PER MONTH</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="add-on-pricing-options">
-                                <p>professional<span class="align-right">$150</span></p>
-                                <div class="add-on-per-month">
-                                    <span>PER MONTH</span>
+                                <div class="add-on-pricing-options">
+                                    <p>professional<span class="align-right">$150</span></p>
+                                    <div class="add-on-per-month">
+                                        <span>PER MONTH</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="add-on-pricing-options">
-                                <p>premium<span class="align-right">$250</span></p>
-                                <div class="add-on-per-month">
-                                    <span>PER MONTH</span>
+                                <div class="add-on-pricing-options">
+                                    <p>premium<span class="align-right">$250</span></p>
+                                    <div class="add-on-per-month">
+                                        <span>PER MONTH</span>
+                                    </div>
                                 </div>
                             </div>
                             <div class="button-learnmore-sm">
@@ -144,28 +154,30 @@ $(document).ready(function(){
                             </div>
                             <h1>geo ip</h1>
                             <p>Enriches IP addresses with a geolocation (lat, long, city, province, country).</p>
-                            <div class="add-on-pricing-options">
-                                <p>launch<span class="align-right">$1</span></p>
-                                <div class="add-on-per-month">
-                                    <span>PER MONTH</span>
+                            <div class="add-on-pricing-options-holder">
+                                <div class="add-on-pricing-options">
+                                    <p>launch<span class="align-right">$1</span></p>
+                                    <div class="add-on-per-month">
+                                        <span>PER MONTH</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="add-on-pricing-options">
-                                <p>starter<span class="align-right">$50</span></p>
-                                <div class="add-on-per-month">
-                                    <span>PER MONTH</span>
+                                <div class="add-on-pricing-options">
+                                    <p>starter<span class="align-right">$50</span></p>
+                                    <div class="add-on-per-month">
+                                        <span>PER MONTH</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="add-on-pricing-options">
-                                <p>professional<span class="align-right">$150</span></p>
-                                <div class="add-on-per-month">
-                                    <span>PER MONTH</span>
+                                <div class="add-on-pricing-options">
+                                    <p>professional<span class="align-right">$150</span></p>
+                                    <div class="add-on-per-month">
+                                        <span>PER MONTH</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="add-on-pricing-options">
-                                <p>premium<span class="align-right">$250</span></p>
-                                <div class="add-on-per-month">
-                                    <span>PER MONTH</span>
+                                <div class="add-on-pricing-options">
+                                    <p>premium<span class="align-right">$250</span></p>
+                                    <div class="add-on-per-month">
+                                        <span>PER MONTH</span>
+                                    </div>
                                 </div>
                             </div>
                             <div class="button-learnmore-sm">
@@ -177,7 +189,7 @@ $(document).ready(function(){
                     </div>
                     <div class="atrib-clear-left">
                     </div>
-                    <h1>ENRICHMENT</h1>
+                    <h1 id="link-enrichment">ENRICHMENT</h1>
                     <p>Enrichments augment or enrich your data in some way, to make it more useful.</p>
                     <div class="body-add-ons-section">
                         <div class="add-on-section left">
@@ -189,28 +201,30 @@ $(document).ready(function(){
                             </div>
                             <h1>named entity extraction</h1>
                             <p>Enriches text with a list of all named entities referenced in the text (persons, places, or things).</p>
-                            <div class="add-on-pricing-options">
-                                <p>launch<span class="align-right">$1</span></p>
-                                <div class="add-on-per-month">
-                                    <span>PER MONTH</span>
+                            <div class="add-on-pricing-options-holder">
+                                <div class="add-on-pricing-options">
+                                    <p>launch<span class="align-right">$1</span></p>
+                                    <div class="add-on-per-month">
+                                        <span>PER MONTH</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="add-on-pricing-options">
-                                <p>starter<span class="align-right">$50</span></p>
-                                <div class="add-on-per-month">
-                                    <span>PER MONTH</span>
+                                <div class="add-on-pricing-options">
+                                    <p>starter<span class="align-right">$50</span></p>
+                                    <div class="add-on-per-month">
+                                        <span>PER MONTH</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="add-on-pricing-options">
-                                <p>professional<span class="align-right">$150</span></p>
-                                <div class="add-on-per-month">
-                                    <span>PER MONTH</span>
+                                <div class="add-on-pricing-options">
+                                    <p>professional<span class="align-right">$150</span></p>
+                                    <div class="add-on-per-month">
+                                        <span>PER MONTH</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="add-on-pricing-options">
-                                <p>premium<span class="align-right">$250</span></p>
-                                <div class="add-on-per-month">
-                                    <span>PER MONTH</span>
+                                <div class="add-on-pricing-options">
+                                    <p>premium<span class="align-right">$250</span></p>
+                                    <div class="add-on-per-month">
+                                        <span>PER MONTH</span>
+                                    </div>
                                 </div>
                             </div>
                             <div class="button-learnmore-sm">
@@ -226,28 +240,30 @@ $(document).ready(function(){
                             </div>
                             <h1>keyword-term exctraction</h1>
                             <p>Enriches text with a list of keywords relevant to the text.</p>
-                            <div class="add-on-pricing-options">
-                                <p>launch<span class="align-right">$1</span></p>
-                                <div class="add-on-per-month">
-                                    <span>PER MONTH</span>
+                            <div class="add-on-pricing-options-holder">
+                                <div class="add-on-pricing-options">
+                                    <p>launch<span class="align-right">$1</span></p>
+                                    <div class="add-on-per-month">
+                                        <span>PER MONTH</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="add-on-pricing-options">
-                                <p>starter<span class="align-right">$50</span></p>
-                                <div class="add-on-per-month">
-                                    <span>PER MONTH</span>
+                                <div class="add-on-pricing-options">
+                                    <p>starter<span class="align-right">$50</span></p>
+                                    <div class="add-on-per-month">
+                                        <span>PER MONTH</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="add-on-pricing-options">
-                                <p>professional<span class="align-right">$150</span></p>
-                                <div class="add-on-per-month">
-                                    <span>PER MONTH</span>
+                                <div class="add-on-pricing-options">
+                                    <p>professional<span class="align-right">$150</span></p>
+                                    <div class="add-on-per-month">
+                                        <span>PER MONTH</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="add-on-pricing-options">
-                                <p>premium<span class="align-right">$250</span></p>
-                                <div class="add-on-per-month">
-                                    <span>PER MONTH</span>
+                                <div class="add-on-pricing-options">
+                                    <p>premium<span class="align-right">$250</span></p>
+                                    <div class="add-on-per-month">
+                                        <span>PER MONTH</span>
+                                    </div>
                                 </div>
                             </div>
                             <div class="button-learnmore-sm">
@@ -263,28 +279,30 @@ $(document).ready(function(){
                             </div>
                             <h1>topic categorization</h1>
                             <p>Enriches text with a categorization of the subject matter of the text.</p>
-                            <div class="add-on-pricing-options">
-                                <p>launch<span class="align-right">$1</span></p>
-                                <div class="add-on-per-month">
-                                    <span>PER MONTH</span>
+                            <div class="add-on-pricing-options-holder">
+                                <div class="add-on-pricing-options">
+                                    <p>launch<span class="align-right">$1</span></p>
+                                    <div class="add-on-per-month">
+                                        <span>PER MONTH</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="add-on-pricing-options">
-                                <p>starter<span class="align-right">$50</span></p>
-                                <div class="add-on-per-month">
-                                    <span>PER MONTH</span>
+                                <div class="add-on-pricing-options">
+                                    <p>starter<span class="align-right">$50</span></p>
+                                    <div class="add-on-per-month">
+                                        <span>PER MONTH</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="add-on-pricing-options">
-                                <p>professional<span class="align-right">$150</span></p>
-                                <div class="add-on-per-month">
-                                    <span>PER MONTH</span>
+                                <div class="add-on-pricing-options">
+                                    <p>professional<span class="align-right">$150</span></p>
+                                    <div class="add-on-per-month">
+                                        <span>PER MONTH</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="add-on-pricing-options">
-                                <p>premium<span class="align-right">$250</span></p>
-                                <div class="add-on-per-month">
-                                    <span>PER MONTH</span>
+                                <div class="add-on-pricing-options">
+                                    <p>premium<span class="align-right">$250</span></p>
+                                    <div class="add-on-per-month">
+                                        <span>PER MONTH</span>
+                                    </div>
                                 </div>
                             </div>
                             <div class="button-learnmore-sm">
@@ -300,28 +318,30 @@ $(document).ready(function(){
                             </div>
                             <h1>language detection</h1>
                             <p>Enriches text with meta-data on the language the text is written in.</p>
-                            <div class="add-on-pricing-options">
-                                <p>launch<span class="align-right">$1</span></p>
-                                <div class="add-on-per-month">
-                                    <span>PER MONTH</span>
+                            <div class="add-on-pricing-options-holder">
+                                <div class="add-on-pricing-options">
+                                    <p>launch<span class="align-right">$1</span></p>
+                                    <div class="add-on-per-month">
+                                        <span>PER MONTH</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="add-on-pricing-options">
-                                <p>starter<span class="align-right">$50</span></p>
-                                <div class="add-on-per-month">
-                                    <span>PER MONTH</span>
+                                <div class="add-on-pricing-options">
+                                    <p>starter<span class="align-right">$50</span></p>
+                                    <div class="add-on-per-month">
+                                        <span>PER MONTH</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="add-on-pricing-options">
-                                <p>professional<span class="align-right">$150</span></p>
-                                <div class="add-on-per-month">
-                                    <span>PER MONTH</span>
+                                <div class="add-on-pricing-options">
+                                    <p>professional<span class="align-right">$150</span></p>
+                                    <div class="add-on-per-month">
+                                        <span>PER MONTH</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="add-on-pricing-options">
-                                <p>premium<span class="align-right">$250</span></p>
-                                <div class="add-on-per-month">
-                                    <span>PER MONTH</span>
+                                <div class="add-on-pricing-options">
+                                    <p>premium<span class="align-right">$250</span></p>
+                                    <div class="add-on-per-month">
+                                        <span>PER MONTH</span>
+                                    </div>
                                 </div>
                             </div>
                             <div class="button-learnmore-sm">
@@ -337,28 +357,30 @@ $(document).ready(function(){
                             </div>
                             <h1>html text extraction</h1>
                             <p>Enriches XML/HTML data with raw text extracted from the document.</p>
-                            <div class="add-on-pricing-options">
-                                <p>launch<span class="align-right">$1</span></p>
-                                <div class="add-on-per-month">
-                                    <span>PER MONTH</span>
+                            <div class="add-on-pricing-options-holder">
+                                <div class="add-on-pricing-options">
+                                    <p>launch<span class="align-right">$1</span></p>
+                                    <div class="add-on-per-month">
+                                        <span>PER MONTH</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="add-on-pricing-options">
-                                <p>starter<span class="align-right">$50</span></p>
-                                <div class="add-on-per-month">
-                                    <span>PER MONTH</span>
+                                <div class="add-on-pricing-options">
+                                    <p>starter<span class="align-right">$50</span></p>
+                                    <div class="add-on-per-month">
+                                        <span>PER MONTH</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="add-on-pricing-options">
-                                <p>professional<span class="align-right">$150</span></p>
-                                <div class="add-on-per-month">
-                                    <span>PER MONTH</span>
+                                <div class="add-on-pricing-options">
+                                    <p>professional<span class="align-right">$150</span></p>
+                                    <div class="add-on-per-month">
+                                        <span>PER MONTH</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="add-on-pricing-options">
-                                <p>premium<span class="align-right">$250</span></p>
-                                <div class="add-on-per-month">
-                                    <span>PER MONTH</span>
+                                <div class="add-on-pricing-options">
+                                    <p>premium<span class="align-right">$250</span></p>
+                                    <div class="add-on-per-month">
+                                        <span>PER MONTH</span>
+                                    </div>
                                 </div>
                             </div>
                             <div class="button-learnmore-sm">
@@ -374,28 +396,30 @@ $(document).ready(function(){
                             </div>
                             <h1>structured data extraction</h1>
                             <p>Enriches text with all the structured data contained inside the text.</p>
-                            <div class="add-on-pricing-options">
-                                <p>launch<span class="align-right">$1</span></p>
-                                <div class="add-on-per-month">
-                                    <span>PER MONTH</span>
+                            <div class="add-on-pricing-options-holder">
+                                <div class="add-on-pricing-options">
+                                    <p>launch<span class="align-right">$1</span></p>
+                                    <div class="add-on-per-month">
+                                        <span>PER MONTH</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="add-on-pricing-options">
-                                <p>starter<span class="align-right">$50</span></p>
-                                <div class="add-on-per-month">
-                                    <span>PER MONTH</span>
+                                <div class="add-on-pricing-options">
+                                    <p>starter<span class="align-right">$50</span></p>
+                                    <div class="add-on-per-month">
+                                        <span>PER MONTH</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="add-on-pricing-options">
-                                <p>professional<span class="align-right">$150</span></p>
-                                <div class="add-on-per-month">
-                                    <span>PER MONTH</span>
+                                <div class="add-on-pricing-options">
+                                    <p>professional<span class="align-right">$150</span></p>
+                                    <div class="add-on-per-month">
+                                        <span>PER MONTH</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="add-on-pricing-options">
-                                <p>premium<span class="align-right">$250</span></p>
-                                <div class="add-on-per-month">
-                                    <span>PER MONTH</span>
+                                <div class="add-on-pricing-options">
+                                    <p>premium<span class="align-right">$250</span></p>
+                                    <div class="add-on-per-month">
+                                        <span>PER MONTH</span>
+                                    </div>
                                 </div>
                             </div>
                             <div class="button-learnmore-sm">
@@ -411,28 +435,30 @@ $(document).ready(function(){
                             </div>
                             <h1>concept tagging</h1>
                             <p>Enriches text with tags that describe the major concepts appearing in the text.</p>
-                            <div class="add-on-pricing-options">
-                                <p>launch<span class="align-right">$1</span></p>
-                                <div class="add-on-per-month">
-                                    <span>PER MONTH</span>
+                            <div class="add-on-pricing-options-holder">
+                                <div class="add-on-pricing-options">
+                                    <p>launch<span class="align-right">$1</span></p>
+                                    <div class="add-on-per-month">
+                                        <span>PER MONTH</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="add-on-pricing-options">
-                                <p>starter<span class="align-right">$50</span></p>
-                                <div class="add-on-per-month">
-                                    <span>PER MONTH</span>
+                                <div class="add-on-pricing-options">
+                                    <p>starter<span class="align-right">$50</span></p>
+                                    <div class="add-on-per-month">
+                                        <span>PER MONTH</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="add-on-pricing-options">
-                                <p>professional<span class="align-right">$150</span></p>
-                                <div class="add-on-per-month">
-                                    <span>PER MONTH</span>
+                                <div class="add-on-pricing-options">
+                                    <p>professional<span class="align-right">$150</span></p>
+                                    <div class="add-on-per-month">
+                                        <span>PER MONTH</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="add-on-pricing-options">
-                                <p>premium<span class="align-right">$250</span></p>
-                                <div class="add-on-per-month">
-                                    <span>PER MONTH</span>
+                                <div class="add-on-pricing-options">
+                                    <p>premium<span class="align-right">$250</span></p>
+                                    <div class="add-on-per-month">
+                                        <span>PER MONTH</span>
+                                    </div>
                                 </div>
                             </div>
                             <div class="button-learnmore-sm">
@@ -448,28 +474,30 @@ $(document).ready(function(){
                             </div>
                             <h1>sentiment analysis</h1>
                             <p>Enriches text with measures of sentiment, both overall and directed at entities referenced in the text.</p>
-                            <div class="add-on-pricing-options">
-                                <p>launch<span class="align-right">$1</span></p>
-                                <div class="add-on-per-month">
-                                    <span>PER MONTH</span>
+                            <div class="add-on-pricing-options-holder">
+                                <div class="add-on-pricing-options">
+                                    <p>launch<span class="align-right">$1</span></p>
+                                    <div class="add-on-per-month">
+                                        <span>PER MONTH</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="add-on-pricing-options">
-                                <p>starter<span class="align-right">$50</span></p>
-                                <div class="add-on-per-month">
-                                    <span>PER MONTH</span>
+                                <div class="add-on-pricing-options">
+                                    <p>starter<span class="align-right">$50</span></p>
+                                    <div class="add-on-per-month">
+                                        <span>PER MONTH</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="add-on-pricing-options">
-                                <p>professional<span class="align-right">$150</span></p>
-                                <div class="add-on-per-month">
-                                    <span>PER MONTH</span>
+                                <div class="add-on-pricing-options">
+                                    <p>professional<span class="align-right">$150</span></p>
+                                    <div class="add-on-per-month">
+                                        <span>PER MONTH</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="add-on-pricing-options">
-                                <p>premium<span class="align-right">$250</span></p>
-                                <div class="add-on-per-month">
-                                    <span>PER MONTH</span>
+                                <div class="add-on-pricing-options">
+                                    <p>premium<span class="align-right">$250</span></p>
+                                    <div class="add-on-per-month">
+                                        <span>PER MONTH</span>
+                                    </div>
                                 </div>
                             </div>
                             <div class="button-learnmore-sm">
@@ -485,28 +513,30 @@ $(document).ready(function(){
                             </div>
                             <h1>relation extraction</h1>
                             <p>Enriches text with metadata describing relationships between entities referenced in the text.</p>
-                            <div class="add-on-pricing-options">
-                                <p>launch<span class="align-right">$1</span></p>
-                                <div class="add-on-per-month">
-                                    <span>PER MONTH</span>
+                            <div class="add-on-pricing-options-holder">
+                                <div class="add-on-pricing-options">
+                                    <p>launch<span class="align-right">$1</span></p>
+                                    <div class="add-on-per-month">
+                                        <span>PER MONTH</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="add-on-pricing-options">
-                                <p>starter<span class="align-right">$50</span></p>
-                                <div class="add-on-per-month">
-                                    <span>PER MONTH</span>
+                                <div class="add-on-pricing-options">
+                                    <p>starter<span class="align-right">$50</span></p>
+                                    <div class="add-on-per-month">
+                                        <span>PER MONTH</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="add-on-pricing-options">
-                                <p>professional<span class="align-right">$150</span></p>
-                                <div class="add-on-per-month">
-                                    <span>PER MONTH</span>
+                                <div class="add-on-pricing-options">
+                                    <p>professional<span class="align-right">$150</span></p>
+                                    <div class="add-on-per-month">
+                                        <span>PER MONTH</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="add-on-pricing-options">
-                                <p>premium<span class="align-right">$250</span></p>
-                                <div class="add-on-per-month">
-                                    <span>PER MONTH</span>
+                                <div class="add-on-pricing-options">
+                                    <p>premium<span class="align-right">$250</span></p>
+                                    <div class="add-on-per-month">
+                                        <span>PER MONTH</span>
+                                    </div>
                                 </div>
                             </div>
                             <div class="button-learnmore-sm">
@@ -522,28 +552,30 @@ $(document).ready(function(){
                             </div>
                             <h1>contact normalization</h1>
                             <p>Normalizes contact information (name, etc.).</p>
-                            <div class="add-on-pricing-options">
-                                <p>launch<span class="align-right">$1</span></p>
-                                <div class="add-on-per-month">
-                                    <span>PER MONTH</span>
+                            <div class="add-on-pricing-options-holder">
+                                <div class="add-on-pricing-options">
+                                    <p>launch<span class="align-right">$1</span></p>
+                                    <div class="add-on-per-month">
+                                        <span>PER MONTH</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="add-on-pricing-options">
-                                <p>starter<span class="align-right">$50</span></p>
-                                <div class="add-on-per-month">
-                                    <span>PER MONTH</span>
+                                <div class="add-on-pricing-options">
+                                    <p>starter<span class="align-right">$50</span></p>
+                                    <div class="add-on-per-month">
+                                        <span>PER MONTH</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="add-on-pricing-options">
-                                <p>professional<span class="align-right">$150</span></p>
-                                <div class="add-on-per-month">
-                                    <span>PER MONTH</span>
+                                <div class="add-on-pricing-options">
+                                    <p>professional<span class="align-right">$150</span></p>
+                                    <div class="add-on-per-month">
+                                        <span>PER MONTH</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="add-on-pricing-options">
-                                <p>premium<span class="align-right">$250</span></p>
-                                <div class="add-on-per-month">
-                                    <span>PER MONTH</span>
+                                <div class="add-on-pricing-options">
+                                    <p>premium<span class="align-right">$250</span></p>
+                                    <div class="add-on-per-month">
+                                        <span>PER MONTH</span>
+                                    </div>
                                 </div>
                             </div>
                             <div class="button-learnmore-sm">
@@ -559,28 +591,30 @@ $(document).ready(function(){
                             </div>
                             <h1>social demographics</h1>
                             <p>Enriches emails with demographics on social networks.</p>
-                            <div class="add-on-pricing-options">
-                                <p>launch<span class="align-right">$1</span></p>
-                                <div class="add-on-per-month">
-                                    <span>PER MONTH</span>
+                            <div class="add-on-pricing-options-holder">
+                                <div class="add-on-pricing-options">
+                                    <p>launch<span class="align-right">$1</span></p>
+                                    <div class="add-on-per-month">
+                                        <span>PER MONTH</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="add-on-pricing-options">
-                                <p>starter<span class="align-right">$50</span></p>
-                                <div class="add-on-per-month">
-                                    <span>PER MONTH</span>
+                                <div class="add-on-pricing-options">
+                                    <p>starter<span class="align-right">$50</span></p>
+                                    <div class="add-on-per-month">
+                                        <span>PER MONTH</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="add-on-pricing-options">
-                                <p>professional<span class="align-right">$150</span></p>
-                                <div class="add-on-per-month">
-                                    <span>PER MONTH</span>
+                                <div class="add-on-pricing-options">
+                                    <p>professional<span class="align-right">$150</span></p>
+                                    <div class="add-on-per-month">
+                                        <span>PER MONTH</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="add-on-pricing-options">
-                                <p>premium<span class="align-right">$250</span></p>
-                                <div class="add-on-per-month">
-                                    <span>PER MONTH</span>
+                                <div class="add-on-pricing-options">
+                                    <p>premium<span class="align-right">$250</span></p>
+                                    <div class="add-on-per-month">
+                                        <span>PER MONTH</span>
+                                    </div>
                                 </div>
                             </div>
                             <div class="button-learnmore-sm">
@@ -592,7 +626,7 @@ $(document).ready(function(){
                     </div>
                     <div class="body-section-breaker-lg">
                     </div>
-                    <h1>APPS</h1>
+                    <h1 id="link-apps">APPS</h1>
                     <p>Apps build on Precog to offer high-level functionality that doesn't require writing any code.</p>
                     <div class="body-add-ons-section">
                         <div class="add-on-section left">
@@ -604,28 +638,30 @@ $(document).ready(function(){
                             </div>
                             <h1>amazon s3</h1>
                             <p>Synchronizes data in a Precog account with data in an Amazon S3 bucket.</p>
-                            <div class="add-on-pricing-options">
-                                <p>launch<span class="align-right">$1</span></p>
-                                <div class="add-on-per-month">
-                                    <span>PER MONTH</span>
+                            <div class="add-on-pricing-options-holder">
+                                <div class="add-on-pricing-options">
+                                    <p>launch<span class="align-right">$1</span></p>
+                                    <div class="add-on-per-month">
+                                        <span>PER MONTH</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="add-on-pricing-options">
-                                <p>starter<span class="align-right">$50</span></p>
-                                <div class="add-on-per-month">
-                                    <span>PER MONTH</span>
+                                <div class="add-on-pricing-options">
+                                    <p>starter<span class="align-right">$50</span></p>
+                                    <div class="add-on-per-month">
+                                        <span>PER MONTH</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="add-on-pricing-options">
-                                <p>professional<span class="align-right">$150</span></p>
-                                <div class="add-on-per-month">
-                                    <span>PER MONTH</span>
+                                <div class="add-on-pricing-options">
+                                    <p>professional<span class="align-right">$150</span></p>
+                                    <div class="add-on-per-month">
+                                        <span>PER MONTH</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="add-on-pricing-options">
-                                <p>premium<span class="align-right">$250</span></p>
-                                <div class="add-on-per-month">
-                                    <span>PER MONTH</span>
+                                <div class="add-on-pricing-options">
+                                    <p>premium<span class="align-right">$250</span></p>
+                                    <div class="add-on-per-month">
+                                        <span>PER MONTH</span>
+                                    </div>
                                 </div>
                             </div>
                             <div class="button-learnmore-sm">
@@ -641,28 +677,30 @@ $(document).ready(function(){
                             </div>
                             <h1>sql synchronizer</h1>
                             <p>Synchronizes data in a Precog account with data in a relational database.</p>
-                            <div class="add-on-pricing-options">
-                                <p>launch<span class="align-right">$1</span></p>
-                                <div class="add-on-per-month">
-                                    <span>PER MONTH</span>
+                            <div class="add-on-pricing-options-holder">
+                                <div class="add-on-pricing-options">
+                                    <p>launch<span class="align-right">$1</span></p>
+                                    <div class="add-on-per-month">
+                                        <span>PER MONTH</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="add-on-pricing-options">
-                                <p>starter<span class="align-right">$50</span></p>
-                                <div class="add-on-per-month">
-                                    <span>PER MONTH</span>
+                                <div class="add-on-pricing-options">
+                                    <p>starter<span class="align-right">$50</span></p>
+                                    <div class="add-on-per-month">
+                                        <span>PER MONTH</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="add-on-pricing-options">
-                                <p>professional<span class="align-right">$150</span></p>
-                                <div class="add-on-per-month">
-                                    <span>PER MONTH</span>
+                                <div class="add-on-pricing-options">
+                                    <p>professional<span class="align-right">$150</span></p>
+                                    <div class="add-on-per-month">
+                                        <span>PER MONTH</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="add-on-pricing-options">
-                                <p>premium<span class="align-right">$250</span></p>
-                                <div class="add-on-per-month">
-                                    <span>PER MONTH</span>
+                                <div class="add-on-pricing-options">
+                                    <p>premium<span class="align-right">$250</span></p>
+                                    <div class="add-on-per-month">
+                                        <span>PER MONTH</span>
+                                    </div>
                                 </div>
                             </div>
                             <div class="button-learnmore-sm">
@@ -678,28 +716,30 @@ $(document).ready(function(){
                             </div>
                             <h1>hadoop synchronizer</h1>
                             <p>Synchronizes data in a Precog account with data in a Hadoop cluster.</p>
-                            <div class="add-on-pricing-options">
-                                <p>launch<span class="align-right">$1</span></p>
-                                <div class="add-on-per-month">
-                                    <span>PER MONTH</span>
+                            <div class="add-on-pricing-options-holder">
+                                <div class="add-on-pricing-options">
+                                    <p>launch<span class="align-right">$1</span></p>
+                                    <div class="add-on-per-month">
+                                        <span>PER MONTH</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="add-on-pricing-options">
-                                <p>starter<span class="align-right">$50</span></p>
-                                <div class="add-on-per-month">
-                                    <span>PER MONTH</span>
+                                <div class="add-on-pricing-options">
+                                    <p>starter<span class="align-right">$50</span></p>
+                                    <div class="add-on-per-month">
+                                        <span>PER MONTH</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="add-on-pricing-options">
-                                <p>professional<span class="align-right">$150</span></p>
-                                <div class="add-on-per-month">
-                                    <span>PER MONTH</span>
+                                <div class="add-on-pricing-options">
+                                    <p>professional<span class="align-right">$150</span></p>
+                                    <div class="add-on-per-month">
+                                        <span>PER MONTH</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="add-on-pricing-options">
-                                <p>premium<span class="align-right">$250</span></p>
-                                <div class="add-on-per-month">
-                                    <span>PER MONTH</span>
+                                <div class="add-on-pricing-options">
+                                    <p>premium<span class="align-right">$250</span></p>
+                                    <div class="add-on-per-month">
+                                        <span>PER MONTH</span>
+                                    </div>
                                 </div>
                             </div>
                             <div class="button-learnmore-sm">
@@ -715,28 +755,30 @@ $(document).ready(function(){
                             </div>
                             <h1>mongo db synchronizer</h1>
                             <p>Synchronizes data in a Precog account with data in a MongoDB database.</p>
-                            <div class="add-on-pricing-options">
-                                <p>launch<span class="align-right">$1</span></p>
-                                <div class="add-on-per-month">
-                                    <span>PER MONTH</span>
+                            <div class="add-on-pricing-options-holder">
+                                <div class="add-on-pricing-options">
+                                    <p>launch<span class="align-right">$1</span></p>
+                                    <div class="add-on-per-month">
+                                        <span>PER MONTH</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="add-on-pricing-options">
-                                <p>starter<span class="align-right">$50</span></p>
-                                <div class="add-on-per-month">
-                                    <span>PER MONTH</span>
+                                <div class="add-on-pricing-options">
+                                    <p>starter<span class="align-right">$50</span></p>
+                                    <div class="add-on-per-month">
+                                        <span>PER MONTH</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="add-on-pricing-options">
-                                <p>professional<span class="align-right">$150</span></p>
-                                <div class="add-on-per-month">
-                                    <span>PER MONTH</span>
+                                <div class="add-on-pricing-options">
+                                    <p>professional<span class="align-right">$150</span></p>
+                                    <div class="add-on-per-month">
+                                        <span>PER MONTH</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="add-on-pricing-options">
-                                <p>premium<span class="align-right">$250</span></p>
-                                <div class="add-on-per-month">
-                                    <span>PER MONTH</span>
+                                <div class="add-on-pricing-options">
+                                    <p>premium<span class="align-right">$250</span></p>
+                                    <div class="add-on-per-month">
+                                        <span>PER MONTH</span>
+                                    </div>
                                 </div>
                             </div>
                             <div class="button-learnmore-sm">
