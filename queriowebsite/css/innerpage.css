@@ -1106,9 +1106,8 @@ h1 {
     background-position: center;
     background-repeat: no-repeat;
     width: 580px;
-    height: 2px;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    height: 40px;
+    margin-bottom: 20px;
 }
 
 .body-section-breaker-lg {
@@ -1489,7 +1488,6 @@ h1 {
 
 #featured-event {
     width: 390px;
-    height: 200px;
     margin-left: 20px;
     margin-top: 8px;
     background-color: #15181A;
@@ -1509,11 +1507,12 @@ h1 {
 }
 
 #featured-event p {
-    font-size: 14px;
+    font-size: 12pt;
     color: #879EB3;
     padding-top: 20px;
     padding-left: 20px;
     padding-right: 20px;
+    padding-bottom: 20px;
     font-family: questrial;
 }
 
