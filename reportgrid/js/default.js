@@ -1,36 +1,32 @@
 $(document).ready(function(){
 
-$(".body-logo-1").mouseover(function(){
+$(".body-section-1").mouseover(function(){
       $("#body-text-1").animate({
-        opacity: 1.0,
-        paddingTop: 30
+        opacity: 1.0
         }, {queue: false}
         );
     }
     );
 
-$(".body-logo-1").mouseleave(function(){
+$(".body-section-1").mouseleave(function(){
       $("#body-text-1").animate({
-        opacity: 0.0,
-        paddingTop: 60
+        opacity: 0.3
         }, {queue: false}
         );
     }
     );
 
-$(".body-logo-2").mouseover(function(){
+$(".body-section-2").mouseover(function(){
       $("#body-text-2").animate({
-        opacity: 1.0,
-        paddingTop: 30
+        opacity: 1.0
         }, {queue: false}
         );
     }
     );
 
-$(".body-logo-2").mouseleave(function(){
+$(".body-section-2").mouseleave(function(){
       $("#body-text-2").animate({
-        opacity: 0.0,
-        paddingTop: 60
+        opacity: 0.3
         }, {queue: false}
         );
     }

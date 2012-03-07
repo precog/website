@@ -106,7 +106,7 @@ h1 {
     margin-left: auto;
 }
 
-.body-section {
+.body-section-1, .body-section-2 {
     height: 100px;
     float: left;
     width: 512px;
@@ -130,7 +130,7 @@ h1 {
 .body-logo-1 p {
     font-family: abel;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 3px;
     width: 512px;
     cursor: pointer;
     padding-top: 70px;
@@ -146,8 +146,8 @@ h1 {
 }
 
 #body-text-1, #body-text-2 {
-    padding-top: 60px;
-    opacity: 0.0;
+    padding-top: 30px;
+    opacity: 0.3;
 }
 
 #body-text-1 p, #body-text-2 p {
