@@ -247,15 +247,17 @@ $("#header-precog-close").click(function(){
         'display': 'none'
         }, {queue: false}
         );
+      $("#header-precog-close").css({
+        'display': 'none'
+        }, {queue: false}
+        );
     }
     );
-
-
-  $("#newsletter-close").click(function() {
-    API.woopra.custom("close-newsletter", { });
-    $(this).parent().hide();
-    return false;
-  });
+  
+$('#header-precog').click(function () {
+    window.open('http://precog.io');
+});
+  
 
   $(document).scroll(updateActiveSection);
   updateActiveSection();

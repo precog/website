@@ -194,6 +194,7 @@ h1 {
     text-align: left;
     padding-top: 4px;
     display: block;
+    cursor: pointer;
 }
 
 #header-precog p {
@@ -218,11 +219,12 @@ h1 {
 #header-precog-close {
     width: 10px;
     height: 11px;
-    float: right;
-    top: -16px;
-    margin-left: 10px;
-    z-index: 100;
+    right: 0px;
+    position: absolute;
+    padding-right: 8px;
+    top: 68px;
     cursor: pointer;
+    z-index: 210;
 }
 
 /*HEADEREND*/

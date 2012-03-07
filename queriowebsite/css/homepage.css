@@ -195,6 +195,35 @@ h1 {
     background-image: url("../images/graphic-yourapp.png");
 }
 
+.yourapp-box-text {
+    top: 70px;
+    left: -170px;
+    width: 340px;
+    height: 175px;
+    background-color: #000;
+    border-radius: 6px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #808080;
+    opacity: 0.5;
+    display: table;
+    display: none;
+}
+
+.yourapp-box-text p {
+    font-family: helvetica;
+    color: #fff;
+    width: 280px;
+    height: 115px;
+    display: table-cell;
+    vertical-align: middle;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+
 #yourapp .box-alt {
     background-image: url("../images/graphic-yourapp-alt.png");
 }
