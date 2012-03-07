@@ -242,6 +242,15 @@ $(document).ready(function(){
     })
   }
 
+$("#header-precog-close").click(function(){
+      $("#header-precog").css({
+        'display': 'none'
+        }, {queue: false}
+        );
+    }
+    );
+
+
   $("#newsletter-close").click(function() {
     API.woopra.custom("close-newsletter", { });
     $(this).parent().hide();
@@ -312,5 +321,6 @@ $(document).ready(function(){
     } else
       return true;
   })
+
 })
 
