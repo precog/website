@@ -196,6 +196,8 @@ h1 {
 }
 
 .yourapp-box-text {
+    position: absolute;
+    z-index: 100;
     top: 70px;
     left: -170px;
     width: 340px;
@@ -221,6 +223,7 @@ h1 {
     padding-right: 30px;
     padding-top: 30px;
     padding-bottom: 30px;
+    opacity: 1.0;
 }
 
 
