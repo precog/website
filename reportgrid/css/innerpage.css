@@ -84,6 +84,7 @@ h1 {
     margin-left: auto;
     width: 1024px;
     height: 230px;
+    margin-top: 34px;
 }
 
 #page-holder {
@@ -110,6 +111,8 @@ h1 {
     height: 100px;
     float: left;
     width: 512px;
+    height: 300px;
+    cursor: pointer;
 }
 
 .body-logo-1, .body-logo-2 {
@@ -128,11 +131,10 @@ h1 {
 }
 
 .body-logo-1 p {
-    font-family: abel;
+    font-family: questrial;
     text-transform: uppercase;
     letter-spacing: 3px;
     width: 512px;
-    cursor: pointer;
     padding-top: 70px;
 }
 
@@ -141,7 +143,6 @@ h1 {
     text-transform: uppercase;
     letter-spacing: 3px;
     width: 512px;
-    cursor: pointer;
     padding-top: 70px;
 }
 

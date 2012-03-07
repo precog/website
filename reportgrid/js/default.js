@@ -32,5 +32,13 @@ $(".body-section-2").mouseleave(function(){
     }
     );
 
+$('.body-section-1').click(function () {
+    window.open('http://reportgrid.com/charts');
+});
+
+$('.body-section-2').click(function () {
+    window.open('http://precog.io');
+});
+
 })
 
