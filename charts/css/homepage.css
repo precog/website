@@ -202,8 +202,9 @@ h1 {
     color: #fff;
 }
 
-#header-precog span {
+#header-precog a {
     color: #FF0000;
+    text-decoration: underline;
 }
 
 #precog-logo {
@@ -215,11 +216,10 @@ h1 {
 }
 
 #header-precog-close {
-    background-image: url("../images/x-mark.png");
     width: 10px;
     height: 11px;
     float: right;
-    top: -12px;
+    top: -16px;
     margin-left: 10px;
     z-index: 100;
     cursor: pointer;
