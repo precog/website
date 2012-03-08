@@ -258,9 +258,16 @@ $('#header-precog').click(function () {
     window.open('http://precog.io');
 });
   
+$("#newsletter-close").click(function(){
+      $("#newsletter").css({
+        'display': 'none'
+        }, {queue: false}
+        );
+    }
+    );
 
-  $(document).scroll(updateActiveSection);
-  updateActiveSection();
+$(document).scroll(updateActiveSection);
+updateActiveSection();
 
   var selectText = function(element) {
     if (document.body.createTextRange) { // ms
