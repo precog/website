@@ -185,7 +185,7 @@ h1 {
 
 #header-precog {
     top: 65px;
-    position: absolute;
+    position: fixed;
     width: 200px;
     background-color: #262626;
     z-index: 200;
@@ -220,7 +220,7 @@ h1 {
     width: 10px;
     height: 11px;
     right: 0px;
-    position: absolute;
+    position: fixed;
     padding-right: 8px;
     top: 68px;
     cursor: pointer;
