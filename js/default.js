@@ -280,46 +280,6 @@ $('#header-precog').click(function () {
     }
   };
 
-$(".body-section-1").mouseover(function(){
-      $("#body-text-1").animate({
-        opacity: 1.0
-        }, {queue: false}
-        );
-    }
-    );
-
-$(".body-section-1").mouseleave(function(){
-      $("#body-text-1").animate({
-        opacity: 0.3
-        }, {queue: false}
-        );
-    }
-    );
-
-$(".body-section-2").mouseover(function(){
-      $("#body-text-2").animate({
-        opacity: 1.0
-        }, {queue: false}
-        );
-    }
-    );
-
-$(".body-section-2").mouseleave(function(){
-      $("#body-text-2").animate({
-        opacity: 0.3
-        }, {queue: false}
-        );
-    }
-    );
-
-$('.body-section-1').click(function () {
-    window.open('charts.html');
-});
-
-$('.body-section-2').click(function () {
-    window.open('http://precog.io');
-});
-
   $('#samplescript').click(function(){
     API.woopra.custom("script-copy", { how : "click on code" });
     if(API.google.fromAdWords())
