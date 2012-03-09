@@ -38,7 +38,7 @@ $(document).ready(function(){
 		if(firstdisplay)
 			firstdisplay = false;
 		else
-			API.woopra.custom("visualization", { type : info.sample });
+			API.webanalytics.custom("visualization", info.sample);
 	};
 
 	var lastcategory;

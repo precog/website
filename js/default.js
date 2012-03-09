@@ -34,151 +34,125 @@ if(window.location.href.substr(0, 17) == 'http://localhost/' || (/^http:\/\/:\d{
 else
   API.samplesService = "http://api.reportgrid.com/services/viz/samples/index.php";
 
-API.woopra = (function() {
-  var _tracker = {
-    setDomain : function(_) {},
-    track : function(_) {},
-    setIdleTimeout : function(_) {},
-    addVisitorProperty : function(_, _) {}
-  }; // prevents error when used locally
-  function customValues() {
-    var ob = {}, value;
-    if(value = USTORE.getValue("st-email"))
-        ob["email"] = value;
-    if(value = USTORE.getValue("st-name"))
-        ob["name"] = value;
-    if(value = USTORE.getValue("st-title"))
-        ob["title"] = value;
-    if(value = USTORE.getValue("st-company"))
-        ob["company"] = value;
-    return ob;
-  }
-
-  function prepareTracker() {
-    var extra = customValues();
-    for(key in extra) {
-      _tracker.addVisitorProperty(key, extra[key]);
+$(document).ready(function() {
+  API.webanalytics = (function() {
+    var gaq = _gaq || {
+      push : function(_) {},
+    }; // prevents error when used locally
+    function customValues() {
+      var ob = {}, value;
+      if(value = USTORE.getValue("st-email"))
+          ob["email"] = value;
+      if(value = USTORE.getValue("st-name"))
+          ob["name"] = value;
+      if(value = USTORE.getValue("st-title"))
+          ob["title"] = value;
+      if(value = USTORE.getValue("st-company"))
+          ob["company"] = value;
+      return ob;
     }
-  }
 
-  return {
-    track : function(tracker) {
-      _tracker = tracker || _tracker;
-      _tracker.setDomain('reportgrid.com');
-      _tracker.setIdleTimeout(300000);
-      prepareTracker();
-      _tracker.track();
-      return false;
-    },
-    custom : function(event, params) {
-      if(!_tracker.pushEvent)
-        return;
-      params = params || {};
-      params.name = event;
-//      console.log(params);
-      _tracker.pushEvent(params);
-    },
-    setEmail : function(email) {
-      if(!email) return;
-      _tracker.addVisitorProperty('email', email);
-      USTORE.setValue('st-email', email);
-    },
-    setCompany : function(company) {
-      if(!company) return;
-      _tracker.addVisitorProperty('company', company);
-      USTORE.setValue('st-company', company);
-    },
-    setName : function(first, last) {
-      var parts = [];
-      if(first = first.trim()) parts.push(first);
-      if(last = last.trim()) parts.push(last);
-      if(parts.length == 0) return;
-      var name = parts.join(' ');
-      _tracker.addVisitorProperty('name', name);
-      USTORE.setValue('st-name', name);
-    },
-    setTitle : function(title) {
-      if(!title) return;
-      _tracker.addVisitorProperty('title', title);
-      USTORE.setValue('st-title', title);
-    }
-  };
-})();
-
-API.cookie = (function(){
-  return {
-    set : function(name,value,days) {
-      if (days) {
-        var date = new Date();
-        date.setTime(date.getTime()+(days*24*60*60*1000));
-        var expires = "; expires="+date.toGMTString();
+    return {
+      custom : function(event, action, label) {
+        gaq.push(['_trackEvent', action, label]);
+      },
+      setEmail : function(email) {
+        if(!email) return;
+        USTORE.setValue('st-email', email);
+      },
+      setCompany : function(company) {
+        if(!company) return;
+        USTORE.setValue('st-company', company);
+      },
+      setName : function(first, last) {
+        var parts = [];
+        if(first = first.trim()) parts.push(first);
+        if(last = last.trim()) parts.push(last);
+        if(parts.length == 0) return;
+        var name = parts.join(' ');
+        USTORE.setValue('st-name', name);
+      },
+      setTitle : function(title) {
+        if(!title) return;
+        USTORE.setValue('st-title', title);
       }
-        else var expires = "";
-      document.cookie = name+"="+JSON.stringify(value)+expires+"; path=/";
-    },
+    };
+  })();
 
-    get : function(name) {
-      var nameEQ = name + "=";
-      var ca = document.cookie.split(';');
-      for(var i=0;i < ca.length;i++) {
-        var c = ca[i];
-        while (c.charAt(0)==' ') c = c.substring(1,c.length);
-        if (c.indexOf(nameEQ) == 0) return JSON.parse(c.substring(nameEQ.length,c.length));
+  API.cookie = (function(){
+    return {
+      set : function(name,value,days) {
+        if (days) {
+          var date = new Date();
+          date.setTime(date.getTime()+(days*24*60*60*1000));
+          var expires = "; expires="+date.toGMTString();
+        }
+          else var expires = "";
+        document.cookie = name+"="+JSON.stringify(value)+expires+"; path=/";
+      },
+
+      get : function(name) {
+        var nameEQ = name + "=";
+        var ca = document.cookie.split(';');
+        for(var i=0;i < ca.length;i++) {
+          var c = ca[i];
+          while (c.charAt(0)==' ') c = c.substring(1,c.length);
+          if (c.indexOf(nameEQ) == 0) return JSON.parse(c.substring(nameEQ.length,c.length));
+        }
+        return null;
+      },
+
+      remove : function(name) {
+        set(name,"",-1);
       }
-      return null;
-    },
+    };
+  })();
 
-    remove : function(name) {
-      set(name,"",-1);
-    }
-  };
-})();
+  API.google = (function() {
+    var googleinfo = {
+      id : 1008236154,
+      language : "en",
+      format : "3",
+      color : "ffffff",
+      value : 0
+    };
+    var conversions = {
+      'signup' : "2W-SCMbVzgIQ-uzh4AM",
+      'script-copy' : "hlQjCL7WzgIQ-uzh4AM",
+      'script-download' : "6bB9CLbXzgIQ-uzh4AM"
+    };
+    var google_url = "http://www.googleadservices.com/pagead/conversion.js";
 
-API.google = (function() {
-  var googleinfo = {
-    id : 1008236154,
-    language : "en",
-    format : "3",
-    color : "ffffff",
-    value : 0
-  };
-  var conversions = {
-    'signup' : "2W-SCMbVzgIQ-uzh4AM",
-    'script-copy' : "hlQjCL7WzgIQ-uzh4AM",
-    'script-download' : "6bB9CLbXzgIQ-uzh4AM"
-  };
-  var google_url = "http://www.googleadservices.com/pagead/conversion.js";
+    var setGlobalVar = function(name, value) {
+      window['google_conversion_'+name] = value;
+    };
 
-  var setGlobalVar = function(name, value) {
-    window['google_conversion_'+name] = value;
-  };
-
-  var setGlobalVars = function(ob)
-  {
-    for(key in ob)
+    var setGlobalVars = function(ob)
     {
-      setGlobalVar(key, ob[key]);
+      for(key in ob)
+      {
+        setGlobalVar(key, ob[key]);
+      }
     }
-  }
-  var adwordsreferrer = false;
-  if(API.cookie.get('rg-adwords'))
-    adwordsreferrer = true;
-  else if(document.referrer && (/google\.[^\/]+\/aclk\?/).test(document.referrer))
-  {
-    API.cookie.set('rg-adwords', adwordsreferrer = true);
-  }
-
-  return {
-    conversion : function(type, handler) {
-      setGlobalVars(googleinfo);
-      $.getScript(google_url, handler);
-    },
-    fromAdWords : function() {
-      return adwordsreferrer;
+    var adwordsreferrer = false;
+    if(API.cookie.get('rg-adwords'))
+      adwordsreferrer = true;
+    else if(document.referrer && (/google\.[^\/]+\/aclk\?/).test(document.referrer))
+    {
+      API.cookie.set('rg-adwords', adwordsreferrer = true);
     }
-  }
-})();
 
+    return {
+      conversion : function(type, handler) {
+        setGlobalVars(googleinfo);
+        $.getScript(google_url, handler);
+      },
+      fromAdWords : function() {
+        return adwordsreferrer;
+      }
+    }
+  })();
+});
 
 $(document).ready(function(){
   var lastpanel, lastbutton;
@@ -201,7 +175,7 @@ $(document).ready(function(){
   $('#copyscript').zclip({
     path:'js/ZeroClipboard.swf',
     copy:function(){
-      API.woopra.custom("script-copy", { what : "charts API script", how : "copy button" });
+      API.webanalytics.custom("script-copy", "charts API script", "copy button");
       if(API.google.fromAdWords())
         API.google.conversion('script-copy');
       return $('#samplescript').text();
@@ -211,7 +185,7 @@ $(document).ready(function(){
   $('#copycode').zclip({
     path:'js/ZeroClipboard.swf',
     copy:function(){
-      API.woopra.custom("code-copy", { what : "chart code sample", how : "copy button" });
+      API.webanalytics.custom("code-copy", "chart code sample", "copy button");
       return $('#samplecode').text();
     }
   });
@@ -234,7 +208,7 @@ $(document).ready(function(){
         if(!link.hasClass("active"))
         {
           link.addClass("active");
-          API.woopra.custom("section", { section : section });
+          API.webanalytics.custom("section", section);
         }
       } else {
         link.removeClass("active");
@@ -288,22 +262,22 @@ updateActiveSection();
   };
 
   $('#samplescript').click(function(){
-    API.woopra.custom("script-copy", { how : "click on code" });
+    API.webanalytics.custom("script-copy", "click on code");
     if(API.google.fromAdWords())
       API.google.conversion('script-copy');
     selectText(this);
   });
 
   $('#samplecode').click(function(){
-    API.woopra.custom("code-copy", { how : "click on code" });
+    API.webanalytics.custom("code-copy", "click on code");
     selectText(this);
   });
 
   $('#javascript-download').click(function(e){
     if(API.google.fromAdWords())
       API.google.conversion('script-download');
-    // woopra seems to automatically download events if there is a timer that allows that
     var href = $(this).attr("href");
+    _gaq.push(['_trackPageview', href]);
     setTimeout(function(){
       window.location.href = href;
     }, 500);
@@ -313,7 +287,7 @@ updateActiveSection();
 
   $('.buybutton').click(function(){
     var value = $.trim($(this.parentNode).select("h1").text());
-    API.woopra.custom("buy-"+value, { what : "charts API", value : value });
+    API.webanalytics.custom("buy-"+value, "charts API", value);
     return true;
   })
 

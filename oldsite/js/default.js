@@ -27,444 +27,17 @@ var USTORE=(function(){var e,a,c,f,b,k,i,j,d;var g={setValue:function(l,m,n){if(
 
 USTORE.init();
 
-var JSON = JSON || { stringify : jQuery.toJSON, parse : jQuery.evalJSON },
-    API = {};
-
-(function() {
-  var Util = {
-    getConfiguration: function() {
-      var findThisScript = function() {
-        var scripts = document.getElementsByTagName('SCRIPT');
-
-        for (var i = 0; i < scripts.length; i++) {
-          var script = scripts[i];
-          var src = script.getAttribute('src');
-
-          if (src && src.indexOf('default.js') != -1) {
-            return script;
-          }
-        }
-
-        return undefined;
-      };
-
-      return Util.parseQueryParameters(findThisScript().getAttribute('src'));
-    },
-
-    parseQueryParameters: function(url) {
-      var index = url.indexOf('?');
-
-      if (index < 0) return {};
-
-      var query = url.substr(index + 1);
-
-      var keyValuePairs = query.split('&');
-
-      var parameters = {};
-
-      for (var i = 0; i < keyValuePairs.length; i++) {
-        var keyValuePair = keyValuePairs[i];
-
-        var split = keyValuePair.split('=');
-
-        var key = split[0];
-        var value = '';
-
-        if (split.length >= 2) {
-          value = decodeURIComponent(split[1]);
-        }
-
-        parameters[key] = value;
-      }
-
-      return parameters;
-    },
-
-    addQueryParameters: function(url, query) {
-      var suffix = url.indexOf('?') == -1 ? '?' : '&';
-
-      var queries = [];
-
-      for (var name in query) {
-        var value = (query[name] || '').toString();
-
-        queries.push(name + '=' + encodeURIComponent(value));
-      }
-
-      if (queries.length == 0) return url;
-      else return url + suffix + queries.join('&');
-    },
-
-    getConsole: function(enabled) {
-      var console = enabled ? window.console : undefined;
-      if (!console) {
-        console = {};
-
-        console.log   = function() {}
-        console.debug = function() {}
-        console.info  = function() {}
-        console.warn  = function() {}
-        console.error = function() {}
-      }
-
-      return console;
-    },
-
-    createCallbacks: function(success, failure, msg) {
-      var successFn = function(fn, msg) {
-        if (fn) return fn;
-        else return function(result) {
-          if (result !== undefined) {
-            API.Log.debug('Success: ' + msg + ': ' + JSON.stringify(result));
-          }
-          else {
-            API.Log.debug('Success: ' + msg);
-          }
-        }
-      }
-
-      var failureFn = function(fn, msg) {
-        if (fn) return fn;
-        else return function(code, reason) {
-          API.Log.error('Failure: ' + msg + ': code = ' + code + ', reason = ' + reason);
-        }
-      }
-
-      return {
-        success: successFn(success, msg),
-        failure: failureFn(failure, msg)
-      };
-    },
-
-    removeLeadingSlash: function(path) {
-      if (path.length == 0) return path;
-      else if (path.substr(0, 1) == '/') return path.substr(1);
-      else return path;
-    },
-
-    removeTrailingSlash: function(path) {
-      if (path.length == 0) return path;
-      else if (path.substr(path.length - 1) == "/") return path.substr(0, path.length - 1);
-      else return path;
-    },
-
-    removeDuplicateSlashes: function(path) {
-      return path.replace(/[/]+/g, "/");
-    },
-
-    sanitizePath: function(path) {
-      if (path === undefined) throw Error("path cannot be undefined");
-      else return Util.removeDuplicateSlashes("/" + path + "/");
-    },
-
-    sanitizeProperty: function(property) {
-      if (property === undefined) throw Error("Property cannot be undefined");
-      else if (property.length == 0) return property;
-      else if (property.substr(0, 1) == ".") return property;
-      else return "." + property;
-    },
-
-    splitPathVar: function(pathVar) {
-      if (pathVar.length == 0) return ["/", ""];
-      if (pathVar.substr(0, 1) == ".") return ["/", pathVar]
-
-      var index = pathVar.indexOf('/.');
-
-      if (index <  0) return [Util.sanitizePath(pathVar), ""];
-
-      return [Util.sanitizePath(pathVar.substr(0, index + 1)), pathVar.substr(index + 1)];
-    },
-
-    filter: function(c, f) {
-      var result = c;
-
-      if (c instanceof Array) {
-        result = [];
-
-        for (var i = 0; i < c.length; i++) {
-          var e = c[i];
-
-          if (f(e)) result.push(e);
-        }
-      }
-      else if (c instanceof Object) {
-        result = {};
-
-        for (var key in c) {
-          var value = c[key];
-
-          if (f(key, value)) result[key] = value;
-        }
-      }
-
-      return result;
-    },
-
-    normalizeTime: function(o, name) {
-      if (name === undefined) {
-        if (o instanceof Date) {
-           return o.getUTCMilliseconds();
-        }
-
-        return o;
-      }
-      else {
-        var time = o[name];
-
-        if (time != null) {
-          if (time instanceof Date) {
-            o[name] = time.getUTCMilliseconds();
-          }
-          else if (time instanceof String) {
-            o[name] = 0 + time
-          }
-        }
-
-        return o[name];
-      }
-    },
-
-    rangeHeaderFromStartEnd: function(options) {
-      var headers = {};
-
-      if (options.start !== undefined || options.end !== undefined) {
-        var start = Util.normalizeTime(options.start) || ReportGrid.Time.Zero;
-        var end   = Util.normalizeTime(options.end)   || ReportGrid.Time.Inf;
-
-        headers.Range = 'time=' + start + '-' + end;
-      }
-
-      return headers;
-    }
-  }
-
-  var Network = {
-    doAjaxRequest: function(options) {
-      var method   = options.method || 'GET';
-      var query    = options.query || {};
-      var path     = Util.addQueryParameters(options.path, query);
-      var content  = options.content;
-      var headers  = options.headers || {};
-      var success  = options.success;
-      var failure  = options.failure || function() {};
-
-      API.Log.info('HTTP ' + method + ' ' + path + ': headers(' + JSON.stringify(headers) + '), content('+ JSON.stringify(content) + ')');
-
-      var createNewXmlHttpRequest = function() {
-        if (window.XMLHttpRequest) {
-          return new XMLHttpRequest();
-        }
-        else {
-          return new ActiveXObject("Microsoft.XMLHTTP");
-        }
-      }
-
-      var request = createNewXmlHttpRequest();
-
-      request.open(method, path);
-
-      request.onreadystatechange = function() {
-        if (request.readyState == 4) {
-          if (request.status == 200) {
-            if (request.responseText !== null && request.responseText.length > 0) {
-              success(JSON.parse(this.responseText));
-            }
-            else {
-              success(undefined);
-            }
-          }
-          else {
-            failure(request.status, request.statusText);
-          }
-        }
-      }
-
-      for (var name in headers) {
-        var value = headers[name];
-
-        request.setRequestHeader(name, value);
-      }
-
-      if (content !== undefined) {
-        request.setRequestHeader('Content-Type', 'application/json');
-
-        request.send(JSON.stringify(content));
-      }
-      else {
-        request.send(null);
-      }
-    },
-
-    doJsonpRequest: function(options) {
-      var method   = options.method || 'GET';
-      var query    = options.query || {};
-      var path     = Util.addQueryParameters(options.path, query);
-      var content  = options.content;
-      var headers  = options.headers || {};
-      var success  = options.success;
-      var failure  = options.failure || function() {};
-
-      API.Log.info('HTTP ' + method + ' ' + path + ': headers(' + JSON.stringify(headers) + '), content('+ JSON.stringify(content) + ')');
-
-      var random   = Math.floor(Math.random() * 214748363);
-      var funcName = 'ReportGridJsonpCallback' + random.toString();
-
-      window[funcName] = function(content, meta) {
-        if (meta.status.code === 200) {
-          success(content);
-        }
-        else {
-          failure(meta.status.code, meta.status.reason);
-        }
-
-        document.head.removeChild(document.getElementById(funcName));
-
-        window[funcName] = undefined;
-        try{
-          delete window[funcName];
-        }catch(e){}
-      }
-
-      var extraQuery = {};
-
-      extraQuery.method   = method;
-
-      for (_ in headers) { extraQuery.headers = JSON.stringify(headers); break; }
-
-      extraQuery.callback = funcName;
-
-      if (content !== undefined) {
-        extraQuery.content = JSON.stringify(content);
-      }
-
-      var fullUrl = Util.addQueryParameters(path, extraQuery);
-
-      var script = document.createElement('SCRIPT');
-
-      script.setAttribute('type', 'text/javascript');
-      script.setAttribute('src',  fullUrl);
-      script.setAttribute('id',   funcName);
-
-      // Workaround for document.head being undefined.
-      if (! document.head)
-        document.head = document.getElementsByTagName('head')[0];
-
-      document.head.appendChild(script);
-    },
-
-    createHttpInterface: function(doRequest) {
-      return {
-        get: function(path, callbacks, query, headers) {
-          doRequest(
-            {
-              method:   'GET',
-              path:     path,
-              headers:  headers,
-              success:  callbacks.success,
-              failure:  callbacks.failure,
-              query:    query
-            }
-          );
-        },
-
-        put: function(path, content, callbacks, query, headers) {
-          doRequest(
-            {
-              method:   'PUT',
-              path:     path,
-              content:  content,
-              headers:  headers,
-              success:  callbacks.success,
-              failure:  callbacks.failure,
-              query:    query
-            }
-          );
-        },
-
-        post: function(path, content, callbacks, query, headers) {
-          doRequest(
-            {
-              method:   'POST',
-              path:     path,
-              content:  content,
-              headers:  headers,
-              success:  callbacks.success,
-              failure:  callbacks.failure,
-              query:    query
-            }
-          );
-        },
-
-        remove: function(path, callbacks, query, headers) {
-          doRequest(
-            {
-              method:   'DELETE',
-              path:     path,
-              headers:  headers,
-              success:  callbacks.success,
-              failure:  callbacks.failure,
-              query:    query
-            }
-          );
-        }
-      }
-    }
-  }
-
-  API.Config = Util.getConfiguration();
-
-  var onceMap = {};
-
-  API.alertSafe = function(msg) {
-    if (onceMap[msg] === undefined) {
-      onceMap[msg] = true;
-
-      alert(msg);
-    }
-  }
-
-  API.Extend = function(object, extensions) {
-    for (var name in extensions) {
-      if (object[name] === undefined) {
-        object[name] = extensions[name];
-      }
-    }
-  }
-
-  API.Bool = function(v) {
-    return v === true || v === 1 || (v = (""+v).toLowerCase()) == "true" || v == "on" || v == "1";
-  }
-
-  var console = Util.getConsole(API.Bool(API.Config.enableLog));
-
-  API.Log = {
-    log:    function(text) { console.log(text);   },
-    debug:  function(text) { console.debug(text); },
-    info:   function(text) { console.info(text);  },
-    warn:   function(text) { console.warn(text);  },
-    error:  function(text) { console.error(text); }
-  }
-
-  API.Extend(API.Config,
-    {
-      useJsonp : "true",
-      enableLog : "true"
-    }
-  );
-
-  API.Http = {};
-
-  API.Http.Ajax  = Network.createHttpInterface(Network.doAjaxRequest);
-  API.Http.Jsonp = Network.createHttpInterface(Network.doJsonpRequest);
-
-  API.Extend(API.Http, API.Bool(API.Config.useJsonp) ? API.Http.Jsonp : API.Http.Ajax);
-
-  API.woopra = (function() {
-    var _tracker = {
-      setDomain : function(_) {},
-      track : function(_) {},
-      setIdleTimeout : function(_) {},
-      addVisitorProperty : function(_, _) {}
+var API = {};
+
+if(window.location.href.substr(0, 17) == 'http://localhost/' || (/^http:\/\/:\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\//).test(window.location.href))
+  API.samplesService = "/rg/charts/service/index.php";
+else
+  API.samplesService = "http://api.reportgrid.com/services/viz/samples/index.php";
+
+$(document).ready(function() {
+  API.webanalytics = (function() {
+    var gaq = _gaq || {
+      push : function(_) {},
     }; // prevents error when used locally
     function customValues() {
       var ob = {}, value;
@@ -479,36 +52,16 @@ var JSON = JSON || { stringify : jQuery.toJSON, parse : jQuery.evalJSON },
       return ob;
     }
 
-    function prepareTracker() {
-      var extra = customValues();
-      for(key in extra) {
-        _tracker.addVisitorProperty(key, extra[key]);
-      }
-    }
-
     return {
-      track : function(tracker) {
-        _tracker = tracker || _tracker;
-        _tracker.setDomain('reportgrid.com');
-        _tracker.setIdleTimeout(300000);
-        prepareTracker();
-        _tracker.track();
-        return false;
-      },
-      custom : function(event, params) {
-        params = params || {};
-        params.name = event;
-        console.log(params);
-//        _tracker.pushEvent(params);
+      custom : function(event, action, label) {
+        gaq.push(['_trackEvent', action, label]);
       },
       setEmail : function(email) {
         if(!email) return;
-        _tracker.addVisitorProperty('email', email);
         USTORE.setValue('st-email', email);
       },
       setCompany : function(company) {
         if(!company) return;
-        _tracker.addVisitorProperty('company', company);
         USTORE.setValue('st-company', company);
       },
       setName : function(first, last) {
@@ -517,450 +70,240 @@ var JSON = JSON || { stringify : jQuery.toJSON, parse : jQuery.evalJSON },
         if(last = last.trim()) parts.push(last);
         if(parts.length == 0) return;
         var name = parts.join(' ');
-        _tracker.addVisitorProperty('name', name);
         USTORE.setValue('st-name', name);
       },
       setTitle : function(title) {
         if(!title) return;
-        _tracker.addVisitorProperty('title', title);
         USTORE.setValue('st-title', title);
       }
     };
   })();
-})();
 
-$(function() {
-  API.Config.RootAccountsAPI = API.Config.RootAccountsAPI || 'https://api.reportgrid.com/services/billing/v1/accounts/';
-  var setupHome = function() {
-    var animateContentPane = function(panelIndex) {
-      return function() {
-        $('#middle1contentarea').animate({
-          marginTop: -(panelIndex * 402)
-        }, 'fast');
+  API.cookie = (function(){
+    return {
+      set : function(name,value,days) {
+        if (days) {
+          var date = new Date();
+          date.setTime(date.getTime()+(days*24*60*60*1000));
+          var expires = "; expires="+date.toGMTString();
+        }
+          else var expires = "";
+        document.cookie = name+"="+JSON.stringify(value)+expires+"; path=/";
+      },
 
-        return false;
+      get : function(name) {
+        var nameEQ = name + "=";
+        var ca = document.cookie.split(';');
+        for(var i=0;i < ca.length;i++) {
+          var c = ca[i];
+          while (c.charAt(0)==' ') c = c.substring(1,c.length);
+          if (c.indexOf(nameEQ) == 0) return JSON.parse(c.substring(nameEQ.length,c.length));
+        }
+        return null;
+      },
+
+      remove : function(name) {
+        set(name,"",-1);
+      }
+    };
+  })();
+
+  API.google = (function() {
+    var googleinfo = {
+      id : 1008236154,
+      language : "en",
+      format : "3",
+      color : "ffffff",
+      value : 0
+    };
+    var conversions = {
+      'signup' : "2W-SCMbVzgIQ-uzh4AM",
+      'script-copy' : "hlQjCL7WzgIQ-uzh4AM",
+      'script-download' : "6bB9CLbXzgIQ-uzh4AM"
+    };
+    var google_url = "http://www.googleadservices.com/pagead/conversion.js";
+
+    var setGlobalVar = function(name, value) {
+      window['google_conversion_'+name] = value;
+    };
+
+    var setGlobalVars = function(ob)
+    {
+      for(key in ob)
+      {
+        setGlobalVar(key, ob[key]);
       }
     }
-
-    var setupPane = function(paneSelector, paneIndex) {
-      $(paneSelector).mouseover(animateContentPane(paneIndex)).click(animateContentPane(paneIndex));
+    var adwordsreferrer = false;
+    if(API.cookie.get('rg-adwords'))
+      adwordsreferrer = true;
+    else if(document.referrer && (/google\.[^\/]+\/aclk\?/).test(document.referrer))
+    {
+      API.cookie.set('rg-adwords', adwordsreferrer = true);
     }
 
-    setupPane('#whatbutton', 1);
-    setupPane('#howbutton',  2);
-    setupPane('#whybutton',  3);
-  }
-
-  var setupLogin = function() {
-    $('#loginoverlay').click(function() {
-      $(this).css({opacity: 0.75}).animate({opacity: 0}, function() { $(this).hide(); });
-
-      $('#loginmenu').hide();
-    });
-
-    $('#loginbutton').click(function() {
-      var maxWidth  = $(document).width();
-      var maxHeight = $(document).height();
-
-      $('#loginoverlay').clearQueue().show().css({opacity: 0}).animate({opacity: 0.75})
-
-      $('#loginmenu').clearQueue().show();
-    })
-
-    $('#loginpopupbutton').click(function(e) {
-      e.preventDefault();
-
-      var email    = $('#loginform input[name="email"]');
-      var password = $('#loginform input[name="password"]');
-
-      API.woopra.setEmail(email.val());
-      API.woopra.custom("Log-In Attempt", { source : $("html head title").text() });
-
-      API.Http.post(API.Config.RootAccountsAPI + "get", {
-        email:      email.val(),
-        password:   password.val()
-      }, {
-        success: function(response) {
-          var content = $('#middlepanel');
-
-          var tokenId = response.id.token;
-          USTORE.setSessionValue('email',    email.val());
-          USTORE.setSessionValue('password', password.val());
-          USTORE.setSessionValue('tokenId',  tokenId);
-          API.woopra.custom("Log-In");
-          setTimeout(function() { window.location = "./control-panel.html"; }, 100);
-        },
-
-        failure: function(code, text) {
-          alert(text);
-        }
-      });
-
-      return false;
-    });
-  }
-
-
-
-  var setupArrows = function() {
-    var left  = $('.leftarrow');
-    var right = $('.rightarrow');
-
-    left.click(function() {
-      var c = $(this).parent();
-      var ul = c.children('ul');
-
-      var last = ul.children().last();
-      ul.prepend(last);
-
-      ul.css('margin-left', ul.margin().left - last.outerWidth());
-
-      var cOffset = c.offset();
-
-      var li = ul.children('li').filter(function(idx) {
-        var curOffset = ul.children().eq(idx).offset();
-
-        var delta = curOffset.left - cOffset.left;
-
-        return delta < 0;
-      }).last();
-
-      if (li.size() > 0) {
-        ul.animate({
-          marginLeft: ul.margin().left + li.outerWidth()
-        });
+    return {
+      conversion : function(type, handler) {
+        setGlobalVars(googleinfo);
+        $.getScript(google_url, handler);
+      },
+      fromAdWords : function() {
+        return adwordsreferrer;
       }
-
-      return false;
-    });
-
-    right.click(function() {
-      var c = $(this).parent();
-      var ul = c.children('ul');
-
-      var cOffset = c.offset();
-
-      var li = ul.children('li').filter(function(idx) {
-        var curOffset = ul.children().eq(idx).offset();
-
-        var delta = curOffset.left - cOffset.left;
-
-        return delta >= 0;
-      });
-
-      if (li.size() > 0) {
-        ul.animate({
-          marginLeft: ul.margin().left - li.outerWidth()
-        }, function() {
-          var first = ul.children().first();
-
-          if (first.size() > 0) {
-            ul.append(first);
-
-            ul.css('margin-left', ul.margin().left + first.outerWidth());
-          }
-        });
-      }
-
-      return false;
-    })
-  }
-
-  var setupQuoteSelectors = function() {
-    var p = $('#quote');
-    var c = p.find('ul');
-    var quotes = c.children();
-    var selectors = p.find('.quoteselector');
-
-    selectors.each(function(idx, e) {
-      $(e).click(function() {
-        var curMarginLeft = c.margin().left;
-
-        c.animate({
-          marginLeft: -p.outerWidth() * idx
-        });
-
-        quotes.removeClass('active');
-        quotes.eq(idx).addClass('active');
-
-        return false;
-      });
-    });
-  }
-
-  var setupNewsFeed = function() {
-    $.getJSON("http://search.twitter.com/search.json?callback=?", {
-      q: "from:ReportGrid"
-    },
-    function(results) {
-      $('#news li').remove();
-
-      var tweets = results.results;
-
-      for (var i = 0; i < tweets.length; i++) {
-        var tweet = tweets[i];
-
-        var url = 'http://twitter.com/#!/' + tweet.from_user + '/status/' + tweet.id_str;
-
-        $('#news ul').append('<li><a href="' + url + '">' + tweet.text + '</a></li>');
-      }
-    });
-  }
-
-  var setupAccountCreation = function() {
-    var validator, validatorcc;
-    try {
-      validator = $("#signupForm").validate({
-        rules: {
-          firstName: "required",
-          lastName: "required",
-          email: {
-            required: true,
-            email: true
-          },
-          password: {
-            required: true,
-            minlength: 5
-          },
-          confirmPassword: {
-            required: true,
-            minlength: 5,
-            equalTo: "#signupForm input[name='password']"
-          },
-          company: {
-            required: true,
-            minlength: 2
-          },
-          title: {
-            required: true,
-            minlength: 3
-          },
-          street: {
-            required: true,
-            minlength: 5
-          },
-          city: {
-            required: true,
-            minlength: 2
-          },
-          state: {
-            required: true,
-            minlength: 2
-          },
-          postalCode: {
-            required: true
-          },
-          phone: {
-            required: true
-          },
-          website: {
-            required: true,
-            url: true
-          } //, agree: "required"
-        },
-        messages: {
-          firstName:    "Please enter your firstname",
-          lastName:     "Please enter your lastname",
-          email:        "Please enter a valid email address",
-          password: {
-            required:   "Please provide a password",
-            minlength:  "Your password must be at least 5 characters long"
-          },
-          confirmPassword: {
-            required:   "Please provide a password",
-            minlength:  "Your password must be at least 5 characters long",
-            equalTo:    "Please enter the same password"
-          },
-          company:      "Please enter your company",
-          title:        "Please enter your title at the company you work for",
-          street:       "Please enter your street",
-          state:        "Please enter your state or province",
-          city:         "Please enter your city",
-          postalCode:   "Please enter your postal code",
-          phone:        "Please enter a valid US phone number",
-          website:      "Please enter your website",
-          agree:        "Please accept our policy"
-        }
-      });
-      validatorcc = $("#creditcardinfoform").validate({
-        rules: {
-          cardNumber: {
-            required: true,
-            creditcard: true
-          },
-          cardCCV: {
-            required: true,
-            number: true,
-            minlength: 3
-          },
-          cardExpMonth: {
-            required: true,
-            number: true,
-            maxlength: 2,
-            minlength: 2
-          },
-          cardExpYear: {
-            required: true,
-            number: true,
-            maxlength: 4,
-            minlength: 4
-          },
-          cardHolder: {
-            required: true,
-            minlength: 5
-          },
-          cardPostalCode: {
-            required: true
-          }
-        },
-        messages: {
-          cardNumber:     "Please enter a valid credit card number",
-          cardCCV:        "Please enter the CCV on the back of your card",
-          cardExpMonth:   "*&nbsp;",
-          cardExpYear:    "Please enter the expiration year",
-          cardHolder:     "Please enter the cardholder name",
-          cardPostalCode: "Please enter the zip code associated to your card"
-        }
-      });
-    } catch(err) {}
-
-    var planId          = function() { return $('#signupForm input[name="planId"]:checked'); }
-    var discountCode    = function() { return $('#signupForm input[name="discountCode"]'); }
-    var email           = function() { return $('#signupForm input[name="email"]'); }
-    var password        = function() { return $('#signupForm input[name="password"]'); }
-    var firstName       = function() { return $('#signupForm input[name="firstName"]'); }
-    var company         = function() { return $('#signupForm input[name="company"]'); }
-    var street          = function() { return $('#signupForm input[name="street"]'); }
-    var state           = function() { return $('#signupForm input[name="state"]'); }
-    var phone           = function() { return $('#signupForm input[name="phone"]'); }
-    var password        = function() { return $('#signupForm input[name="password"]'); }
-    var confirmPassword = function() { return $('#signupForm input[name="confirmPassword"]'); }
-    var lastName        = function() { return $('#signupForm input[name="lastName"]'); }
-    var title           = function() { return $('#signupForm input[name="title"]'); }
-    var city            = function() { return $('#signupForm input[name="city"]'); }
-    var postalCode      = function() { return $('#signupForm input[name="postalCode"]'); }
-    var website         = function() { return $('#signupForm input[name="website"]'); }
-    var cardHolder      = function() { return $('#creditcardinfoform input[name="cardHolder"]'); }
-    var cardExpMonth    = function() { return $('#creditcardinfoform input[name="cardExpMonth"]'); }
-    var cardExpYear     = function() { return $('#creditcardinfoform input[name="cardExpYear"]'); }
-    var cardNumber      = function() { return $('#creditcardinfoform input[name="cardNumber"]'); }
-    var cardCCV         = function() { return $('#creditcardinfoform input[name="cardCCV"]'); }
-    var cardPostalCode  = function() { return $('#creditcardinfoform input[name="cardPostalCode"]'); }
-
-    var creditcardhasinfo = function() { return $('#creditcardinfoform input').filter(function() { return $(this).val(); }).length > 0; }
-
-    $('#signup').click(function(e) {
-      if(creditcardhasinfo() && !validatorcc.form())
-        return;
-      else if(!creditcardhasinfo())
-        validatorcc.resetForm();
-      if(!validator.form())
-        return;
-      $('#signup').attr("disabled", "disabled");
-      e.preventDefault();
-
-
-      var request = {
-        "email":    email().val(),
-        "password": password().val(),
-        "planId":   planId().val(),
-        "planCreditOption": discountCode().val(),
-        "confirmPassword": confirmPassword().val(),
-        "contact": {
-          "firstName":  firstName().val(),
-          "lastName":   lastName().val(),
-          "company":    company().val(),
-          "title":      title().val(),
-          "phone":      phone().val(),
-          "website":    website().val(),
-          "address":{
-            "street":   street().val(),
-            "city":     city().val(),
-            "state":    state().val(),
-            "postalCode": postalCode().val()
-          }
-        },
-        "billing": {
-          "cardholder": cardHolder().val(),
-          "number":     cardNumber().val(),
-          "expMonth":   cardExpMonth().val(),
-          "expYear":    cardExpYear().val(),
-          "cvv":        cardCCV().val(),
-          "postalCode": cardPostalCode().val()
-        }
-      }
-
-      if (cardHolder().val() == "") delete request.billing;
-
-      API.woopra.setEmail(email().val());
-      API.woopra.setName(firstName().val(), lastName().val());
-      API.woopra.setTitle(title().val());
-      API.woopra.setCompany(company().val());
-
-      API.woopra.custom("Sign-Up Attempt");
-
-      API.Http.post(API.Config.RootAccountsAPI, request, {
-        success: function(response) {
-          $('#signup').removeAttr("disabled");
-          var content = $('#middlepanel');
-
-          content.empty().append('<h1>Welcome to the ReportGrid family &mdash; you\'re in good hands now</h1>');
-          content.append('<p>Your production token id is <strong>' + response.id.tokens.production + '</strong> and your development token id is <strong>' + response.id.tokens.development + '</strong>. You will need these tokens to access any API.</p>');
-          content.append('<p>A welcome email has been sent to ' + response.id.email + '. If you have any questions, please visit the <a href="support.html">support page</a> where you can learn about all the different ways we support our customers.</p>');
-          content.append('<p>Have fun, and good luck!</p>');
-
-          API.woopra.custom("Sign-Up");
-        },
-
-        failure: function(code, text) {
-          $('#signup').removeAttr("disabled");
-          alert(text);
-        }
-      });
-
-      return false;
-    });
-  }
-
-  var setupSyntaxHighlighting = function() {
-   if(!$.isFunction($.snippet)) return;
-   $("pre.literal-block").snippet("css",{style:"darkness"});
-   $("pre.literal-block").snippet("javascript",{style:"darkness"});
-  }
-
-  var setupWoopraExtraInfo = function() {
-    $("#mc-embedded-subscribe-form input[name='subscribe']").click(function(f) {
-      API.woopra.setEmail($('#mce-EMAIL').val());
-      API.woopra.custom("Subscribe Newsletter", { source : "Homepage" });
-      return true;
-    });
-
-    $("#mc-subscribe-form input[name='subscribe']").click(function(f) {
-      API.woopra.setEmail($('#MERGE0').val());
-      API.woopra.setName($('#MERGE1').val(), $('#MERGE2').val());
-      API.woopra.setTitle($('#MERGE6').val());
-      API.woopra.setCompany($('#MERGE3').val());
-      API.woopra.custom("Subscribe Newsletter", { source : $("html head title").text() });
-      return true;
-    });
-  }
-
-  setupHome();
-  setupLogin();
-  setupArrows();
-  setupQuoteSelectors();
-  setupNewsFeed();
-  setupAccountCreation();
-  setupSyntaxHighlighting();
-  setupWoopraExtraInfo();
+    }
+  })();
 });
 
-function calcTotal(){
-currtotal=0
-for(i=0; i<document.forms['pscalform'].length; i++){
-if ((document.forms['pscalform'].elements[i].type=="text") && (document.forms['pscalform'].elements[i].name.substring(0,3)=="qty")) {
-currtotal = currtotal + Number((document.forms['pscalform'].elements[i].value*document.forms['pscalform'].elements[++i].value));
-}
-}
-document.forms['pscalform'].elements['total'].value=currtotal;
-}
+$(document).ready(function(){
+  var lastpanel, lastbutton;
+  $('#chart-icons li').mouseover(function(){
+    // buttons
+    $('#chart-icons li').removeClass('over');
+    $(this).addClass('over');
+
+    // panels
+    $('#body-computer .visualization-panel').hide();
+    var id = "panel-" + $(this).attr('id');
+    var current = $('#'+id);
+    current.show();
+  })
+
+  $('.visualization-panel').hide();
+  lastpanel  = $(".visualization-panel:first").show();
+  lastbutton = $("#chart-icons .over");
+
+  $('#copyscript').zclip({
+    path:'js/ZeroClipboard.swf',
+    copy:function(){
+      API.webanalytics.custom("script-copy", "charts API script", "copy button");
+      if(API.google.fromAdWords())
+        API.google.conversion('script-copy');
+      return $('#samplescript').text();
+    }
+  });
+
+  $('#copycode').zclip({
+    path:'js/ZeroClipboard.swf',
+    copy:function(){
+      API.webanalytics.custom("code-copy", "chart code sample", "copy button");
+      return $('#samplecode').text();
+    }
+  });
+
+  var inView = function(a) {
+    var st = (document.documentElement.scrollTop || document.body.scrollTop),
+        ot = $(a).offset().top;
+    return ot >= st;
+  };
+
+  var updateActiveSection = function()
+  {
+    var found = false;
+    $('.pane').each(function(){
+      var section = "#"+this.id.split("-")[0],
+          link = $(section + "-link");
+      if(!found && (inView(this) || $(this).is('.last')))
+      {
+        found = true;
+        if(!link.hasClass("active"))
+        {
+          link.addClass("active");
+          API.webanalytics.custom("section", section);
+        }
+      } else {
+        link.removeClass("active");
+      }
+    })
+  }
+
+$("#header-precog-close").click(function(){
+      $("#header-precog").css({
+        'display': 'none'
+        }, {queue: false}
+        );
+      $("#header-precog-close").css({
+        'display': 'none'
+        }, {queue: false}
+        );
+    }
+    );
+  
+$('#header-precog').click(function () {
+    window.open('http://precog.io');
+});
+  
+$("#newsletter-close").click(function(){
+      $("#newsletter").css({
+        'display': 'none'
+        }, {queue: false}
+        );
+    }
+    );
+
+$(document).scroll(updateActiveSection);
+updateActiveSection();
+
+  var selectText = function(element) {
+    if (document.body.createTextRange) { // ms
+      var range = document.body.createTextRange();
+      range.moveToElementText(element);
+      range.select();
+    } else if (window.getSelection) {
+      var selection = window.getSelection();
+      if (selection.setBaseAndExtent) { // webkit
+        selection.setBaseAndExtent(element, 0, element, 1);
+      } else { // moz, opera
+        var range = document.createRange();
+        range.selectNodeContents(element);
+        selection.removeAllRanges();
+        selection.addRange(range);
+      }
+    }
+  };
+
+  $('#samplescript').click(function(){
+    API.webanalytics.custom("script-copy", "click on code");
+    if(API.google.fromAdWords())
+      API.google.conversion('script-copy');
+    selectText(this);
+  });
+
+  $('#samplecode').click(function(){
+    API.webanalytics.custom("code-copy", "click on code");
+    selectText(this);
+  });
+
+  $('#javascript-download').click(function(e){
+    if(API.google.fromAdWords())
+      API.google.conversion('script-download');
+    var href = $(this).attr("href");
+    _gaq.push(['_trackPageview', href]);
+    setTimeout(function(){
+      window.location.href = href;
+    }, 500);
+    e.preventDefault();
+    return true;
+  });
+
+  $('.buybutton').click(function(){
+    var value = $.trim($(this.parentNode).select("h1").text());
+    API.webanalytics.custom("buy-"+value, "charts API", value);
+    return true;
+  })
+
+  var firstsubmit = true;
+  $('#mc-embedded-subscribe-form').submit(function(){
+    if(firstsubmit && API.google.fromAdWords())
+    {
+      firstsubmit = false;
+      API.google.conversion('signup');
+      setTimeout(function(){
+        $('#mc-embedded-subscribe-form').submit();
+      }, 500);
+      return false;
+    } else
+      return true;
+  })
+
+})
+
