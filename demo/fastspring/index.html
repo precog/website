@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>FastSpring Demo</title>
+	<link rel="stylesheet" type="text/css" href="http://api.reportgrid.com/css/rg-charts.css"/>
+	<link rel="stylesheet" type="text/css" href="css/style.css"/>
+	<link rel="stylesheet" type="text/css" href="css/jquery.calendarPicker.css"/>
+<!--
+	<script src="http://localhost/rg/charts/js/reportgrid-charts.js"></script>
+	<script src="http://localhost/rg/queries/js/reportgrid-query.js"></script>
+	<script src="http://localhost/rg/api/precog.js?tokenId=C5EF0038-A2A2-47EB-88A4-AAFCE59EC22B"></script>
+-->
+	<script src="http://api.reportgrid.com/js/reportgrid-charts.js"></script>
+	<script src="http://api.reportgrid.com/js/reportgrid-query.js"></script>
+	<script src="http://api.reportgrid.com/js/precog.js?tokenId=C5EF0038-A2A2-47EB-88A4-AAFCE59EC22B"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script src="js/jquery.calendarPicker.js"></script>
+	<script src="js/queries.js"></script>
+<script>
+$(document).ready(function() {
+	Q.timeBoundaries(function(mintime, maxtime) {
+		var periodicity, start = mintime, end = maxtime, ordersby;
+		var calendarStart = $("#timestart").calendarPicker({
+			disableBefore : mintime,
+			disableAfter  : maxtime,
+		    callback:function(cal) {
+		      var s = cal.lowerDate();
+		      if(s) start = s;
+		      if(s && start.getTime() > end.getTime())
+		      {
+		      	calendarEnd.changeDate(new Date(Dates.snap(s, periodicity, true)));
+		      }
+		      refresh();
+		    }
+		});
+		var calendarEnd = $("#timeend").calendarPicker({
+			disableBefore : mintime,
+			disableAfter  : maxtime,
+		    callback:function(cal) {
+		      var e = cal.higherDate();
+		      if(e) end = e;
+		      if(e && end.getTime() < start.getTime())
+		      {
+		      	calendarStart.changeDate(new Date(Dates.snap(e, periodicity, false)));
+		      }
+		      refresh();
+		    }
+		});
+
+		$("#changetime").click(refresh);
+
+		function groupLabels()
+		{
+			var values = [];
+			$("#ordersbylist :checked").each(function() {
+				values.push($(this).val());
+			})
+			return values;
+		}
+
+		var refresh_timer;
+		function refresh()
+		{
+			clearTimeout(refresh_timer);
+			if(periodicity == 'all')
+				$('#timebounds').hide();
+			else
+				$('#timebounds').show();
+			refresh_timer = setTimeout(function() {
+				if(periodicity == 'all')
+				{
+					start = mintime;
+					end   = maxtime;
+				}
+				Q.salesFunnel("#salesfunnel", start, end);
+				Q.renewalFunnel("#renewalfunnel", start, end);
+				if(periodicity == 'all')
+				{
+					$('#orderscount').removeClass('wide');
+					$('#ordersvalue').removeClass('wide');
+					$('#conversions-container').hide();
+					var labels = groupLabels();
+					Q.orders('#orderscount', start, end, 'count', ordersby, labels);
+					Q.orders('#ordersvalue', start, end, 'value', ordersby, labels);
+				} else {
+					if(!(start && end)) return;
+					$('#orderscount').addClass('wide');
+					$('#ordersvalue').addClass('wide');
+					$('#conversions-container').show();
+					var labels = groupLabels();
+					Q.ordersSeries('#orderscount', periodicity, start, end, 'count', ordersby, labels);
+					Q.ordersSeries('#ordersvalue', periodicity, start, end, 'value', ordersby, labels);
+					Q.salesConversionsSeries("#conversions", periodicity, start, end);
+				}
+
+			}, 1000);
+		}
+
+		$('#timecontrol').change(function() {
+			periodicity = $('#timecontrol option:selected').val();
+			calendarStart.changePeriodicity(periodicity);
+			calendarEnd.changePeriodicity(periodicity);
+			refresh();
+		}).change();
+
+		$('#ordersbycontrol').change(function() {
+			ordersby = $('#ordersbycontrol option:selected').val();
+			var list = $("#ordersbylist").html(""),
+				loader = ordersby == 'country' ? Q.countries : Q.products;
+			loader(function(data) {
+				$.each(data, function(i, value) {
+					var el = list.append('<li class="fill-'+i+'"><label><input type="checkbox" checked value="'+value+'"> '+value+'</label></li>');
+					el.select("input").change(refresh);
+				})
+				refresh();
+			});
+		}).change();
+	});
+})
+</script>
+</head>
+<body>
+	<h1>FastSpring Demo</h1>
+	<div class="pane">
+		<h2>Orders (and Returns) Chart</h2>
+		<div class="verticalcontrols">
+			<div>
+				<h3>period</h3>
+				<select id="timecontrol">
+					<option value="day">day</option>
+					<option value="month">month</option>
+					<option value="year">year</option>
+					<option value="all" selected>total</option>
+				</select>
+				<div id="timebounds">
+					<div id="timestart"></div>
+					<div id="timeend"></div>
+				</div>
+				<input type="button" id="changetime" value="set time"/>
+			</div>
+			<div>
+				<h3>orders by:</h3>
+				<select id="ordersbycontrol">
+					<option value="country">country</option>
+					<option value="product">product</option>
+				</select>
+				<div class="optioncontainer">
+					<ul id="ordersbylist" class="rg"></ul>
+					<div class="clear"></div>
+				</div>
+			</div>
+		</div>
+		<div class="chart"><div id="orderscount"></div>
+			<h3>Order Count</h3>
+			<p></p>
+		</div>
+		<div class="chart"><div id="ordersvalue"></div>
+			<h3>Order Value (USD)</h3>
+			<p></p>
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div class="pane">
+		<h2>Sales Conversion VS Churn</h2>
+		<div class="verticalcontrols">
+			<div class="rg">
+				<h3>legend</h3>
+				<ul>
+					<li class="fill-0"><label>sales conversion rate</label></li>
+					<li class="fill-1"><label>churn rate</label></li>
+				</ul>
+			</div>
+		</div>
+		<div class="chart" id="conversions-container"><div id="conversions" class="wide"></div>
+			<h3>Sales Conversion VS Churn</h3>
+			<p></p>
+		</div>
+		<div class="clear">
+			<div class="chart"><div id="salesfunnel" class="sankey"></div>
+				<h3>Sales Funnel</h3>
+				<p></p>
+			</div>
+			<div class="chart"><div id="renewalfunnel" class="sankey"></div>
+				<h3>Renewal Funnel</h3>
+				<p><!--(or renewal cohort analysis)--></p>
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+
+<!--
+	<div class="pane">
+		<div class="controls">control: <select id="controls"></select></div>
+		<div class="chart"><div id="chart" class="thin"></div>
+			<h3>title</h3>
+			<p>description</p>
+		</div>
+		<div class="clear"></div>
+	</div>
+-->
+	<div id="haxe:trace"></div>
+	<div class="footer">
+		<div class="logoleft"><a href="http://www.reportgrid.com/charts/" target="_blank"><img src="images/reportgrid.png"></a></div>
+		<div class="logoright"><a href="http://www.precog.io/" target="_blank"><img src="images/precog.png"></a></div>
+		<div class="clear"></div>
+	</div>
+</body>
+</html>
