@@ -5,6 +5,7 @@
 	<link rel="stylesheet" type="text/css" href="http://api.reportgrid.com/css/rg-charts.css"/>
 	<link rel="stylesheet" type="text/css" href="css/style.css"/>
 	<link rel="stylesheet" type="text/css" href="css/jquery.calendarPicker.css"/>
+	<link rel="stylesheet" type="text/css" href="http://api.reportgrid.com/css/colors/rg-colors-brbg-6-divr.css"/>
 <!--
 	<script src="http://localhost/rg/charts/js/reportgrid-charts.js"></script>
 	<script src="http://localhost/rg/queries/js/reportgrid-query.js"></script>
@@ -47,8 +48,6 @@ $(document).ready(function() {
 		    }
 		});
 
-		$("#changetime").click(refresh);
-
 		function groupLabels()
 		{
 			var values = [];
@@ -59,22 +58,38 @@ $(document).ready(function() {
 		}
 
 		var refresh_timer;
+
+		function isUnitTime()
+		{
+			if('all' == periodicity)
+				return true;
+			if('year' == periodicity && start.getFullYear() == end.getFullYear())
+				return true;
+			if('month' == periodicity && start.getFullYear() == end.getFullYear() && start.getMonth() == end.getMonth())
+				return true;
+			if('day' == periodicity && start.getTime() >= end.getTime() - 24 * 60 * 60000)
+				return true;
+			return false;
+		}
+
 		function refresh()
 		{
 			clearTimeout(refresh_timer);
-			if(periodicity == 'all')
-				$('#timebounds').hide();
-			else
-				$('#timebounds').show();
 			refresh_timer = setTimeout(function() {
 				if(periodicity == 'all')
 				{
 					start = mintime;
 					end   = maxtime;
+					$('#timebounds').hide();
+				} else {
+					$('#timebounds').show();
 				}
+				var unitTime = isUnitTime();
 				Q.salesFunnel("#salesfunnel", start, end);
-				Q.renewalFunnel("#renewalfunnel", start, end);
-				if(periodicity == 'all')
+				Q.renewalFunnel("#renewalfunnel", start, end, 'count');
+				Q.renewalFunnel("#renewalfunnelvalue", start, end, 'value');
+
+				if(unitTime)
 				{
 					$('#orderscount').removeClass('wide');
 					$('#ordersvalue').removeClass('wide');
@@ -100,8 +115,28 @@ $(document).ready(function() {
 			periodicity = $('#timecontrol option:selected').val();
 			calendarStart.changePeriodicity(periodicity);
 			calendarEnd.changePeriodicity(periodicity);
+
+			var mid = new Date((calendarStart.lowerDate().getTime() + calendarEnd.higherDate().getTime()) / 2);
+			switch(periodicity)
+			{
+				case "year":
+					start = new Date(mid.getFullYear() - 2, 0, 1);
+					end   = new Date(mid.getFullYear() + 2, 0, 1);
+					break;
+				case "month":
+					start = new Date(mid.getFullYear(), mid.getMonth() - 5, 1);
+					end   = new Date(mid.getFullYear(), mid.getMonth() + 5, 1);
+					break;
+				case "day":
+					start = new Date(mid.getFullYear(), mid.getMonth(), mid.getDate() - 5);
+					end   = new Date(mid.getFullYear(), mid.getMonth(), mid.getDate() + 5);
+					break;
+			}
+			calendarStart.changeDate(start);
+			calendarEnd.changeDate(end);
 			refresh();
 		}).change();
+		$('#timebounds').hide();
 
 		$('#ordersbycontrol').change(function() {
 			ordersby = $('#ordersbycontrol option:selected').val();
@@ -127,16 +162,15 @@ $(document).ready(function() {
 			<div>
 				<h3>period</h3>
 				<select id="timecontrol">
-					<option value="day">day</option>
-					<option value="month">month</option>
-					<option value="year">year</option>
 					<option value="all" selected>total</option>
+					<option value="year">year</option>
+					<option value="month">month</option>
+					<option value="day">day</option>
 				</select>
 				<div id="timebounds">
 					<div id="timestart"></div>
 					<div id="timeend"></div>
 				</div>
-				<input type="button" id="changetime" value="set time"/>
 			</div>
 			<div>
 				<h3>orders by:</h3>
@@ -160,7 +194,7 @@ $(document).ready(function() {
 		</div>
 		<div class="clear"></div>
 	</div>
-	<div class="pane">
+	<div class="pane" id="conversions-container">
 		<h2>Sales Conversion VS Churn</h2>
 		<div class="verticalcontrols">
 			<div class="rg">
@@ -171,16 +205,25 @@ $(document).ready(function() {
 				</ul>
 			</div>
 		</div>
-		<div class="chart" id="conversions-container"><div id="conversions" class="wide"></div>
+		<div class="chart"><div id="conversions" class="wide"></div>
 			<h3>Sales Conversion VS Churn</h3>
 			<p></p>
 		</div>
+		<div class="clear"></div>
+	</div>
+	<div class="pane">
+		<h2>Funnels</h2>
 		<div class="clear">
-			<div class="chart"><div id="salesfunnel" class="sankey"></div>
+			<div class="chart">
+				<div id="salesfunnel" class="sankey"></div>
 				<h3>Sales Funnel</h3>
 				<p></p>
 			</div>
 			<div class="chart"><div id="renewalfunnel" class="sankey"></div>
+				<h3>Renewal Funnel</h3>
+				<p><!--(or renewal cohort analysis)--></p>
+			</div>
+			<div class="chart"><div id="renewalfunnelvalue" class="sankey"></div>
 				<h3>Renewal Funnel</h3>
 				<p><!--(or renewal cohort analysis)--></p>
 			</div>

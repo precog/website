@@ -156,24 +156,24 @@
 
 	};
 
-	API.renewalFunnel = function(selector, start, end) {
+	API.renewalFunnel = function(selector, start, end, op) {
 		var qntotal = "tx := load(//fs2/transactions) " +
 "ftx := tx where tx.time >= ${start} & tx.time <= ${end} " +
-"{ id : \"total\", value : sum(ftx.quantity * ftx.usd) }";
+"{ id : \"total\", value : sum(ftx.quantity${op}) }";
 		var qnupgrade = "tx := load(//fs2/transactions) " +
 "ftx := tx where (tx.subscription = \"upgrade\" | tx.subscription = \"activated\") & tx.time >= ${start} & tx.time <= ${end} " +
-"{ id : \"upgrade\", value : sum(ftx.quantity * ftx.usd) }";
+"{ id : \"upgrade\", value : sum(ftx.quantity${op}) }";
 		var qnrenewal = "tx := load(//fs2/transactions) " +
 "ftx := tx where tx.transaction = \"rebill\" & tx.time >= ${start} & tx.time <= ${end} " +
-"{ id : \"renewal\", value : sum(ftx.quantity * ftx.usd) }";
+"{ id : \"renewal\", value : sum(ftx.quantity${op}) }";
 		var qeupgrade = "tx := load(//fs2/transactions) " +
 "ftx := tx where (tx.subscription = \"upgrade\" | tx.subscription = \"activated\") & tx.time >= ${start} & tx.time <= ${end} " +
-"{ tail : \"total\", head : \"upgrade\", value : sum(ftx.quantity * ftx.usd) }";
+"{ tail : \"total\", head : \"upgrade\", value : sum(ftx.quantity${op}) }";
 		var qerenewal = "tx := load(//fs2/transactions) " +
 "ftx := tx where tx.transaction = \"rebill\" & tx.time >= ${start} & tx.time <= ${end} " +
-"{ tail : \"total\", head : \"renewal\", value : sum(ftx.quantity * ftx.usd) }";
+"{ tail : \"total\", head : \"renewal\", value : sum(ftx.quantity${op}) }";
 
-		var range = { start : +start, end : +end };
+		var range = { start : +start, end : +end, op : op == 'count' ? '' : ' * ftx.usd' };
 		ReportGrid.sankey(selector, {
 			axes : ["value"],
 			load : ReportGrid.query

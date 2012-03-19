@@ -185,7 +185,6 @@ jQuery.fn.calendarPicker = function(options) {
       }
     }
 
-
     fillYears(date);
     fillMonths(date);
     fillDays(date);
@@ -196,7 +195,8 @@ jQuery.fn.calendarPicker = function(options) {
 
   calendar.changePeriodicity = function(periodicity)
   {
-//    var old = options.periodicity;
+    if(["day", "month", "year"].indexOf(periodicity) < 0)
+      return;
     options.periodicity = periodicity;
     switch(periodicity)
     {
