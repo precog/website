@@ -12,7 +12,7 @@
 
 	API.orders = function(selector, start, end, op, by, labels) {
 		var query = "tx := load(//fs2/transactions) " +
-"ftx := tx where tx.time >= ${start} & tx.time <= ${end}" +
+"ftx := tx where tx.time >= ${start} & tx.time < ${end}" +
 "intersection('label) := " +
 "    { " +
 "        label : 'label, " +
@@ -37,7 +37,7 @@
 
 	API.ordersSeries = function(selector, periodicity, start, end, op, by, labels) {
 		var query = "tx := load(//fs2/transactions) " +
-"ftx := tx where tx.time >= ${start} & tx.time <= ${end}" +
+"ftx := tx where tx.time >= ${start} & tx.time < ${end}" +
 "intersection('label, 'time) := " +
 "    period := std::time::${period}(std::time::millisToISO(ftx.time, \"+00:00\")) " +
 "    { " +
@@ -95,13 +95,13 @@
 
 	API.salesFunnel = function(selector, start, end) {
 		var qedirect = "tx := load(//fs2/visits) " +
-"ftx := tx where tx.time >= ${start} & tx.time <= ${end}" +
+"ftx := tx where tx.time >= ${start} & tx.time < ${end}" +
 "{ tail : \"direct access\", head : \"store visits\", count : count(ftx) - count(ftx.leadId) }";
 		var qndirect = "tx := load(//fs2/visits) " +
-"ftx := tx where tx.time >= ${start} & tx.time <= ${end}" +
+"ftx := tx where tx.time >= ${start} & tx.time < ${end}" +
 "{ id : \"direct access\", count : count(ftx) - count(ftx.leadId) }";
 		var qeothers = "tx := load(//fs2/visits) " +
-"ftx := tx where tx.time >= ${start} & tx.time <= ${end}" +
+"ftx := tx where tx.time >= ${start} & tx.time < ${end}" +
 "histogram('type) := " +
 "    { " +
 "        count : count(ftx where ftx.leadtype = 'type), " +
@@ -110,7 +110,7 @@
 "    } " +
 "histogram";
 		var qnothers = "tx := load(//fs2/leads) " +
-"ftx := tx where tx.time >= ${start} & tx.time <= ${end}" +
+"ftx := tx where tx.time >= ${start} & tx.time < ${end}" +
 "histogram('type) := " +
 "    { " +
 "        count : count(ftx where ftx.leadtype = 'type), " +
@@ -118,13 +118,13 @@
 "    } " +
 "histogram";
 		var qnvisits  = "tx := load(//fs2/visits) " +
-"ftx := tx where tx.time >= ${start} & tx.time <= ${end}" +
+"ftx := tx where tx.time >= ${start} & tx.time < ${end}" +
 "{ id : \"store visits\", count : count(ftx) }";
 		var qesales  = "tx := load(//fs2/transactions) " +
-"ftx := tx where tx.transaction = \"sale\" & tx.time >= ${start} & tx.time <= ${end}" +
+"ftx := tx where tx.transaction = \"sale\" & tx.time >= ${start} & tx.time < ${end}" +
 "{ tail : \"store visits\", head : \"sales\", count : count(ftx) }";
 		var qnsales  = "tx := load(//fs2/transactions) " +
-"ftx := tx where tx.time >= ${start} & tx.time <= ${end} " +
+"ftx := tx where tx.time >= ${start} & tx.time < ${end} " +
 "{ id : \"sales\", count : count(ftx) }";
 
 		var range = { start : +start, end : +end };
@@ -159,19 +159,19 @@
 	API.renewalFunnel = function(selector, start, end, op) {
 		var unit = op == 'count' ? 'count' : 'usd';
 		var qntotal = "tx := load(//fs2/transactions) " +
-"ftx := tx where tx.time >= ${start} & tx.time <= ${end} " +
+"ftx := tx where tx.time >= ${start} & tx.time < ${end} " +
 "{ id : \"total\", ${unit} : sum(ftx.quantity${op}) }";
 		var qnupgrade = "tx := load(//fs2/transactions) " +
-"ftx := tx where (tx.subscription = \"upgrade\" | tx.subscription = \"activated\") & tx.time >= ${start} & tx.time <= ${end} " +
+"ftx := tx where (tx.subscription = \"upgrade\" | tx.subscription = \"activated\") & tx.time >= ${start} & tx.time < ${end} " +
 "{ id : \"upgrade\", ${unit} : sum(ftx.quantity${op}) }";
 		var qnrenewal = "tx := load(//fs2/transactions) " +
-"ftx := tx where tx.transaction = \"rebill\" & tx.time >= ${start} & tx.time <= ${end} " +
+"ftx := tx where tx.transaction = \"rebill\" & tx.time >= ${start} & tx.time < ${end} " +
 "{ id : \"renewal\", ${unit} : sum(ftx.quantity${op}) }";
 		var qeupgrade = "tx := load(//fs2/transactions) " +
-"ftx := tx where (tx.subscription = \"upgrade\" | tx.subscription = \"activated\") & tx.time >= ${start} & tx.time <= ${end} " +
+"ftx := tx where (tx.subscription = \"upgrade\" | tx.subscription = \"activated\") & tx.time >= ${start} & tx.time < ${end} " +
 "{ tail : \"total\", head : \"upgrade\", ${unit} : sum(ftx.quantity${op}) }";
 		var qerenewal = "tx := load(//fs2/transactions) " +
-"ftx := tx where tx.transaction = \"rebill\" & tx.time >= ${start} & tx.time <= ${end} " +
+"ftx := tx where tx.transaction = \"rebill\" & tx.time >= ${start} & tx.time < ${end} " +
 "{ tail : \"total\", head : \"renewal\", ${unit} : sum(ftx.quantity${op}) }";
 
 		var range = { start : +start, end : +end, op : op == 'count' ? '' : ' * ftx.usd', unit : unit };
@@ -201,9 +201,9 @@
 
 	API.salesConversionsSeries = function(selector, periodicity, start, end) {
 		var qsales = 'tx := load(//fs2/transactions) ' +
-'ftx := tx where tx.transaction = "sale" & tx.time >= ${start} & tx.time <= ${end} ' +
+'ftx := tx where tx.transaction = "sale" & tx.time >= ${start} & tx.time < ${end} ' +
 'lx := load(//fs2/leads) ' +
-'flx := lx where lx.time >= ${start} & lx.time <= ${end} ' +
+'flx := lx where lx.time >= ${start} & lx.time < ${end} ' +
 'series(\'time) := ' +
 '    ftx\' := ftx where std::time::date(std::time::millisToISO (ftx.time, "+00:00")) = \'time ' +
 '    flx\' := flx where std::time::date(std::time::millisToISO (flx.time, "+00:00")) = \'time ' +
@@ -214,7 +214,7 @@
 '        } ' +
 'series',
 			qchurn = 'sx := load(//fs2/subscriptions) ' +
-'fsx := sx where sx.time >= ${start} & sx.time <= ${end} ' +
+'fsx := sx where sx.time >= ${start} & sx.time < ${end} ' +
 'intersect(\'time) := ' +
 '    tc\' := std::time::date(std::time::millisToISO (fsx.time, "+00:00")) ' +
 '    tp\' := std::time::date(std::time::millisToISO (fsx.time-24*60*60000, "+00:00")) ' +

@@ -61,11 +61,12 @@ $(document).ready(function() {
 
 		function isUnitTime()
 		{
+			console.log(periodicity + ": " + start + " " + end);
 			if('all' == periodicity)
 				return true;
-			if('year' == periodicity && start.getFullYear() == end.getFullYear())
+			if('year' == periodicity && start.getFullYear() >= end.getFullYear() - 1)
 				return true;
-			if('month' == periodicity && start.getFullYear() == end.getFullYear() && start.getMonth() == end.getMonth())
+			if('month' == periodicity && (start.getFullYear() * 100 + start.getMonth()) >= (end.getFullYear() * 100 + end.getMonth() - 1))
 				return true;
 			if('day' == periodicity && start.getTime() >= end.getTime() - 24 * 60 * 60000)
 				return true;
