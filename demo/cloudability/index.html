@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cloudability Widget Demo</title>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<!--
+	<script type="text/javascript" src="http://localhost/rg/charts/js/reportgrid-charts.js"></script>
+	<link rel="stylesheet" type="text/css" href="http://localhost/rg/charts/css/rg-charts.css">
+-->
+	<script type="text/javascript" src="http://api.reportgrid.com/js/reportgrid-charts.js"></script>
+	<link rel="stylesheet" type="text/css" href="http://api.reportgrid.com/css/rg-charts.css">
+<style>
+
+
+#main {
+	margin: 0 auto;
+	width: 1201px;
+	position: relative
+}
+
+#container {
+	width: 1201px;
+	height: 135px;
+}
+
+#calendar {
+	height: 100px;
+	border: 1px solid #e5e5e5;
+	box-shadow: 2px 2px rgba(0,0,0, 0.1);
+	/* compensates brand */
+	position: absolute;
+	top: 33px;
+}
+
+#chart {
+	width: 1201px;
+	height: 135px;
+	position: absolute;
+	top: 0;
+}
+
+#calendar .month {
+	float: left;
+	width: 99px;
+	height: 90px;
+	text-align: center;
+	border-right: 1px solid #e5e5e5;
+	background-color: #e5f1ff;
+	padding-top: 10px;
+	font-family: sans-serif;
+	font-size: 12px;
+	color: #b3b3b3;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	transition: all 0.5s;
+}
+
+#calendar .month.active {
+	background-color: #fff;
+}
+
+#calendar .month:last-child {
+	border-right: none;
+}
+
+.tip {
+	font-size: 20px;
+	font-weight: bold;
+	color: #333;
+	margin: 5px;
+}
+
+.symbol {
+	color: #aaa;
+}
+
+#out {
+	font-family: monospace;
+	font-size: 14px;
+	white-space: pre;
+	margin: 20px 0px 40px 0px;
+}
+
+
+</style>
+<script type="text/javascript">
+$(document).ready(function(){
+	var now = new Date(),
+		months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+		data = [];
+
+	function dateid(d)
+	{
+		return "D" + (d.toString().split(" ").shift());
+	}
+	for(var i = 0; i < 12; i++)
+	{
+		var month = new Date(now.getFullYear(), now.getMonth() - i, 1),
+			id = dateid(month);
+		$("#calendar").append('<div class="month" id="'+id+'">'+months[month.getMonth()]+' '+now.getDate()+'</div>');
+		data.push({ month : month.getTime(), value : Math.floor(Math.random() * 5000 + 800) })
+	}
+
+	// chart
+	ReportGrid.lineChart("#chart", {
+		axes : [{ type : "month", scalemode : "fit" }, { type : "value", view : [0, 10000] }],
+		data : data,
+		options : {
+			effect : "dropshadow",
+			displayarea : true,
+			symbol : ReportGrid.symbol("circle", 50),
+			interpolation : "cardinal-0.6",
+			displaytickmarks : false,
+			padding : { top : 0, right : 0, bottom : 0, left : 0 },
+			click : function(dp, stats) {
+				var d = new Date(dp.month);
+				$(".month").removeClass("active");
+				$("#"+dateid(d)).addClass("active");
+				$("#out").append("<div>clicked on: "+ReportGrid.dump(dp)+",\nstats: " + ReportGrid.dump(stats) + "</div>")
+			},
+			label : {
+				datapointover : function(dp) {
+					return '<div class="tip">' + ReportGrid.format(dp.value) + ' <span class="symbol">$</span></div>';
+				}
+			}
+		}
+	})
+});
+</script>
+</head>
+<body>
+<div id="main">
+	<div id="container">
+		<div id="calendar"></div>
+		<div id="chart"></div>
+	</div>
+	<div id="out"></div>
+</div>
+</body>
+</html>
