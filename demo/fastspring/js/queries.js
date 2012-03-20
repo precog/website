@@ -215,7 +215,7 @@
 'series',
 			qchurn = 'sx := load(//fs2/subscriptions) ' +
 'fsx := sx where sx.time >= ${start} & sx.time < ${end} ' +
-'intersect(\'time) := ' +
+'churn(\'time) := ' +
 '    tc\' := std::time::date(std::time::millisToISO (fsx.time, "+00:00")) ' +
 '    tp\' := std::time::date(std::time::millisToISO (fsx.time-24*60*60000, "+00:00")) ' +
 '    current\' := count(fsx where tc\' = \'time & (fsx.subscription = "deactivated" | fsx.subscription = "downgrade")) ' +
@@ -224,8 +224,8 @@
 '        time : \'time, ' +
 '        value : previous\' / current\' ' +
 '    } ' +
-'intersect';
-
+'churn';
+console.log(qchurn);
 		ReportGrid.lineChart(selector, {
 			axes : ["time:"+periodicity, "value"],
 			load : ReportGrid.query
