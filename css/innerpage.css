@@ -218,6 +218,19 @@ h1 {
     color: #000;
 }
 
+/*API DOCUMENTATION*/
+#api-documentation-page {
+    width: 936px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#api-menu {
+  background-color: #fff;
+  float: left;
+  width: 200px;
+}
+
 /*BODYEND*/
 /*FOOTER*/
 
@@ -242,6 +255,7 @@ h1 {
 }
 
 #copyrights p{
+    font-size: 10pt;
     color: #fff;
     text-align: right;
 }
