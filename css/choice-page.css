@@ -83,7 +83,7 @@ h1 {
     margin-right: auto;
     margin-left: auto;
     width: 1024px;
-    height: 230px;
+    height: 160px;
     margin-top: 34px;
 }
 
@@ -175,11 +175,11 @@ h1 {
 }
 
 #footer-content {
-    position: absolute;
+    position: fixed;
     width: 1024px;
     margin-left: auto;
     margin-right: auto;
-    height: 20px;
+    height: 10px;
     bottom: 20px;
 }
 
