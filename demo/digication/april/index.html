@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Digication</title>
+<link rel="stylesheet" type="text/css" href="http://api.reportgrid.com/css/rg-charts.css">
+<link rel="stylesheet" type="text/css" href="css/style.css"/>
+<link rel="stylesheet" type="text/css" href="css/jquery.calendarPicker.css"/>
+<script type="text/javascript" src="http://api.reportgrid.com/js/reportgrid-core.js?tokenId=E4465D14-A2FD-4A4A-8E89-75571B1766C5"></script>
+<script type="text/javascript" src="http://api.reportgrid.com/js/reportgrid-charts.js"></script>
+<script type="text/javascript" src="http://api.reportgrid.com/js/reportgrid-query.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="js/jquery.calendarPicker.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+
+function label(text, f)
+{
+	if(!f) f = function(o) { return o };
+	return function(o)
+	{
+		return write(text + ": " + ReportGrid.format(f(o)));
+	}
+}
+function write(data)
+{
+	document.getElementById('out').innerHTML += data + "\n";
+}
+function get(p)
+{
+	return function(o)
+	{
+		return o.map(function(d) { return d[p]; });
+	}
+}
+var path_base = '/test/fp/1/',
+	path_all  = path_base + 'all/';
+
+// FILL CONTROLS
+//ReportGrid.cache.disable();
+
+
+var contexts = ['program', 'school', 'rev', 'student', 'course'],
+	values   = {
+		program:	'---',
+		school:		'---',
+		rev:		'---',
+		student:	'---',
+		course:		'---'
+	},
+	loaders  = {},
+	mintime  = new Date("2004/06/01"),
+	maxtime  = new Date("2012/02/06"),
+	event    = 'rubric_row',
+	start, end, periodicity = 'all';
+
+var calendarStart = $("#start").calendarPicker({
+	disableBefore : mintime,
+	disableAfter  : maxtime,
+//	callbackDelay : 750,
+    callback:function(cal) {
+      var s = cal.lowerDate();
+      if(s) start = s;
+      if(s && end && start.getTime() >= end.getTime())
+      {
+      	calendarEnd.changeDate(new Date(Dates.snap(e, periodicity, true)));
+      }
+      if(periodicity != 'all' && periodicity != null)
+        delayedLoadAll();
+    }
+});
+var calendarEnd = $("#end").calendarPicker({
+	disableBefore : mintime,
+	disableAfter  : maxtime,
+//	callbackDelay : 750,
+    callback:function(cal) {
+      var e = cal.higherDate();
+      if(e) end = e;
+      if(e && end.getTime() <= start.getTime())
+      {
+      	calendarStart.changeDate(new Date(Dates.snap(e, periodicity, false)));
+      }
+      if(periodicity != 'all' && periodicity != null)
+        delayedLoadAll();
+    }
+});
+
+$('#periodicity').change(function() {
+	periodicity = $('#periodicity option:selected').val();
+	if(periodicity == 'all')
+	{
+		$('#time').hide();
+		$('#chart-scores-mean-series').hide();
+	} else {
+		calendarStart.changePeriodicity(periodicity);
+		calendarEnd.changePeriodicity(periodicity);
+
+		var mid = new Date((calendarStart.lowerDate().getTime() + calendarEnd.higherDate().getTime()) / 2);
+		switch(periodicity)
+		{
+			case "year":
+				start = new Date(mid.getFullYear() - 2, 0, 1);
+				end   = new Date(mid.getFullYear() + 2, 0, 1);
+				break;
+			case "month":
+				start = new Date(mid.getFullYear(), mid.getMonth() - 5, 1);
+				end   = new Date(mid.getFullYear(), mid.getMonth() + 5, 1);
+				break;
+			case "day":
+				start = new Date(mid.getFullYear(), mid.getMonth(), mid.getDate() - 5);
+				end   = new Date(mid.getFullYear(), mid.getMonth(), mid.getDate() + 5);
+				break;
+		}
+		if(start)
+			calendarStart.changeDate(start);
+		if(end)
+			calendarEnd.changeDate(end);
+		$('#time').show();
+		$('#chart-scores-mean-series').show();
+	}
+	delayedLoadAll();
+});
+$('#time').hide();
+$('#chart-scores-mean-series').hide();
+
+$('#event').change(function() {
+	event = $(this).val();
+	delayedLoadAll();
+});
+
+for(var i=0;i<contexts.length;i++)
+{
+	var context = contexts[i];
+	loaders[context] = selectFromHistogram(context);
+	$('#'+context+'s').change((function(ctx) {
+		return function() {
+			var val = values[ctx] = $(this).val();
+			delayedLoadAll(ctx);
+		};
+	})(context));
+}
+
+function compareFields(p)
+{
+	return function(a, b)
+	{
+		return a[p] < b[p] ? -1 : a[p] > b[p] ? 1 : 0;
+	}
+}
+
+function addWhere(o, fields)
+{
+	if(!fields) fields = contexts;
+	for(var i = 0; i < fields.length; i++)
+	{
+		var field = fields[i];
+		if(values[field] != '---')
+		{
+			var value = values[field];
+			if(!o.where) o.where = {};
+			if('course' == field && value != '')
+				value = parseInt(value);
+			o.where["id_"+field] = value == '' ? null : value;
+		}
+	}
+	if(periodicity != 'all')
+	{
+		if(start)
+			o.start = start.getTime();
+		if(end)
+			o.end = end.getTime();
+	}
+	return o;
+}
+
+function feedSelect(selector, field, options)
+{
+	options = options || {};
+	options.callback = options.callback || function() {};
+	options.format   = options.format || function(o) { return o[field] + (o.count ? " [" + ReportGrid.format(o.count) + "]" : ""); };
+
+	var control = $(selector),
+		value   = control.val();
+	if(null == value)
+		value = "---";
+	else if(value == '')
+		value = null;
+	control.find('option').remove();
+	return function(data)
+	{
+		control.find('option').remove();
+		data.sort(compareFields('value'));
+		var option = control.append($('<option></option>').val("---").html("- all -"));
+		var selected = false;
+		if('---' == value)
+		{
+			option.attr("selected", "selected");
+			selected = true;
+		}
+		$.each(data, function(_, dp){
+			var option = $('<option></option>').val(dp[field]).html(options.format(dp));
+			control.append(option);
+			if(!selected && dp[field] == value)
+			{
+				option.attr("selected", "selected");
+				selected = true;
+			}
+		});
+		options.callback();
+	}
+}
+
+function selectFromHistogram(identifier)
+{
+	var filters = contexts.copy();
+	filters.remove(identifier);
+	return function()
+	{
+		ReportGrid.query
+			.histogram(addWhere({ path : path_all, event : event, property : "id_" + identifier, top : 1000 }, filters))
+			.execute(feedSelect('#'+identifier+'s', 'id_' + identifier));
+	}
+}
+
+var delayedLoadAll = (function(){
+	var timers = {};
+	return function(context)
+	{
+		if(!context) context = "all";
+		if (timers[context])
+          clearTimeout(timers[context]);
+
+        timers[context] = setTimeout(function() {
+          loadAll(context);
+        }, 750);
+	}
+})();
+
+function loadAll(context)
+{
+	for(var key in loaders)
+	{
+		if(!loaders.hasOwnProperty(key) || context == key) continue;
+		loaders[key]();
+	}
+	meanScore();
+	scoreHistogram();
+}
+
+function meanScore()
+{
+	$('#chart-scores-mean .viz').html('<div class="big-score">...</div>');
+	ReportGrid.query
+		.summary(addWhere({ path : path_all, event : event, property : "score_normalized", type : "mean" }))
+		.execute(function(data) {
+			var text = null == data[0].mean
+				? '<span class="small">no records</span>'
+				: ReportGrid.format(data[0].mean, "D:1")+'<span class="small">/10</span>';
+			$('#chart-scores-mean .viz').html('<div class="big-score">'+text+'</div>');
+		})
+	if(periodicity != 'all')
+	{
+		if(values.rev != '---')
+		{
+			var rev = values.rev;
+			values.rev = '---';
+			ReportGrid.lineChart("#chart-scores-mean-series .viz", {
+				axes : ["time:"+periodicity, "mean"],
+				load : ReportGrid.query
+					.summarySeries(addWhere({
+						path : path_all,
+						event : event,
+						property : "score_normalized",
+						type : "mean",
+						periodicity : periodicity
+					}))
+					.setValue("id_rev", "mean")
+					.stackStore().stackClear()
+					.summarySeries(addWhere({
+						path : path_all,
+						event : event,
+						property : "score_normalized",
+						type : "mean",
+						periodicity : periodicity,
+						where : { id_rev : rev }
+					}))
+					.stackRetrieve()
+				,
+				options : {
+					segmenton : "id_rev"
+				}
+			});
+			values.rev = rev;
+		} else if(values.sudent != '---')
+		{
+			var student = values.student;
+			values.student = '---';
+			ReportGrid.lineChart("#chart-scores-mean-series .viz", {
+				axes : ["time:"+periodicity, "mean"],
+				load : ReportGrid.query
+					.summarySeries(addWhere({
+						path : path_all,
+						event : event,
+						property : "score_normalized",
+						type : "mean",
+						periodicity : periodicity
+					}))
+					.setValue("id_student", "mean")
+					.stackStore().stackClear()
+					.summarySeries(addWhere({
+						path : path_all,
+						event : event,
+						property : "score_normalized",
+						type : "mean",
+						periodicity : periodicity,
+						where : { id_student : student }
+					}))
+					.stackRetrieve()
+				,
+				options : {
+					segmenton : "id_student"
+				}
+			});
+			values.student = student;
+		} else {
+			ReportGrid.lineChart("#chart-scores-mean-series .viz", {
+				axes : ["time:"+periodicity, "mean"],
+				load : ReportGrid.query
+					.summarySeries(addWhere({
+						path : path_all,
+						event : event,
+						property : "score_normalized",
+						type : "mean",
+						periodicity : periodicity
+					}))
+			});
+		}
+	}
+}
+
+function scoreHistogram()
+{
+	ReportGrid.barChart("#chart-scores-histogram div.viz", {
+		axes : [{ type : "score_bin10", values : [0,1,2,3,4,5,6,7,8,9,10]}, "count"],
+		load : ReportGrid.query
+			.histogram(addWhere({
+				path : path_all,
+				event : event,
+				property : "score_bin10"
+			}))
+	});
+}
+
+loadAll();
+})
+</script>
+<style>
+#out
+{
+	font-family: monospace;
+	white-space: pre;
+}
+</style>
+</head>
+<body>
+	<h1>Digication</h1>
+	<div class="pane">
+		<div class="controls verticalcontrols">
+			periodicity
+			<select id="periodicity">
+				<option value="all" selected>all time</option>
+				<option value="year">year</option>
+				<option value="month">month</option>
+				<option value="day">day</option>
+			</select>
+			<div id="time">
+				<div id="start"></div>
+				<div id="end"></div>
+			</div>
+		</div>
+		<div class="controls verticalcontrols">
+			event
+			<select id="event">
+				<option value="rubric_row" selected>rubric row</option>
+				<option value="rubric">rubric</option>
+			</select>
+			<div id="time">
+				<div id="start"></div>
+				<div id="end"></div>
+			</div>
+		</div>
+		<div class="controls verticalcontrols normal">
+			schools
+			<select id="schools"></select>
+			programs
+			<select id="programs"></select>
+			reviewers
+			<select id="revs"></select>
+			students
+			<select id="students"></select>
+			courses
+			<select id="courses"></select>
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div class="pane">
+		<h2>Scores</h2>
+		<div class="chart" id="chart-scores-mean">
+			<div class="viz"></div>
+			<h3>Mean Score</h3>
+			<p></p>
+		</div>
+		<div class="chart" id="chart-scores-mean-series">
+			<div class="viz wide"></div>
+			<h3>Mean Score Series</h3>
+			<p></p>
+		</div>
+		<div class="chart" id="chart-scores-histogram">
+			<div class="viz"></div>
+			<h3>Scores Histogram</h3>
+			<p></p>
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div id="haxe:trace" style="font-family:monospace;white-space:pre"></div>
+</body>
+</html>
