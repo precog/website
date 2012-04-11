@@ -1,0 +1,242 @@
+/* RESET */
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}
+body{line-height:1}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
+nav ul{list-style:none}
+blockquote,q{quotes:none}
+blockquote:before,blockquote:after,q:before,q:after{content:none}
+a{margin:0;padding:0;font-size:100%;vertical-align:baseline;background:transparent}
+ins{background-color:#ff9;color:#000;text-decoration:none}
+mark{background-color:#ff9;color:#000;font-style:italic;font-weight:bold}
+del{text-decoration:line-through}
+abbr[title],dfn[title]{border-bottom:1px dotted;cursor:help}
+table{border-collapse:collapse;border-spacing:0}
+hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0}
+input,select{vertical-align:middle}
+
+/* STYLING DEMO */
+* {
+	font-family: sans-serif;
+}
+
+body {
+	margin-bottom: 10px;
+	background-color: #f0f0f0;
+}
+
+.pane {
+	border: 1px solid #666;
+	margin: 10px 10px 0 10px;
+	padding: 10px 10px 5px;
+	background-color: #ccc;
+	border-radius: 8px;
+	box-shadow: inset 0 0 5px #666;
+}
+
+.controls {
+	border: 1px solid #999;
+	margin: 0 10px 10px 0;
+	padding: 5px;
+	background-color: #eee;
+	border-radius: 4px;
+	box-shadow: 1px 1px 3px #999;
+}
+
+.footer {
+	border: 1px solid #999;
+	margin: 10px;
+	padding: 0 5px 5px 5px;
+	background-color: #eee;
+	border-radius: 4px;
+	box-shadow: 1px 1px 3px #999;
+	padding: 10px 10px 5px 10px;
+}
+
+h1 {
+	border: 1px solid #999;
+	margin: 10px;
+	padding: 0 5px 5px 5px;
+	background-color: #eee;
+	border-radius: 4px;
+	box-shadow: 1px 1px 3px #999;
+
+    color: #bbb;
+    text-shadow: 0px 1px 0px #999, 0px 2px 0px #888, 0px 3px 0px #777, 0px 4px 0px #666, 0px 5px 0px #555, 0px 6px 5px #001135;
+    font-weight: bold;
+    font-family: sans-serif;
+    font-size: 45px;
+}
+
+h2 {
+	border: 1px solid #999;
+	margin-bottom: 10px;
+	padding: 5px;
+	background-color: #eee;
+	border-radius: 4px;
+	box-shadow: 1px 1px 3px #999;
+
+    color: #666;
+    font-weight: bold;
+    font-family: sans-serif;
+    font-size: 20px;
+}
+
+.chart, .verticalcontrols {
+	border: 1px solid #999;
+	margin: 0 10px 10px 0;
+	float: left;
+	padding: 5px;
+	background-color: #eee;
+	border-radius: 4px;
+	box-shadow: 1px 1px 3px #999;
+}
+
+.chart > div {
+	border: 1px solid #ccc;
+	background-color: #fff;
+	width: 400px;
+	height: 300px;
+	padding: 1px;
+}
+
+div.wide {
+	width: 720px;
+}
+
+div.thin {
+	width: 280px;
+}
+
+div.small {
+	width: 220px;
+}
+
+div.normal
+{
+	width: 400px;
+}
+
+.clear {
+	clear: left;
+}
+
+h1, h2, h3, p {
+	text-align: center;
+	line-height: 1.5em;
+}
+
+p {
+	color: #999;
+	font-size: 75%;
+	width: 280px;
+	margin: 0 auto;
+}
+
+.chart div.fluid {
+	min-width: 200px;
+	min-height: 100px;
+	width: auto;
+	height: auto;
+}
+
+.logoright {
+	float: right;
+}
+
+.logoleft {
+	float: left;
+}
+
+.verticalcontrols
+{
+	min-width: 160px;
+}
+
+.verticalcontrols h3
+{
+	font-size: 11px;
+	font-weight: bold;
+	border-bottom: 2px solid #999;
+	padding: 4px;
+	color: #666;
+	text-align: center;
+	margin-bottom: 2px;
+}
+
+.verticalcontrols ul
+{
+	list-style: none;
+}
+
+.verticalcontrols select, .verticalcontrols input[type=button]
+{
+	width: 100%;
+}
+
+.verticalcontrols li
+{
+	border-radius: 2px;
+	padding: 3px;
+	margin-top: 5px;
+	border: 1px solid #aaa;
+	background-color: #bbb;
+}
+
+.verticalcontrols li label
+{
+	display: block;
+	width: 90%;
+
+	color: #000;
+	font-size: 12px;
+	font-weight: bold;
+	text-shadow: -1px 0px rgba(255,255,255,0.75), 0px -1px rgba(255,255,255,0.75), 1px 0px rgba(255,255,255,0.75), 0px 1px rgba(255,255,255,0.75);
+	padding: 2px 12px 0 3px;
+}
+
+div.big-score
+{
+	text-align: center;
+	vertical-align: middle;
+	width: 100%;
+	padding: 60px 0px 0px 0px;
+	font-size: 100px;
+	color: #999;
+	text-shadow: #ccc 1px 2px 2px, #eee -1px -2px 2px;
+}
+
+span.small
+{
+	font-size: 75%;
+	color: #bbb;
+}
+
+/*
+#timebounds {
+	width: 221px;
+}
+*/
+
+.chart div.sankey {
+	width:  400px;
+	height: 550px;
+}
+
+.optioncontainer {
+	max-height: 200px;
+	width: 221px;
+	overflow: auto;
+}
+
+/* STYLING CHART */
+#gender_scores.rg .fill-0, #comments_by_gender.rg .fill-0, #comments_sentiment.rg .fill-0 {
+	fill: pink;
+}
+
+/* DEBUG */
+#haxe\:trace
+{
+	white-space: pre;
+	font-family: monospace;
+	font-size: 83%;
+}
