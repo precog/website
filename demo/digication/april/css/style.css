@@ -99,6 +99,10 @@ h2 {
 	padding: 1px;
 }
 
+div.scrollable {
+	overflow: auto;
+}
+
 div.wide {
 	width: 720px;
 }
