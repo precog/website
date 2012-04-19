@@ -35,7 +35,10 @@ function render(reviewers)
 		load : ReportGrid.query
 			.data(reviewers)
 			.map(map)
-			.summary({ type : "mean", path : path, event : event, property : "score_normalized" })
+			.summary({ type : "mean", path : path, event : event, property : "score_normalized" }),
+		options : {
+			labelorientation : "align"
+		}
 	});
 
 	ReportGrid.lineChart("#chartseries", {
