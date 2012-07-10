@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Digication</title>
+<link rel="stylesheet" type="text/css" href="http://api.reportgrid.com/css/rg-charts.css">
+<link rel="stylesheet" type="text/css" href="css/style.css"/>
+<!--
+<link rel="stylesheet" type="text/css" href="css/jquery.calendarPicker.css"/>
+-->
+<script type="text/javascript" src="http://api.reportgrid.com/js/reportgrid-core.js?tokenId=E4465D14-A2FD-4A4A-8E89-75571B1766C5"></script>
+<script type="text/javascript" src="http://api.reportgrid.com/js/reportgrid-charts.js"></script>
+<!--
+<script type="text/javascript" src="http://localhost/rg/charts/js/reportgrid-charts.js"></script>
+<script type="text/javascript" src="http://localhost/rg/queries/js/reportgrid-query.js"></script>
+-->
+<script type="text/javascript" src="http://api.reportgrid.com/js/reportgrid-query.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<!--
+<script src="js/jquery.calendarPicker.js"></script>
+-->
+<script type="text/javascript">
+$(document).ready(function() {
+
+var path_base = '/test/fp/1/',
+	path  = path_base + 'all/',
+	event = "rubric_row";
+
+function render(reviewers)
+{
+	function map(rev) {
+		return { where : { id_rev : rev }};
+	}
+
+	ReportGrid.barChart("#chart", {
+		axes : ["id_rev", "mean"],
+		load : ReportGrid.query
+			.data(reviewers)
+			.map(map)
+			.summary({ type : "mean", path : path, event : event, property : "score_normalized" }),
+		options : {
+			labelorientation : "align"
+		}
+	});
+
+	ReportGrid.lineChart("#chartseries", {
+		axes : ["time:month", "mean"],
+		load : ReportGrid.query
+			.data(reviewers)
+			.map(map)
+			.summarySeries({
+				periodicity : "month",
+				start : "2008-01-01",
+				end : "2012-03-01",
+				type : "mean",
+				path : path,
+				event : event,
+				property : "score_normalized"
+			}),
+		options : {
+			segmenton : "id_rev",
+			label : {
+				tickmark : function(v,s)
+				{
+					return (s == 'time:month') ? ReportGrid.format(new Date(v), "YM") : v;
+				},
+				datapointover : function(v,s)
+				{
+					return v.id_rev + ": " + ReportGrid.format(v.mean, "D:1");
+				}
+			},
+			labelorientation : "align",
+			symbol : ReportGrid.symbol("circle", 40),
+			interpolation: "basis",
+			effect : "dropshadow"
+		}
+	});
+
+	ReportGrid.pivotTable("#pivottable", {
+		axes : ["time:year", "id_rev", "mean"],
+		load : ReportGrid.query
+			.data(reviewers)
+			.map(map)
+			.summarySeries({
+				periodicity : "year",
+				start : "2008-01-01 00:00:00",
+				end : "2013-01-01 00:00:00",
+				type : "mean",
+				path : path,
+				event : event,
+				property : "score_normalized"
+			})
+//			.console()
+			,
+		options : {
+			label : {
+				datapoint : function(dp)
+				{
+//					console.log(dp)
+					return null == dp.mean ? "-" : ReportGrid.format(dp.mean);
+				}
+			},
+			displaycolumntotal : false,
+			displayrowtotal : false
+/*			segmenton : "id_rev",
+			label : {
+				tickmark : function(v,s)
+				{
+					return (s == 'time:month') ? ReportGrid.format(new Date(v), "YM") : v;
+				},
+				datapointover : function(v,s)
+				{
+					return v.id_rev + ": " + ReportGrid.format(v.mean, "D:1");
+				}
+			},
+			labelorientation : "align",
+			symbol : ReportGrid.symbol("circle", 40),
+			interpolation: "basis",
+			effect : "dropshadow"
+*/
+		}
+	});
+}
+
+$('#reviewers').change(function() {
+	var reviewers = [];
+	$("#reviewers :selected").each(function() {
+		reviewers.push($(this).val());
+	});
+	render(reviewers);
+})
+
+ReportGrid.query
+	.values({ path : path, event : event, property : "id_rev" })
+	.sortValue("value")
+	.map(function(dp) { return dp.value; })
+	.execute(function(dataset) {
+		var select = $('#reviewers');
+		$(dataset).each(function(_, reviewer) {
+			select.append($('<option></option>').val(reviewer).html(reviewer));
+		});
+	});
+})
+</script>
+<style>
+#reviewers
+{
+	height: 312px;
+}
+</style>
+</head>
+<body>
+	<h1>Digication</h1>
+	<div class="pane">
+		<h2>Reviewers</h2>
+		<div class="controls verticalcontrols">
+			pick one or more
+			<select id="reviewers" multiple>
+			</select>
+		</div>
+		<div class="chart">
+			<div class="viz wide" id="chart"></div>
+			<h3>Compare Reviewers</h3>
+			<p></p>
+		</div>
+		<div class="chart">
+			<div class="viz wide" id="chartseries"></div>
+			<h3>Compare Reviewers Over Time</h3>
+			<p></p>
+		</div>
+		<div class="chart">
+			<div class="viz wide scrollable" id="pivottable"></div>
+			<h3>Table</h3>
+			<p></p>
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div id="haxe:trace" style="font-family:monospace;white-space:pre"></div>
+</body>
+</html>
+
+<!--
+- under reviewer, instead of choosing one reviewer at a time, can we select both "Elizabeth Clark" and "Roslyn Rogel"?
+- if so, can you show us how to display both records on the same chart?
+- can you also show us how to display both sets of records in a table grid?
+- is there any limits as to the number of record set we put in a chart? For example, can we overlay how the reviewers "Elizabeth Clark" and "Roslyn Rogel" scored across 3 different programs in a single chart?
+-->
