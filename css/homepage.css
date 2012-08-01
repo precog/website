@@ -469,6 +469,10 @@ h1 {
     margin-right: 20px;
 }
 
+.clear-left {
+    clear: left;
+}
+
 #whitelabel {
     position: absolute;
     left: 630px;
@@ -491,10 +495,6 @@ h1 {
     font-size: 16pt;
 }
 
-#pricing-details {
-    height: 334px;
-}
-
 #sticker-precog-free a {
     background-image: url("../images/sticker-precog-free.png");
     position: absolute;
@@ -510,7 +510,7 @@ h1 {
 .pricing-options {
     float: left;
     width: 458px;
-    height: 106px;
+    min-height: 106px;
     background-color: #F2F2F2;
 }
 
@@ -520,6 +520,7 @@ h1 {
     color: #333333;
     padding-top: 10px;
     padding-left: 16px;
+    text-transform: lowercase;
 }
 
 .pricing-options p{
@@ -529,6 +530,22 @@ h1 {
     padding-left: 16px;
     padding-right: 16px;
     padding-top: 0px;
+    padding-bottom: 10px;
+}
+
+.pricing-options ul {
+    margin-left: 40px;
+    margin-bottom: 10px;
+}
+
+.pricing-options ul li {
+    list-style-type: square;
+    clear: left;
+    color: #3895C7;
+    font-size: 10pt;
+    padding-right: 16px;
+    padding-top: 2px;
+    padding-bottom: 2px;
 }
 
 .free {
@@ -539,10 +556,24 @@ h1 {
     margin-left: 4px;
 }
 
+.free-alt {
+    float: left;
+    width: 156px;
+    height: 389px;
+    background-color: #F2F2F2;
+    margin-left: 4px;
+}
+
 .free h1{
     color: #333333;
     text-align: center;
     top: 40px;
+}
+
+.free-alt h1{
+    color: #333333;
+    text-align: center;
+    top: 190px;
 }
 
 .pricing {
@@ -553,7 +584,15 @@ h1 {
     margin-left: 4px;
 }
 
-.pricing h1 {
+.pricing-alt {
+    float: left;
+    width: 285px;
+    height: 389px;
+    background-color: #F2F2F2;
+    margin-left: 4px;
+}
+
+.pricing h1, .pricing-alt h1 {
     float: left;
     color: #3FA9F5;
     font-family: abel;
@@ -562,10 +601,51 @@ h1 {
     left: 20px;
 }
 
-.pricing p {
+.pricing p, .pricing-alt p {
     float: left;
     top: 28px;
     left: 20px;
+}
+
+.green-button-background {
+    box-shadow: #666 1px 1px 5px;
+    -webkit-box-shadow: #666 1px 1px 5px;
+    -moz-box-shadow: #666 1px 1px 5px;
+    background: #8ac832; /* Old browsers */
+    background: -moz-linear-gradient(top,  #8ac832 0%, #74a62b 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#8ac832), color-stop(100%,#74a62b)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #8ac832 0%,#74a62b 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #8ac832 0%,#74a62b 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #8ac832 0%,#74a62b 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #8ac832 0%,#74a62b 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8ac832', endColorstr='#74a62b',GradientType=0 ); /* IE6-9 */
+}
+
+.green-button-background:hover {
+    box-shadow: #666 1px 1px 4px;
+    -webkit-box-shadow: #666 1px 1px 4px;
+    -moz-box-shadow: #666 1px 1px 4px;
+    background: #95D834; /* Old browsers */
+    background: -moz-linear-gradient(top,  #95D834 0%, #7CB728 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#95D834), color-stop(100%,#7CB728)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #95D834 0%,#7CB728 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #95D834 0%,#7CB728 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #95D834 0%,#7CB728 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #95D834 0%,#7CB728 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#95D834', endColorstr='#7CB728',GradientType=0 ); /* IE6-9 */
+}
+
+.button-contact-us {
+    font-family: abel, sans-serif;
+    text-align: center;
+    line-height: 80px;
+    font-size: 20pt;
+    display: block;
+    clear: left;
+    top: 164px;
+    left: 26px;
+    height: 80px;
+    width: 230px;
 }
 
 .buybutton{
