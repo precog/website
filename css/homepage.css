@@ -519,7 +519,14 @@ h1 {
     background-color: #F2F2F2;
 }
 
-.pricing-options h1{
+.pricing-options-alt {
+    float: left;
+    width: 458px;
+    height: 409px;
+    background-color: #F2F2F2;
+}
+
+.pricing-options h1, .pricing-options-alt h1{
     float: left;
     font-size: 16pt;
     color: #333333;
@@ -528,7 +535,7 @@ h1 {
     text-transform: lowercase;
 }
 
-.pricing-options p{
+.pricing-options p, .pricing-options-alt p{
     clear: left;
     color: #808080;
     font-size: 10pt;
@@ -538,12 +545,12 @@ h1 {
     padding-bottom: 10px;
 }
 
-.pricing-options ul {
+.pricing-options ul, .pricing-options-alt ul {
     margin-left: 40px;
     margin-bottom: 10px;
 }
 
-.pricing-options ul li {
+.pricing-options ul li, .pricing-options-alt ul li {
     list-style-type: square;
     clear: left;
     color: #3895C7;
