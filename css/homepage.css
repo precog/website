@@ -10,6 +10,11 @@
     padding: 0;
 }
 
+p a {
+    font-family: abel, sans-serif;
+    color: #3895C7;
+}
+
 body {
     background-color: #fff;
     text-align: center;
@@ -559,7 +564,7 @@ h1 {
 .free-alt {
     float: left;
     width: 156px;
-    height: 389px;
+    height: 409px;
     background-color: #F2F2F2;
     margin-left: 4px;
 }
@@ -587,7 +592,7 @@ h1 {
 .pricing-alt {
     float: left;
     width: 285px;
-    height: 389px;
+    height: 409px;
     background-color: #F2F2F2;
     margin-left: 4px;
 }
